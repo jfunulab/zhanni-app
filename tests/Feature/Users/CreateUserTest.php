@@ -21,6 +21,7 @@ class CreateUserTest extends TestCase
         ]);
 
         $response->assertStatus(201);
+
         $this->assertCount(1, User::all());
     }
 }

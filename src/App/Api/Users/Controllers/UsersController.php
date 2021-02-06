@@ -13,6 +13,12 @@ class UsersController
         $userData = UserData::fromRequest($request);
         $user = $createUserAction($userData);
 
-        return response()->json([], 201);
+        return response()->json([
+            'message' => 'User created successfully',
+            'data' => [
+                'token' => $user->createToken($userData->email)->plainTextToken,
+                'user' => $user
+            ]
+        ], 201);
     }
 }
