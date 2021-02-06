@@ -18,8 +18,6 @@ class CreateUserTest extends TestCase
         $this->withoutExceptionHandling();
         $response = $this->postJson('/api/users', [
             'email' => $this->faker->email,
-            'password' => 'password',
-            'device_name' => 'name_of_device'
         ]);
 
         $response->assertStatus(201);
