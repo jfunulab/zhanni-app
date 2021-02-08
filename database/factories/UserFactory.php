@@ -38,6 +38,7 @@ class UserFactory extends Factory
             'name' => null,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => null,
+            'verification_code_expires_at' => now()->addMinutes(60),
             'password' => null,
             'remember_token' => null,
         ];

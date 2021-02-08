@@ -1,6 +1,7 @@
 <?php
 
 use App\Api\Users\Controllers\UsersController;
+use App\Api\Users\Controllers\VerificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::post('/users', [UsersController::class, 'store']);
+Route::post('/email/verify/{user}/{code}', [VerificationController::class, 'verify'])->name('verification.verify');
+
+Route::group(['middleware' => ['auth:sanctum']], function(){
+});
