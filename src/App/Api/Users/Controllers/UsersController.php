@@ -5,6 +5,7 @@ namespace App\Api\Users\Controllers;
 use App\Api\Users\Requests\CreateUserRequest;
 use Domain\Users\Actions\CreateUserAction;
 use Domain\Users\DTOs\UserData;
+use Illuminate\Auth\Events\Registered;
 
 class UsersController
 {
@@ -12,6 +13,8 @@ class UsersController
     {
         $userData = UserData::fromRequest($request);
         $user = $createUserAction($userData);
+
+        event(new Registered($user));
 
         return response()->json([
             'message' => 'User created successfully',
