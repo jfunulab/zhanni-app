@@ -44,4 +44,18 @@ class UserFactory extends Factory
         ];
       });
     }
+
+    public function verified(): UserFactory
+    {
+        return $this->state(function(array $attributes){
+            return [
+                'name' => null,
+                'email' => $this->faker->unique()->safeEmail,
+                'email_verified_at' => now(),
+                'verification_code_expires_at' => now()->subMinutes(60),
+                'password' => null,
+                'remember_token' => null,
+            ];
+        });
+    }
 }
