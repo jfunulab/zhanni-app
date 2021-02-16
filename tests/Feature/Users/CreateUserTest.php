@@ -18,13 +18,21 @@ class CreateUserTest extends TestCase
     function a_user_can_create_an_account()
     {
         $this->withoutExceptionHandling();
-        $response = $this->postJson('/api/users', [
+        $userDetails = [
             'email' => $this->faker->email,
-        ]);
+            'full_name' => $this->faker->name,
+            'address' => $this->faker->address,
+            'password' => 'passy-word'
+        ];
+        $response = $this->postJson('/api/users', $userDetails);
 
         $response->assertStatus(201);
 
         $this->assertCount(1, User::all());
+        tap(User::first(), function ($user) use ($userDetails){
+            $this->assertEquals($userDetails['full_name'], $user->full_name);
+            $this->assertEquals($userDetails['address'], $user->address);
+        });
     }
 
     /** @test */
