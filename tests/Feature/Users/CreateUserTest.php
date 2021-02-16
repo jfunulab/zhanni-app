@@ -35,7 +35,10 @@ class CreateUserTest extends TestCase
         });
     }
 
-    /** @test */
+    /**
+     * @test
+     * @enlighten {"ignore": true}
+     */
     function fires_user_registered_event_when_user_is_created_successfully()
     {
         Event::fake();

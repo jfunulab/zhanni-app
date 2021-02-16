@@ -10,7 +10,7 @@ return [
     // from your views. For all valid sections check
     // the constants in \Styde\Enlighten\Section.
     'hide' => [
-        // 'queries',
+         'queries',
         // 'html',
         // 'blade',
         // 'route_parameters',
@@ -34,7 +34,9 @@ return [
         // Add regular expressions to skip certain test classes and test methods.
         // i.e. Tests\Unit\* will ignore all the tests in the Tests\Unit\ suite,
         // validates_* will ignore all the tests that start with "validates_".
-        'ignore' => [],
+        'ignore' => [
+            'Tests\Unit\*'
+        ],
     ],
 
     // Use the arrays below to hide or obfuscate parameters
