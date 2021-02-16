@@ -1,5 +1,6 @@
 <?php
 
+use App\Api\Users\Controllers\UserLoginController;
 use App\Api\Users\Controllers\UsersController;
 use App\Api\Users\Controllers\VerificationController;
 use Illuminate\Http\Request;
@@ -21,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/users', [UsersController::class, 'store']);
+Route::post('/login', [UserLoginController::class, 'login']);
 Route::post('/email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 Route::post('/email/verify/{user}/{code}', [VerificationController::class, 'verify'])->name('verification.verify');
 

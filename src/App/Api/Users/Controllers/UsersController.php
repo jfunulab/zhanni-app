@@ -19,7 +19,7 @@ class UsersController
         return response()->json([
             'message' => 'User created successfully',
             'data' => [
-                'token' => $user->createToken($userData->email)->plainTextToken,
+                'token' => $user->createToken($userData->email, ['*'])->plainTextToken,
                 'user' => $user
             ]
         ], 201);
