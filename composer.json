@@ -13,10 +13,12 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
+        "laravel/horizon": "^5.6",
         "laravel/sanctum": "^2.9",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
         "lorisleiva/laravel-deployer": "^0.3.5",
+        "predis/predis": "^1.1",
         "spatie/data-transfer-object": "^2.2"
     },
     "require-dev": {
