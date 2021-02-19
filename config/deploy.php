@@ -112,10 +112,10 @@ return [
     */
 
     'hosts' => [
-        '3.91.43.146' => [
+        '165.227.126.188' => [
             'stage' => 'stg',
-            'deploy_path' => '/var/www/sites/stg.api.zhanni.com',
-            'user' => 'root',
+            'deploy_path' => '/var/www/apps/stg.api.zhanni.com',
+            'user' => 'joel',
             'branch' => 'develop',
             'sshOptions' => [
                 'StrictHostKeyChecking' => 'no'
