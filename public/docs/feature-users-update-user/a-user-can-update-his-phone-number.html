@@ -163,8 +163,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-resend-user-account-verification-code.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Resend User Account Verification Code
+            <a href="/docs/feature-users-update-user.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Update User
                             </a>
         </li>
     </ul>
@@ -174,7 +174,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user can request verification code be resent to email
+            A user can update his phone number
               
         </div></h3>
                     </div>
@@ -192,10 +192,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_114'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_117'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_114' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_117' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -208,23 +208,57 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Method: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > POST</td>
+                > PUT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/email/resend</td>
+                > api/users/{user}</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/email/resend</td>
+                > api/users/1</td>
             </tr>
             </table>
 </div>
  
 
+             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
+    <thead>
+        <tr class="bg-gray-500">
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Route Parameter</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Pattern</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Requirement</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr class="break-all">
+                <td class="py-2 px-4 font-thin text-gray-200">user</td>
+                <td class="py-2 px-4 font-thin text-teal-300">*</td>
+                <td class="py-2 px-4 font-thin text-teal-300">Required</td>
+            </tr>
+            </tbody>
+</table>
+ 
     
+             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
+    <thead>
+        <tr class="bg-gray-500">
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Input</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr>
+                <td class="px-4 py-2 font-thin text-gray-200">phone_number</td>
+                <td class="px-4 py-2 font-thin text-teal-300 break-all">
+                                            421-335-0603
+                                    </td>
+            </tr>
+            </tbody>
+</table>
+ 
     
              <div>
              <span class="block bg-gray-500 py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal w-full"
@@ -240,7 +274,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</td>
+                > application/json</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">user-agent: </td>
@@ -250,12 +284,17 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > application/x-www-form-urlencoded</td>
+                > application/json</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-charset: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
                 > ISO-8859-1,utf-8;q=0.7,*;q=0.7</td>
+            </tr>
+                    <tr>
+                <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
+                <td class="font-thin break-all text-teal-300 pr-4"
+                > 31</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -302,12 +341,12 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">x-ratelimit-limit: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 6</td>
+                > 60</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">x-ratelimit-remaining: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 5</td>
+                > 59</td>
             </tr>
             </table>
 </div>
@@ -323,7 +362,22 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;Verification code sent&quot;
+    &quot;message&quot;: &quot;User update successful.&quot;,
+    &quot;data&quot;: {
+        &quot;user&quot;: {
+            &quot;id&quot;: 1,
+            &quot;full_name&quot;: null,
+            &quot;email&quot;: &quot;baumbach.oral@example.net&quot;,
+            &quot;email_verification_code&quot;: null,
+            &quot;verification_code_expires_at&quot;: &quot;2021-03-02 10:03:24&quot;,
+            &quot;email_verified_at&quot;: null,
+            &quot;address&quot;: null,
+            &quot;phone_number&quot;: &quot;421-335-0603&quot;,
+            &quot;created_at&quot;: &quot;2021-03-02T09:03:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-03-02T09:03:24.000000Z&quot;,
+            &quot;verified&quot;: false
+        }
+    }
 }</code></pre>
 </div> 
     </div>

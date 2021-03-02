@@ -23,9 +23,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'address',
+        'phone_number',
         'email_verification_code',
         'verification_code_expires_at'
     ];
+
+    protected $appends = ['verified'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -45,6 +48,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getVerifiedAttribute()
+    {
+        return !is_null($this->email_verified_at);
+    }
 
     /**
      * Send the email verification notification.

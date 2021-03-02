@@ -7,16 +7,15 @@ namespace Domain\Users\Actions;
 use Domain\Users\DTOs\UserData;
 use Domain\Users\Models\User;
 
-class CreateUserAction
+class UpdateUserAction
 {
-    public function __invoke(UserData $userData): User
-    {
-        $user = User::firstOrCreate(['email' => $userData->email]);
 
+    public function __invoke(User $user, UserData $userData): User
+    {
         $user->fill([
             'full_name' => $userData->fullName,
             'address' => $userData->address,
-            'password' => bcrypt($userData->password)
+            'phone_number' => $userData->phoneNumber
         ])->save();
 
         return $user;

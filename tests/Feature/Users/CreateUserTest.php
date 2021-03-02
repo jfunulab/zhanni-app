@@ -46,6 +46,9 @@ class CreateUserTest extends TestCase
 
         $response = $this->postJson('/api/users', [
             'email' => $this->faker->email,
+            'full_name' => $this->faker->name,
+            'address' => $this->faker->address,
+            'password' => 'passy-word'
         ]);
 
         $response->assertStatus(201);
