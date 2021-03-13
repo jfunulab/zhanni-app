@@ -3,6 +3,7 @@
 namespace Domain\Users\Models;
 
 use App\Notifications\EmailVerificationNotification;
+use App\Notifications\SendPasswordResetCodeNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -49,7 +50,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function getVerifiedAttribute()
+    public function getVerifiedAttribute(): bool
     {
         return !is_null($this->email_verified_at);
     }
@@ -62,5 +63,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendEmailVerificationNotification()
     {
         $this->notify(app(EmailVerificationNotification::class));
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(app()->make(SendPasswordResetCodeNotification::class, ['token' => $token]));
     }
 }
