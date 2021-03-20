@@ -3,30 +3,19 @@
 namespace Domain\Users\Models;
 
 use App\Notifications\EmailVerificationNotification;
+use Domain\PaymentMethods\Models\UserCard;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Cashier\Billable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, \Illuminate\Auth\MustVerifyEmail;
+    use HasApiTokens, HasFactory, Notifiable, Billable, \Illuminate\Auth\MustVerifyEmail;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'full_name',
-        'email',
-        'password',
-        'address',
-        'phone_number',
-        'email_verification_code',
-        'verification_code_expires_at'
-    ];
+    protected $guarded = [];
 
     protected $appends = ['verified'];
 
@@ -52,6 +41,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getVerifiedAttribute()
     {
         return !is_null($this->email_verified_at);
+    }
+
+    public function cards()
+    {
+        return $this->hasMany(UserCard::class);
     }
 
     /**

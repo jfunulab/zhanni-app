@@ -12,6 +12,7 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "laravel/cashier": "^12.9",
         "laravel/framework": "^8.12",
         "laravel/horizon": "^5.6",
         "laravel/sanctum": "^2.9",
@@ -52,7 +53,10 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "tests/helpers.php"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
