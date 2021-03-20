@@ -20,7 +20,8 @@
         "laravel/ui": "^3.2",
         "lorisleiva/laravel-deployer": "^0.3.5",
         "predis/predis": "^1.1",
-        "spatie/data-transfer-object": "^2.2"
+        "spatie/data-transfer-object": "^2.2",
+        "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

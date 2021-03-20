@@ -6,6 +6,7 @@ use App\Api\Users\Controllers\UserCardsController;
 use App\Api\Users\Controllers\UserLoginController;
 use App\Api\Users\Controllers\UsersController;
 use App\Api\Users\Controllers\VerificationController;
+use App\Http\Controllers\CountriesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/countries', [CountriesController::class, 'index']);
 Route::post('/users', [UsersController::class, 'store']);
 Route::post('/login', [UserLoginController::class, 'login']);
 Route::post('/email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
