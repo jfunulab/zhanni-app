@@ -2,6 +2,7 @@
 
 use App\Api\Users\Controllers\ForgotPasswordController;
 use App\Api\Users\Controllers\ResetPasswordController;
+use App\Api\Users\Controllers\UserCardsController;
 use App\Api\Users\Controllers\UserLoginController;
 use App\Api\Users\Controllers\UsersController;
 use App\Api\Users\Controllers\VerificationController;
@@ -33,4 +34,5 @@ Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name(
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::put('/users/{user}', [UsersController::class, 'update']);
+    Route::post('/users/{user}/cards', [UserCardsController::class, 'store']);
 });
