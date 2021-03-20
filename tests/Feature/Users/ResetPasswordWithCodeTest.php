@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Users;
 
 use Domain\Users\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;

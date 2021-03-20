@@ -1,12 +1,13 @@
 <?php
 
+use App\Api\Countries\Controllers\CountriesController;
+use App\Api\Countries\Controllers\CountryStatesController;
 use App\Api\Users\Controllers\ForgotPasswordController;
 use App\Api\Users\Controllers\ResetPasswordController;
 use App\Api\Users\Controllers\UserCardsController;
 use App\Api\Users\Controllers\UserLoginController;
 use App\Api\Users\Controllers\UsersController;
 use App\Api\Users\Controllers\VerificationController;
-use App\Http\Controllers\CountriesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/countries', [CountriesController::class, 'index']);
+Route::get('/countries/{country}/states', [CountryStatesController::class, 'index']);
 Route::post('/users', [UsersController::class, 'store']);
 Route::post('/login', [UserLoginController::class, 'login']);
 Route::post('/email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
