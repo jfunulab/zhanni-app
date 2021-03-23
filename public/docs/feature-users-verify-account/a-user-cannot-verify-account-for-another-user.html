@@ -63,13 +63,25 @@
                                         Users
                                     </button>
                                     <div class="w-full" x-cloak x-show="open">
+                                                                                    <a href="/docs/feature-users-add-recipient-to-user-account.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Add Recipient To User Account
+                                            </a>
                                                                                     <a href="/docs/feature-users-create-user.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Create User
                                             </a>
+                                                                                    <a href="/docs/feature-users-request-password-reset.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Request Password Reset
+                                            </a>
                                                                                     <a href="/docs/feature-users-resend-user-account-verification-code.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Resend User Account Verification Code
+                                            </a>
+                                                                                    <a href="/docs/feature-users-reset-password-with-code.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Reset Password With Code
                                             </a>
                                                                                     <a href="/docs/feature-users-update-user.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
@@ -82,6 +94,40 @@
                                                                                     <a href="/docs/feature-users-verify-account.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Verify Account
+                                            </a>
+                                                                            </div>
+                                </div>
+                                                            <div class="flex flex-col space-y-2" x-data="{open: false}">
+                                    <button
+                                        x-on:click="open = !open"
+                                        type="button" name="toggle panel"
+                                            class="group flex w-full text-left items-center px-2 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                        Other Modules
+                                    </button>
+                                    <div class="w-full" x-cloak x-show="open">
+                                                                                    <a href="/docs/feature-add-address-to-account.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Add Address To Account
+                                            </a>
+                                                                                    <a href="/docs/feature-add-card-to-account.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Add Card To Account
+                                            </a>
+                                                                                    <a href="/docs/feature-banks-get-bank-list.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Bank List
+                                            </a>
+                                                                                    <a href="/docs/feature-countries-get-country-list.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Country List
+                                            </a>
+                                                                                    <a href="/docs/feature-countries-get-country-state-lists.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Country State Lists
+                                            </a>
+                                                                                    <a href="/docs/feature-get-bank-list-action.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Bank List Action
                                             </a>
                                                                             </div>
                                 </div>
@@ -103,7 +149,7 @@
                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
  
                 </span>
-                                                             <div run="{&quot;id&quot;:4,&quot;branch&quot;:&quot;develop&quot;,&quot;head&quot;:&quot;f9222ed&quot;,&quot;modified&quot;:0,&quot;created_at&quot;:&quot;2021-03-02T09:03:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-02T09:03:22.000000Z&quot;,&quot;groups&quot;:[{&quot;id&quot;:39,&quot;run_id&quot;:4,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\CreateUserTest&quot;,&quot;title&quot;:&quot;Create User&quot;,&quot;slug&quot;:&quot;feature-users-create-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-02T09:03:23.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-02T09:03:23.000000Z&quot;},{&quot;id&quot;:40,&quot;run_id&quot;:4,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResendUserAccountVerificationCodeTest&quot;,&quot;title&quot;:&quot;Resend User Account Verification Code&quot;,&quot;slug&quot;:&quot;feature-users-resend-user-account-verification-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-02T09:03:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-02T09:03:24.000000Z&quot;},{&quot;id&quot;:41,&quot;run_id&quot;:4,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UpdateUserTest&quot;,&quot;title&quot;:&quot;Update User&quot;,&quot;slug&quot;:&quot;feature-users-update-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-02T09:03:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-02T09:03:24.000000Z&quot;},{&quot;id&quot;:42,&quot;run_id&quot;:4,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UserLoginTest&quot;,&quot;title&quot;:&quot;User Login&quot;,&quot;slug&quot;:&quot;feature-users-user-login&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-02T09:03:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-02T09:03:24.000000Z&quot;},{&quot;id&quot;:43,&quot;run_id&quot;:4,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\VerifyAccountTest&quot;,&quot;title&quot;:&quot;Verify Account&quot;,&quot;slug&quot;:&quot;feature-users-verify-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-02T09:03:25.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-02T09:03:25.000000Z&quot;}]}" class="hidden md:flex relative flex-1"
+                                                             <div run="{&quot;id&quot;:5,&quot;branch&quot;:&quot;develop&quot;,&quot;head&quot;:&quot;d6cd606&quot;,&quot;modified&quot;:0,&quot;created_at&quot;:&quot;2021-03-23T15:14:13.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:13.000000Z&quot;,&quot;groups&quot;:[{&quot;id&quot;:44,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\AddAddressToAccountTest&quot;,&quot;title&quot;:&quot;Add Address To Account&quot;,&quot;slug&quot;:&quot;feature-add-address-to-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:33.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:33.000000Z&quot;},{&quot;id&quot;:45,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\AddCardToAccountTest&quot;,&quot;title&quot;:&quot;Add Card To Account&quot;,&quot;slug&quot;:&quot;feature-add-card-to-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:33.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:33.000000Z&quot;},{&quot;id&quot;:46,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\Banks\\GetBankListTest&quot;,&quot;title&quot;:&quot;Get Bank List&quot;,&quot;slug&quot;:&quot;feature-banks-get-bank-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:36.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:36.000000Z&quot;},{&quot;id&quot;:47,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\Countries\\GetCountryListTest&quot;,&quot;title&quot;:&quot;Get Country List&quot;,&quot;slug&quot;:&quot;feature-countries-get-country-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:37.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:37.000000Z&quot;},{&quot;id&quot;:48,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\Countries\\GetCountryStateListsTest&quot;,&quot;title&quot;:&quot;Get Country State Lists&quot;,&quot;slug&quot;:&quot;feature-countries-get-country-state-lists&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:37.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:37.000000Z&quot;},{&quot;id&quot;:49,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\GetBankListActionTest&quot;,&quot;title&quot;:&quot;Get Bank List Action&quot;,&quot;slug&quot;:&quot;feature-get-bank-list-action&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:37.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:37.000000Z&quot;},{&quot;id&quot;:50,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\AddRecipientToUserAccountTest&quot;,&quot;title&quot;:&quot;Add Recipient To User Account&quot;,&quot;slug&quot;:&quot;feature-users-add-recipient-to-user-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:37.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:37.000000Z&quot;},{&quot;id&quot;:51,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\CreateUserTest&quot;,&quot;title&quot;:&quot;Create User&quot;,&quot;slug&quot;:&quot;feature-users-create-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:37.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:37.000000Z&quot;},{&quot;id&quot;:52,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\RequestPasswordResetTest&quot;,&quot;title&quot;:&quot;Request Password Reset&quot;,&quot;slug&quot;:&quot;feature-users-request-password-reset&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:38.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:38.000000Z&quot;},{&quot;id&quot;:53,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResendUserAccountVerificationCodeTest&quot;,&quot;title&quot;:&quot;Resend User Account Verification Code&quot;,&quot;slug&quot;:&quot;feature-users-resend-user-account-verification-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:38.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:38.000000Z&quot;},{&quot;id&quot;:54,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResetPasswordWithCodeTest&quot;,&quot;title&quot;:&quot;Reset Password With Code&quot;,&quot;slug&quot;:&quot;feature-users-reset-password-with-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:38.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:38.000000Z&quot;},{&quot;id&quot;:55,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UpdateUserTest&quot;,&quot;title&quot;:&quot;Update User&quot;,&quot;slug&quot;:&quot;feature-users-update-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:38.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:38.000000Z&quot;},{&quot;id&quot;:56,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UserLoginTest&quot;,&quot;title&quot;:&quot;User Login&quot;,&quot;slug&quot;:&quot;feature-users-user-login&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:39.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:39.000000Z&quot;},{&quot;id&quot;:57,&quot;run_id&quot;:5,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\VerifyAccountTest&quot;,&quot;title&quot;:&quot;Verify Account&quot;,&quot;slug&quot;:&quot;feature-users-verify-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-03-23T15:14:39.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-03-23T15:14:39.000000Z&quot;}]}" class="hidden md:flex relative flex-1"
      x-data='{
          open: true,
          results: [],
@@ -141,7 +187,7 @@
                                                     <div class="ml-4 flex items-center md:ml-6">
                                             <div class="text-gray-200 font-light px-4 flex justify-center">
                             <strong>develop</strong>
-                                                        f9222ed
+                                                        d6cd606
                         </div>
                                         <a href="https://github.com/StydeNet/enlighten"
                        class="text-gray-100 hover:text-gray-500 focus:outline-none" aria-label="Notifications">
@@ -192,10 +238,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_126'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_151'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_126' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_151' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -309,7 +355,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Tue, 02 Mar 2021 09:03:25 GMT</td>
+                > Tue, 23 Mar 2021 15:14:40 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>

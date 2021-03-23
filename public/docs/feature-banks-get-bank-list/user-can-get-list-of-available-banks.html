@@ -209,8 +209,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-user-login.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                User Login
+            <a href="/docs/feature-banks-get-bank-list.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Get Bank List
                             </a>
         </li>
     </ul>
@@ -220,7 +220,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user cannot login with a wrong email
+            User can get list of available banks
               
         </div></h3>
                     </div>
@@ -238,10 +238,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_144'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_131'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_144' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_131' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -254,46 +254,23 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Method: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > POST</td>
+                > GET</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/login</td>
+                > api/banks</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/login</td>
+                > api/banks</td>
             </tr>
             </table>
 </div>
  
 
     
-             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
-    <thead>
-        <tr class="bg-gray-500">
-            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Input</th>
-            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Value</th>
-        </tr>
-    </thead>
-    <tbody>
-                    <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">email</td>
-                <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            wrong-email
-                                    </td>
-            </tr>
-                    <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">password</td>
-                <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            !Qz89mrt
-                                    </td>
-            </tr>
-            </tbody>
-</table>
- 
     
              <div>
              <span class="block bg-gray-500 py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal w-full"
@@ -329,7 +306,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 45</td>
+                > 2</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -348,7 +325,7 @@
         <h3 class="text-base text-gray-300">Response</h3>
     </span>
     <div class="p-4 space-x-4">
-        <span class="p-1 bg-warning-200 text-warning-700">401</span>
+        <span class="p-1 bg-success-200 text-success-700">200</span>
         <span class="text-gray-100">JSON</span>
     </div>
 
@@ -361,7 +338,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Tue, 23 Mar 2021 15:14:39 GMT</td>
+                > Tue, 23 Mar 2021 15:14:36 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -397,7 +374,69 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;Invalid email or password&quot;
+    &quot;message&quot;: &quot;Bank list&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;eaque&quot;,
+            &quot;slug&quot;: &quot;cumque&quot;,
+            &quot;code&quot;: &quot;vitae&quot;,
+            &quot;type&quot;: &quot;eligendi&quot;,
+            &quot;country&quot;: &quot;Cameroon&quot;,
+            &quot;currency&quot;: &quot;CUP&quot;,
+            &quot;pay_with_bank&quot;: &quot;0&quot;,
+            &quot;created_at&quot;: &quot;2021-03-23T15:14:36.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-03-23T15:14:36.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;non&quot;,
+            &quot;slug&quot;: &quot;sed&quot;,
+            &quot;code&quot;: &quot;esse&quot;,
+            &quot;type&quot;: &quot;et&quot;,
+            &quot;country&quot;: &quot;Turks and Caicos Islands&quot;,
+            &quot;currency&quot;: &quot;MRU&quot;,
+            &quot;pay_with_bank&quot;: &quot;0&quot;,
+            &quot;created_at&quot;: &quot;2021-03-23T15:14:36.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-03-23T15:14:36.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;name&quot;: &quot;inventore&quot;,
+            &quot;slug&quot;: &quot;sed&quot;,
+            &quot;code&quot;: &quot;amet&quot;,
+            &quot;type&quot;: &quot;assumenda&quot;,
+            &quot;country&quot;: &quot;Russian Federation&quot;,
+            &quot;currency&quot;: &quot;GMD&quot;,
+            &quot;pay_with_bank&quot;: &quot;0&quot;,
+            &quot;created_at&quot;: &quot;2021-03-23T15:14:36.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-03-23T15:14:36.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;name&quot;: &quot;quae&quot;,
+            &quot;slug&quot;: &quot;voluptatem&quot;,
+            &quot;code&quot;: &quot;ratione&quot;,
+            &quot;type&quot;: &quot;non&quot;,
+            &quot;country&quot;: &quot;Guadeloupe&quot;,
+            &quot;currency&quot;: &quot;HUF&quot;,
+            &quot;pay_with_bank&quot;: &quot;0&quot;,
+            &quot;created_at&quot;: &quot;2021-03-23T15:14:36.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-03-23T15:14:36.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;name&quot;: &quot;corrupti&quot;,
+            &quot;slug&quot;: &quot;nihil&quot;,
+            &quot;code&quot;: &quot;culpa&quot;,
+            &quot;type&quot;: &quot;labore&quot;,
+            &quot;country&quot;: &quot;Nigeria&quot;,
+            &quot;currency&quot;: &quot;KMF&quot;,
+            &quot;pay_with_bank&quot;: &quot;0&quot;,
+            &quot;created_at&quot;: &quot;2021-03-23T15:14:36.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-03-23T15:14:36.000000Z&quot;
+        }
+    ]
 }</code></pre>
 </div> 
     </div>
