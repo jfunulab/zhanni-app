@@ -4,6 +4,8 @@ namespace Tests\Unit;
 
 
 
+use Domain\PaymentMethods\Models\Bank;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Support\PaymentGateway\DTOs\BankTransferData;
 use Support\PaymentGateway\DTOs\ResolvedBankDetails;
 use Support\PaymentGateway\DTOs\TransferRecipient;
@@ -12,6 +14,8 @@ use Tests\TestCase;
 
 class PaystackTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * @var mixed
      */
@@ -72,5 +76,7 @@ class PaystackTest extends TestCase
     function can_get_list_of_banks()
     {
         $this->paystackGateway->getBanks();
+
+        $this->assertCount(52, Bank::all());
     }
 }
