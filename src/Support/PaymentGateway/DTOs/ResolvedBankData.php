@@ -6,7 +6,7 @@ namespace Support\PaymentGateway\DTOs;
 
 use Spatie\DataTransferObject\DataTransferObject;
 
-class ResolvedBankDetails extends DataTransferObject
+class ResolvedBankData extends DataTransferObject
 {
     public ?string $accountNumber;
     public ?string $accountName;

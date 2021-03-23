@@ -6,7 +6,7 @@ namespace Support\PaymentGateway\DTOs;
 
 use Spatie\DataTransferObject\DataTransferObject;
 
-class TransferRecipient extends DataTransferObject
+class PaymentGatewayTransferRecipientData extends DataTransferObject
 {
     public ?string $recipientCode;
 

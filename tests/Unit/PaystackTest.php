@@ -7,8 +7,8 @@ namespace Tests\Unit;
 use Domain\PaymentMethods\Models\Bank;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Support\PaymentGateway\DTOs\BankTransferData;
-use Support\PaymentGateway\DTOs\ResolvedBankDetails;
-use Support\PaymentGateway\DTOs\TransferRecipient;
+use Support\PaymentGateway\DTOs\ResolvedBankData;
+use Support\PaymentGateway\DTOs\PaymentGatewayTransferRecipientData;
 use Support\PaymentGateway\Paystack\PaystackGateway;
 use Tests\TestCase;
 
@@ -37,7 +37,7 @@ class PaystackTest extends TestCase
         $transferData = BankTransferData::fromArray($transferDataInput);
 
         $resolvedAccount = $this->paystackGateway->verifyAccountNumber($transferData);
-        $this->assertInstanceOf(ResolvedBankDetails::class, $resolvedAccount);
+        $this->assertInstanceOf(ResolvedBankData::class, $resolvedAccount);
         $this->assertEquals($transferDataInput['account_number'], $resolvedAccount->accountNumber);
     }
 
@@ -63,13 +63,13 @@ class PaystackTest extends TestCase
             'currency' => 'NGN'
         ];
         $transferData = BankTransferData::fromArray($transferDataInput);
-        $resolvedAccount = ResolvedBankDetails::fromArray([
+        $resolvedAccount = ResolvedBankData::fromArray([
             'name' => 'TEMITOPE OLUWAFEMI AJIBULU',
             'account_number' => '1700106178'
         ]);
 
         $transferRecipient = $this->paystackGateway->createTransferRecipient($transferData, $resolvedAccount);
-        $this->assertInstanceOf(TransferRecipient::class, $transferRecipient);
+        $this->assertInstanceOf(PaymentGatewayTransferRecipientData::class, $transferRecipient);
     }
 
     /** @test */

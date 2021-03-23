@@ -6,8 +6,8 @@ namespace Support\PaymentGateway\Paystack;
 
 use Domain\PaymentMethods\Models\Bank;
 use Support\PaymentGateway\DTOs\BankTransferData;
-use Support\PaymentGateway\DTOs\ResolvedBankDetails;
-use Support\PaymentGateway\DTOs\TransferRecipient;
+use Support\PaymentGateway\DTOs\ResolvedBankData;
+use Support\PaymentGateway\DTOs\PaymentGatewayTransferRecipientData;
 use Support\PaymentGateway\LocalPaymentGateway;
 use Support\PaymentGateway\MakesBankTransfer;
 
@@ -28,7 +28,7 @@ class PaystackGateway implements LocalPaymentGateway, MakesBankTransfer
 
     }
 
-    public function verifyAccountNumber(BankTransferData $transferData): ?ResolvedBankDetails
+    public function verifyAccountNumber(BankTransferData $transferData): ?ResolvedBankData
     {
         $response = $this->client->get('bank/resolve', [
             'account_number' => $transferData->accountNumber,
@@ -36,13 +36,13 @@ class PaystackGateway implements LocalPaymentGateway, MakesBankTransfer
         ]);
 
         if($response->successful()){
-            return ResolvedBankDetails::fromArray($response->json()['data']);
+            return ResolvedBankData::fromArray($response->json()['data']);
         }
 
         return null;
     }
 
-    public function createTransferRecipient(BankTransferData $bankTransferData, ResolvedBankDetails $resolvedBankDetails): ?TransferRecipient
+    public function createTransferRecipient(BankTransferData $bankTransferData, ResolvedBankData $resolvedBankDetails): ?PaymentGatewayTransferRecipientData
     {
         $response = $this->client->post('transferrecipient', [
             'type' => 'nuban',
@@ -53,7 +53,7 @@ class PaystackGateway implements LocalPaymentGateway, MakesBankTransfer
         ]);
 
         if($response->successful()){
-            return TransferRecipient::fromArray($response->json()['data']);
+            return PaymentGatewayTransferRecipientData::fromArray($response->json()['data']);
         }
 
         return null;
