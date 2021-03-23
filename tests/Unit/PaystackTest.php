@@ -75,7 +75,7 @@ class PaystackTest extends TestCase
     /** @test */
     function can_get_list_of_banks()
     {
-        $this->paystackGateway->getBanks();
+        $this->paystackGateway->getBankList();
 
         $this->assertCount(52, Bank::all());
     }

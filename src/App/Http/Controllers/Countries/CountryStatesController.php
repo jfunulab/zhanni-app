@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Api\Countries\Controllers;
+namespace App\Http\Controllers\Countries;
 
 use Domain\Countries\Actions\GetCountryStateListAction;
 use Domain\Countries\Models\Country;

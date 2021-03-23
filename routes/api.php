@@ -1,7 +1,5 @@
 <?php
 
-use App\Api\Countries\Controllers\CountriesController;
-use App\Api\Countries\Controllers\CountryStatesController;
 use App\Api\Users\Controllers\ForgotPasswordController;
 use App\Api\Users\Controllers\ResetPasswordController;
 use App\Api\Users\Controllers\UserAddressController;
@@ -9,6 +7,9 @@ use App\Api\Users\Controllers\UserCardsController;
 use App\Api\Users\Controllers\UserLoginController;
 use App\Api\Users\Controllers\UsersController;
 use App\Api\Users\Controllers\VerificationController;
+use App\Http\Controllers\Banks\BanksController;
+use App\Http\Controllers\Countries\CountriesController;
+use App\Http\Controllers\Countries\CountryStatesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,7 @@ Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name(
 
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
+    Route::get('/banks', [BanksController::class, 'index']);
     Route::put('/users/{user}', [UsersController::class, 'update']);
     Route::post('/users/{user}/cards', [UserCardsController::class, 'store']);
     Route::post('/users/{user}/address', [UserAddressController::class, 'store']);

@@ -22,7 +22,12 @@ class BankFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word,
+            'slug' => $this->faker->word,
+            'code' => $this->faker->word,
+            'type' => $this->faker->word,
+            'country' => $this->faker->country,
+            'currency' => $this->faker->currencyCode,
         ];
     }
 }
