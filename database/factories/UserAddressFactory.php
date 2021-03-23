@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use Domain\Countries\Models\Country;
-use Domain\Countries\Models\CountryState;
+use Domain\Users\Models\UserAddress;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CountryStateFactory extends Factory
+class UserAddressFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = CountryState::class;
+    protected $model = UserAddress::class;
 
     /**
      * Define the model's default state.
@@ -23,9 +22,7 @@ class CountryStateFactory extends Factory
     public function definition()
     {
         return [
-            'country_id' => Country::factory(),
-            'name' => $this->faker->state,
-            'code' => $this->faker->state
+            //
         ];
     }
 }

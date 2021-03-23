@@ -7,6 +7,8 @@ use App\Notifications\SendPasswordResetCodeNotification;
 use Domain\PaymentMethods\Models\UserCard;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
@@ -44,9 +46,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return !is_null($this->email_verified_at);
     }
 
-    public function cards()
+    public function cards(): HasMany
     {
         return $this->hasMany(UserCard::class);
+    }
+
+    public function address(): HasOne
+    {
+        return $this->hasOne(UserAddress::class);
     }
 
     /**
