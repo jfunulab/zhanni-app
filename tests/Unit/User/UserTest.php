@@ -6,6 +6,9 @@ use Domain\Users\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
+/**
+ * @enlighten {"ignore": true}
+ */
 class UserTest extends TestCase
 {
     use RefreshDatabase;

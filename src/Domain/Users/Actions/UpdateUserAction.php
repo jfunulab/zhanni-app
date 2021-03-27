@@ -14,7 +14,6 @@ class UpdateUserAction
     {
         $user->fill([
             'full_name' => $userData->fullName,
-            'address' => $userData->address,
             'phone_number' => $userData->phoneNumber
         ])->save();
 

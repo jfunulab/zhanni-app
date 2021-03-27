@@ -25,6 +25,7 @@ class UserData extends DataTransferObject
             'email' => $request->input('email'),
             'fullName' => $request->input('full_name'),
             'password' => $request->input('password'),
+            'phoneNumber' => $request->input('phone_number'),
             'lineOne' => $request->input('address_line_one'),
             'lineTwo' => $request->input('address_line_two'),
             'country' => $request->input('country'),

@@ -56,12 +56,20 @@ class CreateUserTest extends TestCase
         Event::fake();
         $this->withoutExceptionHandling();
 
-        $response = $this->postJson('/api/users', [
+        $userDetails = [
             'email' => $this->faker->email,
             'full_name' => $this->faker->name,
-            'address' => $this->faker->address,
+            'address_line_one' => $this->faker->streetAddress,
+            'address_line_two' => $this->faker->streetName,
+            'country' => $this->faker->country,
+            'postal_code' => $this->faker->postcode,
+            'state' => $this->faker->state,
             'password' => 'passy-word'
-        ]);
+        ];
+        Country::factory()->create(['name' => $userDetails['country']]);
+        CountryState::factory()->create(['name' => $userDetails['state']]);
+
+        $response = $this->postJson('/api/users', $userDetails);
 
         $response->assertStatus(201);
 

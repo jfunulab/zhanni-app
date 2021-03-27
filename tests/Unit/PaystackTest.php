@@ -12,6 +12,9 @@ use Support\PaymentGateway\DTOs\PaymentGatewayTransferRecipientData;
 use Support\PaymentGateway\Paystack\PaystackGateway;
 use Tests\TestCase;
 
+/**
+ * @enlighten {"ignore": true}
+ */
 class PaystackTest extends TestCase
 {
     use RefreshDatabase;
