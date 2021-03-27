@@ -35,7 +35,7 @@ class UserFactory extends Factory
     {
       return $this->state(function(array $attributes){
         return [
-            'full_name' => null,
+            'full_name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => null,
             'verification_code_expires_at' => now()->addMinutes(60),

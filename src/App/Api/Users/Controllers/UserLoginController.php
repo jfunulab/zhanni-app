@@ -63,7 +63,7 @@ class UserLoginController extends Controller
                 'data' => [
                     'token' => $user->createToken('access_token', ['*'])->plainTextToken,
                     'token_type' => 'bearer',
-                    'user' => $user
+                    'user' => $user->fresh(['address.country', 'address.state'])
                 ]
             ], 200);
         } catch (ValidationException $e) {

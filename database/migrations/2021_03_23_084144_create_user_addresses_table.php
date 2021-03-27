@@ -23,6 +23,7 @@ class CreateUserAddressesTable extends Migration
             $table->string('postal_code');
             $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('set null');
             $table->foreign('state_id')->references('id')->on('country_states')->onDelete('set null');
         });
