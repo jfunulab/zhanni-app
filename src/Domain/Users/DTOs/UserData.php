@@ -10,7 +10,8 @@ use Spatie\DataTransferObject\DataTransferObject;
 class UserData extends DataTransferObject
 {
     public ?string $email;
-    public ?string $fullName;
+    public ?string $firstName;
+    public ?string $lastName;
     public ?string $password;
     public ?string $phoneNumber;
     public ?string $lineOne;
@@ -23,7 +24,8 @@ class UserData extends DataTransferObject
     {
         return new self([
             'email' => $request->input('email'),
-            'fullName' => $request->input('full_name'),
+            'firstName' => $request->input('first_name'),
+            'lastName' => $request->input('last_name'),
             'password' => $request->input('password'),
             'phoneNumber' => $request->input('phone_number'),
             'lineOne' => $request->input('address_line_one'),

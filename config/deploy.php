@@ -112,7 +112,7 @@ return [
     */
 
     'hosts' => [
-        '165.227.126.188' => [
+        '104.236.74.158' => [
             'stage' => 'stg',
             'deploy_path' => '/var/www/apps/stg.api.zhanni.com',
             'user' => 'joel',

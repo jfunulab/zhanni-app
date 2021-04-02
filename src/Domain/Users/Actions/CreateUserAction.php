@@ -28,7 +28,8 @@ class CreateUserAction
         $user = User::firstOrCreate(['email' => $userData->email]);
 
         $user->fill([
-            'full_name' => $userData->fullName,
+            'first_name' => $userData->firstName,
+            'last_name' => $userData->lastName,
             'password' => bcrypt($userData->password)
         ])->save();
 

@@ -41,7 +41,8 @@ class UserLoginTest extends TestCase
                 'message' => 'Login successful',
                 'data' => [
                     'user' => [
-                        'full_name' => $user->full_name,
+                        'first_name' => $user->first_name,
+                        'last_name' => $user->last_name,
                         'address' => [
                             'country' => [
                                 'name' => $user->address->country->name

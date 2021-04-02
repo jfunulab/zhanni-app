@@ -22,7 +22,8 @@ class CreateUserTest extends TestCase
         $this->withoutExceptionHandling();
         $userDetails = [
             'email' => $this->faker->email,
-            'full_name' => $this->faker->name,
+            'first_name' => $this->faker->name,
+            'last_name' => $this->faker->name,
             'address_line_one' => $this->faker->streetAddress,
             'address_line_two' => $this->faker->streetName,
             'country' => $this->faker->country,
@@ -39,7 +40,8 @@ class CreateUserTest extends TestCase
 
         $this->assertCount(1, User::all());
         tap(User::with(['address'])->first(), function ($user) use ($userDetails){
-            $this->assertEquals($userDetails['full_name'], $user->full_name);
+            $this->assertEquals($userDetails['first_name'], $user->first_name);
+            $this->assertEquals($userDetails['last_name'], $user->last_name);
             $this->assertEquals($userDetails['address_line_one'], $user->address->line_one);
             $this->assertEquals($userDetails['address_line_two'], $user->address->line_two);
             $this->assertEquals($userDetails['country'], $user->address->country->name);
@@ -58,7 +60,7 @@ class CreateUserTest extends TestCase
 
         $userDetails = [
             'email' => $this->faker->email,
-            'full_name' => $this->faker->name,
+            'first_name' => $this->faker->name,
             'address_line_one' => $this->faker->streetAddress,
             'address_line_two' => $this->faker->streetName,
             'country' => $this->faker->country,
