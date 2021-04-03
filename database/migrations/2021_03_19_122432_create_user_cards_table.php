@@ -19,7 +19,7 @@ class CreateUserCardsTable extends Migration
             $table->string('platform_id');
             $table->integer('expiry_month');
             $table->integer('expiry_year');
-            $table->integer('postal_code')->nullable();
+            $table->string('postal_code')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->on('users')->references('id')->onDelete('cascade');
