@@ -213,8 +213,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-get-exchange-rates.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Get Exchange Rates
+            <a href="/docs/feature-get-user-recipients.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Get User Recipients
                             </a>
         </li>
     </ul>
@@ -224,7 +224,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            User can get exchange rate for two currencies
+            A user can get list of recipients added to account
               
         </div></h3>
                     </div>
@@ -242,10 +242,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_30'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_31'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_30' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_31' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -263,17 +263,34 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/exchange-rates</td>
+                > api/users/{user}/recipients</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/exchange-rates?to=NGN&from=USD</td>
+                > api/users/1/recipients</td>
             </tr>
             </table>
 </div>
  
 
+             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
+    <thead>
+        <tr class="bg-gray-500">
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Route Parameter</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Pattern</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Requirement</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr class="break-all">
+                <td class="py-2 px-4 font-thin text-gray-200">user</td>
+                <td class="py-2 px-4 font-thin text-teal-300">*</td>
+                <td class="py-2 px-4 font-thin text-teal-300">Required</td>
+            </tr>
+            </tbody>
+</table>
+ 
     
     
              <div>
@@ -342,7 +359,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Sat, 03 Apr 2021 14:34:28 GMT</td>
+                > Sat, 03 Apr 2021 14:34:30 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -378,15 +395,53 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;&quot;,
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;rate&quot;: &quot;381.0&quot;,
-        &quot;base&quot;: &quot;USD&quot;,
-        &quot;currency&quot;: &quot;NGN&quot;,
-        &quot;created_at&quot;: &quot;2021-04-03T14:34:28.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2021-04-03T14:34:28.000000Z&quot;
-    }
+    &quot;message&quot;: &quot;User transfer recipients&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;user_id&quot;: &quot;1&quot;,
+            &quot;bank_id&quot;: &quot;1&quot;,
+            &quot;email&quot;: &quot;zemlak.rebeka@gmail.com&quot;,
+            &quot;account_name&quot;: &quot;Dr. Sharon Towne&quot;,
+            &quot;account_number&quot;: &quot;47808817158&quot;,
+            &quot;created_at&quot;: &quot;2021-04-03T14:34:29.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-04-03T14:34:29.000000Z&quot;,
+            &quot;bank&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;provident&quot;,
+                &quot;slug&quot;: &quot;in&quot;,
+                &quot;code&quot;: &quot;pariatur&quot;,
+                &quot;type&quot;: &quot;iusto&quot;,
+                &quot;country&quot;: &quot;Mauritius&quot;,
+                &quot;currency&quot;: &quot;KYD&quot;,
+                &quot;pay_with_bank&quot;: &quot;0&quot;,
+                &quot;created_at&quot;: &quot;2021-04-03T14:34:29.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-03T14:34:29.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;user_id&quot;: &quot;1&quot;,
+            &quot;bank_id&quot;: &quot;2&quot;,
+            &quot;email&quot;: &quot;junior.altenwerth@pollich.com&quot;,
+            &quot;account_name&quot;: &quot;Leo Muller III&quot;,
+            &quot;account_number&quot;: &quot;914905325582&quot;,
+            &quot;created_at&quot;: &quot;2021-04-03T14:34:29.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-04-03T14:34:29.000000Z&quot;,
+            &quot;bank&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;exercitationem&quot;,
+                &quot;slug&quot;: &quot;modi&quot;,
+                &quot;code&quot;: &quot;exercitationem&quot;,
+                &quot;type&quot;: &quot;necessitatibus&quot;,
+                &quot;country&quot;: &quot;Bolivia&quot;,
+                &quot;currency&quot;: &quot;BBD&quot;,
+                &quot;pay_with_bank&quot;: &quot;0&quot;,
+                &quot;created_at&quot;: &quot;2021-04-03T14:34:29.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-03T14:34:29.000000Z&quot;
+            }
+        }
+    ]
 }</code></pre>
 </div> 
     </div>
