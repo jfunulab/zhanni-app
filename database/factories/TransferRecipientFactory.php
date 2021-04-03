@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use Domain\PaymentMethods\Models\Bank;
 use Domain\PaymentMethods\Models\TransferRecipient;
+use Domain\Users\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TransferRecipientFactory extends Factory
@@ -22,7 +24,11 @@ class TransferRecipientFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => User::factory(),
+            'bank_id' => Bank::factory(),
+            'email' => $this->faker->email,
+            'account_name' => $this->faker->name,
+            'account_number' => $this->faker->bankAccountNumber
         ];
     }
 }
