@@ -23,7 +23,8 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'full_name' => $this->faker->name,
+            'first_name' => $this->faker->name,
+            'last_name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -35,7 +36,8 @@ class UserFactory extends Factory
     {
       return $this->state(function(array $attributes){
         return [
-            'full_name' => null,
+            'first_name' => $this->faker->name,
+            'last_name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => null,
             'verification_code_expires_at' => now()->addMinutes(60),
@@ -49,7 +51,8 @@ class UserFactory extends Factory
     {
         return $this->state(function(array $attributes){
             return [
-                'full_name' => $this->faker->name,
+                'first_name' => $this->faker->name,
+                'last_name' => $this->faker->name,
                 'email' => $this->faker->unique()->safeEmail,
                 'email_verified_at' => now(),
                 'verification_code_expires_at' => now()->subMinutes(60),

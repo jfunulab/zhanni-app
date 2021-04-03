@@ -12,7 +12,7 @@ class AddCardToAccountTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function a_user_can_update_his_phone_number()
+    function a_user_can_add_a_stripe_card_to_his_account()
     {
         $this->withoutExceptionHandling();
 

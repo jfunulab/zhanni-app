@@ -11,6 +11,7 @@ use App\Api\Users\Controllers\VerificationController;
 use App\Http\Controllers\Banks\BanksController;
 use App\Http\Controllers\Countries\CountriesController;
 use App\Http\Controllers\Countries\CountryStatesController;
+use App\Http\Controllers\ExchangeRatesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/countries', [CountriesController::class, 'index']);
 Route::get('/countries/{country}/states', [CountryStatesController::class, 'index']);
+Route::get('/exchange-rates', [ExchangeRatesController::class, 'index']);
 Route::post('/users', [UsersController::class, 'store']);
 Route::post('/login', [UserLoginController::class, 'login']);
 Route::post('/email/resend', [VerificationController::class, 'resend'])->name('verification.resend');

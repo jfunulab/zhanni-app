@@ -9,16 +9,32 @@ use Domain\Users\Models\User;
 
 class CreateUserAction
 {
+    /**
+     * @var AddUserAddressAction
+     */
+    private AddUserAddressAction $addUserAddressAction;
+
+    /**
+     * CreateUserAction constructor.
+     * @param AddUserAddressAction $addUserAddressAction
+     */
+    public function __construct(AddUserAddressAction $addUserAddressAction)
+    {
+        $this->addUserAddressAction = $addUserAddressAction;
+    }
+
     public function __invoke(UserData $userData): User
     {
         $user = User::firstOrCreate(['email' => $userData->email]);
 
         $user->fill([
-            'full_name' => $userData->fullName,
-            'address' => $userData->address,
+            'first_name' => $userData->firstName,
+            'last_name' => $userData->lastName,
             'password' => bcrypt($userData->password)
         ])->save();
 
-        return $user;
+        ($this->addUserAddressAction)($user, $userData);
+
+        return $user->fresh(['address.country', 'address.state']);
     }
 }

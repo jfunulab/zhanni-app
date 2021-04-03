@@ -11,6 +11,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
+/**
+ * @enlighten {"ignore": true}
+ */
 class AddRecipientToAccountActionTest extends TestCase
 {
     use RefreshDatabase, WithFaker;

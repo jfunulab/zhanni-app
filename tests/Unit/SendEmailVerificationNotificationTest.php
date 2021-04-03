@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Notification;
 use Support\NumericCodeGenerator;
 use Tests\TestCase;
 
+/**
+ * @enlighten {"ignore": true}
+ */
 class SendEmailVerificationNotificationTest extends TestCase
 {
     use RefreshDatabase;

@@ -210,8 +210,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-request-password-reset.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Request Password Reset
+            <a href="/docs/feature-get-exchange-rates.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Get Exchange Rates
                             </a>
         </li>
     </ul>
@@ -221,7 +221,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user can request for email to reset password
+            User can get exchange rate for two currencies
               
         </div></h3>
                     </div>
@@ -239,10 +239,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_8'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_5'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_8' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_5' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -255,40 +255,23 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Method: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > POST</td>
+                > GET</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/password/email</td>
+                > api/exchange-rates</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/password/email</td>
+                > api/exchange-rates?to=NG&from=USD</td>
             </tr>
             </table>
 </div>
  
 
     
-             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
-    <thead>
-        <tr class="bg-gray-500">
-            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Input</th>
-            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Value</th>
-        </tr>
-    </thead>
-    <tbody>
-                    <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">email</td>
-                <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            jamaal.bauch@example.net
-                                    </td>
-            </tr>
-            </tbody>
-</table>
- 
     
              <div>
              <span class="block bg-gray-500 py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal w-full"
@@ -324,7 +307,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 36</td>
+                > 2</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -356,7 +339,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Fri, 02 Apr 2021 20:41:03 GMT</td>
+                > Fri, 02 Apr 2021 20:41:01 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -392,7 +375,12 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;We have emailed your password reset code!&quot;
+    &quot;message&quot;: &quot;&quot;,
+    &quot;data&quot;: {
+        &quot;rate&quot;: 380,
+        &quot;base&quot;: &quot;USD&quot;,
+        &quot;currency&quot;: &quot;NG&quot;
+    }
 }</code></pre>
 </div> 
     </div>

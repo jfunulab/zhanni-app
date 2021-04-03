@@ -3,6 +3,7 @@
 namespace Tests\Feature\Users;
 
 use Domain\Users\Models\User;
+use Domain\Users\Models\UserAddress;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -16,7 +17,11 @@ class UserLoginTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $user = User::factory()->newUser()->create(['password' => bcrypt('!Qz89mrt')]);
+        $user = User::factory()
+            ->newUser()
+            ->create(['password' => bcrypt('!Qz89mrt')]);
+
+        $user->address()->save(UserAddress::factory()->make());
 
         $response = $this->postJson('/api/login', [
             'email' => $user->email,
@@ -36,7 +41,13 @@ class UserLoginTest extends TestCase
                 'message' => 'Login successful',
                 'data' => [
                     'user' => [
-                        'full_name' => $user->full_name
+                        'first_name' => $user->first_name,
+                        'last_name' => $user->last_name,
+                        'address' => [
+                            'country' => [
+                                'name' => $user->address->country->name
+                            ]
+                        ]
                     ]
                 ]
             ]);
