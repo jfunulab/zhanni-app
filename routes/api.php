@@ -44,6 +44,7 @@ Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name(
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/banks', [BanksController::class, 'index']);
     Route::put('/users/{user}', [UsersController::class, 'update']);
+    Route::get('/users/{user}/cards', [UserCardsController::class, 'index']);
     Route::post('/users/{user}/cards', [UserCardsController::class, 'store']);
     Route::post('/users/{user}/address', [UserAddressController::class, 'store']);
     Route::get('/users/{user}/recipients', [UserRecipientsController::class, 'index']);

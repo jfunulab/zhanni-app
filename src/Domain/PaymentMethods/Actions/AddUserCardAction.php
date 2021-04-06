@@ -11,20 +11,18 @@ use Domain\Users\Models\User;
 class AddUserCardAction
 {
 
-    public function __invoke(User $user, UserCardData $cardData): UserCard
+    public function __invoke(User $user, UserCardData $cardData)
     {
         if(!$user->hasStripeId()){
             $user->createAsStripeCustomer();
         }
         $user->updateDefaultPaymentMethod($cardData->paymentMethodId);
 
-        $card = $user->cards()->create([
+        return $user->cards()->create([
             'platform_id' => $cardData->paymentMethodId,
             'expiry_month' => $cardData->expiryMonth,
             'expiry_year' => $cardData->expiryYear,
             'postal_code' => $cardData->postalCode
         ]);
-
-        return $card;
     }
 }
