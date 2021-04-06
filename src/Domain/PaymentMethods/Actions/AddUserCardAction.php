@@ -16,10 +16,12 @@ class AddUserCardAction
         if(!$user->hasStripeId()){
             $user->createAsStripeCustomer();
         }
-        $user->updateDefaultPaymentMethod($cardData->paymentMethodId);
+        $paymentMethod = $user->updateDefaultPaymentMethod($cardData->paymentMethodId);
 
         return $user->cards()->create([
             'platform_id' => $cardData->paymentMethodId,
+            'brand' => $paymentMethod->card->brand,
+            'last_four' => $paymentMethod->card->last4,
             'expiry_month' => $cardData->expiryMonth,
             'expiry_year' => $cardData->expiryYear,
             'postal_code' => $cardData->postalCode

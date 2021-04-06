@@ -14,6 +14,7 @@ class UserCard extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $hidden = ['platform_id'];
 
     public function user(): BelongsTo
     {

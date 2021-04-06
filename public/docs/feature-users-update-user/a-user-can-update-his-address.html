@@ -217,8 +217,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-add-recipient-to-user-account.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Add Recipient To User Account
+            <a href="/docs/feature-users-update-user.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Update User
                             </a>
         </li>
     </ul>
@@ -228,7 +228,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user can save a transfer recipient in his account
+            A user can update his address
               
         </div></h3>
                     </div>
@@ -246,10 +246,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_110'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_120'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_110' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_120' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -262,17 +262,17 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Method: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > POST</td>
+                > PUT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users/{user}/recipients</td>
+                > api/users/{user}</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users/1/recipients</td>
+                > api/users/1</td>
             </tr>
             </table>
 </div>
@@ -305,27 +305,33 @@
     </thead>
     <tbody>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">email</td>
+                <td class="px-4 py-2 font-thin text-gray-200">state</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            hane.haylie@gmail.com
+                                            Massachusetts
                                     </td>
             </tr>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">bank_id</td>
+                <td class="px-4 py-2 font-thin text-gray-200">country</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            1
+                                            Slovenia
                                     </td>
             </tr>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">account_name</td>
+                <td class="px-4 py-2 font-thin text-gray-200">postal_code</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            Prof. Kiara Wisoky V
+                                            75765
                                     </td>
             </tr>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">account_number</td>
+                <td class="px-4 py-2 font-thin text-gray-200">address_line_one</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            2160230623774
+                                            4349 Runolfsdottir Shores
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="px-4 py-2 font-thin text-gray-200">address_line_two</td>
+                <td class="px-4 py-2 font-thin text-teal-300 break-all">
+                                            Boehm Hill
                                     </td>
             </tr>
             </tbody>
@@ -366,7 +372,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 116</td>
+                > 147</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -385,7 +391,7 @@
         <h3 class="text-base text-gray-300">Response</h3>
     </span>
     <div class="p-4 space-x-4">
-        <span class="p-1 bg-default-200 text-default-700">201</span>
+        <span class="p-1 bg-success-200 text-success-700">200</span>
         <span class="text-gray-100">JSON</span>
     </div>
 
@@ -398,7 +404,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Tue, 06 Apr 2021 12:05:29 GMT</td>
+                > Tue, 06 Apr 2021 12:05:35 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -434,16 +440,51 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;Recipient successfully saved.&quot;,
+    &quot;message&quot;: &quot;User update successful.&quot;,
     &quot;data&quot;: {
-        &quot;email&quot;: &quot;hane.haylie@gmail.com&quot;,
-        &quot;account_name&quot;: &quot;Prof. Kiara Wisoky V&quot;,
-        &quot;account_number&quot;: &quot;2160230623774&quot;,
-        &quot;bank_id&quot;: 1,
-        &quot;user_id&quot;: 1,
-        &quot;updated_at&quot;: &quot;2021-04-06T12:05:29.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2021-04-06T12:05:29.000000Z&quot;,
-        &quot;id&quot;: 1
+        &quot;user&quot;: {
+            &quot;id&quot;: 1,
+            &quot;first_name&quot;: &quot;Prof. Walker Kunze DVM&quot;,
+            &quot;last_name&quot;: &quot;Connie McGlynn V&quot;,
+            &quot;email&quot;: &quot;darius.jones@example.com&quot;,
+            &quot;email_verification_code&quot;: null,
+            &quot;verification_code_expires_at&quot;: &quot;2021-04-06 13:05:34&quot;,
+            &quot;email_verified_at&quot;: null,
+            &quot;phone_number&quot;: null,
+            &quot;created_at&quot;: &quot;2021-04-06T12:05:34.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-04-06T12:05:34.000000Z&quot;,
+            &quot;stripe_id&quot;: null,
+            &quot;card_brand&quot;: null,
+            &quot;card_last_four&quot;: null,
+            &quot;trial_ends_at&quot;: null,
+            &quot;verified&quot;: false,
+            &quot;address&quot;: {
+                &quot;id&quot;: 1,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;country_id&quot;: &quot;1&quot;,
+                &quot;state_id&quot;: &quot;1&quot;,
+                &quot;line_one&quot;: &quot;4349 Runolfsdottir Shores&quot;,
+                &quot;line_two&quot;: &quot;Boehm Hill&quot;,
+                &quot;postal_code&quot;: &quot;75765&quot;,
+                &quot;created_at&quot;: &quot;2021-04-06T12:05:35.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-06T12:05:35.000000Z&quot;,
+                &quot;country&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;Slovenia&quot;,
+                    &quot;code&quot;: &quot;deleniti&quot;,
+                    &quot;created_at&quot;: &quot;2021-04-06T12:05:34.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-04-06T12:05:34.000000Z&quot;
+                },
+                &quot;state&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;country_id&quot;: &quot;2&quot;,
+                    &quot;name&quot;: &quot;Massachusetts&quot;,
+                    &quot;code&quot;: &quot;West Virginia&quot;,
+                    &quot;created_at&quot;: &quot;2021-04-06T12:05:35.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-04-06T12:05:35.000000Z&quot;
+                }
+            }
+        }
     }
 }</code></pre>
 </div> 

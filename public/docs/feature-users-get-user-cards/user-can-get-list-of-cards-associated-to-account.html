@@ -217,8 +217,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-add-recipient-to-user-account.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Add Recipient To User Account
+            <a href="/docs/feature-users-get-user-cards.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Get User Cards
                             </a>
         </li>
     </ul>
@@ -228,7 +228,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user can save a transfer recipient in his account
+            User can get list of cards associated to account
               
         </div></h3>
                     </div>
@@ -246,10 +246,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_110'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_112'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_110' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_112' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -262,17 +262,17 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Method: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > POST</td>
+                > GET</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users/{user}/recipients</td>
+                > api/users/{user}/cards</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users/1/recipients</td>
+                > api/users/1/cards</td>
             </tr>
             </table>
 </div>
@@ -296,41 +296,6 @@
 </table>
  
     
-             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
-    <thead>
-        <tr class="bg-gray-500">
-            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Input</th>
-            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Value</th>
-        </tr>
-    </thead>
-    <tbody>
-                    <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">email</td>
-                <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            hane.haylie@gmail.com
-                                    </td>
-            </tr>
-                    <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">bank_id</td>
-                <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            1
-                                    </td>
-            </tr>
-                    <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">account_name</td>
-                <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            Prof. Kiara Wisoky V
-                                    </td>
-            </tr>
-                    <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">account_number</td>
-                <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            2160230623774
-                                    </td>
-            </tr>
-            </tbody>
-</table>
- 
     
              <div>
              <span class="block bg-gray-500 py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal w-full"
@@ -366,7 +331,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 116</td>
+                > 2</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -385,7 +350,7 @@
         <h3 class="text-base text-gray-300">Response</h3>
     </span>
     <div class="p-4 space-x-4">
-        <span class="p-1 bg-default-200 text-default-700">201</span>
+        <span class="p-1 bg-success-200 text-success-700">200</span>
         <span class="text-gray-100">JSON</span>
     </div>
 
@@ -398,7 +363,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Tue, 06 Apr 2021 12:05:29 GMT</td>
+                > Tue, 06 Apr 2021 12:05:31 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -434,17 +399,42 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;Recipient successfully saved.&quot;,
-    &quot;data&quot;: {
-        &quot;email&quot;: &quot;hane.haylie@gmail.com&quot;,
-        &quot;account_name&quot;: &quot;Prof. Kiara Wisoky V&quot;,
-        &quot;account_number&quot;: &quot;2160230623774&quot;,
-        &quot;bank_id&quot;: 1,
-        &quot;user_id&quot;: 1,
-        &quot;updated_at&quot;: &quot;2021-04-06T12:05:29.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2021-04-06T12:05:29.000000Z&quot;,
-        &quot;id&quot;: 1
-    }
+    &quot;message&quot;: &quot;User cards.&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;user_id&quot;: &quot;1&quot;,
+            &quot;brand&quot;: &quot;corporis&quot;,
+            &quot;last_four&quot;: &quot;9801&quot;,
+            &quot;expiry_month&quot;: &quot;10&quot;,
+            &quot;expiry_year&quot;: &quot;2022&quot;,
+            &quot;postal_code&quot;: &quot;94867&quot;,
+            &quot;created_at&quot;: &quot;2021-04-06T12:05:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-04-06T12:05:31.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;user_id&quot;: &quot;1&quot;,
+            &quot;brand&quot;: &quot;quas&quot;,
+            &quot;last_four&quot;: &quot;4158&quot;,
+            &quot;expiry_month&quot;: &quot;11&quot;,
+            &quot;expiry_year&quot;: &quot;2024&quot;,
+            &quot;postal_code&quot;: &quot;06205-4164&quot;,
+            &quot;created_at&quot;: &quot;2021-04-06T12:05:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-04-06T12:05:31.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;user_id&quot;: &quot;1&quot;,
+            &quot;brand&quot;: &quot;perspiciatis&quot;,
+            &quot;last_four&quot;: &quot;9641&quot;,
+            &quot;expiry_month&quot;: &quot;10&quot;,
+            &quot;expiry_year&quot;: &quot;2027&quot;,
+            &quot;postal_code&quot;: &quot;58687&quot;,
+            &quot;created_at&quot;: &quot;2021-04-06T12:05:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-04-06T12:05:31.000000Z&quot;
+        }
+    ]
 }</code></pre>
 </div> 
     </div>
