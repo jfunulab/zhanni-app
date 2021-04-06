@@ -20,19 +20,19 @@ class UserData extends DataTransferObject
     public ?string $state;
     public ?string $postalCode;
 
-    public static function fromRequest(FormRequest $request): UserData
+    public static function fromArray(array $dataArray): UserData
     {
         return new self([
-            'email' => $request->input('email'),
-            'firstName' => $request->input('first_name'),
-            'lastName' => $request->input('last_name'),
-            'password' => $request->input('password'),
-            'phoneNumber' => $request->input('phone_number'),
-            'lineOne' => $request->input('address_line_one'),
-            'lineTwo' => $request->input('address_line_two'),
-            'country' => $request->input('country'),
-            'state' => $request->input('state'),
-            'postalCode' => $request->input('postal_code'),
+            'email' => $dataArray['email'] ?? null,
+            'firstName' => $dataArray['first_name'] ?? null,
+            'lastName' => $dataArray['last_name'] ?? null,
+            'password' => $dataArray['password'] ?? null,
+            'phoneNumber' => $dataArray['phone_number'] ?? null,
+            'lineOne' => $dataArray['address_line_one'] ?? null,
+            'lineTwo' => $dataArray['address_line_two'] ?? null,
+            'country' => $dataArray['country'] ?? null,
+            'state' => $dataArray['state'] ?? null,
+            'postalCode' => $dataArray['postal_code'] ?? null,
         ]);
     }
 }

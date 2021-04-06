@@ -14,7 +14,7 @@ class UsersController
 {
     public function store(CreateUserRequest $request, CreateUserAction $createUserAction)
     {
-        $userData = UserData::fromRequest($request);
+        $userData = UserData::fromArray($request->all());
         $user = $createUserAction($userData);
 
         event(new Registered($user));
@@ -30,7 +30,7 @@ class UsersController
 
     public function update(User $user, UpdateUserRequest $request, UpdateUserAction $updateUserAction)
     {
-        $userData = UserData::fromRequest($request);
+        $userData = UserData::fromArray($request->all());
 
         $user = $updateUserAction($user, $userData);
 
