@@ -11,11 +11,13 @@ class AddRecipientToAccountAction
 {
     public function __invoke(User $user, TransferRecipientData $data)
     {
-        return $user->recipients()->create([
+        $transferRecipient = $user->recipients()->create([
             'email' => $data->email,
             'account_name' => $data->accountName,
             'account_number' => $data->accountNumber,
             'bank_id' => $data->bankId
         ]);
+
+        return $transferRecipient->fresh(['bank']);
     }
 }
