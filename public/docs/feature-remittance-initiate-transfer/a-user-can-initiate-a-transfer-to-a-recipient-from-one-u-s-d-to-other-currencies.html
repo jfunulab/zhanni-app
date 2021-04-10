@@ -226,8 +226,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-request-password-reset.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Request Password Reset
+            <a href="/docs/feature-remittance-initiate-transfer.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Initiate Transfer
                             </a>
         </li>
     </ul>
@@ -237,7 +237,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user can request for email to reset password
+            A user can initiate a transfer to a recipient from one  u s d to other currencies
               
         </div></h3>
                     </div>
@@ -255,10 +255,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_319'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_313'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_319' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_313' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -276,17 +276,34 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/password/email</td>
+                > api/users/{user}/remittances</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/password/email</td>
+                > api/users/1/remittances</td>
             </tr>
             </table>
 </div>
  
 
+             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
+    <thead>
+        <tr class="bg-gray-500">
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Route Parameter</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Pattern</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Requirement</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr class="break-all">
+                <td class="py-2 px-4 font-thin text-gray-200">user</td>
+                <td class="py-2 px-4 font-thin text-teal-300">*</td>
+                <td class="py-2 px-4 font-thin text-teal-300">Required</td>
+            </tr>
+            </tbody>
+</table>
+ 
     
              <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
     <thead>
@@ -297,9 +314,33 @@
     </thead>
     <tbody>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">email</td>
+                <td class="px-4 py-2 font-thin text-gray-200">card</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            croberts@example.com
+                                            1
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="px-4 py-2 font-thin text-gray-200">rate</td>
+                <td class="px-4 py-2 font-thin text-teal-300 break-all">
+                                            1
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="px-4 py-2 font-thin text-gray-200">amount</td>
+                <td class="px-4 py-2 font-thin text-teal-300 break-all">
+                                            50
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="px-4 py-2 font-thin text-gray-200">recipient</td>
+                <td class="px-4 py-2 font-thin text-teal-300 break-all">
+                                            1
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="px-4 py-2 font-thin text-gray-200">converted_amount</td>
+                <td class="px-4 py-2 font-thin text-teal-300 break-all">
+                                            19052.5
                                     </td>
             </tr>
             </tbody>
@@ -340,7 +381,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 32</td>
+                > 72</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -359,7 +400,7 @@
         <h3 class="text-base text-gray-300">Response</h3>
     </span>
     <div class="p-4 space-x-4">
-        <span class="p-1 bg-success-200 text-success-700">200</span>
+        <span class="p-1 bg-default-200 text-default-700">201</span>
         <span class="text-gray-100">JSON</span>
     </div>
 
@@ -372,7 +413,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Sat, 10 Apr 2021 10:10:53 GMT</td>
+                > Sat, 10 Apr 2021 10:10:46 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -408,7 +449,40 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;We have emailed your password reset code!&quot;
+    &quot;message&quot;: &quot;Remittance in progress.&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;user_id&quot;: &quot;1&quot;,
+        &quot;base_amount&quot;: &quot;50.0&quot;,
+        &quot;base_currency&quot;: &quot;USD&quot;,
+        &quot;amount_to_remit&quot;: &quot;19052.5&quot;,
+        &quot;currency_to_remit&quot;: &quot;VND&quot;,
+        &quot;created_at&quot;: &quot;2021-04-10T10:10:45.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-04-10T10:10:45.000000Z&quot;,
+        &quot;status&quot;: &quot;in progress&quot;,
+        &quot;credit_payment&quot;: {
+            &quot;id&quot;: 1,
+            &quot;remittance_id&quot;: &quot;1&quot;,
+            &quot;source_id&quot;: &quot;1&quot;,
+            &quot;amount&quot;: &quot;50.0&quot;,
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;status&quot;: &quot;paid&quot;,
+            &quot;created_at&quot;: &quot;2021-04-10T10:10:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-04-10T10:10:45.000000Z&quot;,
+            &quot;source&quot;: {
+                &quot;id&quot;: 1,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;brand&quot;: &quot;visa&quot;,
+                &quot;last_four&quot;: &quot;4242&quot;,
+                &quot;expiry_month&quot;: &quot;5&quot;,
+                &quot;expiry_year&quot;: &quot;2022&quot;,
+                &quot;postal_code&quot;: &quot;004455&quot;,
+                &quot;created_at&quot;: &quot;2021-04-10T10:10:43.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-10T10:10:43.000000Z&quot;
+            }
+        },
+        &quot;debit_payment&quot;: null
+    }
 }</code></pre>
 </div> 
     </div>

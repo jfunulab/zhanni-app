@@ -226,8 +226,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-request-password-reset.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Request Password Reset
+            <a href="/docs/feature-remittance-get-user-remittances.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Get User Remittances
                             </a>
         </li>
     </ul>
@@ -237,7 +237,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user can request for email to reset password
+            User can get list of his remittances made
               
         </div></h3>
                     </div>
@@ -255,10 +255,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_319'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_312'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_319' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_312' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -271,40 +271,40 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Method: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > POST</td>
+                > GET</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/password/email</td>
+                > api/users/{user}/remittances</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/password/email</td>
+                > api/users/1/remittances</td>
             </tr>
             </table>
 </div>
  
 
-    
              <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
     <thead>
         <tr class="bg-gray-500">
-            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Input</th>
-            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Value</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Route Parameter</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Pattern</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Requirement</th>
         </tr>
     </thead>
     <tbody>
-                    <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">email</td>
-                <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            croberts@example.com
-                                    </td>
+                    <tr class="break-all">
+                <td class="py-2 px-4 font-thin text-gray-200">user</td>
+                <td class="py-2 px-4 font-thin text-teal-300">*</td>
+                <td class="py-2 px-4 font-thin text-teal-300">Required</td>
             </tr>
             </tbody>
 </table>
  
+    
     
              <div>
              <span class="block bg-gray-500 py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal w-full"
@@ -340,7 +340,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 32</td>
+                > 2</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -372,7 +372,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Sat, 10 Apr 2021 10:10:53 GMT</td>
+                > Sat, 10 Apr 2021 10:10:39 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -408,7 +408,314 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;We have emailed your password reset code!&quot;
+    &quot;message&quot;: &quot;User remittances&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;user_id&quot;: &quot;1&quot;,
+            &quot;base_amount&quot;: &quot;4.0&quot;,
+            &quot;base_currency&quot;: &quot;BMD&quot;,
+            &quot;amount_to_remit&quot;: &quot;1.0&quot;,
+            &quot;currency_to_remit&quot;: &quot;MGA&quot;,
+            &quot;created_at&quot;: &quot;2021-04-10T10:10:36.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-04-10T10:10:36.000000Z&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;credit_payment&quot;: {
+                &quot;id&quot;: 1,
+                &quot;remittance_id&quot;: &quot;1&quot;,
+                &quot;source_id&quot;: &quot;1&quot;,
+                &quot;amount&quot;: &quot;3.0&quot;,
+                &quot;currency&quot;: &quot;AWG&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+                &quot;source&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;user_id&quot;: &quot;2&quot;,
+                    &quot;brand&quot;: &quot;ut&quot;,
+                    &quot;last_four&quot;: &quot;6043&quot;,
+                    &quot;expiry_month&quot;: &quot;5&quot;,
+                    &quot;expiry_year&quot;: &quot;2025&quot;,
+                    &quot;postal_code&quot;: &quot;26035-6764&quot;,
+                    &quot;created_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;
+                }
+            },
+            &quot;debit_payment&quot;: {
+                &quot;id&quot;: 1,
+                &quot;remittance_id&quot;: &quot;1&quot;,
+                &quot;recipient_id&quot;: &quot;1&quot;,
+                &quot;amount&quot;: &quot;7.0&quot;,
+                &quot;currency&quot;: &quot;XOF&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+                &quot;recipient&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;user_id&quot;: &quot;3&quot;,
+                    &quot;bank_id&quot;: &quot;1&quot;,
+                    &quot;email&quot;: &quot;mayert.pietro@yahoo.com&quot;,
+                    &quot;account_name&quot;: &quot;Donna Satterfield&quot;,
+                    &quot;account_number&quot;: &quot;38827423455746157&quot;,
+                    &quot;created_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+                    &quot;bank&quot;: {
+                        &quot;id&quot;: 1,
+                        &quot;name&quot;: &quot;quas&quot;,
+                        &quot;slug&quot;: &quot;in&quot;,
+                        &quot;country&quot;: &quot;Vanuatu&quot;,
+                        &quot;currency&quot;: &quot;SBD&quot;,
+                        &quot;created_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;
+                    }
+                }
+            }
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;user_id&quot;: &quot;1&quot;,
+            &quot;base_amount&quot;: &quot;6.0&quot;,
+            &quot;base_currency&quot;: &quot;LBP&quot;,
+            &quot;amount_to_remit&quot;: &quot;8.0&quot;,
+            &quot;currency_to_remit&quot;: &quot;ARS&quot;,
+            &quot;created_at&quot;: &quot;2021-04-10T10:10:36.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-04-10T10:10:36.000000Z&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;credit_payment&quot;: {
+                &quot;id&quot;: 2,
+                &quot;remittance_id&quot;: &quot;2&quot;,
+                &quot;source_id&quot;: &quot;2&quot;,
+                &quot;amount&quot;: &quot;2.0&quot;,
+                &quot;currency&quot;: &quot;DZD&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+                &quot;source&quot;: {
+                    &quot;id&quot;: 2,
+                    &quot;user_id&quot;: &quot;4&quot;,
+                    &quot;brand&quot;: &quot;possimus&quot;,
+                    &quot;last_four&quot;: &quot;5491&quot;,
+                    &quot;expiry_month&quot;: &quot;1&quot;,
+                    &quot;expiry_year&quot;: &quot;2022&quot;,
+                    &quot;postal_code&quot;: &quot;62085&quot;,
+                    &quot;created_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;
+                }
+            },
+            &quot;debit_payment&quot;: {
+                &quot;id&quot;: 2,
+                &quot;remittance_id&quot;: &quot;2&quot;,
+                &quot;recipient_id&quot;: &quot;2&quot;,
+                &quot;amount&quot;: &quot;1.0&quot;,
+                &quot;currency&quot;: &quot;NAD&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                &quot;recipient&quot;: {
+                    &quot;id&quot;: 2,
+                    &quot;user_id&quot;: &quot;5&quot;,
+                    &quot;bank_id&quot;: &quot;2&quot;,
+                    &quot;email&quot;: &quot;parker.franecki@haag.com&quot;,
+                    &quot;account_name&quot;: &quot;Melisa Swaniawski&quot;,
+                    &quot;account_number&quot;: &quot;14637806789038&quot;,
+                    &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                    &quot;bank&quot;: {
+                        &quot;id&quot;: 2,
+                        &quot;name&quot;: &quot;dolor&quot;,
+                        &quot;slug&quot;: &quot;voluptatem&quot;,
+                        &quot;country&quot;: &quot;British Indian Ocean Territory (Chagos Archipelago)&quot;,
+                        &quot;currency&quot;: &quot;NAD&quot;,
+                        &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;
+                    }
+                }
+            }
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;user_id&quot;: &quot;1&quot;,
+            &quot;base_amount&quot;: &quot;2.0&quot;,
+            &quot;base_currency&quot;: &quot;MOP&quot;,
+            &quot;amount_to_remit&quot;: &quot;8.0&quot;,
+            &quot;currency_to_remit&quot;: &quot;NAD&quot;,
+            &quot;created_at&quot;: &quot;2021-04-10T10:10:36.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-04-10T10:10:36.000000Z&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;credit_payment&quot;: {
+                &quot;id&quot;: 3,
+                &quot;remittance_id&quot;: &quot;3&quot;,
+                &quot;source_id&quot;: &quot;3&quot;,
+                &quot;amount&quot;: &quot;4.0&quot;,
+                &quot;currency&quot;: &quot;PKR&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                &quot;source&quot;: {
+                    &quot;id&quot;: 3,
+                    &quot;user_id&quot;: &quot;6&quot;,
+                    &quot;brand&quot;: &quot;sint&quot;,
+                    &quot;last_four&quot;: &quot;8019&quot;,
+                    &quot;expiry_month&quot;: &quot;3&quot;,
+                    &quot;expiry_year&quot;: &quot;2025&quot;,
+                    &quot;postal_code&quot;: &quot;59856&quot;,
+                    &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;
+                }
+            },
+            &quot;debit_payment&quot;: {
+                &quot;id&quot;: 3,
+                &quot;remittance_id&quot;: &quot;3&quot;,
+                &quot;recipient_id&quot;: &quot;3&quot;,
+                &quot;amount&quot;: &quot;4.0&quot;,
+                &quot;currency&quot;: &quot;TWD&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                &quot;recipient&quot;: {
+                    &quot;id&quot;: 3,
+                    &quot;user_id&quot;: &quot;7&quot;,
+                    &quot;bank_id&quot;: &quot;3&quot;,
+                    &quot;email&quot;: &quot;torrey.prosacco@schulist.com&quot;,
+                    &quot;account_name&quot;: &quot;Roman Bahringer&quot;,
+                    &quot;account_number&quot;: &quot;9517545&quot;,
+                    &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                    &quot;bank&quot;: {
+                        &quot;id&quot;: 3,
+                        &quot;name&quot;: &quot;qui&quot;,
+                        &quot;slug&quot;: &quot;quia&quot;,
+                        &quot;country&quot;: &quot;Samoa&quot;,
+                        &quot;currency&quot;: &quot;CRC&quot;,
+                        &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;
+                    }
+                }
+            }
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;user_id&quot;: &quot;1&quot;,
+            &quot;base_amount&quot;: &quot;5.0&quot;,
+            &quot;base_currency&quot;: &quot;ZAR&quot;,
+            &quot;amount_to_remit&quot;: &quot;3.0&quot;,
+            &quot;currency_to_remit&quot;: &quot;KHR&quot;,
+            &quot;created_at&quot;: &quot;2021-04-10T10:10:36.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-04-10T10:10:36.000000Z&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;credit_payment&quot;: {
+                &quot;id&quot;: 4,
+                &quot;remittance_id&quot;: &quot;4&quot;,
+                &quot;source_id&quot;: &quot;4&quot;,
+                &quot;amount&quot;: &quot;8.0&quot;,
+                &quot;currency&quot;: &quot;RON&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                &quot;source&quot;: {
+                    &quot;id&quot;: 4,
+                    &quot;user_id&quot;: &quot;8&quot;,
+                    &quot;brand&quot;: &quot;veritatis&quot;,
+                    &quot;last_four&quot;: &quot;9232&quot;,
+                    &quot;expiry_month&quot;: &quot;7&quot;,
+                    &quot;expiry_year&quot;: &quot;2026&quot;,
+                    &quot;postal_code&quot;: &quot;27480&quot;,
+                    &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;
+                }
+            },
+            &quot;debit_payment&quot;: {
+                &quot;id&quot;: 4,
+                &quot;remittance_id&quot;: &quot;4&quot;,
+                &quot;recipient_id&quot;: &quot;4&quot;,
+                &quot;amount&quot;: &quot;6.0&quot;,
+                &quot;currency&quot;: &quot;ZAR&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                &quot;recipient&quot;: {
+                    &quot;id&quot;: 4,
+                    &quot;user_id&quot;: &quot;9&quot;,
+                    &quot;bank_id&quot;: &quot;4&quot;,
+                    &quot;email&quot;: &quot;vanderson@watsica.com&quot;,
+                    &quot;account_name&quot;: &quot;Alexa O&#039;Kon&quot;,
+                    &quot;account_number&quot;: &quot;8664849206&quot;,
+                    &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                    &quot;bank&quot;: {
+                        &quot;id&quot;: 4,
+                        &quot;name&quot;: &quot;dolores&quot;,
+                        &quot;slug&quot;: &quot;minus&quot;,
+                        &quot;country&quot;: &quot;Faroe Islands&quot;,
+                        &quot;currency&quot;: &quot;AUD&quot;,
+                        &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;
+                    }
+                }
+            }
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;user_id&quot;: &quot;1&quot;,
+            &quot;base_amount&quot;: &quot;7.0&quot;,
+            &quot;base_currency&quot;: &quot;PYG&quot;,
+            &quot;amount_to_remit&quot;: &quot;7.0&quot;,
+            &quot;currency_to_remit&quot;: &quot;SBD&quot;,
+            &quot;created_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-04-10T10:10:37.000000Z&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;credit_payment&quot;: {
+                &quot;id&quot;: 5,
+                &quot;remittance_id&quot;: &quot;5&quot;,
+                &quot;source_id&quot;: &quot;5&quot;,
+                &quot;amount&quot;: &quot;9.0&quot;,
+                &quot;currency&quot;: &quot;CUP&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                &quot;source&quot;: {
+                    &quot;id&quot;: 5,
+                    &quot;user_id&quot;: &quot;10&quot;,
+                    &quot;brand&quot;: &quot;officiis&quot;,
+                    &quot;last_four&quot;: &quot;4920&quot;,
+                    &quot;expiry_month&quot;: &quot;8&quot;,
+                    &quot;expiry_year&quot;: &quot;2026&quot;,
+                    &quot;postal_code&quot;: &quot;82265-0263&quot;,
+                    &quot;created_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-04-10T10:10:38.000000Z&quot;
+                }
+            },
+            &quot;debit_payment&quot;: {
+                &quot;id&quot;: 5,
+                &quot;remittance_id&quot;: &quot;5&quot;,
+                &quot;recipient_id&quot;: &quot;5&quot;,
+                &quot;amount&quot;: &quot;6.0&quot;,
+                &quot;currency&quot;: &quot;SOS&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-04-10T10:10:39.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-04-10T10:10:39.000000Z&quot;,
+                &quot;recipient&quot;: {
+                    &quot;id&quot;: 5,
+                    &quot;user_id&quot;: &quot;11&quot;,
+                    &quot;bank_id&quot;: &quot;5&quot;,
+                    &quot;email&quot;: &quot;vincenzo38@hotmail.com&quot;,
+                    &quot;account_name&quot;: &quot;Adela Durgan&quot;,
+                    &quot;account_number&quot;: &quot;9634440894&quot;,
+                    &quot;created_at&quot;: &quot;2021-04-10T10:10:39.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-04-10T10:10:39.000000Z&quot;,
+                    &quot;bank&quot;: {
+                        &quot;id&quot;: 5,
+                        &quot;name&quot;: &quot;quia&quot;,
+                        &quot;slug&quot;: &quot;qui&quot;,
+                        &quot;country&quot;: &quot;Eritrea&quot;,
+                        &quot;currency&quot;: &quot;GHS&quot;,
+                        &quot;created_at&quot;: &quot;2021-04-10T10:10:39.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-04-10T10:10:39.000000Z&quot;
+                    }
+                }
+            }
+        }
+    ]
 }</code></pre>
 </div> 
     </div>

@@ -15,7 +15,7 @@ class UserRemittancesController extends Controller
 
     public function index(User $user)
     {
-        $remittances = $user->remittances()->with(['creditPayment', 'debitPayment'])->get();
+        $remittances = $user->remittances()->with(['creditPayment.source', 'debitPayment.recipient.bank'])->get();
 
         return response()->json([
             'message' => 'User remittances',
@@ -35,7 +35,7 @@ class UserRemittancesController extends Controller
                 'currency_to_remit' => $remittanceData->rate->currency
             ]);
             $remittance->creditPayment()->create([
-                'source_id' => $remittanceData->card,
+                'source_id' => $remittanceData->card->id,
                 'amount' => $remittanceData->amount,
                 'currency' => $remittanceData->rate->base,
                 'status' => 'paid'
@@ -50,7 +50,7 @@ class UserRemittancesController extends Controller
 
             return response()->json([
                 'message' => 'Remittance in progress.',
-                'data' => $remittance->fresh(['creditPayment', 'debitPayment'])
+                'data' => $remittance->fresh(['creditPayment.source', 'debitPayment.recipient.bank'])
             ], 201);
         } catch (PaymentActionRequired | PaymentFailure $e) {
             return response()->json([
