@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Users;
 
 use Domain\PaymentMethods\Models\TransferRecipient;
 use Domain\Users\Models\User;

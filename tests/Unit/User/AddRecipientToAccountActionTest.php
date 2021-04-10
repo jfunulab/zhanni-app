@@ -4,6 +4,7 @@ namespace Tests\Unit\User;
 
 use App\Http\Requests\AddRecipientToAccountRequest;
 use Domain\PaymentMethods\Actions\AddRecipientToAccountAction;
+use Domain\PaymentMethods\DTOs\RemittanceData;
 use Domain\PaymentMethods\DTOs\TransferRecipientData;
 use Domain\PaymentMethods\Models\Bank;
 use Domain\Users\Models\User;

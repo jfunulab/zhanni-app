@@ -11,7 +11,7 @@ class BankTransferData extends DataTransferObject
     public ?string $accountNumber;
     public ?string $bankCode;
     public ?string $currency;
-    public ?int $amount;
+    public ?float $amount;
 
     public static function fromArray(array $array): BankTransferData
     {
