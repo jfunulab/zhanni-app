@@ -35,7 +35,7 @@ class UserRemittancesController extends Controller
                 'currency_to_remit' => $remittanceData->rate->currency
             ]);
             $remittance->creditPayment()->create([
-                'source_id' => $remittanceData->card,
+                'source_id' => $remittanceData->card->id,
                 'amount' => $remittanceData->amount,
                 'currency' => $remittanceData->rate->base,
                 'status' => 'paid'
