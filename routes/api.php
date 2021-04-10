@@ -12,6 +12,7 @@ use App\Http\Controllers\Banks\BanksController;
 use App\Http\Controllers\Countries\CountriesController;
 use App\Http\Controllers\Countries\CountryStatesController;
 use App\Http\Controllers\ExchangeRatesController;
+use App\Http\Controllers\UserRemittancesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -49,4 +50,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('/users/{user}/address', [UserAddressController::class, 'store']);
     Route::get('/users/{user}/recipients', [UserRecipientsController::class, 'index']);
     Route::post('/users/{user}/recipients', [UserRecipientsController::class, 'store']);
+
+    Route::get('/users/{user}/remittances', [UserRemittancesController::class, 'index']);
+    Route::post('/users/{user}/remittances', [UserRemittancesController::class, 'store']);
 });

@@ -4,6 +4,7 @@ namespace Domain\Users\Models;
 
 use App\Notifications\EmailVerificationNotification;
 use App\Notifications\SendPasswordResetCodeNotification;
+use App\Remittance;
 use Domain\PaymentMethods\Models\TransferRecipient;
 use Domain\PaymentMethods\Models\UserCard;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -55,6 +56,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function address(): HasOne
     {
         return $this->hasOne(UserAddress::class);
+    }
+
+    public function remittances(): HasMany
+    {
+        return $this->hasMany(Remittance::class);
     }
 
     public function recipients(): HasMany
