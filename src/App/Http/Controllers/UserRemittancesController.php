@@ -30,6 +30,7 @@ class UserRemittancesController extends Controller
             $payment = $user->charge($remittanceData->amount * 100, $remittanceData->card->platform_id);
             $remittance = $user->remittances()->create([
                 'base_amount' => $remittanceData->amount,
+                'reason' => $remittanceData->reason,
                 'base_currency' => $remittanceData->rate->base,
                 'amount_to_remit' => $remittanceData->amount * $remittanceData->rate->rate,
                 'currency_to_remit' => $remittanceData->rate->currency
@@ -41,12 +42,7 @@ class UserRemittancesController extends Controller
                 'status' => 'paid'
             ]);
 
-            SendBankTransfer::dispatch($remittance, BankTransferData::fromArray([
-                'account_number' => $remittanceData->recipient->account_number,
-                'bank_code' => $remittanceData->recipient->bank->code,
-                'amount' => $remittanceData->amount * $remittanceData->rate->rate,
-                'currency' => $remittanceData->rate->currency
-            ]));
+            SendBankTransfer::dispatch($remittance, $remittanceData->recipient);
 
             return response()->json([
                 'message' => 'Remittance in progress.',

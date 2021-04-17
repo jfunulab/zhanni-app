@@ -14,6 +14,7 @@ class RemittanceData extends DataTransferObject
 
     public ?float $amount;
     public ?float $convertedAmount;
+    public ?string $reason;
     public ?ExchangeRate $rate;
     public ?UserCard $card;
     public ?TransferRecipient $recipient;
@@ -22,6 +23,7 @@ class RemittanceData extends DataTransferObject
     {
         return new self([
             'amount' => (float) $remittanceData['amount'] ?? null,
+            'reason' => $remittanceData['reason'] ?? null,
             'convertedAmount' => (float) $remittanceData['converted_amount'] ?? null,
             'rate' => ExchangeRate::findOrFail($remittanceData['rate']),
             'card' => UserCard::findOrFail($remittanceData['card']),

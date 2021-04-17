@@ -17,6 +17,7 @@ class CreateDebitPaymentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('remittance_id');
             $table->unsignedBigInteger('recipient_id');
+            $table->string('reference')->nullable();
             $table->float('amount');
             $table->string('currency');
             $table->string('status');

@@ -34,6 +34,7 @@ class InitiateTransferTest extends TestCase
         $response = $this->postJson("/api/users/$user->id/remittances",[
             'amount' => 50,
             'converted_amount' => 50 * 381.05,
+            'reason' => 'For some reason',
             'rate' => $rate->id,
             'card' => $user->cards[0]->id,
             'recipient' => $recipient->id,

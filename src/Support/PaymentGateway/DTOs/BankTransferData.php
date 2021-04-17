@@ -11,6 +11,7 @@ class BankTransferData extends DataTransferObject
     public ?string $accountNumber;
     public ?string $bankCode;
     public ?string $currency;
+    public ?string $description;
     public ?float $amount;
 
     public static function fromArray(array $array): BankTransferData
@@ -18,6 +19,7 @@ class BankTransferData extends DataTransferObject
         return new self([
             'accountNumber' => $array['account_number'] ?? null,
             'bankCode' => $array['bank_code'] ?? null,
+            'description' => $array['description'] ?? null,
             'amount' => $array['amount'] ?? null,
             'currency' => $array['currency'] ?? null,
         ]);
