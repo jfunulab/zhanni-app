@@ -26,7 +26,7 @@ class InitiateRemittanceRequest extends FormRequest
     public function rules()
     {
         return [
-            'reason' => ['required'],
+            'reason' => ['string'],
             'amount' => ['required'],
             'converted_amount' => ['required'],
             'rate' => ['required'],
