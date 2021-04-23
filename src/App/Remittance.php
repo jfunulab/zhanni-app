@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Domain\PaymentMethods\Models\TransferRecipient;
 use Domain\Users\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -39,5 +40,10 @@ class Remittance extends Model
     public function debitPayment(): HasOne
     {
         return $this->hasOne(DebitPayment::class);
+    }
+
+    public function recipient(): BelongsTo
+    {
+        return $this->belongsTo(TransferRecipient::class);
     }
 }

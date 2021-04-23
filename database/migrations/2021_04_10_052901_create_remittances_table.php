@@ -16,12 +16,16 @@ class CreateRemittancesTable extends Migration
         Schema::create('remittances', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('recipient_id')->nullable()->index();
             $table->string('reason')->nullable();
             $table->float('base_amount');
             $table->string('base_currency', 10);
             $table->float('amount_to_remit');
             $table->string('currency_to_remit');
             $table->timestamps();
+
+            $table->foreign('user_id')->on('users')->references('id')->onDelete('cascade');
+            $table->foreign('recipient_id')->on('transfer_recipients')->references('id')->onDelete('set null');
         });
     }
 
