@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Domain\Countries\Models\Country;
 use Domain\Countries\Models\CountryState;
+use Domain\Users\Models\User;
 use Domain\Users\Models\UserAddress;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,6 +25,7 @@ class UserAddressFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => User::factory(),
             'country_id' => Country::factory(),
             'state_id' => CountryState::factory(),
             'line_one' => $this->faker->streetName,

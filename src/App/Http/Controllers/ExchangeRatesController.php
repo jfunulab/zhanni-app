@@ -15,11 +15,7 @@ class ExchangeRatesController extends Controller
 
         return response()->json([
             'message' => '',
-            'data' => [
-                'rate' => $rate,
-                'base' => $request->from,
-                'currency' => $request->to
-            ]
+            'data' => $rate
         ]);
     }
 }

@@ -12,6 +12,7 @@ use App\Http\Controllers\Banks\BanksController;
 use App\Http\Controllers\Countries\CountriesController;
 use App\Http\Controllers\Countries\CountryStatesController;
 use App\Http\Controllers\ExchangeRatesController;
+use App\Http\Controllers\UserRemittancesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,7 +45,12 @@ Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name(
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/banks', [BanksController::class, 'index']);
     Route::put('/users/{user}', [UsersController::class, 'update']);
+    Route::get('/users/{user}/cards', [UserCardsController::class, 'index']);
     Route::post('/users/{user}/cards', [UserCardsController::class, 'store']);
     Route::post('/users/{user}/address', [UserAddressController::class, 'store']);
+    Route::get('/users/{user}/recipients', [UserRecipientsController::class, 'index']);
     Route::post('/users/{user}/recipients', [UserRecipientsController::class, 'store']);
+
+    Route::get('/users/{user}/remittances', [UserRemittancesController::class, 'index']);
+    Route::post('/users/{user}/remittances', [UserRemittancesController::class, 'store']);
 });

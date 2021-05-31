@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Users;
 
 use Domain\Users\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -23,7 +23,7 @@ class AddCardToAccountTest extends TestCase
             'payment_method_id' => getStripeToken()['id'],
             'expiry_month' => 05,
             'expiry_year' => 2022,
-            'postal_code' => 004455
+            'postal_code' => '004455'
         ];
 
         $response = $this->postJson("/api/users/$user->id/cards", $cardDetails);

@@ -4,12 +4,11 @@
 namespace Support\ExchangeRate\Actions;
 
 
-use Illuminate\Support\Facades\Http;
-
+use App\ExchangeRate;
 class GetExchangeRateAction
 {
-    public function __invoke(string $from, $to)
+    public function __invoke(string $from, string $to)
     {
-        return 380;
+        return ExchangeRate::where(['base' => $from, 'currency' => $to])->firstOrFail();
     }
 }

@@ -4,6 +4,7 @@ namespace Domain\Users\Models;
 
 use App\Notifications\EmailVerificationNotification;
 use App\Notifications\SendPasswordResetCodeNotification;
+use App\Remittance;
 use Domain\PaymentMethods\Models\TransferRecipient;
 use Domain\PaymentMethods\Models\UserCard;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -31,6 +32,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password',
         'remember_token',
+        'stripe_id',
     ];
 
     /**
@@ -47,6 +49,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return !is_null($this->email_verified_at);
     }
 
+    public function getFullNameAttribute(): string
+    {
+        return $this->first_name." ".$this->last_name;
+    }
+
     public function cards(): HasMany
     {
         return $this->hasMany(UserCard::class);
@@ -55,6 +62,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function address(): HasOne
     {
         return $this->hasOne(UserAddress::class);
+    }
+
+    public function remittances(): HasMany
+    {
+        return $this->hasMany(Remittance::class);
     }
 
     public function recipients(): HasMany
@@ -75,5 +87,35 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendPasswordResetNotification($token)
     {
         $this->notify(app()->make(SendPasswordResetCodeNotification::class, ['token' => $token]));
+    }
+
+    /**
+     * Update customer's default payment method.
+     *
+     * @param  \Stripe\PaymentMethod|string  $paymentMethod
+     * @return \Laravel\Cashier\PaymentMethod
+     */
+    public function updateDefaultPaymentMethod($paymentMethod)
+    {
+        $this->assertCustomerExists();
+
+        $customer = $this->asStripeCustomer();
+
+        $stripePaymentMethod = $this->resolveStripePaymentMethod($paymentMethod);
+
+        // If the customer already has the payment method as their default, we can bail out
+        // of the call now. We don't need to keep adding the same payment method to this
+        // model's account every single time we go through this specific process call.
+        if ($stripePaymentMethod->id === $customer->invoice_settings->default_payment_method) {
+            return;
+        }
+
+        $paymentMethod = $this->addPaymentMethod($stripePaymentMethod);
+
+        $customer->invoice_settings = ['default_payment_method' => $paymentMethod->id];
+
+        $customer->save($this->stripeOptions());
+
+        return $paymentMethod;
     }
 }

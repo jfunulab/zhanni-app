@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\ExchangeRate;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,7 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CountrySeeder::class,
             StateSeeder::class,
-            BankSeeder::class
+            BankSeeder::class,
+            ExchangeRateSeeder::class
         ]);
     }
 }

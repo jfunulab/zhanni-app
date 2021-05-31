@@ -37,7 +37,7 @@ class AddUserCardActionTest extends TestCase
             'payment_method_id' => getStripeToken()['id'],
             'expiry_month' => 05,
             'expiry_year' => 2022,
-            'postal_code' => 004455
+            'postal_code' => '004455'
         ]);
 
         $userCardData = UserCardData::fromRequest($request);

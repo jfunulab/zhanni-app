@@ -42,9 +42,8 @@ class AddUserAddressActionTest extends TestCase
             'address_line_two' => $this->faker->streetAddress,
             'postal_code' => $this->faker->postcode
         ];
-        $request = new AddUserAddressRequest($addressDetails);
 
-        $userAddressData = UserData::fromRequest($request);
+        $userAddressData = UserData::fromArray($addressDetails);
         $userAddress = ($this->action)($user, $userAddressData);
 
         $this->assertNotNull($userAddress);

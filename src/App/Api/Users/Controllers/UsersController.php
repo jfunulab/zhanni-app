@@ -3,18 +3,19 @@
 namespace App\Api\Users\Controllers;
 
 use App\Api\Users\Requests\CreateUserRequest;
-use App\Http\Requests\UpdateUserRequest;
+use App\Api\Users\Requests\UpdateUserRequest;
 use Domain\Users\Actions\CreateUserAction;
 use Domain\Users\Actions\UpdateUserAction;
 use Domain\Users\DTOs\UserData;
 use Domain\Users\Models\User;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\JsonResponse;
 
 class UsersController
 {
-    public function store(CreateUserRequest $request, CreateUserAction $createUserAction)
+    public function store(CreateUserRequest $request, CreateUserAction $createUserAction): JsonResponse
     {
-        $userData = UserData::fromRequest($request);
+        $userData = UserData::fromArray($request->all());
         $user = $createUserAction($userData);
 
         event(new Registered($user));
@@ -28,9 +29,9 @@ class UsersController
         ], 201);
     }
 
-    public function update(User $user, UpdateUserRequest $request, UpdateUserAction $updateUserAction)
+    public function update(User $user, UpdateUserRequest $request, UpdateUserAction $updateUserAction): JsonResponse
     {
-        $userData = UserData::fromRequest($request);
+        $userData = UserData::fromArray($request->all());
 
         $user = $updateUserAction($user, $userData);
 

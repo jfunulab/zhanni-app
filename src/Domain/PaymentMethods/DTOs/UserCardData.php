@@ -13,7 +13,7 @@ class UserCardData extends DataTransferObject
     public ?string $paymentMethodId;
     public ?int $expiryMonth;
     public ?int $expiryYear;
-    public ?int $postalCode;
+    public ?string $postalCode;
 
     public static function fromRequest(FormRequest $request): self
     {

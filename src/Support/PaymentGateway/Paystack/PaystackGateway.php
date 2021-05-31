@@ -25,7 +25,17 @@ class PaystackGateway implements LocalPaymentGateway, MakesBankTransfer
 
     public function transfer(BankTransferData $transferData)
     {
+        if($resolvedAccount = $this->verifyAccountNumber($transferData)){
+            $transferRecipient = $this->createTransferRecipient($transferData, $resolvedAccount);
+            $response = $this->client->post('transfer', [
+                'source' => 'balance',
+                'reason' => $transferData->description,
+                'amount' => $transferData->amount * 100,
+                'recipient' => $transferRecipient->recipientCode,
+            ]);
 
+            return $response->json() ;
+        }
     }
 
     public function verifyAccountNumber(BankTransferData $transferData): ?ResolvedBankData

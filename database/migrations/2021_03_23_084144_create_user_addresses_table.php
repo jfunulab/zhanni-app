@@ -18,9 +18,9 @@ class CreateUserAddressesTable extends Migration
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('country_id')->index()->nullable();
             $table->unsignedBigInteger('state_id')->index()->nullable();
-            $table->string('line_one');
+            $table->string('line_one')->nullable();
             $table->string('line_two')->nullable();
-            $table->string('postal_code');
+            $table->string('postal_code')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
