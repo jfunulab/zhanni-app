@@ -6,10 +6,21 @@ use App\Http\Requests\BuyBidRequest;
 use Domain\Bids\Actions\BuyBidAction;
 use Domain\Bids\DTOs\BidPurchaseData;
 use Domain\Bids\Models\Bid;
+use Domain\Users\Models\User;
 use Illuminate\Http\JsonResponse;
 
 class UserBidOrdersController extends Controller
 {
+
+    public function buyIndex(User $user)
+    {
+        $bids = $user->bidBuyOrders()->paginate(15);
+
+        return response()->json([
+            'message' => 'Bids bought',
+            'data' => $bids
+        ]);
+    }
 
     public function store(Bid $bid, BuyBidRequest $bidRequest, BuyBidAction $buyBidAction): JsonResponse
     {

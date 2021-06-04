@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
-use App\BidOrder;
+use Domain\Bids\Models\Bid;
+use Domain\Bids\Models\BidOrder;
+use Domain\Users\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BidOrderFactory extends Factory
@@ -19,10 +21,18 @@ class BidOrderFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
+        $bid = Bid::factory()->create();
         return [
-            //
+            'user_id' => User::factory(),
+            'bid_id' => $bid->id,
+            'seller_id' => $bid->user->id,
+            'minimum_amount' => $bid->minimum_amount,
+            'maximum_amount' => $bid->maximum_amount,
+            'rate' => $bid->rate,
+            'origin_currency' => $bid->origin_currency,
+            'destination_currency' => $bid->destination_currency
         ];
     }
 }
