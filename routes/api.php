@@ -13,6 +13,7 @@ use App\Http\Controllers\BidsController;
 use App\Http\Controllers\Countries\CountriesController;
 use App\Http\Controllers\Countries\CountryStatesController;
 use App\Http\Controllers\ExchangeRatesController;
+use App\Http\Controllers\UserBidOrdersController;
 use App\Http\Controllers\UserBidsController;
 use App\Http\Controllers\UserRemittancesController;
 use Illuminate\Http\Request;
@@ -59,4 +60,5 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     //Bidding
     Route::get('/bids', [BidsController::class, 'index']);
     Route::post('/users/{user}/bids', [UserBidsController::class, 'store']);
+    Route::post('/bids/{bid}/orders', [UserBidOrdersController::class, 'store']);
 });
