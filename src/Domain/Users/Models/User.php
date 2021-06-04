@@ -5,6 +5,7 @@ namespace Domain\Users\Models;
 use App\Notifications\EmailVerificationNotification;
 use App\Notifications\SendPasswordResetCodeNotification;
 use App\Remittance;
+use Domain\Bids\Models\Bid;
 use Domain\PaymentMethods\Models\TransferRecipient;
 use Domain\PaymentMethods\Models\UserCard;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -72,6 +73,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function recipients(): HasMany
     {
         return $this->hasMany(TransferRecipient::class);
+    }
+
+    public function bids(): HasMany
+    {
+        return $this->hasMany(Bid::class);
     }
 
     /**

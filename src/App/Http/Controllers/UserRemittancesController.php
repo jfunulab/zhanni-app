@@ -14,7 +14,8 @@ class UserRemittancesController extends Controller
 
     public function index(User $user)
     {
-        $remittances = $user->remittances()->with(['creditPayment.source', 'debitPayment.recipient.bank', 'recipient.bank', 'recipient.user'])->get();
+        $remittances = $user->remittances()
+            ->with(['creditPayment.source', 'debitPayment.recipient.bank', 'recipient.bank', 'recipient.user'])->get();
 
         return response()->json([
             'message' => 'User remittances',
