@@ -9,6 +9,7 @@ use App\Api\Users\Controllers\UserRecipientsController;
 use App\Api\Users\Controllers\UsersController;
 use App\Api\Users\Controllers\VerificationController;
 use App\Http\Controllers\Banks\BanksController;
+use App\Http\Controllers\BidsController;
 use App\Http\Controllers\Countries\CountriesController;
 use App\Http\Controllers\Countries\CountryStatesController;
 use App\Http\Controllers\ExchangeRatesController;
@@ -56,5 +57,6 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('/users/{user}/remittances', [UserRemittancesController::class, 'store']);
 
     //Bidding
+    Route::get('/bids', [BidsController::class, 'index']);
     Route::post('/users/{user}/bids', [UserBidsController::class, 'store']);
 });

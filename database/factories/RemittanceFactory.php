@@ -23,7 +23,7 @@ class RemittanceFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'user_id' => User::factory(),
@@ -35,7 +35,7 @@ class RemittanceFactory extends Factory
         ];
     }
 
-    public function configure()
+    public function configure(): RemittanceFactory
     {
         return $this->afterCreating(function($remittance){
             CreditPayment::factory()->for($remittance)->create();

@@ -2,7 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Bid;
+use Domain\Bids\Models\Bid;
+use Domain\Users\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BidFactory extends Factory
@@ -19,10 +20,15 @@ class BidFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            //
+            'user_id' => User::factory(),
+            'minimum_amount' => $this->faker->randomDigitNotNull,
+            'maximum_amount' => $this->faker->randomDigitNotNull,
+            'rate' => $this->faker->randomDigitNotNull,
+            'origin_currency' => $this->faker->currencyCode,
+            'destination_currency' => $this->faker->currencyCode
         ];
     }
 }
