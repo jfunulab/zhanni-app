@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     //Bidding
     Route::get('/bids', [BidsController::class, 'index']);
     Route::post('/users/{user}/bids', [UserBidsController::class, 'store']);
+    Route::get('/users/{user}/bids/sell-orders', [UserBidOrdersController::class, 'sellIndex']);
     Route::get('/users/{user}/bids/buy-orders', [UserBidOrdersController::class, 'buyIndex']);
     Route::post('/bids/{bid}/orders', [UserBidOrdersController::class, 'store']);
 });

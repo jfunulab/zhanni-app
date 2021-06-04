@@ -12,12 +12,22 @@ use Illuminate\Http\JsonResponse;
 class UserBidOrdersController extends Controller
 {
 
-    public function buyIndex(User $user)
+    public function buyIndex(User $user): JsonResponse
     {
         $bids = $user->bidBuyOrders()->paginate(15);
 
         return response()->json([
             'message' => 'Bids bought',
+            'data' => $bids
+        ]);
+    }
+
+    public function sellIndex(User $user): JsonResponse
+    {
+        $bids = $user->bidSellOrders()->paginate(15);
+
+        return response()->json([
+            'message' => 'Bids sold',
             'data' => $bids
         ]);
     }
