@@ -80,6 +80,6 @@ class PaystackTest extends TestCase
     {
         $this->paystackGateway->getBankList();
 
-        $this->assertCount(52, Bank::all());
+        $this->assertCount(54, Bank::all());
     }
 }
