@@ -107,6 +107,21 @@ return [
             'routes' => ['users/*'],
         ],
         [
+            'name' => 'Banks',
+            'classes' => ['*Bank*'],
+            'routes' => ['banks/*'],
+        ],
+        [
+            'name' => 'Bids',
+            'classes' => ['*Bid*'],
+            'routes' => ['bids/*'],
+        ],
+        [
+            'name' => 'Remittance',
+            'classes' => ['*Remittance*'],
+            'routes' => ['remittances/*'],
+        ],
+        [
             'name' => 'Other Modules',
             'classes' => ['*'],
         ],

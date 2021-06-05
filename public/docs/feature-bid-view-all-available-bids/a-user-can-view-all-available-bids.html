@@ -118,13 +118,27 @@
                                         x-on:click="open = !open"
                                         type="button" name="toggle panel"
                                             class="group flex w-full text-left items-center px-2 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
-                                        Other Modules
+                                        Banks
                                     </button>
                                     <div class="w-full" x-cloak x-show="open">
                                                                                     <a href="/docs/feature-banks-get-bank-list.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Get Bank List
                                             </a>
+                                                                                    <a href="/docs/feature-get-bank-list-action.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Bank List Action
+                                            </a>
+                                                                            </div>
+                                </div>
+                                                            <div class="flex flex-col space-y-2" x-data="{open: false}">
+                                    <button
+                                        x-on:click="open = !open"
+                                        type="button" name="toggle panel"
+                                            class="group flex w-full text-left items-center px-2 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                        Bids
+                                    </button>
+                                    <div class="w-full" x-cloak x-show="open">
                                                                                     <a href="/docs/feature-bid-buy-bid.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Buy Bid
@@ -133,10 +147,42 @@
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Create Bid
                                             </a>
+                                                                                    <a href="/docs/feature-bid-get-buyer-bid-offers.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Buyer Bid Offers
+                                            </a>
+                                                                                    <a href="/docs/feature-bid-get-seller-bid-offers.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Seller Bid Offers
+                                            </a>
                                                                                     <a href="/docs/feature-bid-view-all-available-bids.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 View All Available Bids
                                             </a>
+                                                                            </div>
+                                </div>
+                                                            <div class="flex flex-col space-y-2" x-data="{open: false}">
+                                    <button
+                                        x-on:click="open = !open"
+                                        type="button" name="toggle panel"
+                                            class="group flex w-full text-left items-center px-2 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                        Remittance
+                                    </button>
+                                    <div class="w-full" x-cloak x-show="open">
+                                                                                    <a href="/docs/feature-remittance-initiate-transfer.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Initiate Transfer
+                                            </a>
+                                                                            </div>
+                                </div>
+                                                            <div class="flex flex-col space-y-2" x-data="{open: false}">
+                                    <button
+                                        x-on:click="open = !open"
+                                        type="button" name="toggle panel"
+                                            class="group flex w-full text-left items-center px-2 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                        Other Modules
+                                    </button>
+                                    <div class="w-full" x-cloak x-show="open">
                                                                                     <a href="/docs/feature-countries-get-country-list.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Get Country List
@@ -145,17 +191,9 @@
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Get Country State Lists
                                             </a>
-                                                                                    <a href="/docs/feature-get-bank-list-action.html"
-                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
-                                                Get Bank List Action
-                                            </a>
                                                                                     <a href="/docs/feature-get-exchange-rates.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Get Exchange Rates
-                                            </a>
-                                                                                    <a href="/docs/feature-remittance-initiate-transfer.html"
-                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
-                                                Initiate Transfer
                                             </a>
                                                                             </div>
                                 </div>
@@ -177,7 +215,7 @@
                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
  
                 </span>
-                                                             <div run="{&quot;id&quot;:2,&quot;branch&quot;:&quot;develop&quot;,&quot;head&quot;:&quot;d5441dd&quot;,&quot;modified&quot;:1,&quot;created_at&quot;:&quot;2021-06-05T07:37:07.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:07.000000Z&quot;,&quot;groups&quot;:[{&quot;id&quot;:22,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Banks\\GetBankListTest&quot;,&quot;title&quot;:&quot;Get Bank List&quot;,&quot;slug&quot;:&quot;feature-banks-get-bank-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:23.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:23.000000Z&quot;},{&quot;id&quot;:23,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\BuyBidTest&quot;,&quot;title&quot;:&quot;Buy Bid&quot;,&quot;slug&quot;:&quot;feature-bid-buy-bid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:23.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:23.000000Z&quot;},{&quot;id&quot;:24,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\CreateBidTest&quot;,&quot;title&quot;:&quot;Create Bid&quot;,&quot;slug&quot;:&quot;feature-bid-create-bid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:23.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:23.000000Z&quot;},{&quot;id&quot;:25,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\ViewAllAvailableBidsTest&quot;,&quot;title&quot;:&quot;View All Available Bids&quot;,&quot;slug&quot;:&quot;feature-bid-view-all-available-bids&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:23.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:23.000000Z&quot;},{&quot;id&quot;:26,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Countries\\GetCountryListTest&quot;,&quot;title&quot;:&quot;Get Country List&quot;,&quot;slug&quot;:&quot;feature-countries-get-country-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:24.000000Z&quot;},{&quot;id&quot;:27,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Countries\\GetCountryStateListsTest&quot;,&quot;title&quot;:&quot;Get Country State Lists&quot;,&quot;slug&quot;:&quot;feature-countries-get-country-state-lists&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:24.000000Z&quot;},{&quot;id&quot;:28,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\GetBankListActionTest&quot;,&quot;title&quot;:&quot;Get Bank List Action&quot;,&quot;slug&quot;:&quot;feature-get-bank-list-action&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:24.000000Z&quot;},{&quot;id&quot;:29,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\GetExchangeRatesTest&quot;,&quot;title&quot;:&quot;Get Exchange Rates&quot;,&quot;slug&quot;:&quot;feature-get-exchange-rates&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:24.000000Z&quot;},{&quot;id&quot;:30,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Remittance\\GetUserRemittancesTest&quot;,&quot;title&quot;:&quot;Get User Remittances&quot;,&quot;slug&quot;:&quot;feature-remittance-get-user-remittances&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:24.000000Z&quot;},{&quot;id&quot;:31,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Remittance\\InitiateTransferTest&quot;,&quot;title&quot;:&quot;Initiate Transfer&quot;,&quot;slug&quot;:&quot;feature-remittance-initiate-transfer&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:24.000000Z&quot;},{&quot;id&quot;:32,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\AddCardToAccountTest&quot;,&quot;title&quot;:&quot;Add Card To Account&quot;,&quot;slug&quot;:&quot;feature-users-add-card-to-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:29.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:29.000000Z&quot;},{&quot;id&quot;:33,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\AddRecipientToUserAccountTest&quot;,&quot;title&quot;:&quot;Add Recipient To User Account&quot;,&quot;slug&quot;:&quot;feature-users-add-recipient-to-user-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:32.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:32.000000Z&quot;},{&quot;id&quot;:34,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\CreateUserTest&quot;,&quot;title&quot;:&quot;Create User&quot;,&quot;slug&quot;:&quot;feature-users-create-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:33.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:33.000000Z&quot;},{&quot;id&quot;:35,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserCardsTest&quot;,&quot;title&quot;:&quot;Get User Cards&quot;,&quot;slug&quot;:&quot;feature-users-get-user-cards&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:33.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:33.000000Z&quot;},{&quot;id&quot;:36,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserRecipientsTest&quot;,&quot;title&quot;:&quot;Get User Recipients&quot;,&quot;slug&quot;:&quot;feature-users-get-user-recipients&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:33.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:33.000000Z&quot;},{&quot;id&quot;:37,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\RequestPasswordResetTest&quot;,&quot;title&quot;:&quot;Request Password Reset&quot;,&quot;slug&quot;:&quot;feature-users-request-password-reset&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:33.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:33.000000Z&quot;},{&quot;id&quot;:38,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResendUserAccountVerificationCodeTest&quot;,&quot;title&quot;:&quot;Resend User Account Verification Code&quot;,&quot;slug&quot;:&quot;feature-users-resend-user-account-verification-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:33.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:33.000000Z&quot;},{&quot;id&quot;:39,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResetPasswordWithCodeTest&quot;,&quot;title&quot;:&quot;Reset Password With Code&quot;,&quot;slug&quot;:&quot;feature-users-reset-password-with-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:33.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:33.000000Z&quot;},{&quot;id&quot;:40,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UpdateUserTest&quot;,&quot;title&quot;:&quot;Update User&quot;,&quot;slug&quot;:&quot;feature-users-update-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:34.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:34.000000Z&quot;},{&quot;id&quot;:41,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UserLoginTest&quot;,&quot;title&quot;:&quot;User Login&quot;,&quot;slug&quot;:&quot;feature-users-user-login&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:34.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:34.000000Z&quot;},{&quot;id&quot;:42,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\VerifyAccountTest&quot;,&quot;title&quot;:&quot;Verify Account&quot;,&quot;slug&quot;:&quot;feature-users-verify-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T07:37:34.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T07:37:34.000000Z&quot;}]}" class="hidden md:flex relative flex-1"
+                                                             <div run="{&quot;id&quot;:2,&quot;branch&quot;:&quot;develop&quot;,&quot;head&quot;:&quot;5e2533a&quot;,&quot;modified&quot;:1,&quot;created_at&quot;:&quot;2021-06-05T08:07:04.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:07:04.000000Z&quot;,&quot;groups&quot;:[{&quot;id&quot;:64,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Banks\\GetBankListTest&quot;,&quot;title&quot;:&quot;Get Bank List&quot;,&quot;slug&quot;:&quot;feature-banks-get-bank-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:09.000000Z&quot;},{&quot;id&quot;:65,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\BuyBidTest&quot;,&quot;title&quot;:&quot;Buy Bid&quot;,&quot;slug&quot;:&quot;feature-bid-buy-bid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:09.000000Z&quot;},{&quot;id&quot;:66,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\CreateBidTest&quot;,&quot;title&quot;:&quot;Create Bid&quot;,&quot;slug&quot;:&quot;feature-bid-create-bid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:09.000000Z&quot;},{&quot;id&quot;:67,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\GetBuyerBidOffersTest&quot;,&quot;title&quot;:&quot;Get Buyer Bid Offers&quot;,&quot;slug&quot;:&quot;feature-bid-get-buyer-bid-offers&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:09.000000Z&quot;},{&quot;id&quot;:68,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\GetSellerBidOffersTest&quot;,&quot;title&quot;:&quot;Get Seller Bid Offers&quot;,&quot;slug&quot;:&quot;feature-bid-get-seller-bid-offers&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:09.000000Z&quot;},{&quot;id&quot;:69,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\ViewAllAvailableBidsTest&quot;,&quot;title&quot;:&quot;View All Available Bids&quot;,&quot;slug&quot;:&quot;feature-bid-view-all-available-bids&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:10.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:10.000000Z&quot;},{&quot;id&quot;:70,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Countries\\GetCountryListTest&quot;,&quot;title&quot;:&quot;Get Country List&quot;,&quot;slug&quot;:&quot;feature-countries-get-country-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:10.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:10.000000Z&quot;},{&quot;id&quot;:71,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Countries\\GetCountryStateListsTest&quot;,&quot;title&quot;:&quot;Get Country State Lists&quot;,&quot;slug&quot;:&quot;feature-countries-get-country-state-lists&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:10.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:10.000000Z&quot;},{&quot;id&quot;:72,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\GetBankListActionTest&quot;,&quot;title&quot;:&quot;Get Bank List Action&quot;,&quot;slug&quot;:&quot;feature-get-bank-list-action&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:10.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:10.000000Z&quot;},{&quot;id&quot;:73,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\GetExchangeRatesTest&quot;,&quot;title&quot;:&quot;Get Exchange Rates&quot;,&quot;slug&quot;:&quot;feature-get-exchange-rates&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:10.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:10.000000Z&quot;},{&quot;id&quot;:74,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Remittance\\GetUserRemittancesTest&quot;,&quot;title&quot;:&quot;Get User Remittances&quot;,&quot;slug&quot;:&quot;feature-remittance-get-user-remittances&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:10.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:10.000000Z&quot;},{&quot;id&quot;:75,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Remittance\\InitiateTransferTest&quot;,&quot;title&quot;:&quot;Initiate Transfer&quot;,&quot;slug&quot;:&quot;feature-remittance-initiate-transfer&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:11.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:11.000000Z&quot;},{&quot;id&quot;:76,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\AddCardToAccountTest&quot;,&quot;title&quot;:&quot;Add Card To Account&quot;,&quot;slug&quot;:&quot;feature-users-add-card-to-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:16.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:16.000000Z&quot;},{&quot;id&quot;:77,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\AddRecipientToUserAccountTest&quot;,&quot;title&quot;:&quot;Add Recipient To User Account&quot;,&quot;slug&quot;:&quot;feature-users-add-recipient-to-user-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:21.000000Z&quot;},{&quot;id&quot;:78,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\CreateUserTest&quot;,&quot;title&quot;:&quot;Create User&quot;,&quot;slug&quot;:&quot;feature-users-create-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:21.000000Z&quot;},{&quot;id&quot;:79,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserCardsTest&quot;,&quot;title&quot;:&quot;Get User Cards&quot;,&quot;slug&quot;:&quot;feature-users-get-user-cards&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;},{&quot;id&quot;:80,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserRecipientsTest&quot;,&quot;title&quot;:&quot;Get User Recipients&quot;,&quot;slug&quot;:&quot;feature-users-get-user-recipients&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;},{&quot;id&quot;:81,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\RequestPasswordResetTest&quot;,&quot;title&quot;:&quot;Request Password Reset&quot;,&quot;slug&quot;:&quot;feature-users-request-password-reset&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;},{&quot;id&quot;:82,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResendUserAccountVerificationCodeTest&quot;,&quot;title&quot;:&quot;Resend User Account Verification Code&quot;,&quot;slug&quot;:&quot;feature-users-resend-user-account-verification-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;},{&quot;id&quot;:83,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResetPasswordWithCodeTest&quot;,&quot;title&quot;:&quot;Reset Password With Code&quot;,&quot;slug&quot;:&quot;feature-users-reset-password-with-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;},{&quot;id&quot;:84,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UpdateUserTest&quot;,&quot;title&quot;:&quot;Update User&quot;,&quot;slug&quot;:&quot;feature-users-update-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;},{&quot;id&quot;:85,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UserLoginTest&quot;,&quot;title&quot;:&quot;User Login&quot;,&quot;slug&quot;:&quot;feature-users-user-login&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:22.000000Z&quot;},{&quot;id&quot;:86,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\VerifyAccountTest&quot;,&quot;title&quot;:&quot;Verify Account&quot;,&quot;slug&quot;:&quot;feature-users-verify-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-06-05T08:16:23.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-06-05T08:16:23.000000Z&quot;}]}" class="hidden md:flex relative flex-1"
      x-data='{
          open: true,
          results: [],
@@ -216,7 +254,7 @@
                                             <div class="text-gray-200 font-light px-4 flex justify-center">
                             <strong>develop</strong>
                                                             <span class="text-red-500 text-lg px-2">*</span>
-                                                        d5441dd
+                                                        5e2533a
                         </div>
                                         <a href="https://github.com/StydeNet/enlighten"
                        class="text-gray-100 hover:text-gray-500 focus:outline-none" aria-label="Notifications">
@@ -267,10 +305,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_37'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_105'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_37' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_105' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -367,7 +405,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Sat, 05 Jun 2021 07:37:24 GMT</td>
+                > Sat, 05 Jun 2021 08:16:10 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -408,167 +446,167 @@
         {
             &quot;id&quot;: 1,
             &quot;user_id&quot;: &quot;2&quot;,
-            &quot;minimum_amount&quot;: &quot;8&quot;,
-            &quot;maximum_amount&quot;: &quot;7&quot;,
+            &quot;minimum_amount&quot;: &quot;1&quot;,
+            &quot;maximum_amount&quot;: &quot;2&quot;,
             &quot;rate&quot;: &quot;3&quot;,
-            &quot;origin_currency&quot;: &quot;TRY&quot;,
-            &quot;destination_currency&quot;: &quot;HUF&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;origin_currency&quot;: &quot;BZD&quot;,
+            &quot;destination_currency&quot;: &quot;DZD&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
             &quot;user_id&quot;: &quot;3&quot;,
-            &quot;minimum_amount&quot;: &quot;7&quot;,
-            &quot;maximum_amount&quot;: &quot;9&quot;,
-            &quot;rate&quot;: &quot;5&quot;,
-            &quot;origin_currency&quot;: &quot;NGN&quot;,
-            &quot;destination_currency&quot;: &quot;TOP&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;minimum_amount&quot;: &quot;4&quot;,
+            &quot;maximum_amount&quot;: &quot;6&quot;,
+            &quot;rate&quot;: &quot;1&quot;,
+            &quot;origin_currency&quot;: &quot;LAK&quot;,
+            &quot;destination_currency&quot;: &quot;LYD&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
             &quot;user_id&quot;: &quot;4&quot;,
-            &quot;minimum_amount&quot;: &quot;2&quot;,
-            &quot;maximum_amount&quot;: &quot;4&quot;,
-            &quot;rate&quot;: &quot;7&quot;,
-            &quot;origin_currency&quot;: &quot;ARS&quot;,
-            &quot;destination_currency&quot;: &quot;BRL&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;minimum_amount&quot;: &quot;9&quot;,
+            &quot;maximum_amount&quot;: &quot;6&quot;,
+            &quot;rate&quot;: &quot;4&quot;,
+            &quot;origin_currency&quot;: &quot;HNL&quot;,
+            &quot;destination_currency&quot;: &quot;MZN&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 4,
             &quot;user_id&quot;: &quot;5&quot;,
-            &quot;minimum_amount&quot;: &quot;7&quot;,
-            &quot;maximum_amount&quot;: &quot;4&quot;,
-            &quot;rate&quot;: &quot;3&quot;,
-            &quot;origin_currency&quot;: &quot;SYP&quot;,
-            &quot;destination_currency&quot;: &quot;LKR&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;minimum_amount&quot;: &quot;3&quot;,
+            &quot;maximum_amount&quot;: &quot;2&quot;,
+            &quot;rate&quot;: &quot;2&quot;,
+            &quot;origin_currency&quot;: &quot;MMK&quot;,
+            &quot;destination_currency&quot;: &quot;XAF&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 5,
             &quot;user_id&quot;: &quot;6&quot;,
-            &quot;minimum_amount&quot;: &quot;2&quot;,
-            &quot;maximum_amount&quot;: &quot;9&quot;,
-            &quot;rate&quot;: &quot;5&quot;,
-            &quot;origin_currency&quot;: &quot;IQD&quot;,
-            &quot;destination_currency&quot;: &quot;NOK&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;minimum_amount&quot;: &quot;3&quot;,
+            &quot;maximum_amount&quot;: &quot;7&quot;,
+            &quot;rate&quot;: &quot;7&quot;,
+            &quot;origin_currency&quot;: &quot;SDG&quot;,
+            &quot;destination_currency&quot;: &quot;SYP&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 6,
             &quot;user_id&quot;: &quot;7&quot;,
-            &quot;minimum_amount&quot;: &quot;4&quot;,
-            &quot;maximum_amount&quot;: &quot;2&quot;,
-            &quot;rate&quot;: &quot;6&quot;,
-            &quot;origin_currency&quot;: &quot;IRR&quot;,
-            &quot;destination_currency&quot;: &quot;LAK&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;minimum_amount&quot;: &quot;3&quot;,
+            &quot;maximum_amount&quot;: &quot;5&quot;,
+            &quot;rate&quot;: &quot;7&quot;,
+            &quot;origin_currency&quot;: &quot;TRY&quot;,
+            &quot;destination_currency&quot;: &quot;AED&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 7,
             &quot;user_id&quot;: &quot;8&quot;,
-            &quot;minimum_amount&quot;: &quot;1&quot;,
-            &quot;maximum_amount&quot;: &quot;3&quot;,
-            &quot;rate&quot;: &quot;9&quot;,
-            &quot;origin_currency&quot;: &quot;ETB&quot;,
-            &quot;destination_currency&quot;: &quot;MUR&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;minimum_amount&quot;: &quot;3&quot;,
+            &quot;maximum_amount&quot;: &quot;1&quot;,
+            &quot;rate&quot;: &quot;2&quot;,
+            &quot;origin_currency&quot;: &quot;VND&quot;,
+            &quot;destination_currency&quot;: &quot;AMD&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 8,
             &quot;user_id&quot;: &quot;9&quot;,
-            &quot;minimum_amount&quot;: &quot;3&quot;,
-            &quot;maximum_amount&quot;: &quot;3&quot;,
-            &quot;rate&quot;: &quot;5&quot;,
+            &quot;minimum_amount&quot;: &quot;4&quot;,
+            &quot;maximum_amount&quot;: &quot;1&quot;,
+            &quot;rate&quot;: &quot;3&quot;,
             &quot;origin_currency&quot;: &quot;UYU&quot;,
-            &quot;destination_currency&quot;: &quot;ISK&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;destination_currency&quot;: &quot;EUR&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 9,
             &quot;user_id&quot;: &quot;10&quot;,
-            &quot;minimum_amount&quot;: &quot;6&quot;,
-            &quot;maximum_amount&quot;: &quot;9&quot;,
-            &quot;rate&quot;: &quot;5&quot;,
-            &quot;origin_currency&quot;: &quot;LYD&quot;,
-            &quot;destination_currency&quot;: &quot;OMR&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;minimum_amount&quot;: &quot;9&quot;,
+            &quot;maximum_amount&quot;: &quot;8&quot;,
+            &quot;rate&quot;: &quot;6&quot;,
+            &quot;origin_currency&quot;: &quot;ERN&quot;,
+            &quot;destination_currency&quot;: &quot;MVR&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 10,
             &quot;user_id&quot;: &quot;11&quot;,
-            &quot;minimum_amount&quot;: &quot;3&quot;,
+            &quot;minimum_amount&quot;: &quot;8&quot;,
             &quot;maximum_amount&quot;: &quot;1&quot;,
-            &quot;rate&quot;: &quot;5&quot;,
-            &quot;origin_currency&quot;: &quot;BMD&quot;,
-            &quot;destination_currency&quot;: &quot;FJD&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;rate&quot;: &quot;3&quot;,
+            &quot;origin_currency&quot;: &quot;NIO&quot;,
+            &quot;destination_currency&quot;: &quot;ARS&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 11,
             &quot;user_id&quot;: &quot;12&quot;,
-            &quot;minimum_amount&quot;: &quot;1&quot;,
+            &quot;minimum_amount&quot;: &quot;6&quot;,
             &quot;maximum_amount&quot;: &quot;6&quot;,
-            &quot;rate&quot;: &quot;3&quot;,
-            &quot;origin_currency&quot;: &quot;CAD&quot;,
-            &quot;destination_currency&quot;: &quot;NZD&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;rate&quot;: &quot;7&quot;,
+            &quot;origin_currency&quot;: &quot;VES&quot;,
+            &quot;destination_currency&quot;: &quot;KGS&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 12,
             &quot;user_id&quot;: &quot;13&quot;,
-            &quot;minimum_amount&quot;: &quot;6&quot;,
-            &quot;maximum_amount&quot;: &quot;2&quot;,
-            &quot;rate&quot;: &quot;4&quot;,
-            &quot;origin_currency&quot;: &quot;KZT&quot;,
-            &quot;destination_currency&quot;: &quot;NGN&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;minimum_amount&quot;: &quot;1&quot;,
+            &quot;maximum_amount&quot;: &quot;9&quot;,
+            &quot;rate&quot;: &quot;5&quot;,
+            &quot;origin_currency&quot;: &quot;GYD&quot;,
+            &quot;destination_currency&quot;: &quot;BRL&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 13,
             &quot;user_id&quot;: &quot;14&quot;,
-            &quot;minimum_amount&quot;: &quot;9&quot;,
-            &quot;maximum_amount&quot;: &quot;9&quot;,
-            &quot;rate&quot;: &quot;4&quot;,
-            &quot;origin_currency&quot;: &quot;SYP&quot;,
-            &quot;destination_currency&quot;: &quot;SDG&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;minimum_amount&quot;: &quot;4&quot;,
+            &quot;maximum_amount&quot;: &quot;8&quot;,
+            &quot;rate&quot;: &quot;3&quot;,
+            &quot;origin_currency&quot;: &quot;WST&quot;,
+            &quot;destination_currency&quot;: &quot;BIF&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 14,
             &quot;user_id&quot;: &quot;15&quot;,
-            &quot;minimum_amount&quot;: &quot;9&quot;,
-            &quot;maximum_amount&quot;: &quot;2&quot;,
-            &quot;rate&quot;: &quot;6&quot;,
-            &quot;origin_currency&quot;: &quot;CDF&quot;,
-            &quot;destination_currency&quot;: &quot;FKP&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;minimum_amount&quot;: &quot;8&quot;,
+            &quot;maximum_amount&quot;: &quot;9&quot;,
+            &quot;rate&quot;: &quot;3&quot;,
+            &quot;origin_currency&quot;: &quot;KGS&quot;,
+            &quot;destination_currency&quot;: &quot;PKR&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         },
         {
             &quot;id&quot;: 15,
             &quot;user_id&quot;: &quot;16&quot;,
             &quot;minimum_amount&quot;: &quot;5&quot;,
-            &quot;maximum_amount&quot;: &quot;3&quot;,
-            &quot;rate&quot;: &quot;4&quot;,
-            &quot;origin_currency&quot;: &quot;TTD&quot;,
-            &quot;destination_currency&quot;: &quot;EGP&quot;,
-            &quot;created_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-06-05T07:37:23.000000Z&quot;
+            &quot;maximum_amount&quot;: &quot;8&quot;,
+            &quot;rate&quot;: &quot;6&quot;,
+            &quot;origin_currency&quot;: &quot;XOF&quot;,
+            &quot;destination_currency&quot;: &quot;BMD&quot;,
+            &quot;created_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-05T08:16:10.000000Z&quot;
         }
     ],
     &quot;first_page_url&quot;: &quot;http:\/\/zhanni-api.test\/api\/bids?page=1&quot;,
@@ -583,22 +621,22 @@
         },
         {
             &quot;url&quot;: &quot;http:\/\/zhanni-api.test\/api\/bids?page=1&quot;,
-            &quot;label&quot;: 1,
+            &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
         {
             &quot;url&quot;: &quot;http:\/\/zhanni-api.test\/api\/bids?page=2&quot;,
-            &quot;label&quot;: 2,
+            &quot;label&quot;: &quot;2&quot;,
             &quot;active&quot;: false
         },
         {
             &quot;url&quot;: &quot;http:\/\/zhanni-api.test\/api\/bids?page=3&quot;,
-            &quot;label&quot;: 3,
+            &quot;label&quot;: &quot;3&quot;,
             &quot;active&quot;: false
         },
         {
             &quot;url&quot;: &quot;http:\/\/zhanni-api.test\/api\/bids?page=4&quot;,
-            &quot;label&quot;: 4,
+            &quot;label&quot;: &quot;4&quot;,
             &quot;active&quot;: false
         },
         {

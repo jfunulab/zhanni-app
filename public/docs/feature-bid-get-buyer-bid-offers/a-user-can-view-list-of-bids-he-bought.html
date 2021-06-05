@@ -276,8 +276,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-verify-account.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Verify Account
+            <a href="/docs/feature-bid-get-buyer-bid-offers.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Get Buyer Bid Offers
                             </a>
         </li>
     </ul>
@@ -287,7 +287,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user cannot verify their account with code sent to them via email if account is already verified
+            A user can view list of bids he bought
               
         </div></h3>
                     </div>
@@ -305,10 +305,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_133'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_103'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_133' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_103' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -321,17 +321,17 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Method: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > POST</td>
+                > GET</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/email/verify/{user}/{code}</td>
+                > api/users/{user}/bids/buy-orders</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/email/verify/1/873284</td>
+                > api/users/1/bids/buy-orders</td>
             </tr>
             </table>
 </div>
@@ -348,11 +348,6 @@
     <tbody>
                     <tr class="break-all">
                 <td class="py-2 px-4 font-thin text-gray-200">user</td>
-                <td class="py-2 px-4 font-thin text-teal-300">*</td>
-                <td class="py-2 px-4 font-thin text-teal-300">Required</td>
-            </tr>
-                    <tr class="break-all">
-                <td class="py-2 px-4 font-thin text-gray-200">code</td>
                 <td class="py-2 px-4 font-thin text-teal-300">*</td>
                 <td class="py-2 px-4 font-thin text-teal-300">Required</td>
             </tr>
@@ -375,7 +370,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</td>
+                > application/json</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">user-agent: </td>
@@ -385,12 +380,17 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > application/x-www-form-urlencoded</td>
+                > application/json</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-charset: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
                 > ISO-8859-1,utf-8;q=0.7,*;q=0.7</td>
+            </tr>
+                    <tr>
+                <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
+                <td class="font-thin break-all text-teal-300 pr-4"
+                > 2</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -409,7 +409,7 @@
         <h3 class="text-base text-gray-300">Response</h3>
     </span>
     <div class="p-4 space-x-4">
-        <span class="p-1 bg-warning-200 text-warning-700">422</span>
+        <span class="p-1 bg-success-200 text-success-700">200</span>
         <span class="text-gray-100">JSON</span>
     </div>
 
@@ -422,7 +422,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Sat, 05 Jun 2021 08:16:23 GMT</td>
+                > Sat, 05 Jun 2021 08:16:09 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -437,12 +437,12 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">x-ratelimit-limit: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 6</td>
+                > 60</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">x-ratelimit-remaining: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 5</td>
+                > 59</td>
             </tr>
             </table>
 </div>
@@ -458,7 +458,239 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;Account already verified&quot;
+    &quot;message&quot;: &quot;Bids bought&quot;,
+    &quot;data&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;1&quot;,
+                &quot;seller_id&quot;: &quot;2&quot;,
+                &quot;minimum_amount&quot;: &quot;8&quot;,
+                &quot;maximum_amount&quot;: &quot;6&quot;,
+                &quot;rate&quot;: &quot;7&quot;,
+                &quot;origin_currency&quot;: &quot;TOP&quot;,
+                &quot;destination_currency&quot;: &quot;LAK&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;2&quot;,
+                &quot;seller_id&quot;: &quot;3&quot;,
+                &quot;minimum_amount&quot;: &quot;3&quot;,
+                &quot;maximum_amount&quot;: &quot;1&quot;,
+                &quot;rate&quot;: &quot;5&quot;,
+                &quot;origin_currency&quot;: &quot;XAF&quot;,
+                &quot;destination_currency&quot;: &quot;MXN&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 3,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;3&quot;,
+                &quot;seller_id&quot;: &quot;4&quot;,
+                &quot;minimum_amount&quot;: &quot;7&quot;,
+                &quot;maximum_amount&quot;: &quot;8&quot;,
+                &quot;rate&quot;: &quot;8&quot;,
+                &quot;origin_currency&quot;: &quot;BND&quot;,
+                &quot;destination_currency&quot;: &quot;HNL&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 4,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;4&quot;,
+                &quot;seller_id&quot;: &quot;5&quot;,
+                &quot;minimum_amount&quot;: &quot;7&quot;,
+                &quot;maximum_amount&quot;: &quot;7&quot;,
+                &quot;rate&quot;: &quot;3&quot;,
+                &quot;origin_currency&quot;: &quot;RUB&quot;,
+                &quot;destination_currency&quot;: &quot;CUP&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 5,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;5&quot;,
+                &quot;seller_id&quot;: &quot;6&quot;,
+                &quot;minimum_amount&quot;: &quot;3&quot;,
+                &quot;maximum_amount&quot;: &quot;3&quot;,
+                &quot;rate&quot;: &quot;9&quot;,
+                &quot;origin_currency&quot;: &quot;HTG&quot;,
+                &quot;destination_currency&quot;: &quot;XCD&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 6,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;6&quot;,
+                &quot;seller_id&quot;: &quot;7&quot;,
+                &quot;minimum_amount&quot;: &quot;5&quot;,
+                &quot;maximum_amount&quot;: &quot;7&quot;,
+                &quot;rate&quot;: &quot;2&quot;,
+                &quot;origin_currency&quot;: &quot;COP&quot;,
+                &quot;destination_currency&quot;: &quot;MVR&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 7,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;7&quot;,
+                &quot;seller_id&quot;: &quot;8&quot;,
+                &quot;minimum_amount&quot;: &quot;8&quot;,
+                &quot;maximum_amount&quot;: &quot;9&quot;,
+                &quot;rate&quot;: &quot;4&quot;,
+                &quot;origin_currency&quot;: &quot;BWP&quot;,
+                &quot;destination_currency&quot;: &quot;ETB&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 8,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;8&quot;,
+                &quot;seller_id&quot;: &quot;9&quot;,
+                &quot;minimum_amount&quot;: &quot;5&quot;,
+                &quot;maximum_amount&quot;: &quot;8&quot;,
+                &quot;rate&quot;: &quot;1&quot;,
+                &quot;origin_currency&quot;: &quot;IRR&quot;,
+                &quot;destination_currency&quot;: &quot;EUR&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 9,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;9&quot;,
+                &quot;seller_id&quot;: &quot;10&quot;,
+                &quot;minimum_amount&quot;: &quot;2&quot;,
+                &quot;maximum_amount&quot;: &quot;8&quot;,
+                &quot;rate&quot;: &quot;9&quot;,
+                &quot;origin_currency&quot;: &quot;MGA&quot;,
+                &quot;destination_currency&quot;: &quot;HKD&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 10,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;10&quot;,
+                &quot;seller_id&quot;: &quot;11&quot;,
+                &quot;minimum_amount&quot;: &quot;9&quot;,
+                &quot;maximum_amount&quot;: &quot;5&quot;,
+                &quot;rate&quot;: &quot;1&quot;,
+                &quot;origin_currency&quot;: &quot;FJD&quot;,
+                &quot;destination_currency&quot;: &quot;KGS&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 11,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;11&quot;,
+                &quot;seller_id&quot;: &quot;12&quot;,
+                &quot;minimum_amount&quot;: &quot;9&quot;,
+                &quot;maximum_amount&quot;: &quot;6&quot;,
+                &quot;rate&quot;: &quot;4&quot;,
+                &quot;origin_currency&quot;: &quot;ARS&quot;,
+                &quot;destination_currency&quot;: &quot;DKK&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 12,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;12&quot;,
+                &quot;seller_id&quot;: &quot;13&quot;,
+                &quot;minimum_amount&quot;: &quot;3&quot;,
+                &quot;maximum_amount&quot;: &quot;2&quot;,
+                &quot;rate&quot;: &quot;2&quot;,
+                &quot;origin_currency&quot;: &quot;KRW&quot;,
+                &quot;destination_currency&quot;: &quot;TJS&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 13,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;13&quot;,
+                &quot;seller_id&quot;: &quot;14&quot;,
+                &quot;minimum_amount&quot;: &quot;3&quot;,
+                &quot;maximum_amount&quot;: &quot;6&quot;,
+                &quot;rate&quot;: &quot;9&quot;,
+                &quot;origin_currency&quot;: &quot;LBP&quot;,
+                &quot;destination_currency&quot;: &quot;KHR&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 14,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;14&quot;,
+                &quot;seller_id&quot;: &quot;15&quot;,
+                &quot;minimum_amount&quot;: &quot;2&quot;,
+                &quot;maximum_amount&quot;: &quot;4&quot;,
+                &quot;rate&quot;: &quot;2&quot;,
+                &quot;origin_currency&quot;: &quot;SOS&quot;,
+                &quot;destination_currency&quot;: &quot;STN&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 15,
+                &quot;user_id&quot;: &quot;1&quot;,
+                &quot;bid_id&quot;: &quot;15&quot;,
+                &quot;seller_id&quot;: &quot;16&quot;,
+                &quot;minimum_amount&quot;: &quot;8&quot;,
+                &quot;maximum_amount&quot;: &quot;4&quot;,
+                &quot;rate&quot;: &quot;2&quot;,
+                &quot;origin_currency&quot;: &quot;YER&quot;,
+                &quot;destination_currency&quot;: &quot;JOD&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T08:16:09.000000Z&quot;
+            }
+        ],
+        &quot;first_page_url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/1\/bids\/buy-orders?page=1&quot;,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 2,
+        &quot;last_page_url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/1\/bids\/buy-orders?page=2&quot;,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/1\/bids\/buy-orders?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/1\/bids\/buy-orders?page=2&quot;,
+                &quot;label&quot;: &quot;2&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/1\/bids\/buy-orders?page=2&quot;,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;next_page_url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/1\/bids\/buy-orders?page=2&quot;,
+        &quot;path&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/1\/bids\/buy-orders&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;prev_page_url&quot;: null,
+        &quot;to&quot;: 15,
+        &quot;total&quot;: 20
+    }
 }</code></pre>
 </div> 
     </div>
