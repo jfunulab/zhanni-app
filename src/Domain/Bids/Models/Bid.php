@@ -13,6 +13,16 @@ class Bid extends Model
 
     protected $guarded = [];
 
+    public function getMaximumAmountAttribute($value)
+    {
+        return $value/100;
+    }
+
+    public function getMinimumAmountAttribute($value)
+    {
+        return $value/100;
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
