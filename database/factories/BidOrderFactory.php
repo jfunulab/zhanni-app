@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use Domain\Bids\Models\Bid;
 use Domain\Bids\Models\BidOrder;
+use Domain\PaymentMethods\Models\TransferRecipient;
+use Domain\PaymentMethods\Models\UserCard;
 use Domain\Users\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -32,7 +34,9 @@ class BidOrderFactory extends Factory
             'maximum_amount' => $bid->maximum_amount,
             'rate' => $bid->rate,
             'origin_currency' => $bid->origin_currency,
-            'destination_currency' => $bid->destination_currency
+            'destination_currency' => $bid->destination_currency,
+            'buyer_funding_account_id' => UserCard::factory(),
+            'buyer_receiving_account_id' => TransferRecipient::factory()
         ];
     }
 }

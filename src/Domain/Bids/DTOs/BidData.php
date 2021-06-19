@@ -12,6 +12,8 @@ class BidData extends DataTransferObject
     public ?int $minimumAmount;
     public ?int $maximumAmount;
     public ?int $rate;
+    public ?int $fundingAccount;
+    public ?int $receivingAccount;
     public ?string $originCurrency;
     public ?string $destinationCurrency;
 
@@ -23,6 +25,8 @@ class BidData extends DataTransferObject
             'rate' => $bidData['rate'] ?? null,
             'originCurrency' => $bidData['origin_currency'],
             'destinationCurrency' => $bidData['destination_currency'],
+            'fundingAccount' => $bidData['funding_account_id'],
+            'receivingAccount' => $bidData['receiving_account_id'],
         ]);
     }
 }

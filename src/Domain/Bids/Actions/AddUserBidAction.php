@@ -18,7 +18,9 @@ class AddUserBidAction
             'maximum_amount' => $bidData->maximumAmount,
             'rate' => $bidData->rate,
             'origin_currency' => $bidData->originCurrency,
-            'destination_currency' => $bidData->destinationCurrency
+            'destination_currency' => $bidData->destinationCurrency,
+            'funding_account_id' => $bidData->fundingAccount,
+            'receiving_account_id' => $bidData->receivingAccount,
         ]);
     }
 }

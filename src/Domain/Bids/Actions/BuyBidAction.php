@@ -18,7 +18,9 @@ class BuyBidAction
             'maximum_amount' => $bidPurchaseData->bid->maximum_amount,
             'rate' => $bidPurchaseData->bid->rate,
             'origin_currency' => $bidPurchaseData->bid->origin_currency,
-            'destination_currency' => $bidPurchaseData->bid->destination_currency
+            'destination_currency' => $bidPurchaseData->bid->destination_currency,
+            'buyer_funding_account_id' => $bidPurchaseData->fundingAccount,
+            'buyer_receiving_account_id' => $bidPurchaseData->receivingAccount,
         ]);
     }
 }

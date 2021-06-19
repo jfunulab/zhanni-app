@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Domain\Bids\Models\Bid;
+use Domain\PaymentMethods\Models\TransferRecipient;
+use Domain\PaymentMethods\Models\UserCard;
 use Domain\Users\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -28,7 +30,9 @@ class BidFactory extends Factory
             'maximum_amount' => $this->faker->randomDigitNotNull,
             'rate' => $this->faker->randomDigitNotNull,
             'origin_currency' => $this->faker->currencyCode,
-            'destination_currency' => $this->faker->currencyCode
+            'destination_currency' => $this->faker->currencyCode,
+            'funding_account_id' => UserCard::factory(),
+            'receiving_account_id' => TransferRecipient::factory()
         ];
     }
 }

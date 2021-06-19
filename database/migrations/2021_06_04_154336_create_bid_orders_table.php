@@ -23,6 +23,8 @@ class CreateBidOrdersTable extends Migration
             $table->integer('rate');
             $table->string('origin_currency');
             $table->string('destination_currency');
+            $table->bigInteger('buyer_funding_account_id')->nullable();
+            $table->bigInteger('buyer_receiving_account_id')->nullable();
             $table->timestamps();
         });
     }
