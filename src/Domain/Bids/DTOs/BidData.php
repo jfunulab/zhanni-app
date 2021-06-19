@@ -23,10 +23,10 @@ class BidData extends DataTransferObject
             'minimumAmount' => ($bidData['minimum_amount'] * 100) ?? null,
             'maximumAmount' => ($bidData['maximum_amount'] * 100) ?? null,
             'rate' => $bidData['rate'] ?? null,
-            'originCurrency' => $bidData['origin_currency'],
-            'destinationCurrency' => $bidData['destination_currency'],
-            'fundingAccount' => $bidData['funding_account_id'],
-            'receivingAccount' => $bidData['receiving_account_id'],
+            'originCurrency' => $bidData['origin_currency'] ?? null,
+            'destinationCurrency' => $bidData['destination_currency'] ?? null,
+            'fundingAccount' => $bidData['funding_account_id'] ?? null,
+            'receivingAccount' => $bidData['receiving_account_id'] ?? null,
         ]);
     }
 }

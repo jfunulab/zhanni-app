@@ -26,8 +26,8 @@ class BidPurchaseData extends DataTransferObject
             'rate' => (int) $bid->rate,
             'originCurrency' => $bid->origin_currency,
             'destinationCurrency' => $bid->destination_currency,
-            'fundingAccount' => $bidPurchaseData['buyer_funding_account_id'],
-            'receivingAccount' => $bidPurchaseData['buyer_receiving_account_id']
+            'fundingAccount' => $bidPurchaseData['buyer_funding_account_id'] ?? null,
+            'receivingAccount' => $bidPurchaseData['buyer_receiving_account_id'] ?? null
         ]);
     }
 }
