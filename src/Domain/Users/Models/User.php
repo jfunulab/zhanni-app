@@ -107,6 +107,17 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Route notifications for the Slack channel.
+     *
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return string
+     */
+    public function routeNotificationForSlack($notification)
+    {
+        return config('services.slack.dump');
+    }
+
+    /**
      * Update customer's default payment method.
      *
      * @param  \Stripe\PaymentMethod|string  $paymentMethod

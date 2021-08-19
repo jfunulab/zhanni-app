@@ -13,8 +13,10 @@ use App\Http\Controllers\BidsController;
 use App\Http\Controllers\Countries\CountriesController;
 use App\Http\Controllers\Countries\CountryStatesController;
 use App\Http\Controllers\ExchangeRatesController;
+use App\Http\Controllers\PlaidSilaTokenDumpController;
 use App\Http\Controllers\UserBidOrdersController;
 use App\Http\Controllers\UserBidsController;
+use App\Http\Controllers\UserPlaidController;
 use App\Http\Controllers\UserRemittancesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +45,7 @@ Route::post('/email/resend', [VerificationController::class, 'resend'])->name('v
 Route::post('/email/verify/{user}/{code}', [VerificationController::class, 'verify'])->name('verification.verify');
 Route::post('/password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
+Route::post('users/{user}/plaid-link-token', [UserPlaidController::class, 'generate']);
 
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
@@ -56,6 +59,8 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 
     Route::get('/users/{user}/remittances', [UserRemittancesController::class, 'index']);
     Route::post('/users/{user}/remittances', [UserRemittancesController::class, 'store']);
+
+    Route::post('/users/{user}/plaid-sila-token', [PlaidSilaTokenDumpController::class, 'store']);
 
     //Bidding
     Route::get('/bids', [BidsController::class, 'index']);

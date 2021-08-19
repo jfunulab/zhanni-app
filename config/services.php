@@ -42,4 +42,17 @@ return [
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
     ],
+    'plaid' => [
+        'app_name' => env('PLAID_APP_NAME'),
+        'client_id' => env('PLAID_CLIENT_ID'),
+        'secret' => env('PLAID_SECRET'),
+        'env' => env('PLAID_ENVIRONMENT', 'sandbox')
+    ],
+    'sila' => [
+        'app_handle' => env('SILA_APP_HANDLE'),
+        'private_key' => env('SILA_PRIVATE_KEY')
+    ],
+    'slack' => [
+        'dump' => env('SLACK_DUMP_CHANNEL')
+    ]
 ];

@@ -17,7 +17,7 @@ class CreateCountryStatesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('country_id')->index();
             $table->string('name', 100);
-            $table->string('code', 10);
+            $table->string('code', 100);
             $table->timestamps();
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
         });
