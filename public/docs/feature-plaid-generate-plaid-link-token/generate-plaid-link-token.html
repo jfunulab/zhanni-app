@@ -292,8 +292,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-verify-account.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Verify Account
+            <a href="/docs/feature-plaid-generate-plaid-link-token.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Generate Plaid Link Token
                             </a>
         </li>
     </ul>
@@ -303,7 +303,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user cannot verify account for another user
+            Generate plaid link token
               
         </div></h3>
                     </div>
@@ -321,10 +321,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_110'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_85'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_110' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_85' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -342,12 +342,12 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/email/verify/{user}/{code}</td>
+                > api/users/{user}/plaid-link-token</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/email/verify/433/873284</td>
+                > api/users/391/plaid-link-token</td>
             </tr>
             </table>
 </div>
@@ -364,11 +364,6 @@
     <tbody>
                     <tr class="break-all">
                 <td class="py-2 px-4 font-thin text-gray-200">user</td>
-                <td class="py-2 px-4 font-thin text-teal-300">*</td>
-                <td class="py-2 px-4 font-thin text-teal-300">Required</td>
-            </tr>
-                    <tr class="break-all">
-                <td class="py-2 px-4 font-thin text-gray-200">code</td>
                 <td class="py-2 px-4 font-thin text-teal-300">*</td>
                 <td class="py-2 px-4 font-thin text-teal-300">Required</td>
             </tr>
@@ -391,7 +386,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</td>
+                > application/json</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">user-agent: </td>
@@ -401,12 +396,17 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > application/x-www-form-urlencoded</td>
+                > application/json</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-charset: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
                 > ISO-8859-1,utf-8;q=0.7,*;q=0.7</td>
+            </tr>
+                    <tr>
+                <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
+                <td class="font-thin break-all text-teal-300 pr-4"
+                > 2</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -425,7 +425,7 @@
         <h3 class="text-base text-gray-300">Response</h3>
     </span>
     <div class="p-4 space-x-4">
-        <span class="p-1 bg-warning-200 text-warning-700">422</span>
+        <span class="p-1 bg-success-200 text-success-700">200</span>
         <span class="text-gray-100">JSON</span>
     </div>
 
@@ -438,7 +438,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Thu, 19 Aug 2021 18:11:54 GMT</td>
+                > Thu, 19 Aug 2021 18:11:21 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -453,12 +453,12 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">x-ratelimit-limit: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 6</td>
+                > 60</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">x-ratelimit-remaining: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 5</td>
+                > 59</td>
             </tr>
             </table>
 </div>
@@ -474,7 +474,10 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;Invalid verification code&quot;
+    &quot;message&quot;: &quot;Plaid link token&quot;,
+    &quot;data&quot;: {
+        &quot;token&quot;: &quot;link-sandbox-c43f68c1-21fc-4d7a-a175-1cf62919b408&quot;
+    }
 }</code></pre>
 </div> 
     </div>

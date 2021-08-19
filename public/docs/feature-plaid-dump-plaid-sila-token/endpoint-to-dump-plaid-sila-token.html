@@ -292,8 +292,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-verify-account.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Verify Account
+            <a href="/docs/feature-plaid-dump-plaid-sila-token.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Dump Plaid Sila Token
                             </a>
         </li>
     </ul>
@@ -303,7 +303,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user cannot verify account for another user
+            Endpoint to dump plaid sila token
               
         </div></h3>
                     </div>
@@ -321,10 +321,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_110'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_84'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_110' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_84' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -342,12 +342,12 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/email/verify/{user}/{code}</td>
+                > api/users/{user}/plaid-sila-token</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/email/verify/433/873284</td>
+                > api/users/390/plaid-sila-token</td>
             </tr>
             </table>
 </div>
@@ -367,15 +367,27 @@
                 <td class="py-2 px-4 font-thin text-teal-300">*</td>
                 <td class="py-2 px-4 font-thin text-teal-300">Required</td>
             </tr>
-                    <tr class="break-all">
-                <td class="py-2 px-4 font-thin text-gray-200">code</td>
-                <td class="py-2 px-4 font-thin text-teal-300">*</td>
-                <td class="py-2 px-4 font-thin text-teal-300">Required</td>
-            </tr>
             </tbody>
 </table>
  
     
+             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
+    <thead>
+        <tr class="bg-gray-500">
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Input</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr>
+                <td class="px-4 py-2 font-thin text-gray-200">token</td>
+                <td class="px-4 py-2 font-thin text-teal-300 break-all">
+                                            mYMACRqmHm13E9YW
+                                    </td>
+            </tr>
+            </tbody>
+</table>
+ 
     
              <div>
              <span class="block bg-gray-500 py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal w-full"
@@ -391,7 +403,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</td>
+                > application/json</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">user-agent: </td>
@@ -401,12 +413,17 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > application/x-www-form-urlencoded</td>
+                > application/json</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-charset: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
                 > ISO-8859-1,utf-8;q=0.7,*;q=0.7</td>
+            </tr>
+                    <tr>
+                <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
+                <td class="font-thin break-all text-teal-300 pr-4"
+                > 28</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -425,8 +442,8 @@
         <h3 class="text-base text-gray-300">Response</h3>
     </span>
     <div class="p-4 space-x-4">
-        <span class="p-1 bg-warning-200 text-warning-700">422</span>
-        <span class="text-gray-100">JSON</span>
+        <span class="p-1 bg-success-200 text-success-700">200</span>
+        <span class="text-gray-100">HTML</span>
     </div>
 
              <div>
@@ -438,12 +455,12 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Thu, 19 Aug 2021 18:11:54 GMT</td>
+                > Thu, 19 Aug 2021 18:11:17 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > application/json</td>
+                > text/html; charset=UTF-8</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">cache-control: </td>
@@ -453,12 +470,12 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">x-ratelimit-limit: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 6</td>
+                > 60</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">x-ratelimit-remaining: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 5</td>
+                > 59</td>
             </tr>
             </table>
 </div>
@@ -470,13 +487,55 @@
                                                     </div>
                         <div class="h-full relative">
                                                              <div class="h-full">
-             <div >
+             <div x-data="{
+        open: false,
+        collapsed: 0
+    }"
+     x-bind:class="{
+        'fixed top-0 left-0 w-screen h-screen p-8 bg-gray-800 z-50': open,
+        'h-full relative': !open
+     }"
+     
+    >
+    <button x-on:click="open = !open" type="button"
+            x-bind:class="{'m-4': open}"
+            class="text-white focus:outline-none p-1 m-1 bg-black opacity-25 hover:opacity-75 rounded-lg absolute top-0 right-0">
+        <svg x-cloak x-show="open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        <svg x-cloak x-show="!open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+    </button>
+    <div class="w-full h-full" x-bind:class="{'max-h-120 pb-0': (!open && collapsed), ' pb-8': open}">
+        <div x-data="{active: 'preview'}" class="flex flex-col h-full">
+                    <div class="block">
+                <div class="flex space-x-4 mb-4">
+                                                                    <button
+                                x-on:click="active='preview'"
+                                x-bind:class="{'bg-teal-700 text-teal-900': (active !== 'preview'), 'bg-teal-300 text-teal-800': (active === 'preview')}"
+                                class="px-4 py-1 text-sm rounded-full focus:outline-none hover:bg-teal-500 transition-all ease-in-out duration-100"
+                        >Preview</button>
+                                                                                            <button
+                                x-on:click="active='html'"
+                                x-bind:class="{'bg-teal-700 text-teal-900': (active !== 'html'), 'bg-teal-300 text-teal-800': (active === 'html')}"
+                                class="px-4 py-1 text-sm rounded-full focus:outline-none hover:bg-teal-500 transition-all ease-in-out duration-100"
+                        >HTML</button>
+                                                                                                        </div>
+            </div>
+        
+        <div class="w-full h-full">
+                                                 <div x-cloak x-show="active === 'preview' " class="h-full">
+                         <iframe class="h-full w-full bg-white rounded-md" srcdoc=""></iframe>
+                     </div>
+                                                                 <div x-cloak x-show="active === 'html' " class="h-full">
+                         <div >
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
-    ><code class="language-json">{
-    &quot;message&quot;: &quot;Invalid verification code&quot;
-}</code></pre>
-</div> 
+    ><code class="language-html"></code></pre>
+</div>
+                     </div>
+                                                                </div>
+</div>
+    </div>
+</div>
+ 
     </div>
  
                                                     </div>
