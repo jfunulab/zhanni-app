@@ -8,6 +8,7 @@ use App\Remittance;
 use Domain\Bids\Models\Bid;
 use Domain\Bids\Models\BidOrder;
 use Domain\PaymentMethods\Models\TransferRecipient;
+use Domain\PaymentMethods\Models\BankAccount;
 use Domain\PaymentMethods\Models\UserCard;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -35,6 +36,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'remember_token',
         'stripe_id',
+        'sila_username',
+        'sila_token',
+        'sila_address'
     ];
 
     /**
@@ -44,6 +48,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'kyc_status' => 'boolean'
     ];
 
     public function getVerifiedAttribute(): bool
@@ -89,6 +94,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function bidSellOrders(): HasMany
     {
         return $this->hasMany(BidOrder::class, 'seller_id');
+    }
+
+    public function bankAccounts(): HasMany
+    {
+        return $this->hasMany(BankAccount::class);
     }
 
     /**

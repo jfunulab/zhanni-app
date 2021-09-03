@@ -13,7 +13,7 @@ class UserAddressController
 
     public function store(User $user, AddUserAddressRequest $request, AddUserAddressAction $addUserAddressAction)
     {
-        $userAddressData = UserAddressData::fromRequest($request);
+        $userAddressData = UserAddressData::fromArray($request->toArray());
         $address = $addUserAddressAction($user, $userAddressData);
 
         return response()->json([

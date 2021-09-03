@@ -11,7 +11,7 @@ class CreateBidRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,10 +21,15 @@ class CreateBidRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'receiving_account_id' => ['required', 'exists:bank_accounts,id'],
+            'rate' => ['required'],
+            'origin_currency' => ['required'],
+            'destination_currency' => ['required'],
+            'minimum_amount' => ['required'],
+            'maximum_amount' => ['required']
         ];
     }
 }

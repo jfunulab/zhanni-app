@@ -1,0 +1,25 @@
+<?php
+
+
+namespace Domain\PaymentMethods\DTOs;
+
+
+use Spatie\DataTransferObject\DataTransferObject;
+
+class SilaDebitAchData extends DataTransferObject
+{
+
+    public ?int $amount;
+    public ?string $description;
+    public ?string $accountName;
+
+
+    public static function fromArray(array $array): self
+    {
+        return new self([
+            'amount' => $array['amount'] ?? null,
+            'description' => $array['description'] ?? null,
+            'accountName' => $array['account_name'] ?? 'default'
+        ]);
+    }
+}

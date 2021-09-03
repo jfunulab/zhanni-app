@@ -39,6 +39,54 @@ class UpdateUserTest extends TestCase
     }
 
     /** @test */
+    function a_user_can_update_his_username()
+    {
+        $this->withoutExceptionHandling();
+
+        $user = User::factory()->newUser()->create();
+        Sanctum::actingAs($user);
+
+        $updateDetails = [
+            'username' => $this->faker->userName,
+        ];
+        $response = $this->putJson("/api/users/$user->id", $updateDetails);
+
+        $response->assertStatus(200)
+            ->assertJson([
+                'message' => 'User update successful.',
+                'data' => [
+                    'user' => [
+                        'username' => $updateDetails['username']
+                    ]
+                ]
+            ]);
+    }
+
+    /** @test */
+    function a_user_can_update_his_birth_date()
+    {
+        $this->withoutExceptionHandling();
+
+        $user = User::factory()->newUser()->create();
+        Sanctum::actingAs($user);
+
+        $updateDetails = [
+            'birth_date' => '1993-06-01',
+        ];
+        $response = $this->putJson("/api/users/$user->id", $updateDetails);
+
+        $response->assertStatus(200)
+            ->assertJson([
+                'message' => 'User update successful.',
+                'data' => [
+                    'user' => [
+                        'birth_date' => $updateDetails['birth_date']
+                    ]
+                ]
+            ]);
+    }
+
+    /** @test */
     function a_user_can_update_his_address()
     {
         $this->withoutExceptionHandling();
@@ -51,7 +99,8 @@ class UpdateUserTest extends TestCase
             'address_line_two' => $this->faker->streetName,
             'country' => $this->faker->country,
             'postal_code' => $this->faker->postcode,
-            'state' => $this->faker->state
+            'state' => $this->faker->state,
+            'city' => $this->faker->city,
         ];
         Country::factory()->create(['name' => $updateDetails['country']]);
         CountryState::factory()->create(['name' => $updateDetails['state']]);
@@ -82,6 +131,7 @@ class UpdateUserTest extends TestCase
             $this->assertEquals($updateDetails['address_line_two'], $user->address->line_two);
             $this->assertEquals($updateDetails['country'], $user->address->country->name);
             $this->assertEquals($updateDetails['state'], $user->address->state->name);
+            $this->assertEquals($updateDetails['city'], $user->address->city);
         });
     }
 }

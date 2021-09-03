@@ -5,7 +5,14 @@ namespace Tests\Feature;
 use DateTime;
 use Tests\TestCase;
 use Silamoney\Client\Api\SilaApi;
-use Silamoney\Client\Domain\{BalanceEnvironments, Country, Environments, IdentityAlias, PlaidTokenType, UserBuilder};
+use Silamoney\Client\Domain\{AchType,
+    BalanceEnvironments,
+    Country,
+    Environments,
+    IdentityAlias,
+    PlaidTokenType,
+    SearchFilters,
+    UserBuilder};
 
 class SampleSilaTest extends TestCase
 {
@@ -16,6 +23,8 @@ class SampleSilaTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->markTestSkipped('A playground test class');
+
         parent::setUp();
         $this->appHandle = config('services.sila.app_handle');
         $this->privateKey = config('services.sila.private_key');
@@ -120,16 +129,58 @@ class SampleSilaTest extends TestCase
     function linking_with_plaid_token()
     {
         // Plaid token flow
-        // Load your information
-       /* $accountName = null; // Defaults to 'default'
-        $accountId = null; // Recommended but not required. See note above.
-        $plaidToken = 'processor-sandbox-9894f517-d0aa-4f31-baa8-a6e9d4d8529f'; // A temporary token returned from the Plaid Link plugin. See above for testing.
+        $accountName = null; // Defaults to 'default'
+        $accountId = 'mnNb6JNJdqH1kyz9KW3MU1gw6mZoRDTLkVvep'; // Recommended but not required. See note above.
+        $plaidToken = 'processor-sandbox-23bc4f2a-95cd-42c4-9f61-8a8b1d981819'; // A temporary token returned from the Plaid Link plugin. See above for testing.
         $plaidTokenType = PlaidTokenType::PROCESSOR(); // Optional. Currently supported values are LEGACY (default), LINK and PROCESSOR
 
         $client = SilaApi::fromEnvironment(Environments::SANDBOX(), BalanceEnvironments::SANDBOX(), $this->appHandle, $this->privateKey);
 
         // Call the api
         $response = $client->linkAccount($this->userHandle, $this->userPrivateKey, $plaidToken, $accountName, $accountId, $plaidTokenType);
-        dump($response);*/
+        dump($response);
+    }
+
+    /** @test */
+    function get_linked_account_data()
+    {
+        // Plaid token flow
+        $client = SilaApi::fromEnvironment(Environments::SANDBOX(), BalanceEnvironments::SANDBOX(), $this->appHandle, $this->privateKey);
+
+        $response = $client->getAccounts($this->userHandle, $this->userPrivateKey);
+        dump($response);
+    }
+
+    /** @test */
+    function get_transaction_details()
+    {
+        // Plaid token flow
+        $client = SilaApi::fromEnvironment(Environments::SANDBOX(), BalanceEnvironments::SANDBOX(), $this->appHandle, $this->privateKey);
+
+        $filters = new SearchFilters();
+
+        // Call the api
+        $response = $client->getTransactions($this->userHandle, $filters, $this->userPrivateKey);
+        dump($response);
+    }
+
+    /** @test */
+    function issue_debit_ach_transfer_on_sila()
+    {
+        // Plaid token flow
+        $amount = 100;
+        $accountName = 'default';
+        $descriptor = 'Test sila issue'; // Optional
+        $businessUuid = 'a9f38290-ce34-42db-95ab-630ebba6084a'; // Optional
+        $processingType = AchType::SAME_DAY(); // Optional. Currently supported values are STANDARD (default if not set) and SAME_DAY
+
+        $client = SilaApi::fromEnvironment(Environments::SANDBOX(), BalanceEnvironments::SANDBOX(), $this->appHandle, $this->privateKey);
+
+        // Call the api
+        $response = $client->issueSila($this->userHandle, $amount, $accountName, $this->userPrivateKey, $descriptor, $businessUuid, $processingType);
+        dump($response->getData());
+        // transactionId: d6d0bc99-fd50-4b02-9881-1901c98b8bd4
+        // reference: a060045f-1cdb-494f-b392-59d42b61f3c8
+        // descriptor: Test sila issue
     }
 }

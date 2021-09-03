@@ -5,7 +5,7 @@ namespace Tests\Unit\User;
 use Domain\Countries\Models\Country;
 use Domain\Countries\Models\CountryState;
 use Domain\Users\Actions\UpdateUserAddressAction;
-use Domain\Users\DTOs\UserData;
+use Domain\Users\DTOs\UserAddressData;
 use Domain\Users\Models\UserAddress;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -34,7 +34,7 @@ class UpdateUserAddressActionTest extends TestCase
         ];
         Country::factory()->create(['name' => $updateDetails['country']]);
         CountryState::factory()->create(['name' => $updateDetails['state']]);
-        $userData = UserData::fromArray($updateDetails);
+        $userData = UserAddressData::fromArray($updateDetails);
 
         $userAddress = ($this->action)($address, $userData);
 

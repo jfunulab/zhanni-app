@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use Domain\Countries\Models\Country;
-use Domain\Countries\Models\CountryState;
+use Domain\PaymentMethods\Models\BankAccount;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CountryStateFactory extends Factory
+class BankAccountFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = CountryState::class;
+    protected $model = BankAccount::class;
 
     /**
      * Define the model's default state.
@@ -23,9 +22,8 @@ class CountryStateFactory extends Factory
     public function definition(): array
     {
         return [
-            'country_id' => Country::factory(),
-            'name' => $this->faker->state,
-            'code' => 'NY'
+            'account_name' => $this->faker->word,
+            'account_id' => $this->faker->word
         ];
     }
 }

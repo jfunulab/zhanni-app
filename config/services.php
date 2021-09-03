@@ -1,5 +1,7 @@
 <?php
 
+use Silamoney\Client\Domain\Environments;
+
 return [
 
     /*
@@ -47,10 +49,6 @@ return [
         'client_id' => env('PLAID_CLIENT_ID'),
         'secret' => env('PLAID_SECRET'),
         'env' => env('PLAID_ENVIRONMENT', 'sandbox')
-    ],
-    'sila' => [
-        'app_handle' => env('SILA_APP_HANDLE'),
-        'private_key' => env('SILA_PRIVATE_KEY')
     ],
     'slack' => [
         'dump' => env('SLACK_DUMP_CHANNEL')

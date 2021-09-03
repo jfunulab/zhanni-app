@@ -33,7 +33,7 @@ class CreateUserAction
             'password' => bcrypt($userData->password)
         ])->save();
 
-        ($this->addUserAddressAction)($user, $userData);
+        ($this->addUserAddressAction)($user, $userData->addressData);
 
         return $user->fresh(['address.country', 'address.state']);
     }

@@ -14,6 +14,8 @@ use App\Http\Controllers\Countries\CountriesController;
 use App\Http\Controllers\Countries\CountryStatesController;
 use App\Http\Controllers\ExchangeRatesController;
 use App\Http\Controllers\PlaidSilaTokenDumpController;
+use App\Http\Controllers\SilaWebhookController;
+use App\Http\Controllers\UserBankAccountsController;
 use App\Http\Controllers\UserBidOrdersController;
 use App\Http\Controllers\UserBidsController;
 use App\Http\Controllers\UserPlaidController;
@@ -46,11 +48,13 @@ Route::post('/email/verify/{user}/{code}', [VerificationController::class, 'veri
 Route::post('/password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 Route::post('users/{user}/plaid-link-token', [UserPlaidController::class, 'generate']);
+Route::post('sila/webhooks', [SilaWebhookController::class, 'handle']);
 
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/banks', [BanksController::class, 'index']);
     Route::put('/users/{user}', [UsersController::class, 'update']);
+    Route::post('/users/{user}/plaid-bank-accounts', [UserBankAccountsController::class, 'store']);
     Route::get('/users/{user}/cards', [UserCardsController::class, 'index']);
     Route::post('/users/{user}/cards', [UserCardsController::class, 'store']);
     Route::post('/users/{user}/address', [UserAddressController::class, 'store']);

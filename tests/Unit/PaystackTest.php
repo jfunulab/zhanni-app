@@ -26,6 +26,7 @@ class PaystackTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->markTestSkipped('No longer necessary. Class will be removed');
         parent::setUp();
         $this->paystackGateway = $this->app->make(PaystackGateway::class);
     }

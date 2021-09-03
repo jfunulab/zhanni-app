@@ -4,7 +4,7 @@
 namespace Domain\Users\DTOs;
 
 
-use Illuminate\Foundation\Http\FormRequest;
+use Carbon\Carbon;
 use Spatie\DataTransferObject\DataTransferObject;
 
 class UserData extends DataTransferObject
@@ -13,12 +13,10 @@ class UserData extends DataTransferObject
     public ?string $firstName;
     public ?string $lastName;
     public ?string $password;
+    public ?string $username;
     public ?string $phoneNumber;
-    public ?string $lineOne;
-    public ?string $lineTwo;
-    public ?string $country;
-    public ?string $state;
-    public ?string $postalCode;
+    public ?string $birthDate;
+    public ?UserAddressData $addressData;
 
     public static function fromArray(array $dataArray): UserData
     {
@@ -26,13 +24,18 @@ class UserData extends DataTransferObject
             'email' => $dataArray['email'] ?? null,
             'firstName' => $dataArray['first_name'] ?? null,
             'lastName' => $dataArray['last_name'] ?? null,
+            'username' => $dataArray['username'] ?? null,
             'password' => $dataArray['password'] ?? null,
             'phoneNumber' => $dataArray['phone_number'] ?? null,
-            'lineOne' => $dataArray['address_line_one'] ?? null,
-            'lineTwo' => $dataArray['address_line_two'] ?? null,
-            'country' => $dataArray['country'] ?? null,
-            'state' => $dataArray['state'] ?? null,
-            'postalCode' => $dataArray['postal_code'] ?? null,
+            'birthDate' => $dataArray['birth_date'] ?? null,
+            'addressData' => UserAddressData::fromArray([
+                'address_line_one' => $dataArray['address_line_one'] ?? null,
+                'address_line_two' => $dataArray['address_line_two'] ?? null,
+                'country' => $dataArray['country'] ?? null,
+                'state' => $dataArray['state'] ?? null,
+                'postalCode' => $dataArray['postal_code'] ?? null,
+                'city' => $dataArray['city'] ?? null,
+            ])
         ]);
     }
 }

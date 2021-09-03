@@ -11,6 +11,12 @@ class AddCardToAccountTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected function setUp(): void
+    {
+        $this->markTestSkipped('Feature to be removed.');
+        parent::setUp();
+    }
+
     /** @test */
     function a_user_can_add_a_stripe_card_to_his_account()
     {

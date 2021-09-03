@@ -36,6 +36,6 @@ class ConsoleKernel extends Kernel
      */
     protected function commands()
     {
-        $this->load(__DIR__ . '/Commands');
+        $this->load(__DIR__ . '/Console/Commands');
     }
 }
