@@ -67,10 +67,6 @@
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Get User Remittances
                                             </a>
-                                                                                    <a href="/docs/feature-users-add-card-to-account.html"
-                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
-                                                Add Card To Account
-                                            </a>
                                                                                     <a href="/docs/feature-users-add-recipient-to-user-account.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Add Recipient To User Account
@@ -78,6 +74,10 @@
                                                                                     <a href="/docs/feature-users-create-user.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Create User
+                                            </a>
+                                                                                    <a href="/docs/feature-users-get-user-bank-accounts.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get User Bank Accounts
                                             </a>
                                                                                     <a href="/docs/feature-users-get-user-cards.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
@@ -125,6 +125,10 @@
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Get Bank List
                                             </a>
+                                                                                    <a href="/docs/feature-connect-bank-account-with-plaid.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Connect Bank Account With Plaid
+                                            </a>
                                                                                     <a href="/docs/feature-get-bank-list-action.html"
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Get Bank List Action
@@ -166,20 +170,6 @@
                                         x-on:click="open = !open"
                                         type="button" name="toggle panel"
                                             class="group flex w-full text-left items-center px-2 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
-                                        Remittance
-                                    </button>
-                                    <div class="w-full" x-cloak x-show="open">
-                                                                                    <a href="/docs/feature-remittance-initiate-transfer.html"
-                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
-                                                Initiate Transfer
-                                            </a>
-                                                                            </div>
-                                </div>
-                                                            <div class="flex flex-col space-y-2" x-data="{open: false}">
-                                    <button
-                                        x-on:click="open = !open"
-                                        type="button" name="toggle panel"
-                                            class="group flex w-full text-left items-center px-2 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                         Other Modules
                                     </button>
                                     <div class="w-full" x-cloak x-show="open">
@@ -203,14 +193,6 @@
                                                class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
                                                 Generate Plaid Link Token
                                             </a>
-                                                                                    <a href="/docs/feature-plaid.html"
-                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
-                                                Plaid
-                                            </a>
-                                                                                    <a href="/docs/feature-sample-sila.html"
-                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
-                                                Sample Sila
-                                            </a>
                                                                             </div>
                                 </div>
                                                                         </nav>
@@ -231,7 +213,7 @@
                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
  
                 </span>
-                                                             <div run="{&quot;id&quot;:2,&quot;branch&quot;:&quot;develop&quot;,&quot;head&quot;:&quot;523db8c&quot;,&quot;modified&quot;:1,&quot;created_at&quot;:&quot;2021-08-19T18:03:15.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:03:15.000000Z&quot;,&quot;groups&quot;:[{&quot;id&quot;:55,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Banks\\GetBankListTest&quot;,&quot;title&quot;:&quot;Get Bank List&quot;,&quot;slug&quot;:&quot;feature-banks-get-bank-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:07.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:07.000000Z&quot;},{&quot;id&quot;:56,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\BuyBidTest&quot;,&quot;title&quot;:&quot;Buy Bid&quot;,&quot;slug&quot;:&quot;feature-bid-buy-bid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:08.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:08.000000Z&quot;},{&quot;id&quot;:57,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\CreateBidTest&quot;,&quot;title&quot;:&quot;Create Bid&quot;,&quot;slug&quot;:&quot;feature-bid-create-bid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:08.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:08.000000Z&quot;},{&quot;id&quot;:58,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\GetBuyerBidOffersTest&quot;,&quot;title&quot;:&quot;Get Buyer Bid Offers&quot;,&quot;slug&quot;:&quot;feature-bid-get-buyer-bid-offers&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:09.000000Z&quot;},{&quot;id&quot;:59,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\GetSellerBidOffersTest&quot;,&quot;title&quot;:&quot;Get Seller Bid Offers&quot;,&quot;slug&quot;:&quot;feature-bid-get-seller-bid-offers&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:10.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:10.000000Z&quot;},{&quot;id&quot;:60,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\ViewAllAvailableBidsTest&quot;,&quot;title&quot;:&quot;View All Available Bids&quot;,&quot;slug&quot;:&quot;feature-bid-view-all-available-bids&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:12.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:12.000000Z&quot;},{&quot;id&quot;:61,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Countries\\GetCountryListTest&quot;,&quot;title&quot;:&quot;Get Country List&quot;,&quot;slug&quot;:&quot;feature-countries-get-country-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:15.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:15.000000Z&quot;},{&quot;id&quot;:62,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Countries\\GetCountryStateListsTest&quot;,&quot;title&quot;:&quot;Get Country State Lists&quot;,&quot;slug&quot;:&quot;feature-countries-get-country-state-lists&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:15.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:15.000000Z&quot;},{&quot;id&quot;:63,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\GetBankListActionTest&quot;,&quot;title&quot;:&quot;Get Bank List Action&quot;,&quot;slug&quot;:&quot;feature-get-bank-list-action&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:16.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:16.000000Z&quot;},{&quot;id&quot;:64,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\GetExchangeRatesTest&quot;,&quot;title&quot;:&quot;Get Exchange Rates&quot;,&quot;slug&quot;:&quot;feature-get-exchange-rates&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:16.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:16.000000Z&quot;},{&quot;id&quot;:65,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Plaid\\DumpPlaidSilaTokenTest&quot;,&quot;title&quot;:&quot;Dump Plaid Sila Token&quot;,&quot;slug&quot;:&quot;feature-plaid-dump-plaid-sila-token&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:17.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:17.000000Z&quot;},{&quot;id&quot;:66,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Plaid\\GeneratePlaidLinkTokenTest&quot;,&quot;title&quot;:&quot;Generate Plaid Link Token&quot;,&quot;slug&quot;:&quot;feature-plaid-generate-plaid-link-token&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:18.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:18.000000Z&quot;},{&quot;id&quot;:67,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\PlaidTest&quot;,&quot;title&quot;:&quot;Plaid&quot;,&quot;slug&quot;:&quot;feature-plaid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:22.000000Z&quot;},{&quot;id&quot;:68,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Remittance\\GetUserRemittancesTest&quot;,&quot;title&quot;:&quot;Get User Remittances&quot;,&quot;slug&quot;:&quot;feature-remittance-get-user-remittances&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:22.000000Z&quot;},{&quot;id&quot;:69,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Remittance\\InitiateTransferTest&quot;,&quot;title&quot;:&quot;Initiate Transfer&quot;,&quot;slug&quot;:&quot;feature-remittance-initiate-transfer&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:23.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:23.000000Z&quot;},{&quot;id&quot;:70,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\SampleSilaTest&quot;,&quot;title&quot;:&quot;Sample Sila&quot;,&quot;slug&quot;:&quot;feature-sample-sila&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:29.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:29.000000Z&quot;},{&quot;id&quot;:71,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\AddCardToAccountTest&quot;,&quot;title&quot;:&quot;Add Card To Account&quot;,&quot;slug&quot;:&quot;feature-users-add-card-to-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:29.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:29.000000Z&quot;},{&quot;id&quot;:72,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\AddRecipientToUserAccountTest&quot;,&quot;title&quot;:&quot;Add Recipient To User Account&quot;,&quot;slug&quot;:&quot;feature-users-add-recipient-to-user-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:35.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:35.000000Z&quot;},{&quot;id&quot;:73,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\CreateUserTest&quot;,&quot;title&quot;:&quot;Create User&quot;,&quot;slug&quot;:&quot;feature-users-create-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:36.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:36.000000Z&quot;},{&quot;id&quot;:74,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserCardsTest&quot;,&quot;title&quot;:&quot;Get User Cards&quot;,&quot;slug&quot;:&quot;feature-users-get-user-cards&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:37.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:37.000000Z&quot;},{&quot;id&quot;:75,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserRecipientsTest&quot;,&quot;title&quot;:&quot;Get User Recipients&quot;,&quot;slug&quot;:&quot;feature-users-get-user-recipients&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:38.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:38.000000Z&quot;},{&quot;id&quot;:76,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\RequestPasswordResetTest&quot;,&quot;title&quot;:&quot;Request Password Reset&quot;,&quot;slug&quot;:&quot;feature-users-request-password-reset&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:39.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:39.000000Z&quot;},{&quot;id&quot;:77,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResendUserAccountVerificationCodeTest&quot;,&quot;title&quot;:&quot;Resend User Account Verification Code&quot;,&quot;slug&quot;:&quot;feature-users-resend-user-account-verification-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:42.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:42.000000Z&quot;},{&quot;id&quot;:78,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResetPasswordWithCodeTest&quot;,&quot;title&quot;:&quot;Reset Password With Code&quot;,&quot;slug&quot;:&quot;feature-users-reset-password-with-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:44.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:44.000000Z&quot;},{&quot;id&quot;:79,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UpdateUserTest&quot;,&quot;title&quot;:&quot;Update User&quot;,&quot;slug&quot;:&quot;feature-users-update-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:45.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:45.000000Z&quot;},{&quot;id&quot;:80,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UserLoginTest&quot;,&quot;title&quot;:&quot;User Login&quot;,&quot;slug&quot;:&quot;feature-users-user-login&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:47.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:47.000000Z&quot;},{&quot;id&quot;:81,&quot;run_id&quot;:2,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\VerifyAccountTest&quot;,&quot;title&quot;:&quot;Verify Account&quot;,&quot;slug&quot;:&quot;feature-users-verify-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-08-19T18:11:52.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-08-19T18:11:52.000000Z&quot;}]}" class="hidden md:flex relative flex-1"
+                                                             <div run="{&quot;id&quot;:3,&quot;branch&quot;:&quot;develop&quot;,&quot;head&quot;:&quot;84b3aa0&quot;,&quot;modified&quot;:0,&quot;created_at&quot;:&quot;2021-09-03T17:22:08.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:08.000000Z&quot;,&quot;groups&quot;:[{&quot;id&quot;:82,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Banks\\GetBankListTest&quot;,&quot;title&quot;:&quot;Get Bank List&quot;,&quot;slug&quot;:&quot;feature-banks-get-bank-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:09.000000Z&quot;},{&quot;id&quot;:83,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\BuyBidTest&quot;,&quot;title&quot;:&quot;Buy Bid&quot;,&quot;slug&quot;:&quot;feature-bid-buy-bid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:09.000000Z&quot;},{&quot;id&quot;:84,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\CreateBidTest&quot;,&quot;title&quot;:&quot;Create Bid&quot;,&quot;slug&quot;:&quot;feature-bid-create-bid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:10.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:10.000000Z&quot;},{&quot;id&quot;:85,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\GetBuyerBidOffersTest&quot;,&quot;title&quot;:&quot;Get Buyer Bid Offers&quot;,&quot;slug&quot;:&quot;feature-bid-get-buyer-bid-offers&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:12.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:12.000000Z&quot;},{&quot;id&quot;:86,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\GetSellerBidOffersTest&quot;,&quot;title&quot;:&quot;Get Seller Bid Offers&quot;,&quot;slug&quot;:&quot;feature-bid-get-seller-bid-offers&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:14.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:14.000000Z&quot;},{&quot;id&quot;:87,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\ViewAllAvailableBidsTest&quot;,&quot;title&quot;:&quot;View All Available Bids&quot;,&quot;slug&quot;:&quot;feature-bid-view-all-available-bids&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:15.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:15.000000Z&quot;},{&quot;id&quot;:88,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\ConnectBankAccountWithPlaidTest&quot;,&quot;title&quot;:&quot;Connect Bank Account With Plaid&quot;,&quot;slug&quot;:&quot;feature-connect-bank-account-with-plaid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:17.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:17.000000Z&quot;},{&quot;id&quot;:89,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Countries\\GetCountryListTest&quot;,&quot;title&quot;:&quot;Get Country List&quot;,&quot;slug&quot;:&quot;feature-countries-get-country-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:19.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:19.000000Z&quot;},{&quot;id&quot;:90,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Countries\\GetCountryStateListsTest&quot;,&quot;title&quot;:&quot;Get Country State Lists&quot;,&quot;slug&quot;:&quot;feature-countries-get-country-state-lists&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:19.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:19.000000Z&quot;},{&quot;id&quot;:91,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\GetBankListActionTest&quot;,&quot;title&quot;:&quot;Get Bank List Action&quot;,&quot;slug&quot;:&quot;feature-get-bank-list-action&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:20.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:20.000000Z&quot;},{&quot;id&quot;:92,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\GetExchangeRatesTest&quot;,&quot;title&quot;:&quot;Get Exchange Rates&quot;,&quot;slug&quot;:&quot;feature-get-exchange-rates&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:20.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:20.000000Z&quot;},{&quot;id&quot;:93,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Plaid\\DumpPlaidSilaTokenTest&quot;,&quot;title&quot;:&quot;Dump Plaid Sila Token&quot;,&quot;slug&quot;:&quot;feature-plaid-dump-plaid-sila-token&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:21.000000Z&quot;},{&quot;id&quot;:94,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Plaid\\GeneratePlaidLinkTokenTest&quot;,&quot;title&quot;:&quot;Generate Plaid Link Token&quot;,&quot;slug&quot;:&quot;feature-plaid-generate-plaid-link-token&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:21.000000Z&quot;},{&quot;id&quot;:95,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Remittance\\GetUserRemittancesTest&quot;,&quot;title&quot;:&quot;Get User Remittances&quot;,&quot;slug&quot;:&quot;feature-remittance-get-user-remittances&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:22.000000Z&quot;},{&quot;id&quot;:96,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\AddRecipientToUserAccountTest&quot;,&quot;title&quot;:&quot;Add Recipient To User Account&quot;,&quot;slug&quot;:&quot;feature-users-add-recipient-to-user-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:23.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:23.000000Z&quot;},{&quot;id&quot;:97,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\CreateUserTest&quot;,&quot;title&quot;:&quot;Create User&quot;,&quot;slug&quot;:&quot;feature-users-create-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:24.000000Z&quot;},{&quot;id&quot;:98,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserBankAccountsTest&quot;,&quot;title&quot;:&quot;Get User Bank Accounts&quot;,&quot;slug&quot;:&quot;feature-users-get-user-bank-accounts&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:26.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:26.000000Z&quot;},{&quot;id&quot;:99,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserCardsTest&quot;,&quot;title&quot;:&quot;Get User Cards&quot;,&quot;slug&quot;:&quot;feature-users-get-user-cards&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:26.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:26.000000Z&quot;},{&quot;id&quot;:100,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserRecipientsTest&quot;,&quot;title&quot;:&quot;Get User Recipients&quot;,&quot;slug&quot;:&quot;feature-users-get-user-recipients&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:27.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:27.000000Z&quot;},{&quot;id&quot;:101,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\RequestPasswordResetTest&quot;,&quot;title&quot;:&quot;Request Password Reset&quot;,&quot;slug&quot;:&quot;feature-users-request-password-reset&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:28.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:28.000000Z&quot;},{&quot;id&quot;:102,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResendUserAccountVerificationCodeTest&quot;,&quot;title&quot;:&quot;Resend User Account Verification Code&quot;,&quot;slug&quot;:&quot;feature-users-resend-user-account-verification-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:29.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:29.000000Z&quot;},{&quot;id&quot;:103,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResetPasswordWithCodeTest&quot;,&quot;title&quot;:&quot;Reset Password With Code&quot;,&quot;slug&quot;:&quot;feature-users-reset-password-with-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:31.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:31.000000Z&quot;},{&quot;id&quot;:104,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UpdateUserTest&quot;,&quot;title&quot;:&quot;Update User&quot;,&quot;slug&quot;:&quot;feature-users-update-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:32.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:32.000000Z&quot;},{&quot;id&quot;:105,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UserLoginTest&quot;,&quot;title&quot;:&quot;User Login&quot;,&quot;slug&quot;:&quot;feature-users-user-login&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:34.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:34.000000Z&quot;},{&quot;id&quot;:106,&quot;run_id&quot;:3,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\VerifyAccountTest&quot;,&quot;title&quot;:&quot;Verify Account&quot;,&quot;slug&quot;:&quot;feature-users-verify-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2021-09-03T17:22:38.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-03T17:22:38.000000Z&quot;}]}" class="hidden md:flex relative flex-1"
      x-data='{
          open: true,
          results: [],
@@ -269,8 +251,7 @@
                                                     <div class="ml-4 flex items-center md:ml-6">
                                             <div class="text-gray-200 font-light px-4 flex justify-center">
                             <strong>develop</strong>
-                                                            <span class="text-red-500 text-lg px-2">*</span>
-                                                        523db8c
+                                                        84b3aa0
                         </div>
                                         <a href="https://github.com/StydeNet/enlighten"
                        class="text-gray-100 hover:text-gray-500 focus:outline-none" aria-label="Notifications">
@@ -321,10 +302,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_86'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_128'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_86' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_128' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -347,7 +328,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users/392/remittances</td>
+                > api/users/389/remittances</td>
             </tr>
             </table>
 </div>
@@ -438,7 +419,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Thu, 19 Aug 2021 18:11:22 GMT</td>
+                > Fri, 03 Sep 2021 17:22:22 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -477,97 +458,307 @@
     &quot;message&quot;: &quot;User remittances&quot;,
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 3,
-            &quot;user_id&quot;: 392,
-            &quot;recipient_id&quot;: 138,
+            &quot;id&quot;: 1,
+            &quot;user_id&quot;: 389,
+            &quot;recipient_id&quot;: 133,
             &quot;reason&quot;: null,
-            &quot;base_amount&quot;: 2,
-            &quot;base_currency&quot;: &quot;BOB&quot;,
-            &quot;amount_to_remit&quot;: 8,
-            &quot;currency_to_remit&quot;: &quot;MRU&quot;,
-            &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+            &quot;base_amount&quot;: 3,
+            &quot;base_currency&quot;: &quot;CRC&quot;,
+            &quot;amount_to_remit&quot;: 2,
+            &quot;currency_to_remit&quot;: &quot;WST&quot;,
+            &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
             &quot;status&quot;: &quot;completed&quot;,
             &quot;credit_payment&quot;: {
-                &quot;id&quot;: 2,
-                &quot;remittance_id&quot;: 3,
-                &quot;source_id&quot;: 136,
-                &quot;amount&quot;: 9,
-                &quot;currency&quot;: &quot;NZD&quot;,
+                &quot;id&quot;: 1,
+                &quot;remittance_id&quot;: 1,
+                &quot;source_id&quot;: 133,
+                &quot;amount&quot;: 4,
+                &quot;currency&quot;: &quot;SHP&quot;,
                 &quot;status&quot;: &quot;paid&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                 &quot;source&quot;: {
-                    &quot;id&quot;: 136,
-                    &quot;user_id&quot;: 398,
-                    &quot;brand&quot;: &quot;placeat&quot;,
-                    &quot;last_four&quot;: &quot;1001&quot;,
+                    &quot;id&quot;: 133,
+                    &quot;user_id&quot;: 395,
+                    &quot;brand&quot;: &quot;rem&quot;,
+                    &quot;last_four&quot;: &quot;2755&quot;,
                     &quot;expiry_month&quot;: 4,
-                    &quot;expiry_year&quot;: 2025,
-                    &quot;postal_code&quot;: &quot;57249-2896&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
+                    &quot;expiry_year&quot;: 2027,
+                    &quot;postal_code&quot;: &quot;60906-0740&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
                 }
             },
             &quot;debit_payment&quot;: {
-                &quot;id&quot;: 2,
-                &quot;remittance_id&quot;: 3,
-                &quot;recipient_id&quot;: 143,
+                &quot;id&quot;: 1,
+                &quot;remittance_id&quot;: 1,
+                &quot;recipient_id&quot;: 138,
                 &quot;reference&quot;: null,
                 &quot;amount&quot;: 7,
-                &quot;currency&quot;: &quot;MMK&quot;,
+                &quot;currency&quot;: &quot;MOP&quot;,
                 &quot;status&quot;: &quot;paid&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                 &quot;recipient&quot;: {
-                    &quot;id&quot;: 143,
-                    &quot;user_id&quot;: 399,
-                    &quot;bank_id&quot;: 209,
-                    &quot;email&quot;: &quot;ileannon@kuhlman.com&quot;,
-                    &quot;account_name&quot;: &quot;Santino Hickle&quot;,
-                    &quot;account_number&quot;: &quot;935618768&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                    &quot;id&quot;: 138,
+                    &quot;user_id&quot;: 396,
+                    &quot;bank_id&quot;: 145,
+                    &quot;email&quot;: &quot;owilliamson@ullrich.com&quot;,
+                    &quot;account_name&quot;: &quot;Alexis Rogahn&quot;,
+                    &quot;account_number&quot;: &quot;042596373&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                     &quot;bank&quot;: {
-                        &quot;id&quot;: 209,
-                        &quot;name&quot;: &quot;iste&quot;,
-                        &quot;slug&quot;: &quot;porro&quot;,
-                        &quot;country&quot;: &quot;Belize&quot;,
-                        &quot;currency&quot;: &quot;RWF&quot;,
-                        &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
+                        &quot;id&quot;: 145,
+                        &quot;name&quot;: &quot;ut&quot;,
+                        &quot;slug&quot;: &quot;alias&quot;,
+                        &quot;country&quot;: &quot;Austria&quot;,
+                        &quot;currency&quot;: &quot;BHD&quot;,
+                        &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
                     }
                 }
             },
             &quot;recipient&quot;: {
-                &quot;id&quot;: 138,
-                &quot;user_id&quot;: 393,
-                &quot;bank_id&quot;: 204,
-                &quot;email&quot;: &quot;mills.rigoberto@hotmail.com&quot;,
-                &quot;account_name&quot;: &quot;Otto Larkin&quot;,
-                &quot;account_number&quot;: &quot;493385876826&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                &quot;id&quot;: 133,
+                &quot;user_id&quot;: 390,
+                &quot;bank_id&quot;: 140,
+                &quot;email&quot;: &quot;fmuller@gmail.com&quot;,
+                &quot;account_name&quot;: &quot;Ernie Daniel&quot;,
+                &quot;account_number&quot;: &quot;739743&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                 &quot;bank&quot;: {
-                    &quot;id&quot;: 204,
-                    &quot;name&quot;: &quot;ea&quot;,
-                    &quot;slug&quot;: &quot;sint&quot;,
-                    &quot;country&quot;: &quot;Macao&quot;,
-                    &quot;currency&quot;: &quot;CNY&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
+                    &quot;id&quot;: 140,
+                    &quot;name&quot;: &quot;provident&quot;,
+                    &quot;slug&quot;: &quot;illum&quot;,
+                    &quot;country&quot;: &quot;Nicaragua&quot;,
+                    &quot;currency&quot;: &quot;BWP&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
                 },
                 &quot;user&quot;: {
-                    &quot;id&quot;: 393,
-                    &quot;first_name&quot;: &quot;Leonard Mann&quot;,
-                    &quot;last_name&quot;: &quot;Prof. Milan Marks&quot;,
-                    &quot;email&quot;: &quot;joey.dubuque@example.org&quot;,
+                    &quot;id&quot;: 390,
+                    &quot;first_name&quot;: &quot;Nyah&quot;,
+                    &quot;last_name&quot;: &quot;Considine&quot;,
+                    &quot;email&quot;: &quot;yokuneva@example.com&quot;,
+                    &quot;username&quot;: &quot;jefferey06&quot;,
                     &quot;email_verification_code&quot;: null,
                     &quot;verification_code_expires_at&quot;: null,
-                    &quot;email_verified_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;phone_number&quot;: null,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                    &quot;email_verified_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;phone_number&quot;: &quot;+1 (838) 961-1785&quot;,
+                    &quot;birth_date&quot;: &quot;1991-09-03&quot;,
+                    &quot;sila_key&quot;: null,
+                    &quot;kyc_status&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;card_brand&quot;: null,
+                    &quot;card_last_four&quot;: null,
+                    &quot;trial_ends_at&quot;: null,
+                    &quot;verified&quot;: true
+                }
+            }
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;user_id&quot;: 389,
+            &quot;recipient_id&quot;: 134,
+            &quot;reason&quot;: null,
+            &quot;base_amount&quot;: 2,
+            &quot;base_currency&quot;: &quot;SOS&quot;,
+            &quot;amount_to_remit&quot;: 1,
+            &quot;currency_to_remit&quot;: &quot;KES&quot;,
+            &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;credit_payment&quot;: {
+                &quot;id&quot;: 2,
+                &quot;remittance_id&quot;: 2,
+                &quot;source_id&quot;: 134,
+                &quot;amount&quot;: 5,
+                &quot;currency&quot;: &quot;NIO&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;source&quot;: {
+                    &quot;id&quot;: 134,
+                    &quot;user_id&quot;: 397,
+                    &quot;brand&quot;: &quot;excepturi&quot;,
+                    &quot;last_four&quot;: &quot;1313&quot;,
+                    &quot;expiry_month&quot;: 5,
+                    &quot;expiry_year&quot;: 2026,
+                    &quot;postal_code&quot;: &quot;00613-1954&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
+                }
+            },
+            &quot;debit_payment&quot;: {
+                &quot;id&quot;: 2,
+                &quot;remittance_id&quot;: 2,
+                &quot;recipient_id&quot;: 139,
+                &quot;reference&quot;: null,
+                &quot;amount&quot;: 5,
+                &quot;currency&quot;: &quot;PLN&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;recipient&quot;: {
+                    &quot;id&quot;: 139,
+                    &quot;user_id&quot;: 398,
+                    &quot;bank_id&quot;: 146,
+                    &quot;email&quot;: &quot;wward@oberbrunner.com&quot;,
+                    &quot;account_name&quot;: &quot;Gerry Rowe II&quot;,
+                    &quot;account_number&quot;: &quot;27337251770720&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;bank&quot;: {
+                        &quot;id&quot;: 146,
+                        &quot;name&quot;: &quot;quasi&quot;,
+                        &quot;slug&quot;: &quot;harum&quot;,
+                        &quot;country&quot;: &quot;Sri Lanka&quot;,
+                        &quot;currency&quot;: &quot;LSL&quot;,
+                        &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
+                    }
+                }
+            },
+            &quot;recipient&quot;: {
+                &quot;id&quot;: 134,
+                &quot;user_id&quot;: 391,
+                &quot;bank_id&quot;: 141,
+                &quot;email&quot;: &quot;hagenes.myrtie@rowe.org&quot;,
+                &quot;account_name&quot;: &quot;Efren Bartell III&quot;,
+                &quot;account_number&quot;: &quot;485582080&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;bank&quot;: {
+                    &quot;id&quot;: 141,
+                    &quot;name&quot;: &quot;aut&quot;,
+                    &quot;slug&quot;: &quot;perspiciatis&quot;,
+                    &quot;country&quot;: &quot;Uruguay&quot;,
+                    &quot;currency&quot;: &quot;KRW&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
+                },
+                &quot;user&quot;: {
+                    &quot;id&quot;: 391,
+                    &quot;first_name&quot;: &quot;Mathew&quot;,
+                    &quot;last_name&quot;: &quot;Schiller&quot;,
+                    &quot;email&quot;: &quot;doyle.nathan@example.org&quot;,
+                    &quot;username&quot;: &quot;dahlia27&quot;,
+                    &quot;email_verification_code&quot;: null,
+                    &quot;verification_code_expires_at&quot;: null,
+                    &quot;email_verified_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;phone_number&quot;: &quot;1-520-647-1634&quot;,
+                    &quot;birth_date&quot;: &quot;1991-09-03&quot;,
+                    &quot;sila_key&quot;: null,
+                    &quot;kyc_status&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;card_brand&quot;: null,
+                    &quot;card_last_four&quot;: null,
+                    &quot;trial_ends_at&quot;: null,
+                    &quot;verified&quot;: true
+                }
+            }
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;user_id&quot;: 389,
+            &quot;recipient_id&quot;: 135,
+            &quot;reason&quot;: null,
+            &quot;base_amount&quot;: 9,
+            &quot;base_currency&quot;: &quot;JPY&quot;,
+            &quot;amount_to_remit&quot;: 7,
+            &quot;currency_to_remit&quot;: &quot;MWK&quot;,
+            &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;credit_payment&quot;: {
+                &quot;id&quot;: 3,
+                &quot;remittance_id&quot;: 3,
+                &quot;source_id&quot;: 135,
+                &quot;amount&quot;: 7,
+                &quot;currency&quot;: &quot;GMD&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;source&quot;: {
+                    &quot;id&quot;: 135,
+                    &quot;user_id&quot;: 399,
+                    &quot;brand&quot;: &quot;dolores&quot;,
+                    &quot;last_four&quot;: &quot;5789&quot;,
+                    &quot;expiry_month&quot;: 2,
+                    &quot;expiry_year&quot;: 2023,
+                    &quot;postal_code&quot;: &quot;55737-9824&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
+                }
+            },
+            &quot;debit_payment&quot;: {
+                &quot;id&quot;: 3,
+                &quot;remittance_id&quot;: 3,
+                &quot;recipient_id&quot;: 140,
+                &quot;reference&quot;: null,
+                &quot;amount&quot;: 6,
+                &quot;currency&quot;: &quot;CAD&quot;,
+                &quot;status&quot;: &quot;paid&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;recipient&quot;: {
+                    &quot;id&quot;: 140,
+                    &quot;user_id&quot;: 400,
+                    &quot;bank_id&quot;: 147,
+                    &quot;email&quot;: &quot;hamill.mohammed@rippin.info&quot;,
+                    &quot;account_name&quot;: &quot;Miss Alexanne Feeney Sr.&quot;,
+                    &quot;account_number&quot;: &quot;26319616164&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;bank&quot;: {
+                        &quot;id&quot;: 147,
+                        &quot;name&quot;: &quot;necessitatibus&quot;,
+                        &quot;slug&quot;: &quot;dicta&quot;,
+                        &quot;country&quot;: &quot;Montenegro&quot;,
+                        &quot;currency&quot;: &quot;XAF&quot;,
+                        &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
+                    }
+                }
+            },
+            &quot;recipient&quot;: {
+                &quot;id&quot;: 135,
+                &quot;user_id&quot;: 392,
+                &quot;bank_id&quot;: 142,
+                &quot;email&quot;: &quot;langworth.breanna@carter.com&quot;,
+                &quot;account_name&quot;: &quot;Emmy Farrell&quot;,
+                &quot;account_number&quot;: &quot;368689421&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;bank&quot;: {
+                    &quot;id&quot;: 142,
+                    &quot;name&quot;: &quot;quo&quot;,
+                    &quot;slug&quot;: &quot;a&quot;,
+                    &quot;country&quot;: &quot;Germany&quot;,
+                    &quot;currency&quot;: &quot;JOD&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
+                },
+                &quot;user&quot;: {
+                    &quot;id&quot;: 392,
+                    &quot;first_name&quot;: &quot;Lila&quot;,
+                    &quot;last_name&quot;: &quot;Schinner&quot;,
+                    &quot;email&quot;: &quot;cruickshank.mariah@example.org&quot;,
+                    &quot;username&quot;: &quot;kunde.austin&quot;,
+                    &quot;email_verification_code&quot;: null,
+                    &quot;verification_code_expires_at&quot;: null,
+                    &quot;email_verified_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;phone_number&quot;: &quot;(938) 820-7280&quot;,
+                    &quot;birth_date&quot;: &quot;1991-09-03&quot;,
+                    &quot;sila_key&quot;: null,
+                    &quot;kyc_status&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                     &quot;card_brand&quot;: null,
                     &quot;card_last_four&quot;: null,
                     &quot;trial_ends_at&quot;: null,
@@ -577,96 +768,100 @@
         },
         {
             &quot;id&quot;: 4,
-            &quot;user_id&quot;: 392,
-            &quot;recipient_id&quot;: 139,
+            &quot;user_id&quot;: 389,
+            &quot;recipient_id&quot;: 136,
             &quot;reason&quot;: null,
-            &quot;base_amount&quot;: 7,
-            &quot;base_currency&quot;: &quot;MKD&quot;,
-            &quot;amount_to_remit&quot;: 3,
-            &quot;currency_to_remit&quot;: &quot;PHP&quot;,
-            &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+            &quot;base_amount&quot;: 3,
+            &quot;base_currency&quot;: &quot;XOF&quot;,
+            &quot;amount_to_remit&quot;: 2,
+            &quot;currency_to_remit&quot;: &quot;BOB&quot;,
+            &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
             &quot;status&quot;: &quot;completed&quot;,
             &quot;credit_payment&quot;: {
-                &quot;id&quot;: 3,
+                &quot;id&quot;: 4,
                 &quot;remittance_id&quot;: 4,
-                &quot;source_id&quot;: 137,
-                &quot;amount&quot;: 4,
-                &quot;currency&quot;: &quot;KHR&quot;,
+                &quot;source_id&quot;: 136,
+                &quot;amount&quot;: 6,
+                &quot;currency&quot;: &quot;BAM&quot;,
                 &quot;status&quot;: &quot;paid&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                 &quot;source&quot;: {
-                    &quot;id&quot;: 137,
-                    &quot;user_id&quot;: 400,
-                    &quot;brand&quot;: &quot;voluptatem&quot;,
-                    &quot;last_four&quot;: &quot;1256&quot;,
-                    &quot;expiry_month&quot;: 1,
-                    &quot;expiry_year&quot;: 2026,
-                    &quot;postal_code&quot;: &quot;37327-9150&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
+                    &quot;id&quot;: 136,
+                    &quot;user_id&quot;: 401,
+                    &quot;brand&quot;: &quot;quod&quot;,
+                    &quot;last_four&quot;: &quot;8345&quot;,
+                    &quot;expiry_month&quot;: 11,
+                    &quot;expiry_year&quot;: 2022,
+                    &quot;postal_code&quot;: &quot;51952-3421&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
                 }
             },
             &quot;debit_payment&quot;: {
-                &quot;id&quot;: 3,
+                &quot;id&quot;: 4,
                 &quot;remittance_id&quot;: 4,
-                &quot;recipient_id&quot;: 144,
+                &quot;recipient_id&quot;: 141,
                 &quot;reference&quot;: null,
                 &quot;amount&quot;: 3,
-                &quot;currency&quot;: &quot;LAK&quot;,
+                &quot;currency&quot;: &quot;JOD&quot;,
                 &quot;status&quot;: &quot;paid&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                 &quot;recipient&quot;: {
-                    &quot;id&quot;: 144,
-                    &quot;user_id&quot;: 401,
-                    &quot;bank_id&quot;: 210,
-                    &quot;email&quot;: &quot;aufderhar.kenna@gmail.com&quot;,
-                    &quot;account_name&quot;: &quot;Marianne Funk&quot;,
-                    &quot;account_number&quot;: &quot;0354708909&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                    &quot;id&quot;: 141,
+                    &quot;user_id&quot;: 402,
+                    &quot;bank_id&quot;: 148,
+                    &quot;email&quot;: &quot;kellen88@hotmail.com&quot;,
+                    &quot;account_name&quot;: &quot;Donnell Hermiston III&quot;,
+                    &quot;account_number&quot;: &quot;744017363679&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                     &quot;bank&quot;: {
-                        &quot;id&quot;: 210,
-                        &quot;name&quot;: &quot;quo&quot;,
-                        &quot;slug&quot;: &quot;vero&quot;,
-                        &quot;country&quot;: &quot;Mali&quot;,
-                        &quot;currency&quot;: &quot;MKD&quot;,
-                        &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
+                        &quot;id&quot;: 148,
+                        &quot;name&quot;: &quot;sunt&quot;,
+                        &quot;slug&quot;: &quot;aut&quot;,
+                        &quot;country&quot;: &quot;Kiribati&quot;,
+                        &quot;currency&quot;: &quot;ISK&quot;,
+                        &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
                     }
                 }
             },
             &quot;recipient&quot;: {
-                &quot;id&quot;: 139,
-                &quot;user_id&quot;: 394,
-                &quot;bank_id&quot;: 205,
-                &quot;email&quot;: &quot;batz.aditya@gmail.com&quot;,
-                &quot;account_name&quot;: &quot;Dr. Cyrus Kilback MD&quot;,
-                &quot;account_number&quot;: &quot;770097404543&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                &quot;id&quot;: 136,
+                &quot;user_id&quot;: 393,
+                &quot;bank_id&quot;: 143,
+                &quot;email&quot;: &quot;zjakubowski@gmail.com&quot;,
+                &quot;account_name&quot;: &quot;Elian Torphy&quot;,
+                &quot;account_number&quot;: &quot;464359557485&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                 &quot;bank&quot;: {
-                    &quot;id&quot;: 205,
-                    &quot;name&quot;: &quot;et&quot;,
-                    &quot;slug&quot;: &quot;quibusdam&quot;,
-                    &quot;country&quot;: &quot;United States Virgin Islands&quot;,
-                    &quot;currency&quot;: &quot;BTN&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
+                    &quot;id&quot;: 143,
+                    &quot;name&quot;: &quot;tempora&quot;,
+                    &quot;slug&quot;: &quot;est&quot;,
+                    &quot;country&quot;: &quot;Malawi&quot;,
+                    &quot;currency&quot;: &quot;KHR&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
                 },
                 &quot;user&quot;: {
-                    &quot;id&quot;: 394,
-                    &quot;first_name&quot;: &quot;Jackie Paucek&quot;,
-                    &quot;last_name&quot;: &quot;Elnora Auer&quot;,
-                    &quot;email&quot;: &quot;durgan.luz@example.com&quot;,
+                    &quot;id&quot;: 393,
+                    &quot;first_name&quot;: &quot;Florida&quot;,
+                    &quot;last_name&quot;: &quot;Armstrong&quot;,
+                    &quot;email&quot;: &quot;addison92@example.net&quot;,
+                    &quot;username&quot;: &quot;williamson.devin&quot;,
                     &quot;email_verification_code&quot;: null,
                     &quot;verification_code_expires_at&quot;: null,
-                    &quot;email_verified_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;phone_number&quot;: null,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                    &quot;email_verified_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;phone_number&quot;: &quot;+1-351-505-7483&quot;,
+                    &quot;birth_date&quot;: &quot;1991-09-03&quot;,
+                    &quot;sila_key&quot;: null,
+                    &quot;kyc_status&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                     &quot;card_brand&quot;: null,
                     &quot;card_last_four&quot;: null,
                     &quot;trial_ends_at&quot;: null,
@@ -676,294 +871,100 @@
         },
         {
             &quot;id&quot;: 5,
-            &quot;user_id&quot;: 392,
-            &quot;recipient_id&quot;: 140,
+            &quot;user_id&quot;: 389,
+            &quot;recipient_id&quot;: 137,
             &quot;reason&quot;: null,
             &quot;base_amount&quot;: 3,
-            &quot;base_currency&quot;: &quot;ETB&quot;,
-            &quot;amount_to_remit&quot;: 3,
-            &quot;currency_to_remit&quot;: &quot;CNY&quot;,
-            &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-            &quot;status&quot;: &quot;completed&quot;,
-            &quot;credit_payment&quot;: {
-                &quot;id&quot;: 4,
-                &quot;remittance_id&quot;: 5,
-                &quot;source_id&quot;: 138,
-                &quot;amount&quot;: 3,
-                &quot;currency&quot;: &quot;PAB&quot;,
-                &quot;status&quot;: &quot;paid&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;source&quot;: {
-                    &quot;id&quot;: 138,
-                    &quot;user_id&quot;: 402,
-                    &quot;brand&quot;: &quot;illum&quot;,
-                    &quot;last_four&quot;: &quot;4962&quot;,
-                    &quot;expiry_month&quot;: 5,
-                    &quot;expiry_year&quot;: 2025,
-                    &quot;postal_code&quot;: &quot;38695-1106&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
-                }
-            },
-            &quot;debit_payment&quot;: {
-                &quot;id&quot;: 4,
-                &quot;remittance_id&quot;: 5,
-                &quot;recipient_id&quot;: 145,
-                &quot;reference&quot;: null,
-                &quot;amount&quot;: 9,
-                &quot;currency&quot;: &quot;BWP&quot;,
-                &quot;status&quot;: &quot;paid&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;recipient&quot;: {
-                    &quot;id&quot;: 145,
-                    &quot;user_id&quot;: 403,
-                    &quot;bank_id&quot;: 211,
-                    &quot;email&quot;: &quot;rosina.kemmer@kuphal.biz&quot;,
-                    &quot;account_name&quot;: &quot;Angeline Prosacco&quot;,
-                    &quot;account_number&quot;: &quot;6186077353068&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;bank&quot;: {
-                        &quot;id&quot;: 211,
-                        &quot;name&quot;: &quot;blanditiis&quot;,
-                        &quot;slug&quot;: &quot;sint&quot;,
-                        &quot;country&quot;: &quot;Kenya&quot;,
-                        &quot;currency&quot;: &quot;VES&quot;,
-                        &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
-                    }
-                }
-            },
-            &quot;recipient&quot;: {
-                &quot;id&quot;: 140,
-                &quot;user_id&quot;: 395,
-                &quot;bank_id&quot;: 206,
-                &quot;email&quot;: &quot;anastacio.reynolds@hotmail.com&quot;,
-                &quot;account_name&quot;: &quot;Dr. Earl Abernathy&quot;,
-                &quot;account_number&quot;: &quot;42563830281963&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;bank&quot;: {
-                    &quot;id&quot;: 206,
-                    &quot;name&quot;: &quot;rerum&quot;,
-                    &quot;slug&quot;: &quot;sit&quot;,
-                    &quot;country&quot;: &quot;France&quot;,
-                    &quot;currency&quot;: &quot;MUR&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
-                },
-                &quot;user&quot;: {
-                    &quot;id&quot;: 395,
-                    &quot;first_name&quot;: &quot;Ali Homenick&quot;,
-                    &quot;last_name&quot;: &quot;Verdie Waters&quot;,
-                    &quot;email&quot;: &quot;bryce09@example.net&quot;,
-                    &quot;email_verification_code&quot;: null,
-                    &quot;verification_code_expires_at&quot;: null,
-                    &quot;email_verified_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;phone_number&quot;: null,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;card_brand&quot;: null,
-                    &quot;card_last_four&quot;: null,
-                    &quot;trial_ends_at&quot;: null,
-                    &quot;verified&quot;: true
-                }
-            }
-        },
-        {
-            &quot;id&quot;: 6,
-            &quot;user_id&quot;: 392,
-            &quot;recipient_id&quot;: 141,
-            &quot;reason&quot;: null,
-            &quot;base_amount&quot;: 4,
-            &quot;base_currency&quot;: &quot;KHR&quot;,
-            &quot;amount_to_remit&quot;: 8,
-            &quot;currency_to_remit&quot;: &quot;BWP&quot;,
-            &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+            &quot;base_currency&quot;: &quot;FKP&quot;,
+            &quot;amount_to_remit&quot;: 6,
+            &quot;currency_to_remit&quot;: &quot;RSD&quot;,
+            &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
             &quot;status&quot;: &quot;completed&quot;,
             &quot;credit_payment&quot;: {
                 &quot;id&quot;: 5,
-                &quot;remittance_id&quot;: 6,
-                &quot;source_id&quot;: 139,
-                &quot;amount&quot;: 4,
-                &quot;currency&quot;: &quot;FKP&quot;,
-                &quot;status&quot;: &quot;paid&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;source&quot;: {
-                    &quot;id&quot;: 139,
-                    &quot;user_id&quot;: 404,
-                    &quot;brand&quot;: &quot;non&quot;,
-                    &quot;last_four&quot;: &quot;9566&quot;,
-                    &quot;expiry_month&quot;: 9,
-                    &quot;expiry_year&quot;: 2025,
-                    &quot;postal_code&quot;: &quot;96578-6344&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
-                }
-            },
-            &quot;debit_payment&quot;: {
-                &quot;id&quot;: 5,
-                &quot;remittance_id&quot;: 6,
-                &quot;recipient_id&quot;: 146,
-                &quot;reference&quot;: null,
+                &quot;remittance_id&quot;: 5,
+                &quot;source_id&quot;: 137,
                 &quot;amount&quot;: 1,
-                &quot;currency&quot;: &quot;DKK&quot;,
+                &quot;currency&quot;: &quot;GMD&quot;,
                 &quot;status&quot;: &quot;paid&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;recipient&quot;: {
-                    &quot;id&quot;: 146,
-                    &quot;user_id&quot;: 405,
-                    &quot;bank_id&quot;: 212,
-                    &quot;email&quot;: &quot;camron74@hotmail.com&quot;,
-                    &quot;account_name&quot;: &quot;Bernita Dickinson&quot;,
-                    &quot;account_number&quot;: &quot;2362092767296&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;bank&quot;: {
-                        &quot;id&quot;: 212,
-                        &quot;name&quot;: &quot;nobis&quot;,
-                        &quot;slug&quot;: &quot;eaque&quot;,
-                        &quot;country&quot;: &quot;Guadeloupe&quot;,
-                        &quot;currency&quot;: &quot;BRL&quot;,
-                        &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
-                    }
-                }
-            },
-            &quot;recipient&quot;: {
-                &quot;id&quot;: 141,
-                &quot;user_id&quot;: 396,
-                &quot;bank_id&quot;: 207,
-                &quot;email&quot;: &quot;jayda.ritchie@yahoo.com&quot;,
-                &quot;account_name&quot;: &quot;Mrs. Annie Bruen II&quot;,
-                &quot;account_number&quot;: &quot;1182574291071&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;bank&quot;: {
-                    &quot;id&quot;: 207,
-                    &quot;name&quot;: &quot;maxime&quot;,
-                    &quot;slug&quot;: &quot;modi&quot;,
-                    &quot;country&quot;: &quot;Comoros&quot;,
-                    &quot;currency&quot;: &quot;MZN&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
-                },
-                &quot;user&quot;: {
-                    &quot;id&quot;: 396,
-                    &quot;first_name&quot;: &quot;Anissa Bechtelar&quot;,
-                    &quot;last_name&quot;: &quot;Gavin Frami IV&quot;,
-                    &quot;email&quot;: &quot;maria.medhurst@example.org&quot;,
-                    &quot;email_verification_code&quot;: null,
-                    &quot;verification_code_expires_at&quot;: null,
-                    &quot;email_verified_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;phone_number&quot;: null,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;card_brand&quot;: null,
-                    &quot;card_last_four&quot;: null,
-                    &quot;trial_ends_at&quot;: null,
-                    &quot;verified&quot;: true
-                }
-            }
-        },
-        {
-            &quot;id&quot;: 7,
-            &quot;user_id&quot;: 392,
-            &quot;recipient_id&quot;: 142,
-            &quot;reason&quot;: null,
-            &quot;base_amount&quot;: 7,
-            &quot;base_currency&quot;: &quot;IQD&quot;,
-            &quot;amount_to_remit&quot;: 5,
-            &quot;currency_to_remit&quot;: &quot;OMR&quot;,
-            &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-            &quot;status&quot;: &quot;completed&quot;,
-            &quot;credit_payment&quot;: {
-                &quot;id&quot;: 6,
-                &quot;remittance_id&quot;: 7,
-                &quot;source_id&quot;: 140,
-                &quot;amount&quot;: 6,
-                &quot;currency&quot;: &quot;GHS&quot;,
-                &quot;status&quot;: &quot;paid&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                 &quot;source&quot;: {
-                    &quot;id&quot;: 140,
-                    &quot;user_id&quot;: 406,
-                    &quot;brand&quot;: &quot;autem&quot;,
-                    &quot;last_four&quot;: &quot;5566&quot;,
-                    &quot;expiry_month&quot;: 5,
-                    &quot;expiry_year&quot;: 2022,
-                    &quot;postal_code&quot;: &quot;29642-7736&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
+                    &quot;id&quot;: 137,
+                    &quot;user_id&quot;: 403,
+                    &quot;brand&quot;: &quot;commodi&quot;,
+                    &quot;last_four&quot;: &quot;7333&quot;,
+                    &quot;expiry_month&quot;: 1,
+                    &quot;expiry_year&quot;: 2025,
+                    &quot;postal_code&quot;: &quot;87713&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
                 }
             },
             &quot;debit_payment&quot;: {
-                &quot;id&quot;: 6,
-                &quot;remittance_id&quot;: 7,
-                &quot;recipient_id&quot;: 147,
+                &quot;id&quot;: 5,
+                &quot;remittance_id&quot;: 5,
+                &quot;recipient_id&quot;: 142,
                 &quot;reference&quot;: null,
-                &quot;amount&quot;: 7,
-                &quot;currency&quot;: &quot;TZS&quot;,
+                &quot;amount&quot;: 6,
+                &quot;currency&quot;: &quot;CUC&quot;,
                 &quot;status&quot;: &quot;paid&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                 &quot;recipient&quot;: {
-                    &quot;id&quot;: 147,
-                    &quot;user_id&quot;: 407,
-                    &quot;bank_id&quot;: 213,
-                    &quot;email&quot;: &quot;madisen.maggio@prohaska.com&quot;,
-                    &quot;account_name&quot;: &quot;Ronaldo Prosacco PhD&quot;,
-                    &quot;account_number&quot;: &quot;748546026225&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                    &quot;id&quot;: 142,
+                    &quot;user_id&quot;: 404,
+                    &quot;bank_id&quot;: 149,
+                    &quot;email&quot;: &quot;cordie.dach@yahoo.com&quot;,
+                    &quot;account_name&quot;: &quot;Therese Kessler&quot;,
+                    &quot;account_number&quot;: &quot;547742274&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                     &quot;bank&quot;: {
-                        &quot;id&quot;: 213,
-                        &quot;name&quot;: &quot;veniam&quot;,
-                        &quot;slug&quot;: &quot;enim&quot;,
-                        &quot;country&quot;: &quot;Andorra&quot;,
-                        &quot;currency&quot;: &quot;PAB&quot;,
-                        &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
+                        &quot;id&quot;: 149,
+                        &quot;name&quot;: &quot;dolores&quot;,
+                        &quot;slug&quot;: &quot;beatae&quot;,
+                        &quot;country&quot;: &quot;Botswana&quot;,
+                        &quot;currency&quot;: &quot;PGK&quot;,
+                        &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
                     }
                 }
             },
             &quot;recipient&quot;: {
-                &quot;id&quot;: 142,
-                &quot;user_id&quot;: 397,
-                &quot;bank_id&quot;: 208,
-                &quot;email&quot;: &quot;kreiger.ora@hotmail.com&quot;,
-                &quot;account_name&quot;: &quot;Vaughn Fritsch IV&quot;,
-                &quot;account_number&quot;: &quot;5439071578905&quot;,
-                &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                &quot;id&quot;: 137,
+                &quot;user_id&quot;: 394,
+                &quot;bank_id&quot;: 144,
+                &quot;email&quot;: &quot;qbergstrom@hotmail.com&quot;,
+                &quot;account_name&quot;: &quot;Columbus Rice&quot;,
+                &quot;account_number&quot;: &quot;8235531058924&quot;,
+                &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                 &quot;bank&quot;: {
-                    &quot;id&quot;: 208,
-                    &quot;name&quot;: &quot;harum&quot;,
-                    &quot;slug&quot;: &quot;alias&quot;,
-                    &quot;country&quot;: &quot;Estonia&quot;,
-                    &quot;currency&quot;: &quot;ETB&quot;,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;
+                    &quot;id&quot;: 144,
+                    &quot;name&quot;: &quot;officiis&quot;,
+                    &quot;slug&quot;: &quot;beatae&quot;,
+                    &quot;country&quot;: &quot;Andorra&quot;,
+                    &quot;currency&quot;: &quot;BHD&quot;,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;
                 },
                 &quot;user&quot;: {
-                    &quot;id&quot;: 397,
-                    &quot;first_name&quot;: &quot;Florida Gottlieb&quot;,
-                    &quot;last_name&quot;: &quot;Gordon Hill&quot;,
-                    &quot;email&quot;: &quot;elva35@example.com&quot;,
+                    &quot;id&quot;: 394,
+                    &quot;first_name&quot;: &quot;Julia&quot;,
+                    &quot;last_name&quot;: &quot;Marquardt&quot;,
+                    &quot;email&quot;: &quot;nickolas00@example.com&quot;,
+                    &quot;username&quot;: &quot;tcormier&quot;,
                     &quot;email_verification_code&quot;: null,
                     &quot;verification_code_expires_at&quot;: null,
-                    &quot;email_verified_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;phone_number&quot;: null,
-                    &quot;created_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-08-19T18:11:22.000000Z&quot;,
+                    &quot;email_verified_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;phone_number&quot;: &quot;+1-562-607-8373&quot;,
+                    &quot;birth_date&quot;: &quot;1991-09-03&quot;,
+                    &quot;sila_key&quot;: null,
+                    &quot;kyc_status&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-09-03T17:22:22.000000Z&quot;,
                     &quot;card_brand&quot;: null,
                     &quot;card_last_four&quot;: null,
                     &quot;trial_ends_at&quot;: null,

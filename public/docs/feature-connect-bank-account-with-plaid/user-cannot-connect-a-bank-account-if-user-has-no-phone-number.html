@@ -273,8 +273,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-user-login.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                User Login
+            <a href="/docs/feature-connect-bank-account-with-plaid.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Connect Bank Account With Plaid
                             </a>
         </li>
     </ul>
@@ -284,7 +284,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user cannot login with a wrong password
+            User cannot connect a bank account if user has no phone number
               
         </div></h3>
                     </div>
@@ -302,10 +302,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_146'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_122'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_146' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_122' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -323,17 +323,34 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/login</td>
+                > api/users/{user}/plaid-bank-accounts</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/login</td>
+                > api/users/386/plaid-bank-accounts</td>
             </tr>
             </table>
 </div>
  
 
+             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
+    <thead>
+        <tr class="bg-gray-500">
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Route Parameter</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Pattern</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Requirement</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr class="break-all">
+                <td class="py-2 px-4 font-thin text-gray-200">user</td>
+                <td class="py-2 px-4 font-thin text-teal-300">*</td>
+                <td class="py-2 px-4 font-thin text-teal-300">Required</td>
+            </tr>
+            </tbody>
+</table>
+ 
     
              <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
     <thead>
@@ -344,15 +361,33 @@
     </thead>
     <tbody>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">email</td>
+                <td class="px-4 py-2 font-thin text-gray-200">account_id</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            riley16@wehner.net
+                                            yng56dgdLjHb3QvkzKMyhxmBryZnjZur7BngX
                                     </td>
             </tr>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">password</td>
+                <td class="px-4 py-2 font-thin text-gray-200">account_name</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            wrong-password
+                                            Checking
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="px-4 py-2 font-thin text-gray-200">institution_id</td>
+                <td class="px-4 py-2 font-thin text-teal-300 break-all">
+                                            ins_5
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="px-4 py-2 font-thin text-gray-200">institution_name</td>
+                <td class="px-4 py-2 font-thin text-teal-300 break-all">
+                                            Citibank Online
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="px-4 py-2 font-thin text-gray-200">plaid_public_token</td>
+                <td class="px-4 py-2 font-thin text-teal-300 break-all">
+                                            public-sandbox-372658fa-db2e-4b43-a48d-90f62d5cbb8c
                                     </td>
             </tr>
             </tbody>
@@ -393,7 +428,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 58</td>
+                > 217</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -412,7 +447,7 @@
         <h3 class="text-base text-gray-300">Response</h3>
     </span>
     <div class="p-4 space-x-4">
-        <span class="p-1 bg-warning-200 text-warning-700">401</span>
+        <span class="p-1 bg-warning-200 text-warning-700">422</span>
         <span class="text-gray-100">JSON</span>
     </div>
 
@@ -425,7 +460,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Fri, 03 Sep 2021 17:22:36 GMT</td>
+                > Fri, 03 Sep 2021 17:22:18 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -461,7 +496,12 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;Invalid email or password&quot;
+    &quot;message&quot;: &quot;Bank connection validation failed&quot;,
+    &quot;errors&quot;: {
+        &quot;phone_number&quot;: [
+            &quot;Provide phone number to connect account&quot;
+        ]
+    }
 }</code></pre>
 </div> 
     </div>
