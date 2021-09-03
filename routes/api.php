@@ -55,6 +55,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/banks', [BanksController::class, 'index']);
     Route::put('/users/{user}', [UsersController::class, 'update']);
     Route::post('/users/{user}/plaid-bank-accounts', [UserBankAccountsController::class, 'store']);
+    Route::get('/users/{user}/bank-accounts', [UserBankAccountsController::class, 'index']);
     Route::get('/users/{user}/cards', [UserCardsController::class, 'index']);
     Route::post('/users/{user}/cards', [UserCardsController::class, 'store']);
     Route::post('/users/{user}/address', [UserAddressController::class, 'store']);

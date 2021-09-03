@@ -12,6 +12,14 @@ use Illuminate\Http\JsonResponse;
 class UserBankAccountsController extends Controller
 {
 
+    public function index(User $user)
+    {
+        return response()->json([
+            'message' => 'User bank accounts',
+            'data' => $user->bankAccounts
+        ]);
+    }
+
     public function store(User $user, AddBankAccountAction $addBankAccountAction, ConnectPlaidBankAccountRequest $request): JsonResponse
     {
         try {
