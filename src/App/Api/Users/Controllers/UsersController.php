@@ -13,6 +13,14 @@ use Illuminate\Http\JsonResponse;
 
 class UsersController
 {
+    public function show()
+    {
+        return response()->json([
+            'message' => 'User profile',
+            'data' => auth()->user()->load(['address'])
+        ]);
+    }
+
     public function store(CreateUserRequest $request, CreateUserAction $createUserAction): JsonResponse
     {
         $userData = UserData::fromArray($request->all());

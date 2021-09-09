@@ -14,7 +14,7 @@ class GetSellerBidOffersTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function a_user_can_get_list_of_orders_that_have_been_place_on_bids()
+    function a_user_can_get_list_of_orders_that_have_been_placed_on_his_bids()
     {
         $this->withoutExceptionHandling();
 

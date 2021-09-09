@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('verification_code_expires_at')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
+            $table->string('identity_number')->nullable();
             $table->string('phone_number')->nullable();
             $table->date('birth_date')->nullable();
             $table->string('sila_key')->nullable();

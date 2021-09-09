@@ -12,6 +12,7 @@ class UserAddress extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $with = ['country', 'state'];
 
     public function country()
     {

@@ -36,6 +36,7 @@ class UpdateUserAction
             'first_name' => $userData->firstName ?? $user->first_name,
             'last_name' => $userData->lastName ?? $user->last_name,
             'phone_number' => $userData->phoneNumber ?? $user->phone_number,
+            'identity_number' => $userData->identityNumber ?? $user->identity_number,
             'username' => $userData->username ?? $user->username,
             'birth_date' => $userData->birthDate ?? $user->birth_date
         ])->save();
@@ -47,6 +48,6 @@ class UpdateUserAction
             ($this->addUserAddressAction)($user, $userData->addressData);
         }
 
-        return $user->fresh(['address.country', 'address.state']);
+        return $user->fresh(['address']);
     }
 }

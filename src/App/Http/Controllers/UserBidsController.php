@@ -12,6 +12,17 @@ use Illuminate\Http\JsonResponse;
 class UserBidsController extends Controller
 {
 
+    public function index(User $user)
+    {
+        $limit = request('limit', 15);
+        $bids = $user->bids()->paginate($limit);
+
+        return response()->json([
+            'message' => 'User bids created',
+            'data' => $bids
+        ]);
+    }
+
     public function store(User $user, CreateBidRequest $createBidRequest, AddUserBidAction $addUserBidAction): JsonResponse
     {
         $remittanceData = BidData::fromArray($createBidRequest->toArray());

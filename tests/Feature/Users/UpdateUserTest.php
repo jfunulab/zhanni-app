@@ -5,6 +5,7 @@ namespace Tests\Feature\Users;
 use Domain\Countries\Models\Country;
 use Domain\Countries\Models\CountryState;
 use Domain\Users\Models\User;
+use Domain\Users\Models\UserAddress;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Laravel\Sanctum\Sanctum;
@@ -67,7 +68,7 @@ class UpdateUserTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $user = User::factory()->newUser()->create();
+        $user = User::factory()->newUser()->has(UserAddress::factory(), 'address')->create();
         Sanctum::actingAs($user);
 
         $updateDetails = [

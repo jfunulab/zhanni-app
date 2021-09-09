@@ -4,7 +4,6 @@
 namespace Domain\Users\DTOs;
 
 
-use Carbon\Carbon;
 use Spatie\DataTransferObject\DataTransferObject;
 
 class UserData extends DataTransferObject
@@ -16,6 +15,7 @@ class UserData extends DataTransferObject
     public ?string $username;
     public ?string $phoneNumber;
     public ?string $birthDate;
+    public ?string $identityNumber;
     public ?UserAddressData $addressData;
 
     public static function fromArray(array $dataArray): UserData
@@ -27,13 +27,14 @@ class UserData extends DataTransferObject
             'username' => $dataArray['username'] ?? null,
             'password' => $dataArray['password'] ?? null,
             'phoneNumber' => $dataArray['phone_number'] ?? null,
+            'identityNumber' => $dataArray['identity_number'] ?? null,
             'birthDate' => $dataArray['birth_date'] ?? null,
             'addressData' => UserAddressData::fromArray([
                 'address_line_one' => $dataArray['address_line_one'] ?? null,
                 'address_line_two' => $dataArray['address_line_two'] ?? null,
                 'country' => $dataArray['country'] ?? null,
                 'state' => $dataArray['state'] ?? null,
-                'postalCode' => $dataArray['postal_code'] ?? null,
+                'postal_code' => $dataArray['postal_code'] ?? null,
                 'city' => $dataArray['city'] ?? null,
             ])
         ]);
