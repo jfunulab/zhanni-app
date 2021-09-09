@@ -281,8 +281,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-get-user-recipients.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Get User Recipients
+            <a href="/docs/feature-bid-get-seller-bid-offers.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Get Seller Bid Offers
                             </a>
         </li>
     </ul>
@@ -292,7 +292,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user can get list of recipients added to account
+            A user can get list of orders that have been placed on his bids
               
         </div></h3>
                     </div>
@@ -310,10 +310,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_177'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_162'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_177' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_162' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -331,12 +331,12 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users/{user}/recipients</td>
+                > api/users/{user}/bids/sell-orders</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users/424/recipients</td>
+                > api/users/122/bids/sell-orders</td>
             </tr>
             </table>
 </div>
@@ -427,7 +427,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Thu, 09 Sep 2021 19:10:18 GMT</td>
+                > Thu, 09 Sep 2021 19:10:03 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -463,47 +463,269 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;User transfer recipients&quot;,
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 148,
-            &quot;user_id&quot;: 424,
-            &quot;bank_id&quot;: 155,
-            &quot;email&quot;: &quot;prohaska.vernie@osinski.info&quot;,
-            &quot;account_name&quot;: &quot;Andy Runolfsson&quot;,
-            &quot;account_number&quot;: &quot;67762118745&quot;,
-            &quot;created_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-            &quot;bank&quot;: {
-                &quot;id&quot;: 155,
-                &quot;name&quot;: &quot;expedita&quot;,
-                &quot;slug&quot;: &quot;cumque&quot;,
-                &quot;country&quot;: &quot;Poland&quot;,
-                &quot;currency&quot;: &quot;JOD&quot;,
-                &quot;created_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;
+    &quot;message&quot;: &quot;Bids sold&quot;,
+    &quot;data&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 22,
+                &quot;user_id&quot;: 126,
+                &quot;bid_id&quot;: 27,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 5,
+                &quot;origin_currency&quot;: &quot;SGD&quot;,
+                &quot;destination_currency&quot;: &quot;PAB&quot;,
+                &quot;buyer_funding_account_id&quot;: 48,
+                &quot;buyer_receiving_account_id&quot;: 48,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 23,
+                &quot;user_id&quot;: 132,
+                &quot;bid_id&quot;: 28,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 2,
+                &quot;origin_currency&quot;: &quot;CAD&quot;,
+                &quot;destination_currency&quot;: &quot;CUC&quot;,
+                &quot;buyer_funding_account_id&quot;: 50,
+                &quot;buyer_receiving_account_id&quot;: 50,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 24,
+                &quot;user_id&quot;: 138,
+                &quot;bid_id&quot;: 29,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 8,
+                &quot;origin_currency&quot;: &quot;XCD&quot;,
+                &quot;destination_currency&quot;: &quot;CAD&quot;,
+                &quot;buyer_funding_account_id&quot;: 52,
+                &quot;buyer_receiving_account_id&quot;: 52,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 25,
+                &quot;user_id&quot;: 144,
+                &quot;bid_id&quot;: 30,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 6,
+                &quot;origin_currency&quot;: &quot;RWF&quot;,
+                &quot;destination_currency&quot;: &quot;JPY&quot;,
+                &quot;buyer_funding_account_id&quot;: 54,
+                &quot;buyer_receiving_account_id&quot;: 54,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 26,
+                &quot;user_id&quot;: 150,
+                &quot;bid_id&quot;: 31,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 2,
+                &quot;origin_currency&quot;: &quot;UZS&quot;,
+                &quot;destination_currency&quot;: &quot;AFN&quot;,
+                &quot;buyer_funding_account_id&quot;: 56,
+                &quot;buyer_receiving_account_id&quot;: 56,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 27,
+                &quot;user_id&quot;: 156,
+                &quot;bid_id&quot;: 32,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 5,
+                &quot;origin_currency&quot;: &quot;STN&quot;,
+                &quot;destination_currency&quot;: &quot;FJD&quot;,
+                &quot;buyer_funding_account_id&quot;: 58,
+                &quot;buyer_receiving_account_id&quot;: 58,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 28,
+                &quot;user_id&quot;: 162,
+                &quot;bid_id&quot;: 33,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 8,
+                &quot;origin_currency&quot;: &quot;STN&quot;,
+                &quot;destination_currency&quot;: &quot;HTG&quot;,
+                &quot;buyer_funding_account_id&quot;: 60,
+                &quot;buyer_receiving_account_id&quot;: 60,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 29,
+                &quot;user_id&quot;: 168,
+                &quot;bid_id&quot;: 34,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 3,
+                &quot;origin_currency&quot;: &quot;IDR&quot;,
+                &quot;destination_currency&quot;: &quot;KPW&quot;,
+                &quot;buyer_funding_account_id&quot;: 62,
+                &quot;buyer_receiving_account_id&quot;: 62,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 30,
+                &quot;user_id&quot;: 174,
+                &quot;bid_id&quot;: 35,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 5,
+                &quot;origin_currency&quot;: &quot;GEL&quot;,
+                &quot;destination_currency&quot;: &quot;AMD&quot;,
+                &quot;buyer_funding_account_id&quot;: 64,
+                &quot;buyer_receiving_account_id&quot;: 64,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 31,
+                &quot;user_id&quot;: 180,
+                &quot;bid_id&quot;: 36,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 7,
+                &quot;origin_currency&quot;: &quot;DOP&quot;,
+                &quot;destination_currency&quot;: &quot;NGN&quot;,
+                &quot;buyer_funding_account_id&quot;: 66,
+                &quot;buyer_receiving_account_id&quot;: 66,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 32,
+                &quot;user_id&quot;: 186,
+                &quot;bid_id&quot;: 37,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 2,
+                &quot;origin_currency&quot;: &quot;CNY&quot;,
+                &quot;destination_currency&quot;: &quot;BGN&quot;,
+                &quot;buyer_funding_account_id&quot;: 68,
+                &quot;buyer_receiving_account_id&quot;: 68,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 33,
+                &quot;user_id&quot;: 192,
+                &quot;bid_id&quot;: 38,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 3,
+                &quot;origin_currency&quot;: &quot;SEK&quot;,
+                &quot;destination_currency&quot;: &quot;SLL&quot;,
+                &quot;buyer_funding_account_id&quot;: 70,
+                &quot;buyer_receiving_account_id&quot;: 70,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 34,
+                &quot;user_id&quot;: 198,
+                &quot;bid_id&quot;: 39,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 2,
+                &quot;origin_currency&quot;: &quot;FJD&quot;,
+                &quot;destination_currency&quot;: &quot;BYN&quot;,
+                &quot;buyer_funding_account_id&quot;: 72,
+                &quot;buyer_receiving_account_id&quot;: 72,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 35,
+                &quot;user_id&quot;: 204,
+                &quot;bid_id&quot;: 40,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 6,
+                &quot;origin_currency&quot;: &quot;CNY&quot;,
+                &quot;destination_currency&quot;: &quot;MOP&quot;,
+                &quot;buyer_funding_account_id&quot;: 74,
+                &quot;buyer_receiving_account_id&quot;: 74,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 36,
+                &quot;user_id&quot;: 210,
+                &quot;bid_id&quot;: 41,
+                &quot;seller_id&quot;: 122,
+                &quot;minimum_amount&quot;: 0,
+                &quot;maximum_amount&quot;: 0,
+                &quot;rate&quot;: 2,
+                &quot;origin_currency&quot;: &quot;GEL&quot;,
+                &quot;destination_currency&quot;: &quot;CAD&quot;,
+                &quot;buyer_funding_account_id&quot;: 76,
+                &quot;buyer_receiving_account_id&quot;: 76,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:03.000000Z&quot;
             }
-        },
-        {
-            &quot;id&quot;: 149,
-            &quot;user_id&quot;: 424,
-            &quot;bank_id&quot;: 156,
-            &quot;email&quot;: &quot;dhoppe@wisoky.com&quot;,
-            &quot;account_name&quot;: &quot;Bell O&#039;Keefe&quot;,
-            &quot;account_number&quot;: &quot;14324174250&quot;,
-            &quot;created_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-            &quot;bank&quot;: {
-                &quot;id&quot;: 156,
-                &quot;name&quot;: &quot;nesciunt&quot;,
-                &quot;slug&quot;: &quot;ut&quot;,
-                &quot;country&quot;: &quot;Italy&quot;,
-                &quot;currency&quot;: &quot;HTG&quot;,
-                &quot;created_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;
+        ],
+        &quot;first_page_url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/122\/bids\/sell-orders?page=1&quot;,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 2,
+        &quot;last_page_url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/122\/bids\/sell-orders?page=2&quot;,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/122\/bids\/sell-orders?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/122\/bids\/sell-orders?page=2&quot;,
+                &quot;label&quot;: &quot;2&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/122\/bids\/sell-orders?page=2&quot;,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
             }
-        }
-    ]
+        ],
+        &quot;next_page_url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/122\/bids\/sell-orders?page=2&quot;,
+        &quot;path&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/122\/bids\/sell-orders&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;prev_page_url&quot;: null,
+        &quot;to&quot;: 15,
+        &quot;total&quot;: 20
+    }
 }</code></pre>
 </div> 
     </div>

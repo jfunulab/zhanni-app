@@ -281,8 +281,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-get-user-recipients.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Get User Recipients
+            <a href="/docs/feature-users-get-user-profile.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Get User Profile
                             </a>
         </li>
     </ul>
@@ -292,7 +292,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user can get list of recipients added to account
+            A user can make request for his own profile data
               
         </div></h3>
                     </div>
@@ -310,10 +310,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_177'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_176'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_177' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_176' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -331,34 +331,17 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users/{user}/recipients</td>
+                > api/user</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users/424/recipients</td>
+                > api/user</td>
             </tr>
             </table>
 </div>
  
 
-             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
-    <thead>
-        <tr class="bg-gray-500">
-            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Route Parameter</th>
-            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Pattern</th>
-            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Requirement</th>
-        </tr>
-    </thead>
-    <tbody>
-                    <tr class="break-all">
-                <td class="py-2 px-4 font-thin text-gray-200">user</td>
-                <td class="py-2 px-4 font-thin text-teal-300">*</td>
-                <td class="py-2 px-4 font-thin text-teal-300">Required</td>
-            </tr>
-            </tbody>
-</table>
- 
     
     
              <div>
@@ -427,7 +410,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Thu, 09 Sep 2021 19:10:18 GMT</td>
+                > Thu, 09 Sep 2021 19:10:17 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -463,47 +446,47 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;User transfer recipients&quot;,
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 148,
-            &quot;user_id&quot;: 424,
-            &quot;bank_id&quot;: 155,
-            &quot;email&quot;: &quot;prohaska.vernie@osinski.info&quot;,
-            &quot;account_name&quot;: &quot;Andy Runolfsson&quot;,
-            &quot;account_number&quot;: &quot;67762118745&quot;,
-            &quot;created_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-            &quot;bank&quot;: {
-                &quot;id&quot;: 155,
-                &quot;name&quot;: &quot;expedita&quot;,
-                &quot;slug&quot;: &quot;cumque&quot;,
-                &quot;country&quot;: &quot;Poland&quot;,
-                &quot;currency&quot;: &quot;JOD&quot;,
-                &quot;created_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 149,
-            &quot;user_id&quot;: 424,
-            &quot;bank_id&quot;: 156,
-            &quot;email&quot;: &quot;dhoppe@wisoky.com&quot;,
-            &quot;account_name&quot;: &quot;Bell O&#039;Keefe&quot;,
-            &quot;account_number&quot;: &quot;14324174250&quot;,
-            &quot;created_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-            &quot;bank&quot;: {
-                &quot;id&quot;: 156,
-                &quot;name&quot;: &quot;nesciunt&quot;,
-                &quot;slug&quot;: &quot;ut&quot;,
-                &quot;country&quot;: &quot;Italy&quot;,
-                &quot;currency&quot;: &quot;HTG&quot;,
-                &quot;created_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;
+    &quot;message&quot;: &quot;User profile&quot;,
+    &quot;data&quot;: {
+        &quot;first_name&quot;: &quot;Owen&quot;,
+        &quot;last_name&quot;: &quot;Cremin&quot;,
+        &quot;email&quot;: &quot;barrows.lane@example.com&quot;,
+        &quot;username&quot;: &quot;makenzie94&quot;,
+        &quot;email_verified_at&quot;: &quot;2021-09-09T19:10:17.000000Z&quot;,
+        &quot;birth_date&quot;: &quot;1991-09-09T19:10:17.280378Z&quot;,
+        &quot;phone_number&quot;: &quot;+15647768136&quot;,
+        &quot;updated_at&quot;: &quot;2021-09-09T19:10:17.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2021-09-09T19:10:17.000000Z&quot;,
+        &quot;id&quot;: 422,
+        &quot;verified&quot;: true,
+        &quot;address&quot;: {
+            &quot;id&quot;: 10,
+            &quot;user_id&quot;: 422,
+            &quot;country_id&quot;: 24,
+            &quot;state_id&quot;: 13,
+            &quot;line_one&quot;: &quot;Flo Dale&quot;,
+            &quot;line_two&quot;: &quot;Elmore Mount&quot;,
+            &quot;city&quot;: &quot;Port Aleenmouth&quot;,
+            &quot;postal_code&quot;: &quot;67056&quot;,
+            &quot;created_at&quot;: &quot;2021-09-09T19:10:17.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-09-09T19:10:17.000000Z&quot;,
+            &quot;country&quot;: {
+                &quot;id&quot;: 24,
+                &quot;name&quot;: &quot;a&quot;,
+                &quot;code&quot;: &quot;veniam&quot;,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:17.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:17.000000Z&quot;
+            },
+            &quot;state&quot;: {
+                &quot;id&quot;: 13,
+                &quot;country_id&quot;: 25,
+                &quot;name&quot;: &quot;Nevada&quot;,
+                &quot;code&quot;: &quot;NY&quot;,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:17.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:17.000000Z&quot;
             }
         }
-    ]
+    }
 }</code></pre>
 </div> 
     </div>

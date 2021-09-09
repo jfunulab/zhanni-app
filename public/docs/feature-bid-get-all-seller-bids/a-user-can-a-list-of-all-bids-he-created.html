@@ -281,8 +281,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-get-user-recipients.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Get User Recipients
+            <a href="/docs/feature-bid-get-all-seller-bids.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Get All Seller Bids
                             </a>
         </li>
     </ul>
@@ -292,7 +292,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user can get list of recipients added to account
+            A user can a list of all bids he created
               
         </div></h3>
                     </div>
@@ -310,10 +310,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_177'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_160'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_177' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_160' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -331,12 +331,12 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users/{user}/recipients</td>
+                > api/users/{user}/bids</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users/424/recipients</td>
+                > api/users/12/bids</td>
             </tr>
             </table>
 </div>
@@ -427,7 +427,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Thu, 09 Sep 2021 19:10:18 GMT</td>
+                > Thu, 09 Sep 2021 19:10:00 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -463,47 +463,91 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;User transfer recipients&quot;,
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 148,
-            &quot;user_id&quot;: 424,
-            &quot;bank_id&quot;: 155,
-            &quot;email&quot;: &quot;prohaska.vernie@osinski.info&quot;,
-            &quot;account_name&quot;: &quot;Andy Runolfsson&quot;,
-            &quot;account_number&quot;: &quot;67762118745&quot;,
-            &quot;created_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-            &quot;bank&quot;: {
-                &quot;id&quot;: 155,
-                &quot;name&quot;: &quot;expedita&quot;,
-                &quot;slug&quot;: &quot;cumque&quot;,
-                &quot;country&quot;: &quot;Poland&quot;,
-                &quot;currency&quot;: &quot;JOD&quot;,
-                &quot;created_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;
+    &quot;message&quot;: &quot;User bids created&quot;,
+    &quot;data&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 3,
+                &quot;user_id&quot;: 12,
+                &quot;minimum_amount&quot;: 0.02,
+                &quot;maximum_amount&quot;: 0.03,
+                &quot;rate&quot;: 6,
+                &quot;origin_currency&quot;: &quot;ILS&quot;,
+                &quot;destination_currency&quot;: &quot;DJF&quot;,
+                &quot;funding_account_id&quot;: 3,
+                &quot;receiving_account_id&quot;: 3,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:00.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 4,
+                &quot;user_id&quot;: 12,
+                &quot;minimum_amount&quot;: 0.02,
+                &quot;maximum_amount&quot;: 0.09,
+                &quot;rate&quot;: 4,
+                &quot;origin_currency&quot;: &quot;BAM&quot;,
+                &quot;destination_currency&quot;: &quot;BGN&quot;,
+                &quot;funding_account_id&quot;: 4,
+                &quot;receiving_account_id&quot;: 4,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:00.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 5,
+                &quot;user_id&quot;: 12,
+                &quot;minimum_amount&quot;: 0.06,
+                &quot;maximum_amount&quot;: 0.06,
+                &quot;rate&quot;: 2,
+                &quot;origin_currency&quot;: &quot;ERN&quot;,
+                &quot;destination_currency&quot;: &quot;CNY&quot;,
+                &quot;funding_account_id&quot;: 5,
+                &quot;receiving_account_id&quot;: 5,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:00.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 6,
+                &quot;user_id&quot;: 12,
+                &quot;minimum_amount&quot;: 0.01,
+                &quot;maximum_amount&quot;: 0.07,
+                &quot;rate&quot;: 6,
+                &quot;origin_currency&quot;: &quot;EGP&quot;,
+                &quot;destination_currency&quot;: &quot;RSD&quot;,
+                &quot;funding_account_id&quot;: 6,
+                &quot;receiving_account_id&quot;: 6,
+                &quot;created_at&quot;: &quot;2021-09-09T19:10:00.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T19:10:00.000000Z&quot;
             }
-        },
-        {
-            &quot;id&quot;: 149,
-            &quot;user_id&quot;: 424,
-            &quot;bank_id&quot;: 156,
-            &quot;email&quot;: &quot;dhoppe@wisoky.com&quot;,
-            &quot;account_name&quot;: &quot;Bell O&#039;Keefe&quot;,
-            &quot;account_number&quot;: &quot;14324174250&quot;,
-            &quot;created_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-            &quot;bank&quot;: {
-                &quot;id&quot;: 156,
-                &quot;name&quot;: &quot;nesciunt&quot;,
-                &quot;slug&quot;: &quot;ut&quot;,
-                &quot;country&quot;: &quot;Italy&quot;,
-                &quot;currency&quot;: &quot;HTG&quot;,
-                &quot;created_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-09-09T19:10:18.000000Z&quot;
+        ],
+        &quot;first_page_url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/12\/bids?page=1&quot;,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;last_page_url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/12\/bids?page=1&quot;,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/12\/bids?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
             }
-        }
-    ]
+        ],
+        &quot;next_page_url&quot;: null,
+        &quot;path&quot;: &quot;http:\/\/zhanni-api.test\/api\/users\/12\/bids&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;prev_page_url&quot;: null,
+        &quot;to&quot;: 4,
+        &quot;total&quot;: 4
+    }
 }</code></pre>
 </div> 
     </div>
