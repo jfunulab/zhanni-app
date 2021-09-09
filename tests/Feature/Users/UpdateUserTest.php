@@ -92,7 +92,7 @@ class UpdateUserTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $user = User::factory()->newUser()->create();
+        $user = User::factory()->newUser()->has(UserAddress::factory(), 'address')->create();
         Sanctum::actingAs($user);
 
         $updateDetails = [
@@ -121,7 +121,8 @@ class UpdateUserTest extends TestCase
                             ],
                             'state' => [
                                 'name' => $updateDetails['state']
-                            ]
+                            ],
+                            'city' => $updateDetails['city']
                         ]
                     ]
                 ]
