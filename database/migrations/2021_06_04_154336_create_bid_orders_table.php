@@ -18,6 +18,7 @@ class CreateBidOrdersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('bid_id');
             $table->unsignedBigInteger('seller_id');
+            $table->integer('amount');
             $table->integer('minimum_amount');
             $table->integer('maximum_amount');
             $table->integer('rate');

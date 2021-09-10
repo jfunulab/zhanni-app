@@ -30,6 +30,7 @@ class BidOrderFactory extends Factory
             'user_id' => User::factory(),
             'bid_id' => $bid->id,
             'seller_id' => $bid->user->id,
+            'amount' => 600000,
             'minimum_amount' => $bid->minimum_amount,
             'maximum_amount' => $bid->maximum_amount,
             'rate' => $bid->rate,

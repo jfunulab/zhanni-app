@@ -15,12 +15,12 @@ class Bid extends Model
 
     public function getMaximumAmountAttribute($value)
     {
-        return $value/100;
+        return $value / 100;
     }
 
     public function getMinimumAmountAttribute($value)
     {
-        return $value/100;
+        return $value / 100;
     }
 
     public function user(): BelongsTo

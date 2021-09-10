@@ -14,7 +14,7 @@ class UserBidOrdersController extends Controller
 
     public function buyIndex(User $user): JsonResponse
     {
-        $bids = $user->bidBuyOrders()->paginate(15);
+        $bids = $user->bidBuyOrders()->with(['seller'])->paginate(15);
 
         return response()->json([
             'message' => 'Bids bought',
@@ -24,7 +24,7 @@ class UserBidOrdersController extends Controller
 
     public function sellIndex(User $user): JsonResponse
     {
-        $bids = $user->bidSellOrders()->paginate(15);
+        $bids = $user->bidSellOrders()->with(['buyer'])->paginate(15);
 
         return response()->json([
             'message' => 'Bids sold',

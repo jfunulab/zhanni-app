@@ -14,8 +14,9 @@ class BuyBidAction
         return $user->bidBuyOrders()->create([
             'bid_id' => $bid->id,
             'seller_id' => $bid->user->id,
-            'minimum_amount' => $bidPurchaseData->bid->minimum_amount,
-            'maximum_amount' => $bidPurchaseData->bid->maximum_amount,
+            'amount' => $bidPurchaseData->amount,
+            'minimum_amount' => $bidPurchaseData->bid->minimum_amount * 100,
+            'maximum_amount' => $bidPurchaseData->bid->maximum_amount * 100,
             'rate' => $bidPurchaseData->bid->rate,
             'origin_currency' => $bidPurchaseData->bid->origin_currency,
             'destination_currency' => $bidPurchaseData->bid->destination_currency,
