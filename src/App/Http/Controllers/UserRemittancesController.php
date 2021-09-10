@@ -33,7 +33,7 @@ class UserRemittancesController extends Controller
                 'base_currency' => $remittanceData->rate->base,
                 'amount_to_remit' => $remittanceData->amount * $remittanceData->rate->rate,
                 'currency_to_remit' => $remittanceData->rate->currency,
-                'funding_account_id' => $remittanceData->recipient->id,
+                'funding_account_id' => $remittanceData->fundingAccount->id,
                 'recipient_id' => $remittanceData->recipient->id
             ]);
 

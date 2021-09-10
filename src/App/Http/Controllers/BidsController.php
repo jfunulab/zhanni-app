@@ -10,7 +10,7 @@ class BidsController extends Controller
 
     public function index()
     {
-        $bids = Bid::paginate(15);
+        $bids = Bid::with('user')->paginate(15);
 
         return response()->json($bids);
     }
