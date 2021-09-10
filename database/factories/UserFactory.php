@@ -32,6 +32,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'birth_date' => now()->subYears(30),
             'phone_number' => $this->faker->phoneNumber,
+            'identity_number' => $this->faker->isbn10(),
         ];
     }
 

@@ -51,13 +51,41 @@ class ConnectBankAccountWithPlaidTest extends TestCase
         $response->assertSuccessful();
     }
 
-    /** @test */
+    /**
+     * @test
+     * @enlighten {"ignore": true}
+     */
     function user_cannot_connect_a_bank_account_if_user_has_no_phone_number()
     {
         Queue::fake();
 
         $user = User::factory()->newUser()->has(UserAddress::factory()->count(1), 'address')
             ->create(['phone_number' => null]);
+        Sanctum::actingAs($user);
+
+        $plaidAccountDetails = [
+            'account_id' => 'yng56dgdLjHb3QvkzKMyhxmBryZnjZur7BngX',
+            'account_name' => 'Checking',
+            'institution_name' => 'Citibank Online',
+            'institution_id' => 'ins_5',
+            'plaid_public_token' => 'public-sandbox-372658fa-db2e-4b43-a48d-90f62d5cbb8c',
+        ];
+
+        $response = $this->postJson("/api/users/$user->id/plaid-bank-accounts", $plaidAccountDetails);
+
+        $response->assertStatus(422);
+    }
+
+    /**
+     * @test
+     * @enlighten {"ignore": true}
+     */
+    function user_cannot_connect_a_bank_account_if_user_has_no_identity_number()
+    {
+        Queue::fake();
+
+        $user = User::factory()->newUser()->has(UserAddress::factory()->count(1), 'address')
+            ->create(['identity_number' => null]);
         Sanctum::actingAs($user);
 
         $plaidAccountDetails = [

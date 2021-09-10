@@ -17,6 +17,10 @@ class UserCanConnectPlaidAccountAction
             $this->errors = array_merge($this->errors, ['phone_number' => ['Provide phone number to connect account']]);
         }
 
+        if(!$user->identity_number) {
+            $this->errors = array_merge($this->errors, ['identity_number' => ['Provide identity number to connect account']]);
+        }
+
         if(!$user->birth_date) {
             $this->errors = array_merge($this->errors, ['birth_date' => ['Provide birth date to connect account']]);
         }
