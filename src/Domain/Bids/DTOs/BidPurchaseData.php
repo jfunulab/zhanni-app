@@ -13,8 +13,8 @@ class BidPurchaseData extends DataTransferObject
     public Bid $bid;
     public int $amount;
     public int $rate;
-    public int $fundingAccount;
-    public int $receivingAccount;
+    public ?int $fundingAccount;
+    public ?int $receivingAccount;
     public string $originCurrency;
     public string $destinationCurrency;
 
