@@ -17,6 +17,7 @@ class CreateRemittancesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('recipient_id')->nullable()->index();
+            $table->unsignedBigInteger('funding_account_id')->nullable()->index();
             $table->string('reason')->nullable();
             $table->float('base_amount');
             $table->string('base_currency', 10);

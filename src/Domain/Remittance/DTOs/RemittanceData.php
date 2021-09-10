@@ -5,6 +5,7 @@ namespace Domain\Remittance\DTOs;
 
 
 use App\ExchangeRate;
+use Domain\PaymentMethods\Models\BankAccount;
 use Domain\PaymentMethods\Models\TransferRecipient;
 use Domain\PaymentMethods\Models\UserCard;
 use Spatie\DataTransferObject\DataTransferObject;
@@ -16,7 +17,7 @@ class RemittanceData extends DataTransferObject
     public ?float $convertedAmount;
     public ?string $reason;
     public ?ExchangeRate $rate;
-    public ?UserCard $card;
+    public ?BankAccount $fundingAccount;
     public ?TransferRecipient $recipient;
 
     public static function fromArray(array $remittanceData): self
@@ -26,7 +27,7 @@ class RemittanceData extends DataTransferObject
             'reason' => $remittanceData['reason'] ?? null,
             'convertedAmount' => (float) $remittanceData['converted_amount'] ?? null,
             'rate' => ExchangeRate::findOrFail($remittanceData['rate']),
-            'card' => UserCard::findOrFail($remittanceData['card']),
+            'fundingAccount' => BankAccount::findOrFail($remittanceData['funding_account_id']),
             'recipient' => TransferRecipient::findOrFail($remittanceData['recipient']),
         ]);
     }

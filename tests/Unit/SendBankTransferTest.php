@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Jobs\SendBankTransfer;
+use App\Jobs\ProcessRemittance;
 use App\Remittance;
 use Domain\PaymentMethods\Models\Bank;
 use Domain\PaymentMethods\Models\TransferRecipient;
@@ -38,7 +38,7 @@ class SendBankTransferTest extends TestCase
             'account_number' => '1700106178',
             'account_name' => 'TEMITOPE OLUWAFEMI AJIBULU'
         ]);
-        $job = new SendBankTransfer($remittance, $transferRecipient);
+        $job = new ProcessRemittance($remittance, $transferRecipient);
         $gateway = $this->app->make(PaystackGateway::class);
         $job->handle($gateway);
     }

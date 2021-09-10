@@ -13,7 +13,7 @@ class InitiateRemittanceRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -23,14 +23,14 @@ class InitiateRemittanceRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'reason' => ['string'],
             'amount' => ['required'],
             'converted_amount' => ['required'],
             'rate' => ['required'],
-            'card' => ['required'],
+            'funding_account_id' => ['required'],
             'recipient' => ['required'],
         ];
     }
