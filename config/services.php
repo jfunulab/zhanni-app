@@ -35,6 +35,11 @@ return [
         'key' => env('PAYSTACK_PUBLIC_KEY'),
         'secret' => env('PAYSTACK_SECRET_KEY')
     ],
+    'flutterwave' => [
+        'key' => env('FLUTTERWAVE_PUBLIC_KEY'),
+        'secret' => env('FLUTTERWAVE_SECRET_KEY'),
+        'moneywave_token' => env('MONEYWAVE_TOKEN')
+    ],
     'stripe' => [
         'model' => \Domain\Users\Models\User::class,
         'key' => env('STRIPE_KEY'),

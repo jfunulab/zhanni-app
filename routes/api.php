@@ -14,6 +14,7 @@ use App\Http\Controllers\Countries\CountriesController;
 use App\Http\Controllers\Countries\CountryStatesController;
 use App\Http\Controllers\ExchangeRatesController;
 use App\Http\Controllers\PlaidSilaTokenDumpController;
+use App\Http\Controllers\PricesController;
 use App\Http\Controllers\SilaWebhookController;
 use App\Http\Controllers\UserBankAccountsController;
 use App\Http\Controllers\UserBidOrdersController;
@@ -39,6 +40,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/countries', [CountriesController::class, 'index']);
+Route::get('/prices', [PricesController::class, 'index']);
 Route::get('/countries/{country}/states', [CountryStatesController::class, 'index']);
 Route::get('/exchange-rates', [ExchangeRatesController::class, 'index']);
 Route::post('/users', [UsersController::class, 'store']);

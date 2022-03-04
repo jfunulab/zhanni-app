@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e0379546efe7cc38fc0ece57eb4f54e",
+    "content-hash": "8a4e881a70569c1905330daa0a8bf5e9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -61,6 +61,76 @@
                 "source": "https://github.com/asm89/stack-cors/tree/v2.0.3"
             },
             "time": "2021-03-11T06:42:03+00:00"
+        },
+        {
+            "name": "bilfeldt/laravel-http-client-logger",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bilfeldt/laravel-http-client-logger.git",
+                "reference": "0864c9de6a2bc40069eb1cf6ab3f249bf68c98f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bilfeldt/laravel-http-client-logger/zipball/0864c9de6a2bc40069eb1cf6ab3f249bf68c98f1",
+                "reference": "0864c9de6a2bc40069eb1cf6ab3f249bf68c98f1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.2",
+                "illuminate/http": "^8.0",
+                "illuminate/support": "^8.0",
+                "php": "^7.4|^8.0",
+                "spatie/laravel-package-tools": "^1.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.3",
+                "spatie/laravel-ray": "^1.12",
+                "timacdonald/log-fake": "^1.9",
+                "vimeo/psalm": "^4.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bilfeldt\\LaravelHttpClientLogger\\LaravelHttpClientLoggerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bilfeldt\\LaravelHttpClientLogger\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anders Bilfeldt",
+                    "email": "abilfeldt@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A logger for the Laravel HTTP Client",
+            "homepage": "https://github.com/bilfeldt/laravel-http-client-logger",
+            "keywords": [
+                "Guzzle",
+                "PSR3",
+                "bilfeldt",
+                "laravel",
+                "laravel-http-client-logger",
+                "log",
+                "logging"
+            ],
+            "support": {
+                "issues": "https://github.com/bilfeldt/laravel-http-client-logger/issues",
+                "source": "https://github.com/bilfeldt/laravel-http-client-logger/tree/v1.1.0"
+            },
+            "time": "2021-12-18T23:37:54+00:00"
         },
         {
             "name": "brick/math",
@@ -5515,6 +5585,65 @@
                 }
             ],
             "time": "2021-02-12T08:46:52+00:00"
+        },
+        {
+            "name": "spatie/laravel-package-tools",
+            "version": "1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-package-tools.git",
+                "reference": "fd75af77d0bbf221f33369186df16da704bebebd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/fd75af77d0bbf221f33369186df16da704bebebd",
+                "reference": "fd75af77d0bbf221f33369186df16da704bebebd",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^7.0|^8.0|^9.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^5.0|^6.23|^7.0",
+                "phpunit/phpunit": "^9.4",
+                "spatie/test-time": "^1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LaravelPackageTools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Tools for creating Laravel packages",
+            "homepage": "https://github.com/spatie/laravel-package-tools",
+            "keywords": [
+                "laravel-package-tools",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-package-tools/issues",
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.11.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-01-11T16:14:23+00:00"
         },
         {
             "name": "stripe/stripe-php",
