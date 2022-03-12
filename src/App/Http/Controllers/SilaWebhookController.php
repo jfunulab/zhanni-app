@@ -37,6 +37,12 @@ class SilaWebhookController extends Controller
         return $this->successMethod();
     }
 
+    public function handleTransaction($eventDetails)
+    {
+        info('data from sila webhook');
+        info($eventDetails);
+    }
+
     /**
      * Handle successful calls on the controller.
      *

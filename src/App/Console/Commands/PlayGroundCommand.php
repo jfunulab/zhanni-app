@@ -55,20 +55,21 @@ class PlayGroundCommand extends Command
 //        $silaClient = app(SilaClient::class);
 //        (new LinkBankAccountToSila($user, $bankAccount))->handle($silaClient);
 
-        /*
+
         $data = SilaDebitAchData::fromArray([
             'amount' => 1,
             'description' => 'test transfer'
         ]);
         $issueDebit = app(IssueSilaAchDebitAction::class);
         ($issueDebit)($bankAccount, $data);
-        */
 
-        $transferData = TransferToZhanniData::fromArray([
+
+        /*$transferData = TransferToZhanniData::fromArray([
             'amount' => 1,
             'description' => 'Transfer test transfer money to zhanni'
         ]);
         $transfer = app(TransferFundsToZhanniAction::class);
         ($transfer)($user, $transferData);
+        */
     }
 }

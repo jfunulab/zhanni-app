@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\InitiateRemittanceRequest;
 use App\Jobs\ProcessRemittance;
+use Domain\PaymentMethods\Actions\IssueSilaAchDebitAction;
+use Domain\PaymentMethods\DTOs\SilaDebitAchData;
 use Domain\Remittance\DTOs\RemittanceData;
 use Domain\Users\Models\User;
+use Illuminate\Http\JsonResponse;
 use Laravel\Cashier\Exceptions\PaymentActionRequired;
 use Laravel\Cashier\Exceptions\PaymentFailure;
 
@@ -23,7 +26,7 @@ class UserRemittancesController extends Controller
         ]);
     }
 
-    public function store(User $user, InitiateRemittanceRequest $initiateRemittanceRequest)
+    public function store(User $user, InitiateRemittanceRequest $initiateRemittanceRequest): JsonResponse
     {
         try {
             $remittanceData = RemittanceData::fromArray($initiateRemittanceRequest->toArray());
@@ -31,13 +34,23 @@ class UserRemittancesController extends Controller
                 'base_amount' => $remittanceData->amount,
                 'reason' => $remittanceData->reason,
                 'base_currency' => $remittanceData->rate->base,
-                'amount_to_remit' => $remittanceData->amount * $remittanceData->rate->rate,
+//                'amount_to_remit' => $remittanceData->amount * $remittanceData->rate->rate,
+                'amount_to_remit' => $remittanceData->amount,
                 'currency_to_remit' => $remittanceData->rate->currency,
                 'funding_account_id' => $remittanceData->fundingAccount->id,
                 'recipient_id' => $remittanceData->recipient->id
             ]);
 
-            ProcessRemittance::dispatch($remittance, $remittanceData->recipient);
+            $data = SilaDebitAchData::fromArray([
+                'amount' => $remittanceData->amount,
+                'price' => $remittanceData->price,
+                'description' => $remittanceData->reason
+            ]);
+            $issueDebit = app(IssueSilaAchDebitAction::class);
+            ($issueDebit)($remittanceData->fundingAccount, $data);
+
+
+//            ProcessRemittance::dispatch($remittance, $remittanceData->recipient);
 
             return response()->json([
                 'message' => 'Remittance in progress.',
