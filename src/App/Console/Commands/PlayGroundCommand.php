@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Jobs\LinkBankAccountToSila;
+use App\Price;
 use Domain\PaymentMethods\Actions\GenerateSilaProcessorTokenAction;
 use Domain\PaymentMethods\Actions\IssueSilaAchDebitAction;
 use Domain\PaymentMethods\Actions\TransferFundsToZhanniAction;
@@ -46,6 +47,14 @@ class PlayGroundCommand extends Command
      */
     public function handle()
     {
+        $remittanceData = [
+            'amount' => 600
+        ];
+        $price = Price::get()->first(function($price) use($remittanceData){
+            return $remittanceData['amount'] >= $price->minimum &&  $remittanceData['amount'] <= $price->maximum;
+        });
+        dump($price->toArray());
+        dd('done');
         $user = User::find(1);
         $bankAccount = BankAccount::find(4);
 //        $bankAccount->update(['plaid_data->sila_processor_token' => 'processor-sandbox-82482b35-f9aa-4237-a1b5-dec9b1207b53']);

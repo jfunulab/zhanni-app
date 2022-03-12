@@ -33,9 +33,11 @@ class RemittanceData extends DataTransferObject
             'recipient' => TransferRecipient::findOrFail($remittanceData['recipient']),
         ];
 
-        $parameters['price'] = Price::where('minimum', '>=', $remittanceData['amount'])
-                ->where('maximum', '<=', $remittanceData['amount'])
-                ->first()->amount ?? 0;
+        $price = Price::get()->first(function($price) use($remittanceData){
+            return $remittanceData['amount'] >= $price->minimum &&  $remittanceData['amount'] <= $price->maximum;
+        });
+
+        $parameters['price'] = $price->amount ?? 0.0;
 
         return new self($parameters);
     }

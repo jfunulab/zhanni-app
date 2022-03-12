@@ -33,7 +33,7 @@ class RegisterUserSilaAccountAction
             ->lastName($user->last_name)
             ->email($user->email)
             ->phone($user->phone_number)
-            ->identityNumber(543212222)
+            ->identityNumber($user->identity_number)
             ->address($user->address->line_one)
             ->city($user->address->city)
             ->state($user->address->state->code)
