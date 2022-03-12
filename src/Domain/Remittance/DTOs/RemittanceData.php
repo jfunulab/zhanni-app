@@ -5,6 +5,7 @@ namespace Domain\Remittance\DTOs;
 
 
 use App\ExchangeRate;
+use App\Price;
 use Domain\PaymentMethods\Models\BankAccount;
 use Domain\PaymentMethods\Models\TransferRecipient;
 use Domain\PaymentMethods\Models\UserCard;
@@ -23,14 +24,19 @@ class RemittanceData extends DataTransferObject
 
     public static function fromArray(array $remittanceData): self
     {
-        return new self([
-            'amount' => (float) $remittanceData['amount'] ?? null,
-            'price' => (float) $remittanceData['price'] ?? null,
+        $parameters = [
+            'amount' => (float)$remittanceData['amount'] ?? null,
             'reason' => $remittanceData['reason'] ?? null,
-            'convertedAmount' => (float) $remittanceData['converted_amount'] ?? null,
+            'convertedAmount' => (float)$remittanceData['converted_amount'] ?? null,
             'rate' => ExchangeRate::findOrFail($remittanceData['rate']),
             'fundingAccount' => BankAccount::findOrFail($remittanceData['funding_account_id']),
             'recipient' => TransferRecipient::findOrFail($remittanceData['recipient']),
-        ]);
+        ];
+
+        $parameters['price'] = Price::where('minimum', '>=', $remittanceData['amount'])
+                ->where('maximum', '<=', $remittanceData['amount'])
+                ->first()->amount ?? 0;
+
+        return new self($parameters);
     }
 }

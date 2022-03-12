@@ -52,16 +52,16 @@ class PlayGroundCommand extends Command
 //        $action = app(GenerateSilaProcessorTokenAction::class);
 //        ($action)($bankAccount->plaid_data['access_token'], $bankAccount->account_id);
 
-//        $silaClient = app(SilaClient::class);
-//        (new LinkBankAccountToSila($user, $bankAccount))->handle($silaClient);
+        $silaClient = app(SilaClient::class);
+        (new LinkBankAccountToSila($user, $bankAccount))->handle($silaClient);
 
 
-        $data = SilaDebitAchData::fromArray([
-            'amount' => 1,
-            'description' => 'test transfer'
-        ]);
-        $issueDebit = app(IssueSilaAchDebitAction::class);
-        ($issueDebit)($bankAccount, $data);
+//        $data = SilaDebitAchData::fromArray([
+//            'amount' => 1,
+//            'description' => 'test transfer'
+//        ]);
+//        $issueDebit = app(IssueSilaAchDebitAction::class);
+//        ($issueDebit)($bankAccount, $data);
 
 
         /*$transferData = TransferToZhanniData::fromArray([
