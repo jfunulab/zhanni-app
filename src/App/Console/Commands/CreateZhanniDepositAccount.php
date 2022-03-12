@@ -44,8 +44,8 @@ class CreateZhanniDepositAccount extends Command
         $user = User::create([
             'first_name' => 'Temi',
             'last_name' => 'Ajibulu',
-            'email' => 'toajibul@gmail.com ',
-            'username' => 'toajibul',
+            'email' => 'toajibul+depositor@gmail.com ',
+            'username' => 'toajibul_depositor',
             'email_verified_at' => now(),
             'password' => bcrypt('password5Password$'),
             'identity_number' => '4523165589',
@@ -54,12 +54,12 @@ class CreateZhanniDepositAccount extends Command
         ]);
 
         $userAddressData = UserAddressData::fromArray([
-            'lineOne' => '209 E Ben White Blvd',
-            'lineTwo' => null,
+            'address_line_one' => '209 E Ben White Blvd',
+            'address_line_two' => null,
             'country' => 'United States',
             'state' => 'Texas',
             'city' => 'Austin',
-            'postalCode' => '78704',
+            'postal_code' => '78704',
         ]);
 
         $addUserAddressAction($user, $userAddressData);
