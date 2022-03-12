@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             StateSeeder::class,
             BankSeeder::class,
-            ExchangeRateSeeder::class
+            ExchangeRateSeeder::class,
+            PriceSeeder::class
         ]);
     }
 }

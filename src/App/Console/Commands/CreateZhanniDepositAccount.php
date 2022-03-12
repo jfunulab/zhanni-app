@@ -48,7 +48,7 @@ class CreateZhanniDepositAccount extends Command
             'username' => 'toajibul_depositor',
             'email_verified_at' => now(),
             'password' => bcrypt('password5Password$'),
-            'identity_number' => '4523165589',
+            'identity_number' => '123452222',
             'phone_number' => '+19197238931',
             'birth_date' => '1985-01-01',
         ]);

@@ -15,7 +15,7 @@ class CreatePricesTable extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->integer('amount');
+            $table->double('amount');
             $table->integer('minimum');
             $table->integer('maximum');
             $table->string('currency')->default('usd');
