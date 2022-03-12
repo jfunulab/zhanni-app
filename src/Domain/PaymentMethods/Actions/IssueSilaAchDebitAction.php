@@ -35,7 +35,6 @@ class IssueSilaAchDebitAction
             AchType::SAME_DAY()
         );
         info('response from issuing sila debit.');
-        info($response);
         info($response->getData());
     }
 }

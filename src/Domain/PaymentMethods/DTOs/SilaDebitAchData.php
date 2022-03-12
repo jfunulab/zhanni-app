@@ -10,7 +10,7 @@ class SilaDebitAchData extends DataTransferObject
 {
 
     public ?int $amount;
-    public ?int $price;
+    public ?float $price;
     public ?string $description;
     public ?string $accountName;
 
@@ -18,7 +18,7 @@ class SilaDebitAchData extends DataTransferObject
     public static function fromArray(array $array): self
     {
         return new self([
-            'amount' => $array['amount'] ?? null,
+            'amount' => (int) $array['amount'] ?? null,
             'price' => $array['price'] ?? null,
             'description' => $array['description'] ?? null,
             'accountName' => $array['account_name'] ?? 'default'
