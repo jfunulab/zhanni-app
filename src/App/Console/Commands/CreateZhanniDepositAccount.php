@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use Domain\PaymentMethods\Actions\RegisterUserSilaAccountAction;
+use Domain\Users\Actions\AddUserAddressAction;
+use Domain\Users\DTOs\UserAddressData;
 use Domain\Users\Models\User;
 use Illuminate\Console\Command;
 
@@ -37,7 +39,7 @@ class CreateZhanniDepositAccount extends Command
      *
      * @return int
      */
-    public function handle(RegisterUserSilaAccountAction $action): int
+    public function handle(RegisterUserSilaAccountAction $action, AddUserAddressAction $addUserAddressAction): int
     {
         $user = User::create([
             'first_name' => 'Temi',
@@ -51,8 +53,18 @@ class CreateZhanniDepositAccount extends Command
             'birth_date' => '1985-01-01',
         ]);
 
-        ($action)($user);
+        $userAddressData = UserAddressData::fromArray([
+            'lineOne' => '209 E Ben White Blvd',
+            'lineTwo' => null,
+            'country' => 'United States',
+            'state' => 'Texas',
+            'city' => 'Austin',
+            'postalCode' => '78704',
+        ]);
 
+        $addUserAddressAction($user, $userAddressData);
+
+        ($action)($user);
 
         return 0;
     }
