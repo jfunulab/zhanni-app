@@ -28,7 +28,7 @@ class InitiateRemittanceRequest extends FormRequest
         return [
             'reason' => ['string'],
             'amount' => ['required'],
-            'converted_amount' => ['required'],
+//            'converted_amount' => ['required'],
             'rate' => ['required'],
             'funding_account_id' => ['required'],
             'recipient' => ['required'],

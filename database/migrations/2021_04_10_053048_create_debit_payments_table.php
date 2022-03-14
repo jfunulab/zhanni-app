@@ -15,9 +15,11 @@ class CreateDebitPaymentsTable extends Migration
     {
         Schema::create('debit_payments', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid');
             $table->unsignedBigInteger('remittance_id');
             $table->unsignedBigInteger('recipient_id');
-            $table->string('reference')->nullable();
+            $table->string('credit_payment_reference')->nullable();
+            $table->string('reference_id')->nullable();
             $table->float('amount');
             $table->string('currency');
             $table->string('status');

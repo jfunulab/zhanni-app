@@ -52,4 +52,9 @@ class Remittance extends Model
     {
         return $this->belongsTo(BankAccount::class);
     }
+
+    public function exchangeRate(): BelongsTo
+    {
+        return $this->belongsTo(ExchangeRate::class );
+    }
 }

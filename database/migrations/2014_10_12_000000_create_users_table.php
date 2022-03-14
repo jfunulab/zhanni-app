@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('sila_key')->nullable();
             $table->string('sila_address')->nullable();
             $table->string('kyc_status')->nullable();
+            $table->json('kyc_issues')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

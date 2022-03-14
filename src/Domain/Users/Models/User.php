@@ -2,6 +2,7 @@
 
 namespace Domain\Users\Models;
 
+use App\Jobs\RegisterUserSilaAccountJob;
 use App\Notifications\EmailVerificationNotification;
 use App\Notifications\SendPasswordResetCodeNotification;
 use App\Remittance;
@@ -38,7 +39,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'stripe_id',
         'sila_username',
         'sila_token',
-        'sila_address'
+        'sila_address',
+        'sila_key'
     ];
 
     /**
@@ -48,8 +50,35 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'kyc_status' => 'boolean'
+        'kyc_status' => 'boolean',
+        'kyc_issues' => 'array'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::updated(function($user){
+            $changes = $user->getDirty();
+            $propertyChanges = array_keys($changes);
+            $kycIssues = $user->kyc_issues;
+
+            if(is_array($kycIssues) && !in_array('kyc_issues', $propertyChanges) && count($kycIssues) > 0){
+                foreach ($propertyChanges as $propertyChange) {
+                    unset($kycIssues[$propertyChange]);
+
+                    if($propertyChange == 'identity_number'){
+                        unset($kycIssues['identity']);
+                    }
+                }
+
+                $user->update(['kyc_issues' => count($kycIssues) > 0 ? $kycIssues : null]);
+                if (count($kycIssues) == 0 && is_null($user->sila_key)) {
+                    RegisterUserSilaAccountJob::dispatch($user);
+                }
+            }
+        });
+    }
 
     public function getVerifiedAttribute(): bool
     {
@@ -68,7 +97,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function address(): HasOne
     {
-        return $this->hasOne(UserAddress::class);
+        return $this->hasOne(UserAddress::class)->latestOfMany();
     }
 
     public function remittances(): HasMany

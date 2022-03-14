@@ -6,6 +6,7 @@ namespace Domain\PaymentMethods\Actions;
 
 use Domain\PaymentMethods\DTOs\SilaDebitAchData;
 use Domain\PaymentMethods\Models\BankAccount;
+use Silamoney\Client\Api\ApiResponse;
 use Silamoney\Client\Domain\AchType;
 use Support\PaymentGateway\SilaClient;
 
@@ -21,7 +22,7 @@ class IssueSilaAchDebitAction
     }
 
 
-    public function __invoke(BankAccount $bankAccount, SilaDebitAchData $debitAchData)
+    public function __invoke(BankAccount $bankAccount, SilaDebitAchData $debitAchData): ApiResponse
     {
         $businessUuid = ''; // Optional
         $user = $bankAccount->user;
@@ -34,7 +35,7 @@ class IssueSilaAchDebitAction
             $businessUuid,
             AchType::SAME_DAY()
         );
-        info('response from issuing sila debit.');
-        info($response->getData());
+
+        return $response;
     }
 }

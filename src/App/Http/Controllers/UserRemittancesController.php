@@ -15,7 +15,7 @@ use Laravel\Cashier\Exceptions\PaymentFailure;
 class UserRemittancesController extends Controller
 {
 
-    public function index(User $user)
+    public function index(User $user): JsonResponse
     {
         $remittances = $user->remittances()
             ->with(['creditPayment.source', 'debitPayment.recipient.bank', 'recipient.bank', 'recipient.user'])->get();
@@ -26,40 +26,42 @@ class UserRemittancesController extends Controller
         ]);
     }
 
-    public function store(User $user, InitiateRemittanceRequest $initiateRemittanceRequest): JsonResponse
+    public function store(User $user, InitiateRemittanceRequest $initiateRemittanceRequest, IssueSilaAchDebitAction $issueSilaAchDebitAction): JsonResponse
     {
-        try {
-            $remittanceData = RemittanceData::fromArray($initiateRemittanceRequest->toArray());
+        $remittanceData = RemittanceData::fromArray($initiateRemittanceRequest->toArray());
+        $data = SilaDebitAchData::fromArray([
+            'amount' => $remittanceData->amount,
+            'price' => $remittanceData->price,
+            'description' => $remittanceData->reason
+        ]);
+        $silaDebitResponse = ($issueSilaAchDebitAction)($remittanceData->fundingAccount, $data);
+
+        if($silaDebitResponse->getSuccess()){
             $remittance = $user->remittances()->create([
                 'base_amount' => $remittanceData->amount,
+                'exchange_rate_id' => $remittanceData->rate->id,
                 'reason' => $remittanceData->reason,
                 'base_currency' => $remittanceData->rate->base,
-//                'amount_to_remit' => $remittanceData->amount * $remittanceData->rate->rate,
-                'amount_to_remit' => $remittanceData->amount,
+                'amount_to_remit' => $remittanceData->amount * $remittanceData->rate->rate,
+                'fee' => $remittanceData->price,
                 'currency_to_remit' => $remittanceData->rate->currency,
                 'funding_account_id' => $remittanceData->fundingAccount->id,
                 'recipient_id' => $remittanceData->recipient->id
             ]);
 
-            $data = SilaDebitAchData::fromArray([
-                'amount' => $remittanceData->amount,
-                'price' => $remittanceData->price,
-                'description' => $remittanceData->reason
+            $remittanceData->fundingAccount->creditPayments()->create([
+                'remittance_id' => $remittance->id,
+                'reference_id' => $silaDebitResponse->getData()->getTransactionId(),
+                'amount' => $remittanceData->totalAmount,
+                'amount_in_cents' => $remittanceData->totalAmount * 100,
+                'currency' => $remittanceData->rate->base,
+                'status' => 'queued'
             ]);
-            $issueDebit = app(IssueSilaAchDebitAction::class);
-            ($issueDebit)($remittanceData->fundingAccount, $data);
-
-
-//            ProcessRemittance::dispatch($remittance, $remittanceData->recipient);
 
             return response()->json([
                 'message' => 'Remittance in progress.',
-                'data' => $remittance->fresh(['creditPayment.source', 'fundingAccount', 'debitPayment.recipient.bank', 'recipient.bank', 'recipient.user'])
+                'data' => $remittance->fresh(['creditPayment.sourceable', 'fundingAccount', 'debitPayment.recipient.bank', 'recipient.bank', 'recipient.user'])
             ], 201);
-        } catch (PaymentActionRequired | PaymentFailure $e) {
-            return response()->json([
-            'message' => $e->getMessage()
-            ], 500);
         }
     }
 }

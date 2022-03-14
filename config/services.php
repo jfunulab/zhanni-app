@@ -38,7 +38,11 @@ return [
     'flutterwave' => [
         'key' => env('FLUTTERWAVE_PUBLIC_KEY'),
         'secret' => env('FLUTTERWAVE_SECRET_KEY'),
-        'moneywave_token' => env('MONEYWAVE_TOKEN')
+        'moneywave_base_url' => env('MONEYWAVE_BASE_URL'),
+        'moneywave_token' => env('MONEYWAVE_TOKEN'),
+        'moneywave_lock' => env('MONEYWAVE_LOCK'),
+        'moneywave_key' => env('MONEYWAVE_API_KEY'),
+        'moneywave_secret' => env('MONEYWAVE_API_SECRET'),
     ],
     'stripe' => [
         'model' => \Domain\Users\Models\User::class,

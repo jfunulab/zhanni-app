@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\CreditPayment;
+use App\Jobs\InitiateRemittancePayoutJob;
 use App\Jobs\LinkBankAccountToSila;
 use Domain\Users\Models\User;
 use Illuminate\Support\Str;
@@ -14,9 +16,9 @@ class SilaWebhookController extends Controller
     public function handle()
     {
         $payload = request()->all();
-        $method = 'handle'.Str::studly($payload['event_type']);
+        $method = 'handle' . Str::studly($payload['event_type']);
 
-        if (method_exists($this, $method)){
+        if (method_exists($this, $method)) {
             return $this->{$method}($payload['event_details']);
         }
 
@@ -25,10 +27,10 @@ class SilaWebhookController extends Controller
 
     public function handleKyc($eventDetails)
     {
-        if($user = User::where('sila_username', $eventDetails['entity'])->first()){
+        if ($user = User::where('sila_username', $eventDetails['entity'])->first()) {
             $user->update(['kyc_status' => $eventDetails['outcome']]);
-            if($eventDetails['outcome'] == 'passed'){
-                $user->bankAccounts->each(function($bankAccount) use ($user){
+            if ($eventDetails['outcome'] == 'passed') {
+                $user->bankAccounts->each(function ($bankAccount) use ($user) {
                     LinkBankAccountToSila::dispatch($user, $bankAccount);
                 });
             }
@@ -39,8 +41,22 @@ class SilaWebhookController extends Controller
 
     public function handleTransaction($eventDetails)
     {
-        info('data from sila webhook');
-        info($eventDetails);
+        if ($eventDetails['transaction_type'] == 'issue') {
+            $creditPayment = CreditPayment::where('reference_id', $eventDetails['transaction'])
+                ->where('status', '!=', 'success')
+                ->first();
+            if($creditPayment){
+                $creditPayment->update([
+                    'status' => $eventDetails['outcome'],
+                    'amount_in_cents' => $eventDetails['sila_amount'],
+                    'processing_type' => $eventDetails['processing_type']
+                ]);
+
+                if ($eventDetails['outcome'] == 'success') {
+                    InitiateRemittancePayoutJob::dispatch($creditPayment);
+                }
+            }
+        }
     }
 
     /**

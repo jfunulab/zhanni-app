@@ -16,6 +16,7 @@ class RemittanceData extends DataTransferObject
 
     public ?float $amount;
     public ?float $price;
+    public ?float $totalAmount;
     public ?float $convertedAmount;
     public ?string $reason;
     public ?ExchangeRate $rate;
@@ -27,7 +28,7 @@ class RemittanceData extends DataTransferObject
         $parameters = [
             'amount' => (float)$remittanceData['amount'] ?? null,
             'reason' => $remittanceData['reason'] ?? null,
-            'convertedAmount' => (float)$remittanceData['converted_amount'] ?? null,
+            'convertedAmount' => $remittanceData['converted_amount'] ?? null,
             'rate' => ExchangeRate::findOrFail($remittanceData['rate']),
             'fundingAccount' => BankAccount::findOrFail($remittanceData['funding_account_id']),
             'recipient' => TransferRecipient::findOrFail($remittanceData['recipient']),
@@ -38,6 +39,7 @@ class RemittanceData extends DataTransferObject
         });
 
         $parameters['price'] = $price->amount ?? 0.0;
+        $parameters['totalAmount'] = $parameters['amount'] + $parameters['price'];
 
         return new self($parameters);
     }

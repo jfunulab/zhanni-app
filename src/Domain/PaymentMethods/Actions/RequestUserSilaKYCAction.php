@@ -22,6 +22,9 @@ class RequestUserSilaKYCAction
     {
         $kycLevel = 'DEFAULT';
         $response = $this->silaClient->client->requestKYC($user->sila_username, $user->sila_key, $kycLevel);
-        dump($response);
+
+        if($response->getSuccess()){
+            $user->update(['kyc_status' => 'in review']);
+        }
     }
 }

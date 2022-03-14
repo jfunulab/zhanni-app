@@ -4,6 +4,7 @@
 namespace Support\PaymentGateway\Flutterwave;
 
 
+use App\DebitPayment;
 use Domain\PaymentMethods\Models\Bank;
 use Support\PaymentGateway\DTOs\BankTransferData;
 use Support\PaymentGateway\DTOs\ResolvedBankData;
@@ -38,6 +39,43 @@ class FlutterwaveGateway implements LocalPaymentGateway, MakesBankTransfer
         }
     }
 
+    public function disburse(BankTransferData $bankTransferData)
+    {
+        $response = $this->client->post('/disburse', [
+            "ref" => $bankTransferData->debitPayment->uuid,
+            "amount" => $bankTransferData->debitPayment->amount,
+            "currency" => $bankTransferData->debitPayment->currency,
+            "bankcode" => $bankTransferData->recipient->bank->code,
+            "accountNumber" => $bankTransferData->recipient->account_number,
+            "x_recipient_name" => $bankTransferData->recipient->account_name,
+            "senderName" => $bankTransferData->sender->full_name,
+            "lock" => config('services.flutterwave.moneywave_lock'),
+            "narration" => $bankTransferData->description,
+        ]);
+
+        if($response['status'] == 'success'){
+            $bankTransferData->debitPayment->update(['reference_id' => $response['data']['data']['uniquereference']]);
+        }
+        $this->getDisburseStatus($bankTransferData->debitPayment);
+    }
+
+    public function getDisburseStatus(DebitPayment $debitPayment)
+    {
+        $response = $this->client->post('/disburse/status', [
+            'ref' => $debitPayment->uuid
+        ]);
+        dump($response);
+
+        if($response['status'] == 'success'){
+            $updateDetails = [
+                'status' => $response['data']['status']
+            ];
+            if(is_null($debitPayment->reference_id)) $updateDetails['reference_id'] = $response['data']['flutterReference'];
+
+            $debitPayment->update($updateDetails);
+        }
+    }
+
     public function verifyAccountNumber(BankTransferData $transferData): ?ResolvedBankData
     {
         $response = $this->client->post('resolve/account', [
@@ -45,7 +83,6 @@ class FlutterwaveGateway implements LocalPaymentGateway, MakesBankTransfer
             'bank_code' => $transferData->bankCode,
             'currency' => $transferData->currency
         ]);
-        dump($response);
 
         if($response->successful()){
             return ResolvedBankData::fromArray($response->json()['data']);
@@ -74,7 +111,6 @@ class FlutterwaveGateway implements LocalPaymentGateway, MakesBankTransfer
     public function getBankList(): void
     {
         $response = $this->client->post('banks?country=NG');
-        dump($response);
         collect($response['data'])->each(function($bankName, $bankCode){
             $bank = Bank::firstOrNew([
                 'code' => $bankCode,

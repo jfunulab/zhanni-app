@@ -64,7 +64,7 @@ class FlutterwaveTest extends TestCase
     function disburses_funds()
     {
         $token = $this->getToken();
-        $response = Http::withHeaders([
+        $response = Http::log()->withHeaders([
             'Authorization' => $token['token']
         ])->post('https://staging.moneywaveapp.com/v1/disburse', [
             "ref" => "SDWRTY2528423457",
@@ -72,12 +72,13 @@ class FlutterwaveTest extends TestCase
             "currency" => "USD",
             "bankcode" => "076",
             "accountNumber" => "1763025814",
+            "x_recipient_name" => "Testing name",
             "senderName" => "Zhanni",
-            "lock" => "MTzhanni2021!",
+            "lock" => "Zhanni22MT!",
             "narration" => "Money transfer",
         ]);
 
-        dump($response);
+        dump($response->json());
     }
 
     /** @test */
@@ -113,12 +114,13 @@ class FlutterwaveTest extends TestCase
      */
     private function getToken()
     {
-//https://live.moneywaveapi.co
+        //https://live.moneywaveapi.co
         $response = Http::post('https://staging.moneywaveapp.com/v1/merchant/verify', [
             'apiKey' => 'cX8yiLEWul4d6dfNwic3bWUILfnFqWnKWcf77yUFf6P3R7GiFC',
             'secret' => 'slFDpRGXCk0UdGohtoZzfaLgXUXeukJPIDHJpeoot1uB830m12',
         ])->json();
 
+        dump($response);
         return $response;
     }
 }
