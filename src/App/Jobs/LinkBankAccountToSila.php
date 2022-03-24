@@ -44,6 +44,9 @@ class LinkBankAccountToSila implements ShouldQueue
 
         if ($response->getStatusCode() == 200){
             $this->bankAccount->update(['sila_linked' => true]);
+        }else {
+            info('failed to link account');
+            info(json_decode(json_encode($response->getData()), true));
         }
     }
 }

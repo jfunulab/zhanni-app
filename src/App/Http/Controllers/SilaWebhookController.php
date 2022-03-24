@@ -27,10 +27,15 @@ class SilaWebhookController extends Controller
 
     public function handleKyc($eventDetails)
     {
+        info($eventDetails);
         if ($user = User::where('sila_username', $eventDetails['entity'])->first()) {
+            info('found user.');
+            info($user);
+            info($eventDetails['outcome']);
             $user->update(['kyc_status' => $eventDetails['outcome']]);
             if ($eventDetails['outcome'] == 'passed') {
                 $user->bankAccounts->each(function ($bankAccount) use ($user) {
+                    info('start linking accounts.');
                     LinkBankAccountToSila::dispatch($user, $bankAccount);
                 });
             }

@@ -50,7 +50,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'kyc_status' => 'boolean',
+        'kyc_status' => 'string',
         'kyc_issues' => 'array'
     ];
 
