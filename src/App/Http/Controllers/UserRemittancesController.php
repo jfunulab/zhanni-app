@@ -36,7 +36,7 @@ class UserRemittancesController extends Controller
         ]);
         $silaDebitResponse = ($issueSilaAchDebitAction)($remittanceData->fundingAccount, $data);
 
-        if($silaDebitResponse->getSuccess()){
+        if($silaDebitResponse->getStatusCode() == 200){
             $remittance = $user->remittances()->create([
                 'base_amount' => $remittanceData->amount,
                 'exchange_rate_id' => $remittanceData->rate->id,
@@ -63,5 +63,9 @@ class UserRemittancesController extends Controller
                 'data' => $remittance->fresh(['creditPayment.sourceable', 'fundingAccount', 'debitPayment.recipient.bank', 'recipient.bank', 'recipient.user'])
             ], 201);
         }
+
+        return response()->json([
+            'message' => 'Unable to initiate remittance at this time.'
+        ]);
     }
 }
