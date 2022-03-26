@@ -57,13 +57,13 @@ class PlayGroundCommand extends Command
      */
     public function handle(): int
     {
-        $user = User::find(1);
+        $user = User::find(7);
 
 //        $action = app(RegisterUserSilaAccountAction::class);
-//        $action = app(RequestUserSilaKYCAction::class);
-//        ($action)($user);
+        $action = app(RequestUserSilaKYCAction::class);
+        ($action)($user);
 
-        $bankAccount = BankAccount::find(1);
+//        $bankAccount = BankAccount::find(1);
 //        dd($bankAccount->toArray());
 //        $bankAccount->update(['plaid_data->sila_processor_token' => 'processor-sandbox-82482b35-f9aa-4237-a1b5-dec9b1207b53']);
 //        $action = app(GenerateSilaProcessorTokenAction::class);
@@ -111,8 +111,8 @@ class PlayGroundCommand extends Command
 //        $flutterwaveGateway->disburse($transferData);
 
 //        $initiatePayoutJob = app(InitiateRemittancePayoutJob::class);
-        $creditPayment = CreditPayment::find(4);
-        InitiateRemittancePayoutJob::dispatchSync($creditPayment);
+//        $creditPayment = CreditPayment::find(4);
+//        InitiateRemittancePayoutJob::dispatchSync($creditPayment);
         return 0;
     }
 }

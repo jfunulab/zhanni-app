@@ -28,7 +28,7 @@ class RemittanceData extends DataTransferObject
         $parameters = [
             'amount' => (float)$remittanceData['amount'] ?? null,
             'reason' => $remittanceData['reason'] ?? null,
-            'convertedAmount' => $remittanceData['converted_amount'] ?? null,
+            'convertedAmount' =>  null,
             'rate' => ExchangeRate::findOrFail($remittanceData['rate']),
             'fundingAccount' => BankAccount::findOrFail($remittanceData['funding_account_id']),
             'recipient' => TransferRecipient::findOrFail($remittanceData['recipient']),

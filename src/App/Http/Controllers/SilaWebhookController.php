@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\CreditPayment;
 use App\Jobs\InitiateRemittancePayoutJob;
 use App\Jobs\LinkBankAccountToSila;
+use App\Jobs\TransferFundsToZhanniWalletJob;
 use Domain\Users\Models\User;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,6 +47,7 @@ class SilaWebhookController extends Controller
 
     public function handleTransaction($eventDetails)
     {
+        info('handling transaction webhook.');
         if ($eventDetails['transaction_type'] == 'issue') {
             $creditPayment = CreditPayment::where('reference_id', $eventDetails['transaction'])
                 ->where('status', '!=', 'success')
@@ -58,6 +60,8 @@ class SilaWebhookController extends Controller
                 ]);
 
                 if ($eventDetails['outcome'] == 'success') {
+                    info('transaction was successful.');
+                    TransferFundsToZhanniWalletJob::dispatch($creditPayment);
                     InitiateRemittancePayoutJob::dispatch($creditPayment);
                 }
             }

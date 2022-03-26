@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -12,10 +13,15 @@ class InitiateRemittanceRequest extends FormRequest
      * Determine if the user is authorized to make this request.
      *
      * @return bool
+     * @throws AuthorizationException
      */
     public function authorize(): bool
     {
-        return true;
+        $user = $this->route('user');
+
+        $this->canUserRemit($user);
+
+        return $user->id == auth()->user()->id;
     }
 
     /**
@@ -41,5 +47,23 @@ class InitiateRemittanceRequest extends FormRequest
             'message' => 'Transfer was not successful',
             'errors' => $validator->errors()
         ], 422));
+    }
+
+    /**
+     * @throws AuthorizationException
+     */
+    private function canUserRemit($user): void
+    {
+        $amountRemittedToday = $user->remittances()->whereDate('created_at', today())->sum('base_amount');
+        $amountRemittedCurrentMonth = $user->remittances()->where('created_at', '>=', now()->subDays(30))->sum('base_amount');
+        $amountToRemit = $this->get('amount');
+
+        if(($amountRemittedToday + $amountToRemit) > config('app.daily_remittance_limit') ){
+            throw new AuthorizationException('Exceeded daily limit');
+        }
+
+        if(($amountToRemit + $amountRemittedCurrentMonth) > config('app.monthly_remittance_limit')) {
+            throw new AuthorizationException('Exceeded monthly limit');
+        }
     }
 }

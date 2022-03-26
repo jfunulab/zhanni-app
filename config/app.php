@@ -56,6 +56,10 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'daily_remittance_limit' => env('DAILY_REMITTANCE_LIMIT', 2000),
+
+    'monthly_remittance_limit' => env('MONTHLY_REMITTANCE_LIMIT', 6000),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

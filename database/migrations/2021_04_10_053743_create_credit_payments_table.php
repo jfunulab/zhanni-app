@@ -20,6 +20,8 @@ class CreateCreditPaymentsTable extends Migration
             $table->morphs('sourceable');
             $table->float('amount');
             $table->float('amount_in_cents');
+            $table->integer('base_amount_transferred_to_zhanni')->nullable();
+            $table->integer('fee_amount_transferred_to_zhanni')->nullable();
             $table->string('currency');
             $table->string('status');
             $table->string('processing_type')->nullable();
