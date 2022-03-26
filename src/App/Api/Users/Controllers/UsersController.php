@@ -13,7 +13,7 @@ use Illuminate\Http\JsonResponse;
 
 class UsersController
 {
-    public function show()
+    public function show(): JsonResponse
     {
         return response()->json([
             'message' => 'User profile',
