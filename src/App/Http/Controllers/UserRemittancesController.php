@@ -66,6 +66,6 @@ class UserRemittancesController extends Controller
 
         return response()->json([
             'message' => 'Unable to initiate remittance at this time.'
-        ]);
+        ], 400);
     }
 }
