@@ -14,6 +14,7 @@ class AddBankAccountAction
     private GeneratePlaidAccessTokenAction $generatePlaidAccessTokenAction;
     private GenerateSilaProcessorTokenAction $generateSilaProcessorTokenAction;
     private UserCanConnectPlaidAccountAction $userCanConnectBankAccount;
+    private LinkBankAccountToSilaAction $linkBankAccountToSilaAction;
 
     /**
      * AddBankAccountAction constructor.
@@ -22,12 +23,14 @@ class AddBankAccountAction
     public function __construct(GeneratePlaidAccessTokenAction $generatePlaidAccessTokenAction,
                                 GenerateSilaProcessorTokenAction $generateSilaProcessorTokenAction,
                                 RegisterUserSilaAccountAction $registerUserSilaAccountAction,
-                                UserCanConnectPlaidAccountAction $userCanConnectBankAccount)
+                                UserCanConnectPlaidAccountAction $userCanConnectBankAccount,
+                                LinkBankAccountToSilaAction $linkBankAccountToSilaAction)
     {
         $this->registerUserSilaAccountAction = $registerUserSilaAccountAction;
         $this->generatePlaidAccessTokenAction = $generatePlaidAccessTokenAction;
         $this->generateSilaProcessorTokenAction = $generateSilaProcessorTokenAction;
         $this->userCanConnectBankAccount = $userCanConnectBankAccount;
+        $this->linkBankAccountToSilaAction = $linkBankAccountToSilaAction;
     }
 
     /**
@@ -61,6 +64,10 @@ class AddBankAccountAction
 
                 if(!$user->sila_user_name) {
                     ($this->registerUserSilaAccountAction)($user);
+                }
+
+                if ($user->passedKyc()) {
+                    $bankAccount = ($this->linkBankAccountToSilaAction)($user, $bankAccount);
                 }
 
                 return $bankAccount;

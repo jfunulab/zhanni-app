@@ -130,6 +130,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(BankAccount::class);
     }
 
+    public function passedKyc(): bool
+    {
+        return $this->kyc_status == 'passed';
+    }
+
     /**
      * Send the email verification notification.
      *

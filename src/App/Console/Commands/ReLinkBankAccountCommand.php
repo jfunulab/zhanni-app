@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Jobs\LinkBankAccountToSila;
+use App\Jobs\LinkBankAccountToSilaJob;
 use Domain\PaymentMethods\Models\BankAccount;
 use Domain\Users\Models\User;
 use Illuminate\Console\Command;
@@ -44,7 +44,7 @@ class ReLinkBankAccountCommand extends Command
         $bankAccount = BankAccount::find($this->option('bankAccount'));
 
         if($user && $bankAccount) {
-            LinkBankAccountToSila::dispatchSync($user, $bankAccount);
+            LinkBankAccountToSilaJob::dispatchSync($user, $bankAccount);
             $this->info('Account linked successfully.');
         }else {
             $this->error('Wrong inputs.');

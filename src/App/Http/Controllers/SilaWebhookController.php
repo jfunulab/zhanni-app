@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\CreditPayment;
 use App\Jobs\InitiateRemittancePayoutJob;
-use App\Jobs\LinkBankAccountToSila;
+use App\Jobs\LinkBankAccountToSilaJob;
 use App\Jobs\TransferFundsToZhanniWalletJob;
 use Domain\Users\Models\User;
 use Illuminate\Support\Str;
@@ -28,16 +28,11 @@ class SilaWebhookController extends Controller
 
     public function handleKyc($eventDetails)
     {
-        info($eventDetails);
         if ($user = User::where('sila_username', $eventDetails['entity'])->first()) {
-            info('found user.');
-            info($user);
-            info($eventDetails['outcome']);
             $user->update(['kyc_status' => $eventDetails['outcome']]);
             if ($eventDetails['outcome'] == 'passed') {
                 $user->bankAccounts->each(function ($bankAccount) use ($user) {
-                    info('start linking accounts.');
-                    LinkBankAccountToSila::dispatch($user, $bankAccount);
+                    LinkBankAccountToSilaJob::dispatch($user, $bankAccount);
                 });
             }
         }

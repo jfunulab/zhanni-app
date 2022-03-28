@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\CreditPayment;
 use App\DebitPayment;
 use App\Jobs\InitiateRemittancePayoutJob;
-use App\Jobs\LinkBankAccountToSila;
+use App\Jobs\LinkBankAccountToSilaJob;
 use App\Jobs\RequestUserSilaKYCJob;
 use App\Price;
 use Domain\PaymentMethods\Actions\GenerateSilaProcessorTokenAction;
