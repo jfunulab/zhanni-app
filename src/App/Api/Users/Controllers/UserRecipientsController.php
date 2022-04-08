@@ -3,9 +3,12 @@
 namespace App\Api\Users\Controllers;
 
 use App\Http\Requests\AddRecipientToAccountRequest;
+use App\Http\Requests\UpdateTransferRecipientRequest;
 use Domain\PaymentMethods\Actions\AddRecipientToAccountAction;
 use Domain\PaymentMethods\Actions\GetUserTransferRecipientsAction;
+use Domain\PaymentMethods\Actions\UpdateRecipientAction;
 use Domain\PaymentMethods\DTOs\TransferRecipientData;
+use Domain\PaymentMethods\Models\TransferRecipient;
 use Domain\Users\Models\User;
 use Illuminate\Http\JsonResponse;
 
@@ -32,5 +35,17 @@ class UserRecipientsController
             'message' => 'Recipient successfully saved.',
             'data' => $recipient
         ], 201);
+    }
+
+    public function update(User $user, TransferRecipient $recipient, UpdateTransferRecipientRequest $request,
+                           UpdateRecipientAction $updateRecipientAction): JsonResponse
+    {
+        $recipientData = TransferRecipientData::fromRequest($request);
+        $recipient = $updateRecipientAction($recipient, $recipientData);
+
+        return response()->json([
+            'message' => 'Recipient update successful.',
+            'data' => $recipient
+        ]);
     }
 }

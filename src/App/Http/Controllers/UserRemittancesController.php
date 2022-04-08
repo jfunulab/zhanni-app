@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\InitiateRemittanceRequest;
+use App\Http\Requests\UpdateRemittanceRequest;
 use App\Jobs\ProcessRemittance;
+use App\Remittance;
 use Domain\PaymentMethods\Actions\IssueSilaAchDebitAction;
 use Domain\PaymentMethods\DTOs\SilaDebitAchData;
+use Domain\Remittance\Actions\UpdateRemittanceAction;
 use Domain\Remittance\DTOs\RemittanceData;
 use Domain\Users\Models\User;
 use Illuminate\Http\JsonResponse;
 use Laravel\Cashier\Exceptions\PaymentActionRequired;
 use Laravel\Cashier\Exceptions\PaymentFailure;
+use Tests\Feature\Remittance\UpdateRemittanceTest;
 
 class UserRemittancesController extends Controller
 {
@@ -67,5 +71,17 @@ class UserRemittancesController extends Controller
         return response()->json([
             'message' => 'Unable to initiate remittance at this time.'
         ], 400);
+    }
+
+    public function update(User $user, Remittance $remittance, UpdateRemittanceRequest $updateRemittanceRequest, UpdateRemittanceAction $updateRemittanceAction): JsonResponse
+    {
+        $remittanceData = RemittanceData::fromArray($updateRemittanceRequest->toArray());
+
+        $remittance = ($updateRemittanceAction)($remittance, $remittanceData);
+
+        return response()->json([
+            'message' => 'Recipient update successful.',
+            'data' => $remittance
+        ]);
     }
 }

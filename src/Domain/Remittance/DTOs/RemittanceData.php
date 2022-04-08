@@ -29,9 +29,9 @@ class RemittanceData extends DataTransferObject
             'amount' => (float)$remittanceData['amount'] ?? null,
             'reason' => $remittanceData['reason'] ?? null,
             'convertedAmount' =>  null,
-            'rate' => ExchangeRate::findOrFail($remittanceData['rate']),
-            'fundingAccount' => BankAccount::findOrFail($remittanceData['funding_account_id']),
-            'recipient' => TransferRecipient::findOrFail($remittanceData['recipient']),
+            'rate' => isset($remittanceData['rate']) ? ExchangeRate::findOrFail($remittanceData['rate']) : null,
+            'fundingAccount' => isset($remittanceData['funding_account_id']) ? BankAccount::findOrFail($remittanceData['funding_account_id']) : null,
+            'recipient' => isset($remittanceData['recipient']) ? TransferRecipient::findOrFail($remittanceData['recipient']) : null,
         ];
 
         $price = Price::get()->first(function($price) use($remittanceData){
@@ -42,5 +42,15 @@ class RemittanceData extends DataTransferObject
         $parameters['totalAmount'] = $parameters['amount'] + $parameters['price'];
 
         return new self($parameters);
+    }
+
+    public function toSnakeCase()
+    {
+        return [
+            'amount' => $this->amount,
+            'price' => $this->price,
+            'total_amount' => $this->totalAmount,
+            '$this->price' => $this->price,
+        ];
     }
 }

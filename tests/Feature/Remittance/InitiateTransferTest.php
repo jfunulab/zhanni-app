@@ -4,12 +4,15 @@ namespace Tests\Feature\Remittance;
 
 use App\ExchangeRate;
 use App\Jobs\ProcessRemittance;
+use Domain\PaymentMethods\Actions\IssueSilaAchDebitAction;
 use Domain\PaymentMethods\Models\BankAccount;
 use Domain\PaymentMethods\Models\TransferRecipient;
 use Domain\Users\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Queue;
 use Laravel\Sanctum\Sanctum;
+use Mockery\MockInterface;
+use Silamoney\Client\Api\ApiResponse;
 use Tests\TestCase;
 
 class InitiateTransferTest extends TestCase
@@ -21,6 +24,13 @@ class InitiateTransferTest extends TestCase
     {
         Queue::fake();
         $this->withoutExceptionHandling();
+
+        $this->mock(ApiResponse::class, function(MockInterface $mock){
+            $mock->shouldReceive('getStatusCode')->once();
+        });
+        $this->mock(IssueSilaAchDebitAction::class, function (MockInterface $mock) {
+            $mock->shouldReceive('__invoke')->once();
+        });
 
         $user = User::factory()->has(BankAccount::factory(), 'bankAccounts')->create();
         $recipient = TransferRecipient::factory()->create(['user_id' => $user->id]);
