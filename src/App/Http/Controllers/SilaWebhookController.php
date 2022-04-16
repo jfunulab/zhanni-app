@@ -42,7 +42,6 @@ class SilaWebhookController extends Controller
 
     public function handleTransaction($eventDetails)
     {
-        info('handling transaction webhook.');
         if ($eventDetails['transaction_type'] == 'issue') {
             $creditPayment = CreditPayment::where('reference_id', $eventDetails['transaction'])
                 ->where('status', '!=', 'success')
@@ -55,7 +54,6 @@ class SilaWebhookController extends Controller
                 ]);
 
                 if ($eventDetails['outcome'] == 'success') {
-                    info('transaction was successful.');
                     TransferFundsToZhanniWalletJob::dispatch($creditPayment);
                     InitiateRemittancePayoutJob::dispatch($creditPayment);
                 }

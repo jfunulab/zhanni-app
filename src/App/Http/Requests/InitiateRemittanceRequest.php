@@ -58,6 +58,10 @@ class InitiateRemittanceRequest extends FormRequest
         $amountRemittedCurrentMonth = $user->remittances()->where('created_at', '>=', now()->subDays(30))->sum('base_amount');
         $amountToRemit = $this->get('amount');
 
+        if($amountToRemit > config('app.remittance_transaction_limit') ){
+            throw new AuthorizationException('Exceeds transaction limit');
+        }
+
         if(($amountRemittedToday + $amountToRemit) > config('app.daily_remittance_limit') ){
             throw new AuthorizationException('Exceeded daily limit');
         }

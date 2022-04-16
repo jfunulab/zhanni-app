@@ -68,7 +68,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 
     Route::get('/users/{user}/remittances', [UserRemittancesController::class, 'index']);
     Route::post('/users/{user}/remittances', [UserRemittancesController::class, 'store']);
-    Route::put('/users/{user}/remittances/{remittance}', [UserRemittancesController::class, 'update']);
+    Route::delete('/users/{user}/remittances/{remittance}', [UserRemittancesController::class, 'cancel']);
 
     Route::post('/users/{user}/plaid-sila-token', [PlaidSilaTokenDumpController::class, 'store']);
 

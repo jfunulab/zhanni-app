@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\SilaTransactionCancellationException;
 use App\Http\Requests\InitiateRemittanceRequest;
-use App\Http\Requests\UpdateRemittanceRequest;
-use App\Jobs\ProcessRemittance;
 use App\Remittance;
+use Domain\PaymentMethods\Actions\CancelSilaTransactionAction;
 use Domain\PaymentMethods\Actions\IssueSilaAchDebitAction;
 use Domain\PaymentMethods\DTOs\SilaDebitAchData;
-use Domain\Remittance\Actions\UpdateRemittanceAction;
 use Domain\Remittance\DTOs\RemittanceData;
 use Domain\Users\Models\User;
 use Illuminate\Http\JsonResponse;
-use Laravel\Cashier\Exceptions\PaymentActionRequired;
-use Laravel\Cashier\Exceptions\PaymentFailure;
-use Tests\Feature\Remittance\UpdateRemittanceTest;
 
 class UserRemittancesController extends Controller
 {
@@ -73,15 +69,17 @@ class UserRemittancesController extends Controller
         ], 400);
     }
 
-    public function update(User $user, Remittance $remittance, UpdateRemittanceRequest $updateRemittanceRequest, UpdateRemittanceAction $updateRemittanceAction): JsonResponse
+    public function cancel(User $user, Remittance $remittance, CancelSilaTransactionAction $cancelSilaTransactionAction): JsonResponse
     {
-        $remittanceData = RemittanceData::fromArray($updateRemittanceRequest->toArray());
-
-        $remittance = ($updateRemittanceAction)($remittance, $remittanceData);
-
-        return response()->json([
-            'message' => 'Recipient update successful.',
-            'data' => $remittance
-        ]);
+        try {
+            ($cancelSilaTransactionAction)($remittance->creditPayment);
+            return response()->json([
+                'message' => 'Remittance cancelled'
+            ]);
+        } catch (SilaTransactionCancellationException $e) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ], 403);
+        }
     }
 }

@@ -36,7 +36,6 @@ class TransferFundsToZhanniWalletJob implements ShouldQueue, ShouldBeUnique
      */
     public function handle(TransferBetweenSilaWalletsAction $transferBetweenSilaWalletsAction)
     {
-        info('handling transfer to zhanni wallet');
         $zhanniBaseWallet = User::where('email', 'toajibul+depositor@gmail.com ')->first();
         $walletTransferData = TransferBetweenSilaWalletsData::fromArray([
             'amount' => ($this->creditPayment->remittance->base_amount + $this->creditPayment->remittance->fee) * 100,
@@ -48,7 +47,6 @@ class TransferFundsToZhanniWalletJob implements ShouldQueue, ShouldBeUnique
         $response = ($transferBetweenSilaWalletsAction)($walletTransferData);
 
         if($response->getStatusCode() == 200) {
-            info('transfer to zhanni successful');
             $this->creditPayment->update([
                 'base_amount_transferred_to_zhanni' => $this->creditPayment->remittance->base_amount * 100,
                 'fee_amount_transferred_to_zhanni' => $this->creditPayment->remittance->fee * 100

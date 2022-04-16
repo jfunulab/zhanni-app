@@ -14,17 +14,23 @@ class Remittance extends Model
 {
     use HasFactory;
 
+    const COMPLETED = 'completed';
+    const IN_PROGRESS = 'in progress';
+    const PENDING = 'pending';
+
     protected $guarded = [];
     protected $appends = ['status'];
 
     public function getStatusAttribute()
     {
-        if($this->debitPayment && $this->debitPayment->status == 'paid') {
+        if($this->debitPayment && $this->debitPayment->status == 'completed') {
             return 'completed';
         }
-        if(!$this->debitPayment && $this->creditPayment && $this->creditPayment->status == 'paid'){
+
+        if(!$this->debitPayment && $this->creditPayment && $this->creditPayment->status == 'success'){
             return 'in progress';
         }
+
         return 'pending';
     }
 
