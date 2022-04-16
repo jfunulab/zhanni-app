@@ -64,7 +64,7 @@ class FlutterwaveGateway implements LocalPaymentGateway, MakesBankTransfer
         $response = $this->client->post('/disburse/status', [
             'ref' => $debitPayment->uuid
         ]);
-        dump($response);
+//        dump($response);
 
         if($response['status'] == 'success'){
             $updateDetails = [

@@ -37,7 +37,6 @@ class InitiateRemittancePayoutJob implements ShouldQueue
      */
     public function handle(FlutterwaveGateway $flutterwaveGateway)
     {
-        dump('initiating payout');
         $remittance = $this->creditPayment->remittance;
         $sender = $remittance->user;
         $recipient = $remittance->recipient;

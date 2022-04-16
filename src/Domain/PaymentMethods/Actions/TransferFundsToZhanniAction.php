@@ -32,7 +32,7 @@ class TransferFundsToZhanniAction
             $transferToZhanniData->description,
             'a9f38290-ce34-42db-95ab-630ebba6084a'
         );
-        dump($response);
-        dump($response->getData());
+//        dump($response);
+//        dump($response->getData());
     }
 }
