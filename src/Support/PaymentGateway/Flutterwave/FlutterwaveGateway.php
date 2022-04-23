@@ -41,21 +41,28 @@ class FlutterwaveGateway implements LocalPaymentGateway, MakesBankTransfer
 
     public function disburse(BankTransferData $bankTransferData)
     {
-        $response = $this->client->post('/disburse', [
+        $isCashPickup = $bankTransferData->debitPayment->remittance->isCashPickup();
+        $disburseData = [
+            "cashpickup" => $isCashPickup,
             "ref" => $bankTransferData->debitPayment->uuid,
             "amount" => $bankTransferData->debitPayment->amount,
             "currency" => $bankTransferData->debitPayment->currency,
             "bankcode" => $bankTransferData->recipient->bank->code,
-            "accountNumber" => $bankTransferData->recipient->account_number,
+            "accountNumber" => (!$isCashPickup) ? $bankTransferData->recipient->account_number : null,
             "x_recipient_name" => $bankTransferData->recipient->account_name,
+            "x_recipient_email" => $bankTransferData->recipient->email,
+            "x_recipient_phone" => $bankTransferData->recipient->phone_number,
             "senderName" => $bankTransferData->sender->full_name,
             "lock" => config('services.flutterwave.moneywave_lock'),
             "narration" => $bankTransferData->description,
-        ]);
+        ];
+
+        $response = $this->client->post('/disburse', $disburseData);
 
         if($response['status'] == 'success'){
             $bankTransferData->debitPayment->update(['reference_id' => $response['data']['data']['uniquereference']]);
         }
+
         $this->getDisburseStatus($bankTransferData->debitPayment);
     }
 
@@ -64,7 +71,6 @@ class FlutterwaveGateway implements LocalPaymentGateway, MakesBankTransfer
         $response = $this->client->post('/disburse/status', [
             'ref' => $debitPayment->uuid
         ]);
-//        dump($response);
 
         if($response['status'] == 'success'){
             $updateDetails = [

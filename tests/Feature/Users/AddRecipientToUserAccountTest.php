@@ -23,6 +23,7 @@ class AddRecipientToUserAccountTest extends TestCase
 
         $recipientDetails = [
             'email' => $this->faker->email,
+            'phone_number' => $this->faker->phoneNumber,
             'account_name' => $this->faker->name,
             'account_number' => $this->faker->bankAccountNumber,
             'bank_id' => Bank::factory()->create()->id

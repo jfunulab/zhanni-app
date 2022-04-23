@@ -2,10 +2,12 @@
 
 namespace App\Http\Requests;
 
+use App\Remittance;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class InitiateRemittanceRequest extends FormRequest
 {
@@ -32,7 +34,8 @@ class InitiateRemittanceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'reason' => ['string'],
+            'type' => ['required', Rule::in(array_values(Remittance::TYPE_MAPPING))],
+            'reason' => ['string', 'required'],
             'amount' => ['required'],
 //            'converted_amount' => ['required'],
             'rate' => ['required'],

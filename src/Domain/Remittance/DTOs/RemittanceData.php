@@ -14,6 +14,7 @@ use Spatie\DataTransferObject\DataTransferObject;
 class RemittanceData extends DataTransferObject
 {
 
+    public string $type;
     public ?float $amount;
     public ?float $price;
     public ?float $totalAmount;
@@ -26,6 +27,7 @@ class RemittanceData extends DataTransferObject
     public static function fromArray(array $remittanceData): self
     {
         $parameters = [
+            'type' => $remittanceData['type'],
             'amount' => (float)$remittanceData['amount'] ?? null,
             'reason' => $remittanceData['reason'] ?? null,
             'convertedAmount' =>  null,
@@ -42,15 +44,5 @@ class RemittanceData extends DataTransferObject
         $parameters['totalAmount'] = $parameters['amount'] + $parameters['price'];
 
         return new self($parameters);
-    }
-
-    public function toSnakeCase()
-    {
-        return [
-            'amount' => $this->amount,
-            'price' => $this->price,
-            'total_amount' => $this->totalAmount,
-            '$this->price' => $this->price,
-        ];
     }
 }

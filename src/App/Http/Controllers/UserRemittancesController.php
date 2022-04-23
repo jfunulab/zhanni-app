@@ -38,6 +38,7 @@ class UserRemittancesController extends Controller
 
         if($silaDebitResponse->getStatusCode() == 200){
             $remittance = $user->remittances()->create([
+                'type' => $remittanceData->type,
                 'base_amount' => $remittanceData->amount,
                 'exchange_rate_id' => $remittanceData->rate->id,
                 'reason' => $remittanceData->reason,

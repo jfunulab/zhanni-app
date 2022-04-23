@@ -27,7 +27,9 @@ class RemittanceFactory extends Factory
     public function definition(): array
     {
         $user = User::factory();
+
         return [
+            'type' => 1,
             'user_id' => $user,
             'recipient_id' => TransferRecipient::factory(),
             'funding_account_id' => BankAccount::factory()->for($user),

@@ -21,6 +21,7 @@ class CreateBanksTable extends Migration
             $table->string('type', 20)->nullable();
             $table->string('country');
             $table->string('currency');
+            $table->boolean('cash_pickup')->default(false);
             $table->boolean('pay_with_bank')->default(false);
             $table->timestamps();
         });

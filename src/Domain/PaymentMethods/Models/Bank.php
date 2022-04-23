@@ -11,4 +11,12 @@ class Bank extends Model
 
     protected $guarded = [];
     protected $hidden = ['code', 'type', 'pay_with_bank'];
+    protected $casts = [
+        'cash_pickup' => 'boolean'
+    ];
+
+    public function scopeAllowsCashPickup($query)
+    {
+        return $query->where('cash_pickup', true);
+    }
 }

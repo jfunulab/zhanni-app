@@ -21,12 +21,13 @@ class TransferRecipientFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'user_id' => User::factory(),
             'bank_id' => Bank::factory(),
             'email' => $this->faker->email,
+            'phone_number' => $this->faker->phoneNumber,
             'account_name' => $this->faker->name,
             'account_number' => $this->faker->bankAccountNumber
         ];

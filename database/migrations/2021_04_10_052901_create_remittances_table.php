@@ -15,6 +15,7 @@ class CreateRemittancesTable extends Migration
     {
         Schema::create('remittances', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('type');
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('recipient_id')->nullable()->index();
             $table->unsignedBigInteger('funding_account_id')->nullable()->index();

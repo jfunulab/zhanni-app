@@ -10,6 +10,7 @@ use App\Api\Users\Controllers\UsersController;
 use App\Api\Users\Controllers\VerificationController;
 use App\Http\Controllers\Banks\BanksController;
 use App\Http\Controllers\BidsController;
+use App\Http\Controllers\CashPickupBanksController;
 use App\Http\Controllers\Countries\CountriesController;
 use App\Http\Controllers\Countries\CountryStatesController;
 use App\Http\Controllers\ExchangeRatesController;
@@ -56,6 +57,7 @@ Route::post('sila/webhooks', [SilaWebhookController::class, 'handle']);
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/user', [UsersController::class, 'show']);
     Route::get('/banks', [BanksController::class, 'index']);
+    Route::get('/cash-pickup-banks', [CashPickupBanksController::class, 'index']);
     Route::put('/users/{user}', [UsersController::class, 'update']);
     Route::post('/users/{user}/plaid-bank-accounts', [UserBankAccountsController::class, 'store']);
     Route::get('/users/{user}/bank-accounts', [UserBankAccountsController::class, 'index']);

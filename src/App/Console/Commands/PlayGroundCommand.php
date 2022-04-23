@@ -8,6 +8,7 @@ use App\Jobs\InitiateRemittancePayoutJob;
 use App\Jobs\LinkBankAccountToSilaJob;
 use App\Jobs\RequestUserSilaKYCJob;
 use App\Price;
+use App\Remittance;
 use Domain\PaymentMethods\Actions\GenerateSilaProcessorTokenAction;
 use Domain\PaymentMethods\Actions\IssueSilaAchDebitAction;
 use Domain\PaymentMethods\Actions\RegisterUserSilaAccountAction;
@@ -57,11 +58,11 @@ class PlayGroundCommand extends Command
      */
     public function handle(): int
     {
-        $user = User::find(7);
+        $user = User::find(11);
 
 //        $action = app(RegisterUserSilaAccountAction::class);
-        $action = app(RequestUserSilaKYCAction::class);
-        ($action)($user);
+//        $action = app(RequestUserSilaKYCAction::class);
+//        ($action)($user);
 
 //        $bankAccount = BankAccount::find(1);
 //        dd($bankAccount->toArray());
@@ -92,22 +93,26 @@ class PlayGroundCommand extends Command
         ($transfer)($user, $transferData);
         */
 
+//        dump(array_search('bank_details',Remittance::TYPE_MAPPING));
+        $remittance = Remittance::find(13);
+        dump($remittance->isCashPickup());
+
 //        $flutterwaveGateway = app(FlutterwaveGateway::class);
 //        $debitPayment = DebitPayment::create([
 //            'uuid' => Str::uuid(),
-//            'remittance_id' => 6,
+//            'remittance_id' => 11,
 //            'recipient_id' => 1,
-//            'amount' => 9,
+//            'amount' => 15,
 //            'currency' => 'USD',
 //            'status' => 'pending'
 //        ]);
-//        $recipient = TransferRecipient::find(1);
+//        $recipient = TransferRecipient::find(8);
 //        $transferData = BankTransferData::fromArray($user, [
 //            'debit_payment' => $debitPayment,
 //            'recipient' => $recipient,
 //            'description' => 'Testing automated flow.'
 //        ]);
-//
+
 //        $flutterwaveGateway->disburse($transferData);
 
 //        $initiatePayoutJob = app(InitiateRemittancePayoutJob::class);

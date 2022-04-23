@@ -38,6 +38,7 @@ class InitiateTransferTest extends TestCase
         Sanctum::actingAs($user);
 
         $response = $this->postJson("/api/users/$user->id/remittances",[
+            'type' => 'bank_details',
             'amount' => 50,
             'converted_amount' => 50 * 381.05,
             'reason' => 'For some reason',
@@ -49,6 +50,7 @@ class InitiateTransferTest extends TestCase
         $response->assertStatus(201)->assertJson([
             'message' => 'Remittance in progress.',
         ]);
+
         Queue::assertPushed(ProcessRemittance::class);
     }
 }
