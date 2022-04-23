@@ -47,7 +47,8 @@ class UserRemittancesController extends Controller
                 'fee' => $remittanceData->price,
                 'currency_to_remit' => $remittanceData->rate->currency,
                 'funding_account_id' => $remittanceData->fundingAccount->id,
-                'recipient_id' => $remittanceData->recipient->id
+                'recipient_id' => $remittanceData->recipient->id,
+                'pickup_bank_id' => $remittanceData->pickupBank->id ?? null
             ]);
 
             $remittanceData->fundingAccount->creditPayments()->create([

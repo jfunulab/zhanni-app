@@ -20,6 +20,7 @@ class CreateRemittancesTable extends Migration
             $table->unsignedBigInteger('recipient_id')->nullable()->index();
             $table->unsignedBigInteger('funding_account_id')->nullable()->index();
             $table->unsignedBigInteger('exchange_rate_id')->nullable()->index();
+            $table->unsignedBigInteger('pickup_bank_id')->nullable()->index();
             $table->string('reason')->nullable();
             $table->float('base_amount');
             $table->float('fee');
@@ -30,6 +31,7 @@ class CreateRemittancesTable extends Migration
 
             $table->foreign('user_id')->on('users')->references('id')->onDelete('cascade');
             $table->foreign('recipient_id')->on('transfer_recipients')->references('id')->onDelete('set null');
+            $table->foreign('pickup_bank_id')->on('banks')->references('id')->onDelete('set null');
         });
     }
 

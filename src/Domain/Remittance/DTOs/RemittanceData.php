@@ -6,9 +6,9 @@ namespace Domain\Remittance\DTOs;
 
 use App\ExchangeRate;
 use App\Price;
+use Domain\PaymentMethods\Models\Bank;
 use Domain\PaymentMethods\Models\BankAccount;
 use Domain\PaymentMethods\Models\TransferRecipient;
-use Domain\PaymentMethods\Models\UserCard;
 use Spatie\DataTransferObject\DataTransferObject;
 
 class RemittanceData extends DataTransferObject
@@ -20,6 +20,7 @@ class RemittanceData extends DataTransferObject
     public ?float $totalAmount;
     public ?float $convertedAmount;
     public ?string $reason;
+    public ?Bank $pickupBank;
     public ?ExchangeRate $rate;
     public ?BankAccount $fundingAccount;
     public ?TransferRecipient $recipient;
@@ -34,6 +35,7 @@ class RemittanceData extends DataTransferObject
             'rate' => isset($remittanceData['rate']) ? ExchangeRate::findOrFail($remittanceData['rate']) : null,
             'fundingAccount' => isset($remittanceData['funding_account_id']) ? BankAccount::findOrFail($remittanceData['funding_account_id']) : null,
             'recipient' => isset($remittanceData['recipient']) ? TransferRecipient::findOrFail($remittanceData['recipient']) : null,
+            'pickupBank' => isset($remittanceData['pickup_bank_id']) ? Bank::findOrFail($remittanceData['pickup_bank_id']) : null,
         ];
 
         $price = Price::get()->first(function($price) use($remittanceData){

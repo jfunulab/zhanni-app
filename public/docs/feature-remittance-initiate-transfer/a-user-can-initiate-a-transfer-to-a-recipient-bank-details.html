@@ -307,8 +307,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-users-create-user.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Create User
+            <a href="/docs/feature-remittance-initiate-transfer.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Initiate Transfer
                             </a>
         </li>
     </ul>
@@ -318,7 +318,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            A user can create an account
+            A user can initiate a transfer to a recipient bank details
               
         </div></h3>
                     </div>
@@ -336,10 +336,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_844'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_841'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_844' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_841' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -357,17 +357,34 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users</td>
+                > api/users/{user}/remittances</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/users</td>
+                > api/users/416/remittances</td>
             </tr>
             </table>
 </div>
  
 
+             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
+    <thead>
+        <tr class="bg-gray-500">
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Route Parameter</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Pattern</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Requirement</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr class="break-all">
+                <td class="py-2 px-4 font-thin text-gray-200">user</td>
+                <td class="py-2 px-4 font-thin text-teal-300">*</td>
+                <td class="py-2 px-4 font-thin text-teal-300">Required</td>
+            </tr>
+            </tbody>
+</table>
+ 
     
              <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
     <thead>
@@ -378,69 +395,45 @@
     </thead>
     <tbody>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">city</td>
+                <td class="px-4 py-2 font-thin text-gray-200">rate</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            Cassinmouth
+                                            2
                                     </td>
             </tr>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">email</td>
+                <td class="px-4 py-2 font-thin text-gray-200">type</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            abe18@legros.com
+                                            bank_details
                                     </td>
             </tr>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">state</td>
+                <td class="px-4 py-2 font-thin text-gray-200">amount</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            Pennsylvania
+                                            50
                                     </td>
             </tr>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">country</td>
+                <td class="px-4 py-2 font-thin text-gray-200">reason</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            Colombia
+                                            For some reason
                                     </td>
             </tr>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">password</td>
+                <td class="px-4 py-2 font-thin text-gray-200">recipient</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            passy-word
+                                            147
                                     </td>
             </tr>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">last_name</td>
+                <td class="px-4 py-2 font-thin text-gray-200">converted_amount</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            Leonardo Ziemann
+                                            19052.5
                                     </td>
             </tr>
                     <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">first_name</td>
+                <td class="px-4 py-2 font-thin text-gray-200">funding_account_id</td>
                 <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            Breanna Koch
-                                    </td>
-            </tr>
-                    <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">postal_code</td>
-                <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            03089
-                                    </td>
-            </tr>
-                    <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">identity_number</td>
-                <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            6439061178
-                                    </td>
-            </tr>
-                    <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">address_line_one</td>
-                <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            150 Daniel Prairie Apt. 965
-                                    </td>
-            </tr>
-                    <tr>
-                <td class="px-4 py-2 font-thin text-gray-200">address_line_two</td>
-                <td class="px-4 py-2 font-thin text-teal-300 break-all">
-                                            Schultz Trafficway
+                                            9
                                     </td>
             </tr>
             </tbody>
@@ -481,7 +474,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 318</td>
+                > 137</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -513,7 +506,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Sat, 23 Apr 2022 01:55:31 GMT</td>
+                > Sat, 23 Apr 2022 01:55:30 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -549,55 +542,103 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;User created successfully&quot;,
+    &quot;message&quot;: &quot;Remittance in progress.&quot;,
     &quot;data&quot;: {
-        &quot;token&quot;: &quot;1|LMR6QMZkeV20uSoEhQIma9kRPZlYvWjBgfOG1W8a&quot;,
-        &quot;user&quot;: {
-            &quot;id&quot;: 419,
-            &quot;first_name&quot;: &quot;Breanna Koch&quot;,
-            &quot;last_name&quot;: &quot;Leonardo Ziemann&quot;,
-            &quot;email&quot;: &quot;abe18@legros.com&quot;,
-            &quot;username&quot;: null,
-            &quot;email_verification_code&quot;: null,
-            &quot;verification_code_expires_at&quot;: null,
-            &quot;email_verified_at&quot;: null,
-            &quot;identity_number&quot;: &quot;6439061178&quot;,
-            &quot;phone_number&quot;: null,
-            &quot;birth_date&quot;: null,
-            &quot;kyc_status&quot;: null,
-            &quot;kyc_issues&quot;: null,
-            &quot;created_at&quot;: &quot;2022-04-23T01:55:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-04-23T01:55:31.000000Z&quot;,
-            &quot;card_brand&quot;: null,
-            &quot;card_last_four&quot;: null,
-            &quot;trial_ends_at&quot;: null,
-            &quot;verified&quot;: false,
-            &quot;address&quot;: {
-                &quot;id&quot;: 6,
-                &quot;user_id&quot;: 419,
-                &quot;country_id&quot;: 16,
-                &quot;state_id&quot;: 9,
-                &quot;line_one&quot;: &quot;150 Daniel Prairie Apt. 965&quot;,
-                &quot;line_two&quot;: &quot;Schultz Trafficway&quot;,
-                &quot;city&quot;: &quot;Cassinmouth&quot;,
-                &quot;postal_code&quot;: &quot;03089&quot;,
-                &quot;created_at&quot;: &quot;2022-04-23T01:55:31.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-04-23T01:55:31.000000Z&quot;,
-                &quot;country&quot;: {
-                    &quot;id&quot;: 16,
-                    &quot;name&quot;: &quot;Colombia&quot;,
-                    &quot;code&quot;: &quot;dolores&quot;,
-                    &quot;created_at&quot;: &quot;2022-04-23T01:55:31.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2022-04-23T01:55:31.000000Z&quot;
-                },
-                &quot;state&quot;: {
-                    &quot;id&quot;: 9,
-                    &quot;country_id&quot;: 17,
-                    &quot;name&quot;: &quot;Pennsylvania&quot;,
-                    &quot;code&quot;: &quot;NY&quot;,
-                    &quot;created_at&quot;: &quot;2022-04-23T01:55:31.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2022-04-23T01:55:31.000000Z&quot;
-                }
+        &quot;id&quot;: 6,
+        &quot;type&quot;: &quot;bank_details&quot;,
+        &quot;user_id&quot;: 416,
+        &quot;recipient_id&quot;: 147,
+        &quot;funding_account_id&quot;: 9,
+        &quot;exchange_rate_id&quot;: 2,
+        &quot;pickup_bank_id&quot;: null,
+        &quot;reason&quot;: &quot;For some reason&quot;,
+        &quot;base_amount&quot;: 50,
+        &quot;fee&quot;: 0,
+        &quot;base_currency&quot;: &quot;USD&quot;,
+        &quot;amount_to_remit&quot;: 19052.5,
+        &quot;currency_to_remit&quot;: &quot;STN&quot;,
+        &quot;created_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;,
+        &quot;status&quot;: &quot;pending&quot;,
+        &quot;credit_payment&quot;: {
+            &quot;id&quot;: 6,
+            &quot;remittance_id&quot;: 6,
+            &quot;reference_id&quot;: &quot;&quot;,
+            &quot;sourceable_type&quot;: &quot;Domain\\PaymentMethods\\Models\\BankAccount&quot;,
+            &quot;sourceable_id&quot;: 9,
+            &quot;amount&quot;: 50,
+            &quot;amount_in_cents&quot;: 5000,
+            &quot;base_amount_transferred_to_zhanni&quot;: null,
+            &quot;fee_amount_transferred_to_zhanni&quot;: null,
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;status&quot;: &quot;queued&quot;,
+            &quot;processing_type&quot;: null,
+            &quot;created_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;,
+            &quot;sourceable&quot;: {
+                &quot;id&quot;: 9,
+                &quot;user_id&quot;: 416,
+                &quot;account_name&quot;: &quot;reiciendis&quot;,
+                &quot;account_id&quot;: &quot;pariatur&quot;,
+                &quot;institution_name&quot;: null,
+                &quot;institution_id&quot;: null,
+                &quot;sila_linked&quot;: 0,
+                &quot;created_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;
+            }
+        },
+        &quot;funding_account&quot;: {
+            &quot;id&quot;: 9,
+            &quot;user_id&quot;: 416,
+            &quot;account_name&quot;: &quot;reiciendis&quot;,
+            &quot;account_id&quot;: &quot;pariatur&quot;,
+            &quot;institution_name&quot;: null,
+            &quot;institution_id&quot;: null,
+            &quot;sila_linked&quot;: 0,
+            &quot;created_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;
+        },
+        &quot;debit_payment&quot;: null,
+        &quot;recipient&quot;: {
+            &quot;id&quot;: 147,
+            &quot;user_id&quot;: 416,
+            &quot;bank_id&quot;: 167,
+            &quot;email&quot;: &quot;ansel21@mcdermott.org&quot;,
+            &quot;phone_number&quot;: &quot;1-848-539-4378&quot;,
+            &quot;account_name&quot;: &quot;Janae Kunze&quot;,
+            &quot;account_number&quot;: &quot;881248464&quot;,
+            &quot;created_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;,
+            &quot;bank&quot;: {
+                &quot;id&quot;: 167,
+                &quot;name&quot;: &quot;error&quot;,
+                &quot;slug&quot;: &quot;ratione&quot;,
+                &quot;country&quot;: &quot;Sri Lanka&quot;,
+                &quot;currency&quot;: &quot;HRK&quot;,
+                &quot;cash_pickup&quot;: false,
+                &quot;created_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;
+            },
+            &quot;user&quot;: {
+                &quot;id&quot;: 416,
+                &quot;first_name&quot;: &quot;Kitty&quot;,
+                &quot;last_name&quot;: &quot;Reichert&quot;,
+                &quot;email&quot;: &quot;burnice.quigley@example.org&quot;,
+                &quot;username&quot;: &quot;trystan.mills&quot;,
+                &quot;email_verification_code&quot;: null,
+                &quot;verification_code_expires_at&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;,
+                &quot;identity_number&quot;: &quot;4337793828&quot;,
+                &quot;phone_number&quot;: &quot;605-765-7165&quot;,
+                &quot;birth_date&quot;: &quot;1992-04-23&quot;,
+                &quot;kyc_status&quot;: null,
+                &quot;kyc_issues&quot;: null,
+                &quot;created_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-04-23T01:55:30.000000Z&quot;,
+                &quot;card_brand&quot;: null,
+                &quot;card_last_four&quot;: null,
+                &quot;trial_ends_at&quot;: null,
+                &quot;verified&quot;: true
             }
         }
     }

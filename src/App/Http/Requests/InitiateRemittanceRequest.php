@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Remittance;
+use Domain\PaymentMethods\Models\Bank;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
@@ -41,6 +42,13 @@ class InitiateRemittanceRequest extends FormRequest
             'rate' => ['required'],
             'funding_account_id' => ['required'],
             'recipient' => ['required'],
+            'pickup_bank_id' => [
+                'integer',
+                Rule::requiredIf(function () {
+                    return $this->type == Remittance::TYPE_MAPPING[Remittance::CASH_PICKUP];
+                }),
+                Rule::in(Bank::allowsCashPickup()->pluck('id')->toArray())
+            ]
         ];
     }
 
@@ -61,15 +69,15 @@ class InitiateRemittanceRequest extends FormRequest
         $amountRemittedCurrentMonth = $user->remittances()->where('created_at', '>=', now()->subDays(30))->sum('base_amount');
         $amountToRemit = $this->get('amount');
 
-        if($amountToRemit > config('app.remittance_transaction_limit') ){
+        if ($amountToRemit > config('app.remittance_transaction_limit')) {
             throw new AuthorizationException('Exceeds transaction limit');
         }
 
-        if(($amountRemittedToday + $amountToRemit) > config('app.daily_remittance_limit') ){
+        if (($amountRemittedToday + $amountToRemit) > config('app.daily_remittance_limit')) {
             throw new AuthorizationException('Exceeded daily limit');
         }
 
-        if(($amountToRemit + $amountRemittedCurrentMonth) > config('app.monthly_remittance_limit')) {
+        if (($amountToRemit + $amountRemittedCurrentMonth) > config('app.monthly_remittance_limit')) {
             throw new AuthorizationException('Exceeded monthly limit');
         }
     }

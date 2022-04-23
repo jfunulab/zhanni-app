@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Domain\PaymentMethods\Models\Bank;
 use Domain\PaymentMethods\Models\BankAccount;
 use Domain\PaymentMethods\Models\TransferRecipient;
 use Domain\Users\Models\User;
@@ -85,5 +86,10 @@ class Remittance extends Model
     public function exchangeRate(): BelongsTo
     {
         return $this->belongsTo(ExchangeRate::class );
+    }
+
+    public function pickupBank(): BelongsTo
+    {
+        return $this->belongsTo(Bank::class, 'pickup_bank_id');
     }
 }

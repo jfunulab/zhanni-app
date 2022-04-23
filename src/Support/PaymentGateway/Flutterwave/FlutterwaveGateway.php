@@ -41,13 +41,15 @@ class FlutterwaveGateway implements LocalPaymentGateway, MakesBankTransfer
 
     public function disburse(BankTransferData $bankTransferData)
     {
-        $isCashPickup = $bankTransferData->debitPayment->remittance->isCashPickup();
+        $remittance = $bankTransferData->debitPayment->remittance;
+        $isCashPickup = $remittance->isCashPickup();
+
         $disburseData = [
             "cashpickup" => $isCashPickup,
             "ref" => $bankTransferData->debitPayment->uuid,
             "amount" => $bankTransferData->debitPayment->amount,
             "currency" => $bankTransferData->debitPayment->currency,
-            "bankcode" => $bankTransferData->recipient->bank->code,
+            "bankcode" => (!$isCashPickup) ? $bankTransferData->recipient->bank->code : $remittance->pickupBank->code,
             "accountNumber" => (!$isCashPickup) ? $bankTransferData->recipient->account_number : null,
             "x_recipient_name" => $bankTransferData->recipient->account_name,
             "x_recipient_email" => $bankTransferData->recipient->email,
