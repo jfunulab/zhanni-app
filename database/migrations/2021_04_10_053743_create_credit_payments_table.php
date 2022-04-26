@@ -16,10 +16,15 @@ class CreateCreditPaymentsTable extends Migration
         Schema::create('credit_payments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('remittance_id');
-            $table->unsignedBigInteger('source_id')->nullable();
+            $table->string('reference_id')->nullable();
+            $table->morphs('sourceable');
             $table->float('amount');
+            $table->float('amount_in_cents');
+            $table->integer('base_amount_transferred_to_zhanni')->nullable();
+            $table->integer('fee_amount_transferred_to_zhanni')->nullable();
             $table->string('currency');
             $table->string('status');
+            $table->string('processing_type')->nullable();
             $table->timestamps();
         });
     }

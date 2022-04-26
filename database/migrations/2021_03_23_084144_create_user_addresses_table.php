@@ -20,6 +20,7 @@ class CreateUserAddressesTable extends Migration
             $table->unsignedBigInteger('state_id')->index()->nullable();
             $table->string('line_one')->nullable();
             $table->string('line_two')->nullable();
+            $table->string('city')->nullable();
             $table->string('postal_code')->nullable();
             $table->timestamps();
 

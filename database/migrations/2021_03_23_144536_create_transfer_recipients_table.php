@@ -18,6 +18,7 @@ class CreateTransferRecipientsTable extends Migration
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('bank_id')->index();
             $table->string('email');
+            $table->string('phone_number');
             $table->string('account_name');
             $table->string('account_number');
             $table->timestamps();

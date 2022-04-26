@@ -1,5 +1,7 @@
 <?php
 
+use Silamoney\Client\Domain\Environments;
+
 return [
 
     /*
@@ -33,6 +35,15 @@ return [
         'key' => env('PAYSTACK_PUBLIC_KEY'),
         'secret' => env('PAYSTACK_SECRET_KEY')
     ],
+    'flutterwave' => [
+        'key' => env('FLUTTERWAVE_PUBLIC_KEY'),
+        'secret' => env('FLUTTERWAVE_SECRET_KEY'),
+        'moneywave_base_url' => env('MONEYWAVE_BASE_URL'),
+        'moneywave_token' => env('MONEYWAVE_TOKEN'),
+        'moneywave_lock' => env('MONEYWAVE_LOCK'),
+        'moneywave_key' => env('MONEYWAVE_API_KEY'),
+        'moneywave_secret' => env('MONEYWAVE_API_SECRET'),
+    ],
     'stripe' => [
         'model' => \Domain\Users\Models\User::class,
         'key' => env('STRIPE_KEY'),
@@ -42,4 +53,13 @@ return [
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
     ],
+    'plaid' => [
+        'app_name' => env('PLAID_APP_NAME'),
+        'client_id' => env('PLAID_CLIENT_ID'),
+        'secret' => env('PLAID_SECRET'),
+        'env' => env('PLAID_ENVIRONMENT', 'sandbox')
+    ],
+    'slack' => [
+        'dump' => env('SLACK_DUMP_CHANNEL')
+    ]
 ];

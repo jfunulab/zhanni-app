@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class AddRecipientToAccountRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class AddRecipientToAccountRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,10 +23,20 @@ class AddRecipientToAccountRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'bank_id' => ['exists:banks,id'],
+            'email' => ['required', 'string'],
+            'phone_number' => ['required', 'string']
         ];
+    }
+
+    public function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'message' => 'Saving recipient was not successful',
+            'errors' => $validator->errors()
+        ], 422));
     }
 }

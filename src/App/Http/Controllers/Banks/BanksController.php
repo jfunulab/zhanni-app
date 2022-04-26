@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Banks;
 
 use Domain\PaymentMethods\Actions\GetBankListAction;
+use Illuminate\Http\JsonResponse;
 
 class BanksController
 {
 
-    public function index(GetBankListAction $getBankListAction)
+    public function index(GetBankListAction $getBankListAction): JsonResponse
     {
         $banks = $getBankListAction();
 

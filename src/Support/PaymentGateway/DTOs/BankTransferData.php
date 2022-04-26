@@ -4,24 +4,26 @@
 namespace Support\PaymentGateway\DTOs;
 
 
+use App\DebitPayment;
+use Domain\PaymentMethods\Models\TransferRecipient;
+use Domain\Users\Models\User;
 use Spatie\DataTransferObject\DataTransferObject;
 
 class BankTransferData extends DataTransferObject
 {
-    public ?string $accountNumber;
-    public ?string $bankCode;
-    public ?string $currency;
+    public ?string $creditReference;
+    public ?DebitPayment $debitPayment;
+    public ?TransferRecipient $recipient;
+    public ?User $sender;
     public ?string $description;
-    public ?float $amount;
 
-    public static function fromArray(array $array): BankTransferData
+    public static function fromArray(User $sender, array $array): BankTransferData
     {
         return new self([
-            'accountNumber' => $array['account_number'] ?? null,
-            'bankCode' => $array['bank_code'] ?? null,
+            'sender' => $sender,
+            'debitPayment' => $array['debit_payment'] ?? null,
+            'recipient' => $array['recipient'] ?? null,
             'description' => $array['description'] ?? null,
-            'amount' => $array['amount'] ?? null,
-            'currency' => $array['currency'] ?? null,
         ]);
     }
 }

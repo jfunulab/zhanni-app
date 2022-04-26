@@ -27,7 +27,10 @@ class VerifyAccountTest extends TestCase
         ]);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @enlighten {"ignore": true}
+     */
     function a_user_cannot_verify_their_account_with_a_wrong_code()
     {
         $this->withoutExceptionHandling();
@@ -41,7 +44,10 @@ class VerifyAccountTest extends TestCase
         ]);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @enlighten {"ignore": true}
+     */
     function a_user_cannot_verify_their_account_with_expired_code()
     {
         $this->withoutExceptionHandling();
@@ -56,7 +62,10 @@ class VerifyAccountTest extends TestCase
         ]);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @enlighten {"ignore": true}
+     */
     function a_user_cannot_verify_account_for_another_user()
     {
         $this->withoutExceptionHandling();
@@ -73,7 +82,10 @@ class VerifyAccountTest extends TestCase
         ]);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @enlighten {"ignore": true}
+     */
     function a_user_cannot_verify_their_account_with_code_sent_to_them_via_email_if_account_is_already_verified()
     {
         $this->withoutExceptionHandling();
@@ -88,7 +100,10 @@ class VerifyAccountTest extends TestCase
         ]);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @enlighten {"ignore": true}
+     */
     function unauthenticated_user_cannot_verify_account()
     {
         $verificationCode = 873284;

@@ -19,7 +19,7 @@ class BankFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => $this->faker->word,
@@ -28,6 +28,16 @@ class BankFactory extends Factory
             'type' => $this->faker->word,
             'country' => $this->faker->country,
             'currency' => $this->faker->currencyCode,
+            'cash_pickup' => false,
         ];
+    }
+
+    public function cash(): BankFactory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'cash_pickup' => true,
+            ];
+        });
     }
 }

@@ -30,11 +30,13 @@ class CreateUserAction
         $user->fill([
             'first_name' => $userData->firstName,
             'last_name' => $userData->lastName,
+            'identity_number' => $userData->identityNumber,
+            'phone_number' => $userData->phoneNumber,
             'password' => bcrypt($userData->password)
         ])->save();
 
-        ($this->addUserAddressAction)($user, $userData);
+        ($this->addUserAddressAction)($user, $userData->addressData);
 
-        return $user->fresh(['address.country', 'address.state']);
+        return $user->fresh(['address']);
     }
 }

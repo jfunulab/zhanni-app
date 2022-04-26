@@ -13,9 +13,10 @@ class AddRecipientToAccountAction
     {
         $transferRecipient = $user->recipients()->create([
             'email' => $data->email,
-            'account_name' => $data->accountName,
-            'account_number' => $data->accountNumber,
-            'bank_id' => $data->bankId
+            'phone_number' => $data->phone_number,
+            'account_name' => $data->account_name,
+            'account_number' => $data->account_number,
+            'bank_id' => $data->bank_id
         ]);
 
         return $transferRecipient->fresh(['bank']);

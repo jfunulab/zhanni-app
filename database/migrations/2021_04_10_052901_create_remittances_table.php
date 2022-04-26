@@ -15,10 +15,15 @@ class CreateRemittancesTable extends Migration
     {
         Schema::create('remittances', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('type');
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('recipient_id')->nullable()->index();
+            $table->unsignedBigInteger('funding_account_id')->nullable()->index();
+            $table->unsignedBigInteger('exchange_rate_id')->nullable()->index();
+            $table->unsignedBigInteger('pickup_bank_id')->nullable()->index();
             $table->string('reason')->nullable();
             $table->float('base_amount');
+            $table->float('fee');
             $table->string('base_currency', 10);
             $table->float('amount_to_remit');
             $table->string('currency_to_remit');
@@ -26,6 +31,7 @@ class CreateRemittancesTable extends Migration
 
             $table->foreign('user_id')->on('users')->references('id')->onDelete('cascade');
             $table->foreign('recipient_id')->on('transfer_recipients')->references('id')->onDelete('set null');
+            $table->foreign('pickup_bank_id')->on('banks')->references('id')->onDelete('set null');
         });
     }
 

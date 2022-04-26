@@ -8,8 +8,9 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.4|^8.0",
         "ext-json": "*",
+        "bilfeldt/laravel-http-client-logger": "^1.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -17,12 +18,16 @@
         "laravel/framework": "^8.12",
         "laravel/horizon": "^5.6",
         "laravel/sanctum": "^2.9",
+        "laravel/slack-notification-channel": "^2.3",
         "laravel/telescope": "^4.4",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
         "lorisleiva/laravel-deployer": "^0.3.5",
         "predis/predis": "^1.1",
-        "spatie/data-transfer-object": "^2.2"
+        "sentry/sentry-laravel": "^2.6",
+        "silamoney/php-sdk": "^0.2.2",
+        "spatie/data-transfer-object": "^2.2",
+        "tomorrow-ideas/plaid-sdk-php": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

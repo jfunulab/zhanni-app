@@ -24,10 +24,12 @@ class CreateUserTest extends TestCase
             'email' => $this->faker->email,
             'first_name' => $this->faker->name,
             'last_name' => $this->faker->name,
+            'identity_number' => $this->faker->isbn10,
             'address_line_one' => $this->faker->streetAddress,
             'address_line_two' => $this->faker->streetName,
             'country' => $this->faker->country,
             'postal_code' => $this->faker->postcode,
+            'city' => $this->faker->city,
             'state' => $this->faker->state,
             'password' => 'passy-word'
         ];
@@ -42,10 +44,13 @@ class CreateUserTest extends TestCase
         tap(User::with(['address'])->first(), function ($user) use ($userDetails){
             $this->assertEquals($userDetails['first_name'], $user->first_name);
             $this->assertEquals($userDetails['last_name'], $user->last_name);
+            $this->assertEquals($userDetails['identity_number'], $user->identity_number);
             $this->assertEquals($userDetails['address_line_one'], $user->address->line_one);
             $this->assertEquals($userDetails['address_line_two'], $user->address->line_two);
             $this->assertEquals($userDetails['country'], $user->address->country->name);
             $this->assertEquals($userDetails['state'], $user->address->state->name);
+            $this->assertEquals($userDetails['postal_code'], $user->address->postal_code);
+            $this->assertEquals($userDetails['city'], $user->address->city);
         });
     }
 

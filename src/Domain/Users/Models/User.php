@@ -2,10 +2,14 @@
 
 namespace Domain\Users\Models;
 
+use App\Jobs\RegisterUserSilaAccountJob;
 use App\Notifications\EmailVerificationNotification;
 use App\Notifications\SendPasswordResetCodeNotification;
 use App\Remittance;
+use Domain\Bids\Models\Bid;
+use Domain\Bids\Models\BidOrder;
 use Domain\PaymentMethods\Models\TransferRecipient;
+use Domain\PaymentMethods\Models\BankAccount;
 use Domain\PaymentMethods\Models\UserCard;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -33,6 +37,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'remember_token',
         'stripe_id',
+        'sila_username',
+        'sila_token',
+        'sila_address',
+        'sila_key'
     ];
 
     /**
@@ -42,7 +50,35 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'kyc_status' => 'string',
+        'kyc_issues' => 'array'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::updated(function($user){
+            $changes = $user->getDirty();
+            $propertyChanges = array_keys($changes);
+            $kycIssues = $user->kyc_issues;
+
+            if(is_array($kycIssues) && !in_array('kyc_issues', $propertyChanges) && count($kycIssues) > 0){
+                foreach ($propertyChanges as $propertyChange) {
+                    unset($kycIssues[$propertyChange]);
+
+                    if($propertyChange == 'identity_number'){
+                        unset($kycIssues['identity']);
+                    }
+                }
+
+                $user->update(['kyc_issues' => count($kycIssues) > 0 ? $kycIssues : null]);
+                if (count($kycIssues) == 0 && is_null($user->sila_key)) {
+                    RegisterUserSilaAccountJob::dispatch($user);
+                }
+            }
+        });
+    }
 
     public function getVerifiedAttribute(): bool
     {
@@ -61,7 +97,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function address(): HasOne
     {
-        return $this->hasOne(UserAddress::class);
+        return $this->hasOne(UserAddress::class)->latestOfMany();
     }
 
     public function remittances(): HasMany
@@ -72,6 +108,31 @@ class User extends Authenticatable implements MustVerifyEmail
     public function recipients(): HasMany
     {
         return $this->hasMany(TransferRecipient::class);
+    }
+
+    public function bids(): HasMany
+    {
+        return $this->hasMany(Bid::class);
+    }
+
+    public function bidBuyOrders(): HasMany
+    {
+        return $this->hasMany(BidOrder::class);
+    }
+
+    public function bidSellOrders(): HasMany
+    {
+        return $this->hasMany(BidOrder::class, 'seller_id');
+    }
+
+    public function bankAccounts(): HasMany
+    {
+        return $this->hasMany(BankAccount::class);
+    }
+
+    public function passedKyc(): bool
+    {
+        return $this->kyc_status == 'passed';
     }
 
     /**
@@ -87,6 +148,17 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendPasswordResetNotification($token)
     {
         $this->notify(app()->make(SendPasswordResetCodeNotification::class, ['token' => $token]));
+    }
+
+    /**
+     * Route notifications for the Slack channel.
+     *
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return string
+     */
+    public function routeNotificationForSlack($notification)
+    {
+        return config('services.slack.dump');
     }
 
     /**

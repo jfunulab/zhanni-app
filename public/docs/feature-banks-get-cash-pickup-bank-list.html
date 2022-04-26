@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Laravel Enlighten</title>
+    <link rel="stylesheet" href="/docs/assets/css/app.css?0.2.0">
+    <style>svg {max-width: 50px;}</style>
+</head>
+<body class="bg-gray-900 overflow-hidden flex absolute">
+
+    <div class="w-screen h-screen block  overflow-hidden top-0 ">
+         <div class="h-screen flex overflow-hidden bg-gray-100" x-data="{open: false}">
+    <div >
+        <div x-show="open" x-cloak class="fixed inset-0 flex z-40">
+            <div x-show="open" x-cloak class="fixed inset-0"
+                 x-transition:enter="transition-opacity ease-linear duration-300"
+                 xtransition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition-opacity ease-linear duration-300"
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0"
+            >
+                <div class="absolute inset-0 bg-gray-600 opacity-75"></div>
+            </div>
+            <div x-show="open" x-cloak
+                 x-transition:enter="transition ease-in-out duration-300 transform"
+                 xtransition:enter-start="-translate-x-full"
+                 x-transition:enter-end="translate-x-0"
+                 x-transition:leave="transition ease-in-out duration-300 transform"
+                 x-transition:leave-start="translate-x-0"
+                 x-transition:leave-end="-translate-x-full"
+                 class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-gray-800">
+                <div class="absolute top-0 right-0 -mr-14 p-1">
+                    <button x-on:click="open = !open" class="flex items-center justify-center h-12 w-12 rounded-full focus:outline-none focus:bg-gray-600" aria-label="Close sidebar">
+                        <svg class="h-6 w-6 text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex-shrink-0 flex items-center px-4">
+                    <span class="rounded-full text-teal-800 bg-teal-500 p-1">
+                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+ 
+                    </span>
+                    <span class="font-bold text-gray-100 text-2xl pl-4">Enlighten</span>
+                </div>
+                <div class="mt-5 flex-1 h-0 overflow-y-auto">
+                    <nav class="px-2 space-y-1">
+                        
+                                                    <a href="/docs/areas/feature.html" class=" group flex items-center px-2 py-2 text-base leading-6 font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-300 group-focus:text-gray-300 transition ease-in-out duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+                                Features
+                            </a>
+                                                            <div class="flex flex-col space-y-2" x-data="{open: false}">
+                                    <button
+                                        x-on:click="open = !open"
+                                        type="button" name="toggle panel"
+                                            class="group flex w-full text-left items-center px-2 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                        Users
+                                    </button>
+                                    <div class="w-full" x-cloak x-show="open">
+                                                                                    <a href="/docs/feature-remittance-get-user-remittances.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get User Remittances
+                                            </a>
+                                                                                    <a href="/docs/feature-users-add-recipient-to-user-account.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Add Recipient To User Account
+                                            </a>
+                                                                                    <a href="/docs/feature-users-create-user.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Create User
+                                            </a>
+                                                                                    <a href="/docs/feature-users-get-user-bank-accounts.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get User Bank Accounts
+                                            </a>
+                                                                                    <a href="/docs/feature-users-get-user-cards.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get User Cards
+                                            </a>
+                                                                                    <a href="/docs/feature-users-get-user-profile.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get User Profile
+                                            </a>
+                                                                                    <a href="/docs/feature-users-get-user-recipients.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get User Recipients
+                                            </a>
+                                                                                    <a href="/docs/feature-users-request-password-reset.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Request Password Reset
+                                            </a>
+                                                                                    <a href="/docs/feature-users-resend-user-account-verification-code.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Resend User Account Verification Code
+                                            </a>
+                                                                                    <a href="/docs/feature-users-reset-password-with-code.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Reset Password With Code
+                                            </a>
+                                                                                    <a href="/docs/feature-users-update-user-recipient.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Update User Recipient
+                                            </a>
+                                                                                    <a href="/docs/feature-users-update-user.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Update User
+                                            </a>
+                                                                                    <a href="/docs/feature-users-user-login.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                User Login
+                                            </a>
+                                                                                    <a href="/docs/feature-users-verify-account.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Verify Account
+                                            </a>
+                                                                            </div>
+                                </div>
+                                                            <div class="flex flex-col space-y-2" x-data="{open: false}">
+                                    <button
+                                        x-on:click="open = !open"
+                                        type="button" name="toggle panel"
+                                            class="group flex w-full text-left items-center px-2 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                        Banks
+                                    </button>
+                                    <div class="w-full" x-cloak x-show="open">
+                                                                                    <a href="/docs/feature-banks-get-bank-list.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Bank List
+                                            </a>
+                                                                                    <a href="/docs/feature-banks-get-cash-pickup-bank-list.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Cash Pickup Bank List
+                                            </a>
+                                                                                    <a href="/docs/feature-connect-bank-account-with-plaid.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Connect Bank Account With Plaid
+                                            </a>
+                                                                                    <a href="/docs/feature-get-bank-list-action.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Bank List Action
+                                            </a>
+                                                                            </div>
+                                </div>
+                                                            <div class="flex flex-col space-y-2" x-data="{open: false}">
+                                    <button
+                                        x-on:click="open = !open"
+                                        type="button" name="toggle panel"
+                                            class="group flex w-full text-left items-center px-2 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                        Bids
+                                    </button>
+                                    <div class="w-full" x-cloak x-show="open">
+                                                                                    <a href="/docs/feature-bid-buy-bid.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Buy Bid
+                                            </a>
+                                                                                    <a href="/docs/feature-bid-create-bid.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Create Bid
+                                            </a>
+                                                                                    <a href="/docs/feature-bid-get-all-seller-bids.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get All Seller Bids
+                                            </a>
+                                                                                    <a href="/docs/feature-bid-get-buyer-bid-offers.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Buyer Bid Offers
+                                            </a>
+                                                                                    <a href="/docs/feature-bid-get-seller-bid-offers.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Seller Bid Offers
+                                            </a>
+                                                                                    <a href="/docs/feature-bid-view-all-available-bids.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                View All Available Bids
+                                            </a>
+                                                                            </div>
+                                </div>
+                                                            <div class="flex flex-col space-y-2" x-data="{open: false}">
+                                    <button
+                                        x-on:click="open = !open"
+                                        type="button" name="toggle panel"
+                                            class="group flex w-full text-left items-center px-2 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                        Remittance
+                                    </button>
+                                    <div class="w-full" x-cloak x-show="open">
+                                                                                    <a href="/docs/feature-remittance-initiate-transfer.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Initiate Transfer
+                                            </a>
+                                                                            </div>
+                                </div>
+                                                            <div class="flex flex-col space-y-2" x-data="{open: false}">
+                                    <button
+                                        x-on:click="open = !open"
+                                        type="button" name="toggle panel"
+                                            class="group flex w-full text-left items-center px-2 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                        Other Modules
+                                    </button>
+                                    <div class="w-full" x-cloak x-show="open">
+                                                                                    <a href="/docs/feature-countries-get-country-list.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Country List
+                                            </a>
+                                                                                    <a href="/docs/feature-countries-get-country-state-lists.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Country State Lists
+                                            </a>
+                                                                                    <a href="/docs/feature-get-exchange-rates.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Exchange Rates
+                                            </a>
+                                                                                    <a href="/docs/feature-get-prices.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Get Prices
+                                            </a>
+                                                                                    <a href="/docs/feature-plaid-dump-plaid-sila-token.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Dump Plaid Sila Token
+                                            </a>
+                                                                                    <a href="/docs/feature-plaid-generate-plaid-link-token.html"
+                                               class="group flex items-center px-4 py-1 text-sm leading-6 font-light rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+                                                Generate Plaid Link Token
+                                            </a>
+                                                                            </div>
+                                </div>
+                                                                        </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col w-0 flex-1 overflow-hidden">
+        <div class="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
+            <button x-on:click="open = ! open" class="px-4 border-r border-gray-700 text-gray-500 focus:outline-none bg-gray-900 focus:bg-gray-800 focus:text-gray-600" aria-label="Open sidebar">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+                </svg>
+            </button>
+            <div class="flex-1 px-4 space-x-4 flex justify-end items-center bg-gray-800">
+                <span class="rounded-full text-teal-100 bg-teal-500 p-1  hidden md:flex">
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+ 
+                </span>
+                                                             <div run="{&quot;id&quot;:17,&quot;branch&quot;:&quot;develop&quot;,&quot;head&quot;:&quot;564d3b7&quot;,&quot;modified&quot;:0,&quot;created_at&quot;:&quot;2022-04-23T01:55:13.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:13.000000Z&quot;,&quot;groups&quot;:[{&quot;id&quot;:572,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Banks\\GetBankListTest&quot;,&quot;title&quot;:&quot;Get Bank List&quot;,&quot;slug&quot;:&quot;feature-banks-get-bank-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:18.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:18.000000Z&quot;},{&quot;id&quot;:573,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Banks\\GetCashPickupBankListTest&quot;,&quot;title&quot;:&quot;Get Cash Pickup Bank List&quot;,&quot;slug&quot;:&quot;feature-banks-get-cash-pickup-bank-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:19.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:19.000000Z&quot;},{&quot;id&quot;:574,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\BuyBidTest&quot;,&quot;title&quot;:&quot;Buy Bid&quot;,&quot;slug&quot;:&quot;feature-bid-buy-bid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:19.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:19.000000Z&quot;},{&quot;id&quot;:575,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\CreateBidTest&quot;,&quot;title&quot;:&quot;Create Bid&quot;,&quot;slug&quot;:&quot;feature-bid-create-bid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:20.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:20.000000Z&quot;},{&quot;id&quot;:576,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\GetAllSellerBidsTest&quot;,&quot;title&quot;:&quot;Get All Seller Bids&quot;,&quot;slug&quot;:&quot;feature-bid-get-all-seller-bids&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:21.000000Z&quot;},{&quot;id&quot;:577,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\GetBuyerBidOffersTest&quot;,&quot;title&quot;:&quot;Get Buyer Bid Offers&quot;,&quot;slug&quot;:&quot;feature-bid-get-buyer-bid-offers&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:22.000000Z&quot;},{&quot;id&quot;:578,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\GetSellerBidOffersTest&quot;,&quot;title&quot;:&quot;Get Seller Bid Offers&quot;,&quot;slug&quot;:&quot;feature-bid-get-seller-bid-offers&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:23.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:23.000000Z&quot;},{&quot;id&quot;:579,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Bid\\ViewAllAvailableBidsTest&quot;,&quot;title&quot;:&quot;View All Available Bids&quot;,&quot;slug&quot;:&quot;feature-bid-view-all-available-bids&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:24.000000Z&quot;},{&quot;id&quot;:580,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\ConnectBankAccountWithPlaidTest&quot;,&quot;title&quot;:&quot;Connect Bank Account With Plaid&quot;,&quot;slug&quot;:&quot;feature-connect-bank-account-with-plaid&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:25.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:25.000000Z&quot;},{&quot;id&quot;:581,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Countries\\GetCountryListTest&quot;,&quot;title&quot;:&quot;Get Country List&quot;,&quot;slug&quot;:&quot;feature-countries-get-country-list&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:26.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:26.000000Z&quot;},{&quot;id&quot;:582,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Countries\\GetCountryStateListsTest&quot;,&quot;title&quot;:&quot;Get Country State Lists&quot;,&quot;slug&quot;:&quot;feature-countries-get-country-state-lists&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:27.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:27.000000Z&quot;},{&quot;id&quot;:583,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\GetBankListActionTest&quot;,&quot;title&quot;:&quot;Get Bank List Action&quot;,&quot;slug&quot;:&quot;feature-get-bank-list-action&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:27.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:27.000000Z&quot;},{&quot;id&quot;:584,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\GetExchangeRatesTest&quot;,&quot;title&quot;:&quot;Get Exchange Rates&quot;,&quot;slug&quot;:&quot;feature-get-exchange-rates&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:27.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:27.000000Z&quot;},{&quot;id&quot;:585,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\GetPricesTest&quot;,&quot;title&quot;:&quot;Get Prices&quot;,&quot;slug&quot;:&quot;feature-get-prices&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:28.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:28.000000Z&quot;},{&quot;id&quot;:586,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Plaid\\DumpPlaidSilaTokenTest&quot;,&quot;title&quot;:&quot;Dump Plaid Sila Token&quot;,&quot;slug&quot;:&quot;feature-plaid-dump-plaid-sila-token&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:28.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:28.000000Z&quot;},{&quot;id&quot;:587,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Plaid\\GeneratePlaidLinkTokenTest&quot;,&quot;title&quot;:&quot;Generate Plaid Link Token&quot;,&quot;slug&quot;:&quot;feature-plaid-generate-plaid-link-token&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:29.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:29.000000Z&quot;},{&quot;id&quot;:588,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Remittance\\GetUserRemittancesTest&quot;,&quot;title&quot;:&quot;Get User Remittances&quot;,&quot;slug&quot;:&quot;feature-remittance-get-user-remittances&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:29.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:29.000000Z&quot;},{&quot;id&quot;:589,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Remittance\\InitiateTransferTest&quot;,&quot;title&quot;:&quot;Initiate Transfer&quot;,&quot;slug&quot;:&quot;feature-remittance-initiate-transfer&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:30.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:30.000000Z&quot;},{&quot;id&quot;:590,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\AddRecipientToUserAccountTest&quot;,&quot;title&quot;:&quot;Add Recipient To User Account&quot;,&quot;slug&quot;:&quot;feature-users-add-recipient-to-user-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:31.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:31.000000Z&quot;},{&quot;id&quot;:591,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\CreateUserTest&quot;,&quot;title&quot;:&quot;Create User&quot;,&quot;slug&quot;:&quot;feature-users-create-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:31.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:31.000000Z&quot;},{&quot;id&quot;:592,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserBankAccountsTest&quot;,&quot;title&quot;:&quot;Get User Bank Accounts&quot;,&quot;slug&quot;:&quot;feature-users-get-user-bank-accounts&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:32.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:32.000000Z&quot;},{&quot;id&quot;:593,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserCardsTest&quot;,&quot;title&quot;:&quot;Get User Cards&quot;,&quot;slug&quot;:&quot;feature-users-get-user-cards&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:33.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:33.000000Z&quot;},{&quot;id&quot;:594,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserProfileTest&quot;,&quot;title&quot;:&quot;Get User Profile&quot;,&quot;slug&quot;:&quot;feature-users-get-user-profile&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:33.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:33.000000Z&quot;},{&quot;id&quot;:595,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\GetUserRecipientsTest&quot;,&quot;title&quot;:&quot;Get User Recipients&quot;,&quot;slug&quot;:&quot;feature-users-get-user-recipients&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:33.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:33.000000Z&quot;},{&quot;id&quot;:596,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\RequestPasswordResetTest&quot;,&quot;title&quot;:&quot;Request Password Reset&quot;,&quot;slug&quot;:&quot;feature-users-request-password-reset&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:34.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:34.000000Z&quot;},{&quot;id&quot;:597,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResendUserAccountVerificationCodeTest&quot;,&quot;title&quot;:&quot;Resend User Account Verification Code&quot;,&quot;slug&quot;:&quot;feature-users-resend-user-account-verification-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:35.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:35.000000Z&quot;},{&quot;id&quot;:598,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\ResetPasswordWithCodeTest&quot;,&quot;title&quot;:&quot;Reset Password With Code&quot;,&quot;slug&quot;:&quot;feature-users-reset-password-with-code&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:36.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:36.000000Z&quot;},{&quot;id&quot;:599,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UpdateUserRecipientTest&quot;,&quot;title&quot;:&quot;Update User Recipient&quot;,&quot;slug&quot;:&quot;feature-users-update-user-recipient&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:36.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:36.000000Z&quot;},{&quot;id&quot;:600,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UpdateUserTest&quot;,&quot;title&quot;:&quot;Update User&quot;,&quot;slug&quot;:&quot;feature-users-update-user&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:37.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:37.000000Z&quot;},{&quot;id&quot;:601,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\UserLoginTest&quot;,&quot;title&quot;:&quot;User Login&quot;,&quot;slug&quot;:&quot;feature-users-user-login&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:39.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:39.000000Z&quot;},{&quot;id&quot;:602,&quot;run_id&quot;:17,&quot;class_name&quot;:&quot;Tests\\Feature\\Users\\VerifyAccountTest&quot;,&quot;title&quot;:&quot;Verify Account&quot;,&quot;slug&quot;:&quot;feature-users-verify-account&quot;,&quot;description&quot;:null,&quot;area&quot;:&quot;feature&quot;,&quot;order_num&quot;:9999,&quot;created_at&quot;:&quot;2022-04-23T01:55:41.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-04-23T01:55:41.000000Z&quot;}]}" class="hidden md:flex relative flex-1"
+     x-data='{
+         open: true,
+         results: [],
+         index: {}
+    }'
+     x-on:data-loaded="index = $event.detail"
+     x-init="
+        fetch('/docs/search.json')
+            .then(response => response.json().then(response => { $dispatch('data-loaded', response.items) }))
+        ">
+    <input
+        x-on:input.debounce="
+            results = index.filter(el => `${el.title} ${el.section}`.toLowerCase().includes($event.target.value.toLowerCase())).slice(0, 5);
+            open = true;"
+        class="bg-gray-900 w-full text-sm placeholder-gray-300 focus:placeholder-gray-600 text-gray-300 rounded-md focus:outline-none focus:bg-gray-100 focus:text-gray-800 px-3 py-3"
+        placeholder="Search"
+        type="text"
+        role="search"
+        name="Search">
+    <div x-cloak x-ref="dropdown" x-show-="open" x-on:click.away="open = false"class="absolute block w-full my-1">
+        <ul class="origin-top-right bg-white rounded-md shadow-md block divide-y divide-gray-300 overflow-hidden">
+            <template x-for="(item, index) in results" :key="index">
+                <li>
+                    <a x-on:click="open = false;" x-bind:href="item.url"
+                       class="block text-sm px-3 py-3 text-gray-700 hover:bg-gray-100">
+                        <span class="font-semibold block" x-text="item.section"></span>
+                        <span x-text="item.title"></span>
+                    </a>
+                </li>
+            </template>
+        </ul>
+    </div>
+</div>
+ 
+                                                    <div class="ml-4 flex items-center md:ml-6">
+                                            <div class="text-gray-200 font-light px-4 flex justify-center">
+                            <strong>develop</strong>
+                                                        564d3b7
+                        </div>
+                                        <a href="https://github.com/StydeNet/enlighten"
+                       class="text-gray-100 hover:text-gray-500 focus:outline-none" aria-label="Notifications">
+                        <svg class="h-8 w-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-4.466 19.59c-.405.078-.534-.171-.534-.384v-2.195c0-.747-.262-1.233-.55-1.481 1.782-.198 3.654-.875 3.654-3.947 0-.874-.312-1.588-.823-2.147.082-.202.356-1.016-.079-2.117 0 0-.671-.215-2.198.82-.64-.18-1.324-.267-2.004-.271-.68.003-1.364.091-2.003.269-1.528-1.035-2.2-.82-2.2-.82-.434 1.102-.16 1.915-.077 2.118-.512.56-.824 1.273-.824 2.147 0 3.064 1.867 3.751 3.645 3.954-.229.2-.436.552-.508 1.07-.457.204-1.614.557-2.328-.666 0 0-.423-.768-1.227-.825 0 0-.78-.01-.055.487 0 0 .525.246.889 1.17 0 0 .463 1.428 2.688.944v1.489c0 .211-.129.459-.528.385-3.18-1.057-5.472-4.056-5.472-7.59 0-4.419 3.582-8 8-8s8 3.581 8 8c0 3.533-2.289 6.531-5.466 7.59z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <main class="flex-1 relative overflow-y-auto focus:outline-none bg-gray-900" tabindex="0">
+            <span id="top"></span>
+            <div class="pt-2 pb-6">
+                <div class="max-w-7xl mx-auto px-4">
+                    <ul class="flex space-x-2 mt-4">
+            <li>
+            <a href="/docs/areas/feature.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Feature
+                            </a>
+        </li>
+    </ul>
+                     <div class="flex items-center justify-center space-x-4">
+                        <h3 class="text-gray-100 text-xl mt-6 mb-4 pb-4 w-full border-b border-gray-700">Get Cash Pickup Bank List</h3>
+                    </div>
+                    <div class="w-full my-4">
+        <div class="w-full divide-y divide-gray-300 bg-white rounded-lg overflow-hidden">
+                            <a href="/docs/feature-banks-get-cash-pickup-bank-list/user-can-get-list-of-available-banks.html" class="flex flex-col space-y-4 lg:space-y-0 lg:flex-row justify-between p-4 hover:bg-gray-100">
+
+                    <div class="w-full lg:flex-1">
+                        <div class="flex space-x-2 items-start">
+                             <span class="text-success-500 items-center text-sm justify-center rounded-lg flex">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+    </span>
+ 
+                            <span class="text-gray-700 font-medium">User can get list of available banks</span>
+                        </div>
+                    </div>
+
+                    <div class="w-full lg:w-1/2 flex justify-between">
+                        <div class="flex flex-col space-y-2">
+                                                            <div class="space-y-2">
+                                    <div class="flex  space-x-2">
+                                    <span class="text-sm px-2 flex items-center text-gray-700 bg-gray-200">
+                                        GET: api/cash-pickup-banks
+                                    </span>
+                                    <span class="text-sm px-2 flex items-center text-success-700 bg-success-200">
+                                        200 JSON
+                                    </span>
+                                    </div>
+                                </div>
+                                                    </div>
+
+                        <div class="flex space-x-4 w-2/12 items-start">
+                                                                                </div>
+                    </div>
+                </a>
+                    </div>
+    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+ 
+    </div>
+    <script src="/docs/assets/js/build.js"></script>
+
+</body>
+</html>
+ 

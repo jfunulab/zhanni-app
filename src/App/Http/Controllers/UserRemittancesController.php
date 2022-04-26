@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\SilaException;
+use App\Exceptions\SilaTransactionCancellationException;
 use App\Http\Requests\InitiateRemittanceRequest;
-use App\Jobs\SendBankTransfer;
-use Domain\Remittance\DTOs\RemittanceData;
+use App\Remittance;
+use Domain\PaymentMethods\Actions\CancelSilaTransactionAction;
+use Domain\Remittance\Actions\InitiateRemittanceAction;
 use Domain\Users\Models\User;
-use Laravel\Cashier\Exceptions\PaymentActionRequired;
-use Laravel\Cashier\Exceptions\PaymentFailure;
+use Illuminate\Http\JsonResponse;
 
 class UserRemittancesController extends Controller
 {
 
-    public function index(User $user)
+    public function index(User $user): JsonResponse
     {
-        $remittances = $user->remittances()->with(['creditPayment.source', 'debitPayment.recipient.bank', 'recipient.bank', 'recipient.user'])->get();
+        $remittances = $user->remittances()
+            ->with(['creditPayment.source', 'debitPayment.recipient.bank', 'recipient.bank', 'recipient.user'])->get();
 
         return response()->json([
             'message' => 'User remittances',
@@ -22,36 +25,33 @@ class UserRemittancesController extends Controller
         ]);
     }
 
-    public function store(User $user, InitiateRemittanceRequest $initiateRemittanceRequest)
+    public function store(User $user, InitiateRemittanceRequest $initiateRemittanceRequest, InitiateRemittanceAction $initiateRemittanceAction): JsonResponse
     {
         try {
-            $remittanceData = RemittanceData::fromArray($initiateRemittanceRequest->toArray());
-            $payment = $user->charge($remittanceData->amount * 100, $remittanceData->card->platform_id);
-            $remittance = $user->remittances()->create([
-                'base_amount' => $remittanceData->amount,
-                'reason' => $remittanceData->reason,
-                'base_currency' => $remittanceData->rate->base,
-                'amount_to_remit' => $remittanceData->amount * $remittanceData->rate->rate,
-                'currency_to_remit' => $remittanceData->rate->currency,
-                'recipient_id' => $remittanceData->recipient->id
-            ]);
-            $remittance->creditPayment()->create([
-                'source_id' => $remittanceData->card->id,
-                'amount' => $remittanceData->amount,
-                'currency' => $remittanceData->rate->base,
-                'status' => 'paid'
-            ]);
-
-            SendBankTransfer::dispatch($remittance, $remittanceData->recipient);
+            $remittance = ($initiateRemittanceAction)($user, $initiateRemittanceRequest);
 
             return response()->json([
                 'message' => 'Remittance in progress.',
-                'data' => $remittance->fresh(['creditPayment.source', 'debitPayment.recipient.bank', 'recipient.bank', 'recipient.user'])
+                'data' => $remittance
             ], 201);
-        } catch (PaymentActionRequired | PaymentFailure $e) {
+        } catch (SilaException $exception) {
             return response()->json([
-            'message' => $e->getMessage()
-            ], 500);
+                'message' => 'Unable to initiate remittance at this time.'
+            ], 400);
+        }
+    }
+
+    public function cancel(User $user, Remittance $remittance, CancelSilaTransactionAction $cancelSilaTransactionAction): JsonResponse
+    {
+        try {
+            ($cancelSilaTransactionAction)($remittance->creditPayment);
+            return response()->json([
+                'message' => 'Remittance cancelled'
+            ]);
+        } catch (SilaTransactionCancellationException $e) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ], 403);
         }
     }
 }

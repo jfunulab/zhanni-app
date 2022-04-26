@@ -3,16 +3,16 @@
 namespace Tests\Feature\Remittance;
 
 use App\ExchangeRate;
-use App\Http\Requests\AddCardRequest;
-use App\Jobs\SendBankTransfer;
-use Domain\PaymentMethods\Actions\AddUserCardAction;
-use Domain\PaymentMethods\DTOs\UserCardData;
+use Domain\PaymentMethods\Actions\IssueSilaAchDebitAction;
+use Domain\PaymentMethods\Models\Bank;
+use Domain\PaymentMethods\Models\BankAccount;
 use Domain\PaymentMethods\Models\TransferRecipient;
-use Domain\PaymentMethods\Models\UserCard;
 use Domain\Users\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Queue;
 use Laravel\Sanctum\Sanctum;
+use Mockery\MockInterface;
+use Silamoney\Client\Api\ApiResponse;
+use Silamoney\Client\Domain\OperationResponse;
 use Tests\TestCase;
 
 class InitiateTransferTest extends TestCase
@@ -20,43 +20,80 @@ class InitiateTransferTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function a_user_can_initiate_a_transfer_to_a_recipient_from_one_USD_to_other_currencies()
+    function a_user_can_initiate_a_transfer_to_a_recipient_bank_details()
     {
-        Queue::fake();
         $this->withoutExceptionHandling();
-//        $user = User::factory()->create();
-        $user = $this->setupUserWithCard();
+
+        $operationResponseMock = $this->mock(OperationResponse::class, function(MockInterface $mock){
+            $mock->shouldReceive('getTransactionId')->once();
+        });
+        $apiResponseMock = $this->mock(ApiResponse::class, function(MockInterface $mock) use ($operationResponseMock){
+            $mock->shouldReceive('getStatusCode')->once()->andReturn(200);
+            $mock->shouldReceive('getData')->once()->andReturn($operationResponseMock);
+        });
+
+        $this->mock(IssueSilaAchDebitAction::class, function (MockInterface $mock) use ($apiResponseMock) {
+            $mock->shouldReceive('__invoke')
+                ->once()->andReturn($apiResponseMock);
+        });
+
+        $user = User::factory()->has(BankAccount::factory(), 'bankAccounts')->create();
         $recipient = TransferRecipient::factory()->create(['user_id' => $user->id]);
         $rate = ExchangeRate::factory()->create(['rate' => 381.05]);
-//        $card = UserCard::factory()->for($user)->create();
         Sanctum::actingAs($user);
 
         $response = $this->postJson("/api/users/$user->id/remittances",[
+            'type' => 'bank_details',
             'amount' => 50,
             'converted_amount' => 50 * 381.05,
             'reason' => 'For some reason',
             'rate' => $rate->id,
-            'card' => $user->cards[0]->id,
+            'funding_account_id' => $user->bankAccounts[0]->id,
             'recipient' => $recipient->id,
         ]);
 
         $response->assertStatus(201)->assertJson([
             'message' => 'Remittance in progress.',
         ]);
-        Queue::assertPushed(SendBankTransfer::class);
     }
 
-    private function setupUserWithCard(){
-        $user = User::factory()->create();
-        $request = new AddCardRequest([
-            'payment_method_id' => getStripeToken()['id'],
-            'expiry_month' => 05,
-            'expiry_year' => 2022,
-            'postal_code' => '004455'
+    /** @test */
+    function a_user_can_initiate_a_transfer_to_a_recipient_for_cash_pickup()
+    {
+        $this->withoutExceptionHandling();
+
+        $operationResponseMock = $this->mock(OperationResponse::class, function(MockInterface $mock){
+            $mock->shouldReceive('getTransactionId')->once();
+        });
+        $apiResponseMock = $this->mock(ApiResponse::class, function(MockInterface $mock) use ($operationResponseMock){
+            $mock->shouldReceive('getStatusCode')->once()->andReturn(200);
+            $mock->shouldReceive('getData')->once()->andReturn($operationResponseMock);
+        });
+
+        $this->mock(IssueSilaAchDebitAction::class, function (MockInterface $mock) use ($apiResponseMock) {
+            $mock->shouldReceive('__invoke')
+                ->once()->andReturn($apiResponseMock);
+        });
+
+        $user = User::factory()->has(BankAccount::factory(), 'bankAccounts')->create();
+        $bank = Bank::factory()->cash()->create();
+        $recipient = TransferRecipient::factory()->create(['user_id' => $user->id, 'bank_id' => $bank->id]);
+        $rate = ExchangeRate::factory()->create(['rate' => 381.05]);
+        Sanctum::actingAs($user);
+
+        $response = $this->postJson("/api/users/$user->id/remittances",[
+            'type' => 'cash_pickup',
+            'amount' => 50,
+            'converted_amount' => 50 * 381.05,
+            'reason' => 'For some reason',
+            'rate' => $rate->id,
+            'funding_account_id' => $user->bankAccounts[0]->id,
+            'recipient' => $recipient->id,
+            'pickup_bank_id' => $recipient->bank_id
         ]);
 
-        $userCardData = UserCardData::fromRequest($request);
-        (new AddUserCardAction)($user, $userCardData);
-        return $user->fresh(['cards']);
+        $response->assertStatus(201)->assertJson([
+            'message' => 'Remittance in progress.',
+        ]);
     }
 }

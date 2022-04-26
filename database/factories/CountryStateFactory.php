@@ -20,12 +20,12 @@ class CountryStateFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'country_id' => Country::factory(),
             'name' => $this->faker->state,
-            'code' => $this->faker->state
+            'code' => 'NY'
         ];
     }
 }

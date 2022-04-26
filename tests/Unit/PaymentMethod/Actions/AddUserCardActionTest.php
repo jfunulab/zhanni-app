@@ -25,6 +25,7 @@ class AddUserCardActionTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->markTestSkipped('Pending removal.');
         parent::setUp();
         $this->action = app(AddUserCardAction::class);
     }

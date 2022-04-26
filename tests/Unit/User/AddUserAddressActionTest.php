@@ -43,7 +43,7 @@ class AddUserAddressActionTest extends TestCase
             'postal_code' => $this->faker->postcode
         ];
 
-        $userAddressData = UserData::fromArray($addressDetails);
+        $userAddressData = UserAddressData::fromArray($addressDetails);
         $userAddress = ($this->action)($user, $userAddressData);
 
         $this->assertNotNull($userAddress);

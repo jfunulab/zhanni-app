@@ -16,11 +16,12 @@ class CreateBanksTable extends Migration
         Schema::create('banks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->string('code', 20);
-            $table->string('type', 20);
+            $table->string('type', 20)->nullable();
             $table->string('country');
             $table->string('currency');
+            $table->boolean('cash_pickup')->default(false);
             $table->boolean('pay_with_bank')->default(false);
             $table->timestamps();
         });

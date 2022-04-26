@@ -14,10 +14,14 @@ class ExchangeRateSeeder extends Seeder
      */
     public function run()
     {
-        ExchangeRate::firstOrCreate([
+        ExchangeRate::firstOrNew([
             'base' => 'USD',
             'currency' => 'NGN',
-            'rate' => 380.88
-        ]);
+        ])->fill(['rate' => 380.88])->save();
+
+        ExchangeRate::firstOrNew([
+            'base' => 'USD',
+            'currency' => 'USD',
+        ])->fill(['rate' => 1])->save();
     }
 }

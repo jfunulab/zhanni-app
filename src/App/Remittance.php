@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Domain\PaymentMethods\Models\Bank;
+use Domain\PaymentMethods\Models\BankAccount;
 use Domain\PaymentMethods\Models\TransferRecipient;
 use Domain\Users\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,18 +15,47 @@ class Remittance extends Model
 {
     use HasFactory;
 
+    const COMPLETED = 'completed';
+    const IN_PROGRESS = 'in progress';
+    const PENDING = 'pending';
+    const BANK_DETAILS = 1;
+    const CASH_PICKUP = 2;
+
+    const TYPE_MAPPING = [
+        self::BANK_DETAILS => 'bank_details',
+        self::CASH_PICKUP => 'cash_pickup'
+    ];
+
     protected $guarded = [];
     protected $appends = ['status'];
 
-    public function getStatusAttribute()
+
+    public function getStatusAttribute(): string
     {
-        if($this->debitPayment && $this->debitPayment->status == 'paid') {
-            return 'completed';
+        if($this->debitPayment && $this->debitPayment->status == 'completed') {
+            return self::COMPLETED;
         }
-        if(!$this->debitPayment && $this->creditPayment && $this->creditPayment->status == 'paid'){
-            return 'in progress';
+
+        if(!$this->debitPayment && $this->creditPayment && $this->creditPayment->status == 'success'){
+            return self::IN_PROGRESS;
         }
-        return 'pending';
+
+        return self::PENDING;
+    }
+
+    public function getTypeAttribute($value): string
+    {
+        return self::TYPE_MAPPING[$value];
+    }
+
+    public function setTypeAttribute($value)
+    {
+        $this->attributes['type'] = array_search($value,self::TYPE_MAPPING);
+    }
+
+    public function isCashPickup(): bool
+    {
+        return $this->type == self::TYPE_MAPPING[self::CASH_PICKUP];
     }
 
     public function user(): BelongsTo
@@ -45,5 +76,20 @@ class Remittance extends Model
     public function recipient(): BelongsTo
     {
         return $this->belongsTo(TransferRecipient::class);
+    }
+
+    public function fundingAccount(): BelongsTo
+    {
+        return $this->belongsTo(BankAccount::class);
+    }
+
+    public function exchangeRate(): BelongsTo
+    {
+        return $this->belongsTo(ExchangeRate::class );
+    }
+
+    public function pickupBank(): BelongsTo
+    {
+        return $this->belongsTo(Bank::class, 'pickup_bank_id');
     }
 }

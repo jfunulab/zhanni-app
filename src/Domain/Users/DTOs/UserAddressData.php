@@ -4,25 +4,26 @@
 namespace Domain\Users\DTOs;
 
 
-use Illuminate\Foundation\Http\FormRequest;
 use Spatie\DataTransferObject\DataTransferObject;
 
 class UserAddressData extends DataTransferObject
 {
     public ?string $lineOne;
     public ?string $lineTwo;
-    public ?int $countryId;
-    public ?int $stateId;
+    public ?string $country;
+    public ?string $state;
+    public ?string $city;
     public ?string $postalCode;
 
-    public static function fromRequest(FormRequest $request): self
+    public static function fromArray(array $request): self
     {
         return new self([
-            'lineOne' => $request->input('line_one'),
-            'lineTwo' => $request->input('line_two'),
-            'countryId' => $request->input('country_id'),
-            'stateId' => $request->input('state_id'),
-            'postalCode' => $request->input('postal_code'),
+            'lineOne' => $request['address_line_one'] ?? null,
+            'lineTwo' => $request['address_line_two'] ?? null,
+            'country' => $request['country'] ?? null,
+            'state' => $request['state'] ?? null,
+            'city' => $request['city'] ?? null,
+            'postalCode' => $request['postal_code'] ?? null,
         ]);
     }
 }

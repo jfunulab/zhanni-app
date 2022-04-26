@@ -22,7 +22,7 @@ class UserAddressFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'user_id' => User::factory(),
@@ -30,7 +30,8 @@ class UserAddressFactory extends Factory
             'state_id' => CountryState::factory(),
             'line_one' => $this->faker->streetName,
             'line_two' => $this->faker->streetName,
-            'postal_code' => $this->faker->postcode
+            'postal_code' => $this->faker->postcode,
+            'city' => $this->faker->city,
         ];
     }
 }
