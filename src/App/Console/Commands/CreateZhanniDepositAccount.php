@@ -39,13 +39,13 @@ class CreateZhanniDepositAccount extends Command
      *
      * @return int
      */
-    public function handle(RegisterUserSilaAccountAction $action, AddUserAddressAction $addUserAddressAction): int
+    public function handle(RegisterUserSilaAccountAction $registerUserSilaAccountAction, AddUserAddressAction $addUserAddressAction): int
     {
         $user = User::create([
             'first_name' => 'Temi',
             'last_name' => 'Ajibulu',
-            'email' => 'toajibul+depositor@gmail.com ',
-            'username' => 'toajibul_depositor',
+            'email' => 'toajibul+depositor1@gmail.com ',
+            'username' => 'toajibul_depositor1',
             'email_verified_at' => now(),
             'password' => bcrypt('password5Password$'),
             'identity_number' => '123452222',
@@ -64,7 +64,7 @@ class CreateZhanniDepositAccount extends Command
 
         $addUserAddressAction($user, $userAddressData);
 
-        ($action)($user);
+        ($registerUserSilaAccountAction)($user);
 
         return 0;
     }

@@ -24,10 +24,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('verification_code_expires_at')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->string('identity_number')->nullable();
+            $table->text('identity_number')->nullable();
             $table->string('phone_number')->nullable();
             $table->date('birth_date')->nullable();
-            $table->string('sila_key')->nullable();
+            $table->text('sila_key')->nullable();
             $table->string('sila_address')->nullable();
             $table->string('kyc_status')->nullable();
             $table->json('kyc_issues')->nullable();
