@@ -311,8 +311,8 @@
                             </a>
         </li>
             <li>
-            <a href="/docs/feature-banks-get-bank-list.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
-                Get Bank List
+            <a href="/docs/feature-users-upload-kyc-document.html" class="text-gray-500 hover:text-gray-300 transition-all ease-in-out duration-100 flex items-center">
+                Upload Kyc Document
                             </a>
         </li>
     </ul>
@@ -322,7 +322,7 @@
             <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </span>
  
-            User can get list of available banks
+            A user can upload document for kyc verification
               
         </div></h3>
                     </div>
@@ -340,10 +340,10 @@
         
         <div class="w-full h-full">
                                                  <div x-cloak x-show="active === 'requests' " class="h-full">
-                         <div x-data="{active: 'response_866'}" class="flex flex-col h-full">
+                         <div x-data="{active: 'response_903'}" class="flex flex-col h-full">
         
         <div class="w-full h-full">
-                                                 <div x-cloak x-show="active === 'response_866' " class="h-full">
+                                                 <div x-cloak x-show="active === 'response_903' " class="h-full">
                          <div class="grid md:grid-cols-2 space-y-8 md:space-y-0 md:space-x-6 w-full h-full">
                         <div>
                              <div class="bg-gray-800 rounded-md overflow-hidden">
@@ -356,23 +356,63 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Method: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > GET</td>
+                > POST</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Route: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/banks</td>
+                > api/users/{user}/kyc-docs</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">Example: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > api/banks</td>
+                > api/users/439/kyc-docs</td>
             </tr>
             </table>
 </div>
  
 
+             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
+    <thead>
+        <tr class="bg-gray-500">
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Route Parameter</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Pattern</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Requirement</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr class="break-all">
+                <td class="py-2 px-4 font-thin text-gray-200">user</td>
+                <td class="py-2 px-4 font-thin text-teal-300">*</td>
+                <td class="py-2 px-4 font-thin text-teal-300">Required</td>
+            </tr>
+            </tbody>
+</table>
+ 
     
+             <table class="bg-gray-800 p-4 overflow-hidden text-gray-100 w-full">
+    <thead>
+        <tr class="bg-gray-500">
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Input</th>
+            <th class="py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr>
+                <td class="px-4 py-2 font-thin text-gray-200">side</td>
+                <td class="px-4 py-2 font-thin text-teal-300 break-all">
+                                            front
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="px-4 py-2 font-thin text-gray-200">document_type_id</td>
+                <td class="px-4 py-2 font-thin text-teal-300 break-all">
+                                            1
+                                    </td>
+            </tr>
+            </tbody>
+</table>
+ 
     
              <div>
              <span class="block bg-gray-500 py-2 text-sm text-left text-gray-800 px-4 text-sm font-normal w-full"
@@ -408,7 +448,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-length: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > 2</td>
+                > 37</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">accept-language: </td>
@@ -440,7 +480,7 @@
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">date: </td>
                 <td class="font-thin break-all text-teal-300 pr-4"
-                > Sat, 14 May 2022 10:43:40 GMT</td>
+                > Sat, 14 May 2022 10:44:42 GMT</td>
             </tr>
                     <tr>
                 <td class="font-thin whitespace-no-wrap text-gray-200 px-4">content-type: </td>
@@ -476,59 +516,22 @@
     <pre style="margin:0;"
          class="h-full w-full bg-gray-300 rounded-lg overflow-hidden"
     ><code class="language-json">{
-    &quot;message&quot;: &quot;Bank list&quot;,
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 45,
-            &quot;name&quot;: &quot;dolore&quot;,
-            &quot;slug&quot;: &quot;natus&quot;,
-            &quot;country&quot;: &quot;Yemen&quot;,
-            &quot;currency&quot;: &quot;MDL&quot;,
-            &quot;cash_pickup&quot;: false,
-            &quot;created_at&quot;: &quot;2022-05-14T10:43:40.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-05-14T10:43:40.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 46,
-            &quot;name&quot;: &quot;odio&quot;,
-            &quot;slug&quot;: &quot;incidunt&quot;,
-            &quot;country&quot;: &quot;Slovakia (Slovak Republic)&quot;,
-            &quot;currency&quot;: &quot;COP&quot;,
-            &quot;cash_pickup&quot;: false,
-            &quot;created_at&quot;: &quot;2022-05-14T10:43:40.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-05-14T10:43:40.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 47,
-            &quot;name&quot;: &quot;mollitia&quot;,
-            &quot;slug&quot;: &quot;ut&quot;,
-            &quot;country&quot;: &quot;Iceland&quot;,
-            &quot;currency&quot;: &quot;TJS&quot;,
-            &quot;cash_pickup&quot;: false,
-            &quot;created_at&quot;: &quot;2022-05-14T10:43:40.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-05-14T10:43:40.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 48,
-            &quot;name&quot;: &quot;accusantium&quot;,
-            &quot;slug&quot;: &quot;ea&quot;,
-            &quot;country&quot;: &quot;Egypt&quot;,
-            &quot;currency&quot;: &quot;NOK&quot;,
-            &quot;cash_pickup&quot;: false,
-            &quot;created_at&quot;: &quot;2022-05-14T10:43:40.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-05-14T10:43:40.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 49,
-            &quot;name&quot;: &quot;eum&quot;,
-            &quot;slug&quot;: &quot;vel&quot;,
-            &quot;country&quot;: &quot;Germany&quot;,
-            &quot;currency&quot;: &quot;DZD&quot;,
-            &quot;cash_pickup&quot;: false,
-            &quot;created_at&quot;: &quot;2022-05-14T10:43:40.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-05-14T10:43:40.000000Z&quot;
-        }
-    ]
+    &quot;message&quot;: &quot;Document uploaded successfully&quot;,
+    &quot;data&quot;: {
+        &quot;first_name&quot;: &quot;Mr. Joshua Bruen MD&quot;,
+        &quot;last_name&quot;: &quot;Kenna Rau&quot;,
+        &quot;email&quot;: &quot;ohara.chanelle@example.com&quot;,
+        &quot;username&quot;: &quot;fruecker&quot;,
+        &quot;email_verified_at&quot;: null,
+        &quot;birth_date&quot;: &quot;1992-05-14T10:44:42.948828Z&quot;,
+        &quot;phone_number&quot;: &quot;1-952-262-3123&quot;,
+        &quot;identity_number&quot;: &quot;6893883994&quot;,
+        &quot;verification_code_expires_at&quot;: &quot;2022-05-14T11:44:42.949658Z&quot;,
+        &quot;updated_at&quot;: &quot;2022-05-14T10:44:42.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2022-05-14T10:44:42.000000Z&quot;,
+        &quot;id&quot;: 439,
+        &quot;verified&quot;: false
+    }
 }</code></pre>
 </div> 
     </div>
