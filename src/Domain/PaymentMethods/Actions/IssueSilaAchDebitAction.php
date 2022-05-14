@@ -26,7 +26,7 @@ class IssueSilaAchDebitAction
     {
         $businessUuid = ''; // Optional
         $user = $bankAccount->user;
-        $response = $this->silaClient->client->issueSila(
+        return $this->silaClient->client->issueSila(
             $user->sila_username,
             ($debitAchData->amount + $debitAchData->price) * 100,
             $debitAchData->accountName,
@@ -35,7 +35,5 @@ class IssueSilaAchDebitAction
             $businessUuid,
             AchType::SAME_DAY()
         );
-
-        return $response;
     }
 }

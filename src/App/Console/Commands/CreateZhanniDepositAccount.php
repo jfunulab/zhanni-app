@@ -39,7 +39,7 @@ class CreateZhanniDepositAccount extends Command
      *
      * @return int
      */
-    public function handle(RegisterUserSilaAccountAction $action, AddUserAddressAction $addUserAddressAction): int
+    public function handle(RegisterUserSilaAccountAction $registerUserSilaAccountAction, AddUserAddressAction $addUserAddressAction): int
     {
         $user = User::create([
             'first_name' => 'Temi',
@@ -64,7 +64,7 @@ class CreateZhanniDepositAccount extends Command
 
         $addUserAddressAction($user, $userAddressData);
 
-        ($action)($user);
+        ($registerUserSilaAccountAction)($user);
 
         return 0;
     }
