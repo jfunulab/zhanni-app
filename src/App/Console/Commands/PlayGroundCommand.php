@@ -24,6 +24,7 @@ use Domain\Users\Actions\AddUserAddressAction;
 use Domain\Users\Actions\CheckSilaUserKycAction;
 use Domain\Users\DTOs\UserAddressData;
 use Domain\Users\Models\User;
+use Domain\Users\Models\UserAddress;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use Support\PaymentGateway\DTOs\BankTransferData;
@@ -84,8 +85,10 @@ class PlayGroundCommand extends Command
 //
 //        dd(array_values(array_intersect_key($kycIssuesCategoryMap, array_flip($kycIssues))));
 
-//        $user = User::find(28);
-//        $user->update(['identity_number' => '123452222']);
+//        $user = User::find(5);
+//        $user->update(['birth_date' => '1975-08-18']);
+        $address = UserAddress::find(8);
+        $address->update(['line_one' => '209 wuutty Ben White Blvd']);
         $registerUserSilaAccountAction = app(RegisterUserSilaAccountAction::class);
         $addUserAddressAction = app(AddUserAddressAction::class);
 //        $user = User::create([
@@ -108,16 +111,17 @@ class PlayGroundCommand extends Command
 //            'postal_code' => '78704',
 //        ]);
 
+/*
         $user = User::create([
-            'first_name' => 'Fail',
-            'last_name' => 'Judas',
-            'email' => 'fail.judas+test1@gmail.com',
-            'username' => 'fail_judas_test1',
+            'first_name' => 'Gotcha',
+            'last_name' => 'Wayz',
+            'email' => 'gotcha.wayz+test1@gmail.com',
+            'username' => 'gotcha_wayz_test1',
             'email_verified_at' => now(),
             'password' => bcrypt('password5Password$'),
-            'identity_number' => '420420420',
+            'identity_number' => '123452222',
             'phone_number' => '+19197238931',
-            'birth_date' => '1970-04-20',
+            'birth_date' => '1978-09-13',
         ]);
         $userAddressData = UserAddressData::fromArray([
             'address_line_one' => '420 420th Street',
@@ -131,7 +135,7 @@ class PlayGroundCommand extends Command
         $addUserAddressAction($user, $userAddressData);
         ($registerUserSilaAccountAction)($user);
 
-
+*/
 //        ($action)($user);
 //        CheckSilaUserKycJob::dispatchSync($user);
 
