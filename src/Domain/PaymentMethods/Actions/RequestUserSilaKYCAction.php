@@ -5,6 +5,7 @@ namespace Domain\PaymentMethods\Actions;
 
 
 
+use App\Jobs\CheckSilaUserKycJob;
 use Domain\Users\Models\User;
 use Support\PaymentGateway\SilaClient;
 
@@ -26,7 +27,9 @@ class RequestUserSilaKYCAction
         if($response->getStatusCode() == 200){
             $user->update(['kyc_status' => 'in review']);
         }else{
+            info('requesting kyc failed.');
             info(json_decode(json_encode($response->getData()), true));
+            CheckSilaUserKycJob::dispatch($user);
         }
     }
 }

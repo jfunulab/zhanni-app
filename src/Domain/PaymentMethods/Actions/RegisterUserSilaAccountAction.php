@@ -25,9 +25,9 @@ class RegisterUserSilaAccountAction
 
     public function __invoke(User $user)
     {
-        if (!$this->validateUser($user)) {
-           return;
-        }
+//        if (!$this->validateUser($user)) {
+//           return;
+//        }
         $silaUsername = Str::random(6) . "_" . Str::snake($user->first_name) . Str::snake($user->last_name);
         $wallet = $this->silaClient->client->generateWallet();
         $builder = new UserBuilder();
@@ -56,6 +56,7 @@ class RegisterUserSilaAccountAction
             ($this->requestKYCAction)($user->fresh());
         } else {
             $responseData = json_decode(json_encode($response->getData()), true);
+            info('could not register for sila.');
             info($responseData);
             if(isset($responseData['validation_details'])){
                 $user->update(['kyc_issues' => $responseData['validation_details']]);
