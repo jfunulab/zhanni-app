@@ -56,6 +56,7 @@ class RegisterUserSilaAccountAction
             ($this->requestKYCAction)($user->fresh());
         } else {
             $responseData = json_decode(json_encode($response->getData()), true);
+            info($responseData);
             if(isset($responseData['validation_details'])){
                 $user->update(['kyc_issues' => $responseData['validation_details']]);
             }
@@ -88,6 +89,8 @@ class RegisterUserSilaAccountAction
         if (is_null($user->address->postal_code)) {
             $issues['postal_code'] = 'Address needs to be provided';
         }
+
+        info($issues);
 
         $user->update(['kyc_issues' => count($issues) > 0 ? $issues : null]);
 

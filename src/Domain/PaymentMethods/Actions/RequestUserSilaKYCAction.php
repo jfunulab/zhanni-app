@@ -25,6 +25,8 @@ class RequestUserSilaKYCAction
 
         if($response->getStatusCode() == 200){
             $user->update(['kyc_status' => 'in review']);
+        }else{
+            info(json_decode(json_encode($response->getData()), true));
         }
     }
 }
