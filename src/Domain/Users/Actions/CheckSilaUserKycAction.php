@@ -34,7 +34,8 @@ class CheckSilaUserKycAction
         if ($response->getStatusCode() == 200) {
             $responseData = $response->getData();
             info('kyc information');
-            info($responseData);
+            info(json_decode(json_encode($response->getData()), true));
+
             $kycIssues = end($responseData->verification_history)->reasons;
             $user->update([
                 'kyc_status' => $responseData->verification_status,
