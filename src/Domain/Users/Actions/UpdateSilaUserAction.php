@@ -25,8 +25,15 @@ class UpdateSilaUserAction
     public function __invoke(User $user, array $propertyChanges)
     {
 
-        if(in_array('first_name', $propertyChanges) || in_array('last_name', $propertyChanges)) {
-            $response = $this->silaClient->client->updateEntity($user->sila_username, $user->sila_key, $user->first_name, $user->last_name);
+        if(in_array('first_name', $propertyChanges) || in_array('last_name', $propertyChanges) || in_array('birth_date', $propertyChanges)) {
+            $response = $this->silaClient->client->updateEntity(
+                $user->sila_username,
+                $user->sila_key,
+                $user->first_name,
+                $user->last_name,
+                null,
+                $user->phone_number
+            );
         }
 
         if(in_array('identity_number', $propertyChanges)) {
@@ -40,7 +47,7 @@ class UpdateSilaUserAction
             );
         }
 
-        if ($response->getStatusCode() == 200 && !$user->passedKyc()) {
+        if (isset($response) && $response->getStatusCode() == 200 && !$user->passedKyc()) {
             RequestUserSilaKYCJob::dispatch($user);
         }
     }
