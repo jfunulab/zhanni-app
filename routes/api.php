@@ -20,6 +20,7 @@ use App\Http\Controllers\SilaWebhookController;
 use App\Http\Controllers\UserBankAccountsController;
 use App\Http\Controllers\UserBidOrdersController;
 use App\Http\Controllers\UserBidsController;
+use App\Http\Controllers\UserKycDocsController;
 use App\Http\Controllers\UserPlaidController;
 use App\Http\Controllers\UserRemittancesController;
 use Illuminate\Http\Request;
@@ -64,6 +65,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/users/{user}/cards', [UserCardsController::class, 'index']);
     Route::post('/users/{user}/cards', [UserCardsController::class, 'store']);
     Route::post('/users/{user}/address', [UserAddressController::class, 'store']);
+    Route::post('/users/{user}/kyc-docs', [UserKycDocsController::class, 'store']);
     Route::get('/users/{user}/recipients', [UserRecipientsController::class, 'index']);
     Route::post('/users/{user}/recipients', [UserRecipientsController::class, 'store']);
     Route::put('/users/{user}/recipients/{recipient}', [UserRecipientsController::class, 'update']);

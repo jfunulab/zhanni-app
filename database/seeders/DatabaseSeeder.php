@@ -18,8 +18,12 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             StateSeeder::class,
             BankSeeder::class,
+            CashPickupBankSeeder::class,
             ExchangeRateSeeder::class,
-            PriceSeeder::class
+            PriceSeeder::class,
+            VerificationCategorySeeder::class,
+            VerificationDocumentSeeder::class,
+            VerificationCategoryDocumentSeeder::class
         ]);
     }
 }

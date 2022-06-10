@@ -4,11 +4,13 @@ namespace App\Console\Commands;
 
 use App\CreditPayment;
 use App\DebitPayment;
+use App\Jobs\CheckSilaUserKycJob;
 use App\Jobs\InitiateRemittancePayoutJob;
 use App\Jobs\LinkBankAccountToSilaJob;
 use App\Jobs\RequestUserSilaKYCJob;
 use App\Price;
 use App\Remittance;
+use App\VerificationCategory;
 use Domain\PaymentMethods\Actions\GenerateSilaProcessorTokenAction;
 use Domain\PaymentMethods\Actions\IssueSilaAchDebitAction;
 use Domain\PaymentMethods\Actions\RegisterUserSilaAccountAction;
@@ -18,7 +20,11 @@ use Domain\PaymentMethods\DTOs\SilaDebitAchData;
 use Domain\PaymentMethods\DTOs\TransferToZhanniData;
 use Domain\PaymentMethods\Models\BankAccount;
 use Domain\PaymentMethods\Models\TransferRecipient;
+use Domain\Users\Actions\AddUserAddressAction;
+use Domain\Users\Actions\CheckSilaUserKycAction;
+use Domain\Users\DTOs\UserAddressData;
 use Domain\Users\Models\User;
+use Domain\Users\Models\UserAddress;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use Support\PaymentGateway\DTOs\BankTransferData;
@@ -58,11 +64,80 @@ class PlayGroundCommand extends Command
      */
     public function handle(): int
     {
-        $user = User::find(11);
+//        $kycIssues = [
+//            'Name Mismatch',
+//            'Name Not Verified',
+//            'Address Not Matched',
+//            'Address Not Verified',
+//            'DOB Miskey',
+//            'DOB Not Verified',
+//            'SSN Miskey',
+//            'SSN Not Verified'
+//        ];
+//
+//
+//        $kycIssuesCategoryMap = [
+//            'Name Not Verified' => VerificationCategory::GENERAL,
+//            'Address Not Verified' => VerificationCategory::ADDRESS,
+//            'DOB Not Verified' => VerificationCategory::BIRTH_DATE,
+//            'SSN Not Verified' => VerificationCategory::SSN
+//        ];
+//
+//        dd(array_values(array_intersect_key($kycIssuesCategoryMap, array_flip($kycIssues))));
 
-//        $action = app(RegisterUserSilaAccountAction::class);
-//        $action = app(RequestUserSilaKYCAction::class);
+//        $user = User::find(5);
+//        $user->update(['birth_date' => '1975-08-18']);
+        $address = UserAddress::find(8);
+        $address->update(['line_one' => '209 wuutty Ben White Blvd']);
+        $registerUserSilaAccountAction = app(RegisterUserSilaAccountAction::class);
+        $addUserAddressAction = app(AddUserAddressAction::class);
+//        $user = User::create([
+//            'first_name' => 'Foster',
+//            'last_name' => 'Alliswell',
+//            'email' => 'foster.alliswell+test1@gmail.com',
+//            'username' => 'foster_goodsman_test1',
+//            'email_verified_at' => now(),
+//            'password' => bcrypt('password5Password$'),
+//            'identity_number' => '123452222',
+//            'phone_number' => '+19197238931',
+//            'birth_date' => '1985-01-01',
+//        ]);
+//        $userAddressData = UserAddressData::fromArray([
+//            'address_line_one' => '209 E Ben White Blvd',
+//            'address_line_two' => null,
+//            'country' => 'United States',
+//            'state' => 'Texas',
+//            'city' => 'Austin',
+//            'postal_code' => '78704',
+//        ]);
+
+/*
+        $user = User::create([
+            'first_name' => 'Gotcha',
+            'last_name' => 'Wayz',
+            'email' => 'gotcha.wayz+test1@gmail.com',
+            'username' => 'gotcha_wayz_test1',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password5Password$'),
+            'identity_number' => '123452222',
+            'phone_number' => '+19197238931',
+            'birth_date' => '1978-09-13',
+        ]);
+        $userAddressData = UserAddressData::fromArray([
+            'address_line_one' => '420 420th Street',
+            'address_line_two' => null,
+            'country' => 'United States',
+            'state' => 'Texas',
+            'city' => 'Austin',
+            'postal_code' => '78704',
+        ]);
+
+        $addUserAddressAction($user, $userAddressData);
+        ($registerUserSilaAccountAction)($user);
+
+*/
 //        ($action)($user);
+//        CheckSilaUserKycJob::dispatchSync($user);
 
 //        $bankAccount = BankAccount::find(1);
 //        dd($bankAccount->toArray());
@@ -92,10 +167,6 @@ class PlayGroundCommand extends Command
         $transfer = app(TransferFundsToZhanniAction::class);
         ($transfer)($user, $transferData);
         */
-
-//        dump(array_search('bank_details',Remittance::TYPE_MAPPING));
-        $remittance = Remittance::find(13);
-        dump($remittance->isCashPickup());
 
 //        $flutterwaveGateway = app(FlutterwaveGateway::class);
 //        $debitPayment = DebitPayment::create([

@@ -2,7 +2,7 @@
 
 namespace Domain\Users\Models;
 
-use App\Jobs\RegisterUserSilaAccountJob;
+use App\Jobs\UpdateSilaUserJob;
 use Domain\Countries\Models\Country;
 use Domain\Countries\Models\CountryState;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,22 +23,21 @@ class UserAddress extends Model
         static::updated(function($address){
             $changes = $address->getDirty();
             $propertyChanges = array_keys($changes);
-            $user = $address->user;
-            $kycIssues = $user->kyc_issues;
 
-            if(is_array($kycIssues) && !in_array('kyc_issues', $propertyChanges) && count($kycIssues) > 0){
-                foreach ($propertyChanges as $propertyChange) {
-                    unset($kycIssues[$propertyChange]);
-
-                    if($propertyChange == 'identity_number'){
-                        unset($kycIssues['identity']);
-                    }
-                }
-
-                $user->update(['kyc_issues' => count($kycIssues) > 0 ? $kycIssues : null]);
-
-                if (count($kycIssues) == 0 && is_null($user->sila_key)) {
-                    RegisterUserSilaAccountJob::dispatch($user);
+            if($address->user->kyc_status != 'passed'){
+                if($address->user->kyc_status == 'failed'
+                    && !is_null($address->user->sila_key)
+                    && (
+                        in_array('country_id', $propertyChanges)
+                        || in_array('state_id', $propertyChanges)
+                        || in_array('line_one', $propertyChanges)
+                        || in_array('line_two', $propertyChanges)
+                        || in_array('city', $propertyChanges)
+                        || in_array('postal_code', $propertyChanges)
+                    )
+                ) {
+                    info('going to update sila user');
+                    UpdateSilaUserJob::dispatch($address->user, $propertyChanges);
                 }
             }
         });

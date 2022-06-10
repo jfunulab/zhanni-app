@@ -12,11 +12,11 @@ use Illuminate\Http\JsonResponse;
 class UserBankAccountsController extends Controller
 {
 
-    public function index(User $user)
+    public function index(User $user): JsonResponse
     {
         return response()->json([
             'message' => 'User bank accounts',
-            'data' => $user->bankAccounts
+            'data' => $user->bankAccounts()->with(['user'])->get()
         ]);
     }
 

@@ -58,7 +58,7 @@ return [
         'ready' => [
             'artisan:storage:link',
             'artisan:view:clear',
-            'artisan:config:cache',
+//            'artisan:config:cache',
             'artisan:migrate',
             'artisan:horizon:terminate',
         ],
